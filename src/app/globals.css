@@ -80,6 +80,12 @@ html {
   }
 }
 
+/* Gentle float animation for scroll indicator */
+@keyframes gentle-float {
+  0%, 100% { transform: translateX(-50%) translateY(0); opacity: 0.6; }
+  50% { transform: translateX(-50%) translateY(6px); opacity: 1; }
+}
+
 /* Soft focus styles */
 :focus-visible {
   outline: 2px solid var(--sage);

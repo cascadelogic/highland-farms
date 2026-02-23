@@ -87,10 +87,26 @@ export function HeroSection() {
       </div>
 
       {/* Scroll indicator */}
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce hidden sm:block">
-        <div className="h-10 w-5 rounded-full border border-white/30 flex items-start justify-center pt-2">
-          <div className="h-2 w-0.5 rounded-full bg-white/50" />
-        </div>
+      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 hidden sm:flex flex-col items-center gap-2 animate-[gentle-float_3s_ease-in-out_infinite]">
+        <span className="text-[10px] font-light tracking-[0.25em] uppercase text-white/40 font-sans">
+          Scroll
+        </span>
+        <svg
+          width="16"
+          height="24"
+          viewBox="0 0 16 24"
+          fill="none"
+          className="text-white/40"
+          aria-hidden="true"
+        >
+          <path
+            d="M8 0v20M1 15l7 7 7-7"
+            stroke="currentColor"
+            strokeWidth="1"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+        </svg>
       </div>
     </section>
   );
