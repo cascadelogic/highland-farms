@@ -80,7 +80,7 @@ export function SocialProofBar() {
           <div className="inline-flex items-center gap-1.5 rounded-full bg-cream/60 px-3 py-1.5">
             <MapPin className="h-2.5 w-2.5 text-sage" />
             <span className="text-[11px] font-light text-charcoal/80 font-sans">
-              Nr. Portland
+              Near Portland
             </span>
           </div>
         </div>
