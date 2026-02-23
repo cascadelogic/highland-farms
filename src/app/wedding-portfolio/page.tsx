@@ -16,38 +16,13 @@ export const metadata: Metadata = {
 export default function WeddingPortfolioPage() {
   return (
     <>
-      {/* Hero */}
-      <section className="relative flex min-h-[60vh] items-center justify-center overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-b from-charcoal/60 via-charcoal/40 to-charcoal/60" />
-        <div className="absolute inset-0 bg-[url('/images/weddings/hero.jpg')] bg-cover bg-center" />
-        <div className="absolute inset-0 bg-black/35" />
-
-        <div className="relative z-10 mx-auto max-w-3xl px-4 text-center text-white">
-          <p className="mb-4 text-sm font-light uppercase tracking-[0.3em] text-white/80 font-sans">
-            Real Weddings
-          </p>
-          <h1 className="text-4xl font-normal leading-tight sm:text-5xl md:text-6xl">
-            Wedding Portfolio
-          </h1>
-          <p className="mx-auto mt-5 max-w-xl text-lg text-white/85 leading-relaxed font-sans font-light">
-            Every love story is unique. Browse real celebrations at Highland Farms
-            and imagine your own.
-          </p>
-          <div className="mt-8">
-            <Button href="/weddings" size="lg" className="bg-white text-charcoal hover:bg-cream">
-              Plan Your Wedding
-            </Button>
-          </div>
-        </div>
-      </section>
-
       {/* Portfolio Grid */}
-      <section className="py-20 lg:py-28 bg-background">
+      <section className="pt-[calc(var(--header-h,80px)+3rem)] pb-20 lg:pb-28 bg-background">
         <Container>
           <SectionHeading
-            eyebrow="Our Couples"
-            title="Love Stories at Highland Farms"
-            subtitle="Forest ceremonies, Highland Cow photo ops, and celebrations under the trees."
+            eyebrow="Real Weddings"
+            title="Wedding Portfolio"
+            subtitle="Every love story is unique. Browse real celebrations at Highland Farms and imagine your own."
           />
 
           <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">

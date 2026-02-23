@@ -74,7 +74,7 @@ export const weddingPortfolio: WeddingCouple[] = [
   {
     slug: "olivia-connor",
     names: "Olivia & Connor",
-    coverImage: "/images/weddings/olivia-connor/01.jpg",
+    coverImage: "/images/weddings/olivia-connor/06.jpg",
     images: [
       { src: "/images/weddings/olivia-connor/01.jpg", alt: "Olivia & Connor — couple portrait" },
       { src: "/images/weddings/olivia-connor/02.jpg", alt: "Olivia & Connor — ceremony" },

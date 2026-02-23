@@ -7,7 +7,7 @@ export const SITE = {
 } as const;
 
 export const CONTACT = {
-  phone: "+1 (831) 214-2053",
+  phone: "(831) 214-2053",
   phoneAlt: "(971) 236-2551",
   email: "events@highlandfarms-oregon.com",
   emailAlt: "info@highlandfarms-oregon.com",
