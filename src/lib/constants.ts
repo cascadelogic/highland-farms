@@ -22,7 +22,7 @@ export const CONTACT = {
 } as const;
 
 export const BOOKING_LINKS = {
-  farmTour: "https://highlandfarmsoregon.com/farm-tour-spa", // Replace with Acuity link
-  nordicSpa: "https://highlandfarmsoregon.com/farm-tour-spa", // Replace with Acuity link
-  giftCertificates: "https://highlandfarmsoregon.com/shop/gift-certificates", // Replace with Acuity link
+  farmTour: "https://highlandfarms.as.me/schedule/e759f21b",
+  nordicSpa: "https://highlandfarms.as.me/schedule/e759f21b/appointment/85942611/calendar/13047082",
+  giftCertificates: "https://highlandfarms.as.me/schedule/e759f21b",
 } as const;

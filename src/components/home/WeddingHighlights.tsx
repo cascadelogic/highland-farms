@@ -6,16 +6,16 @@ import { StaggerChildren, StaggerItem } from "@/components/ui/StaggerChildren";
 
 const highlights = [
   {
-    title: "All-Inclusive",
-    description: "Venue, accommodations, coordinator, setup — everything handled so you can focus on each other.",
-    image: "/images/weddings/ceremony.jpg",
-    alt: "Wedding couple at reception table with string lights in the forest",
+    title: "All-Inclusive Packages",
+    description: "Venue, on-site lodging for 24, event coordination, setup and teardown — we handle everything.",
+    image: "/images/weddings/details.jpg",
+    alt: "Wedding details and floral arrangements at Highland Farms",
   },
   {
-    title: "Highland Cow Moments",
+    title: "Highland Cow Photo Ops",
     description: "Unforgettable photos with our gentle Highland Cows against the Pacific Northwest backdrop.",
-    image: "/images/weddings/reception.jpg",
-    alt: "Wedding reception setup at Highland Farms",
+    image: "/images/farm/highland-cows-hero.jpg",
+    alt: "Highland Cows in the forest at Highland Farms Oregon",
   },
   {
     title: "Forest Ceremonies",

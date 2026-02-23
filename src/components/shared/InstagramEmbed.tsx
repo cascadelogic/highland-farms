@@ -9,44 +9,46 @@ import { CONTACT } from "@/lib/constants";
 const PROFILE = {
   handle: CONTACT.instagramHandle,
   url: CONTACT.instagram,
-  followers: "10.2K",
-  following: "847",
-  posts: "312",
-  bio: "Highland Cows, forest weddings & farm life",
+  followers: "18.1K",
+  following: "544",
+  posts: "339",
+  location: "Mt Hood, OR",
+  bio: "Weddings, Retreats, Celebrations, Nordic Spa, Farm Tours and Farm Stays with Scottish Highland Cows",
+  linkText: "Experience Highland Farms",
   verified: false,
 };
 
 const instagramPosts = [
   {
-    url: "https://www.instagram.com/reel/DUjsovNjzjf/",
+    url: "https://www.instagram.com/reel/DG1WGsSSt9e/",
     image: "/images/farm/cow-2.jpg",
-    alt: "Highland Cow up close — viral LivePDX reel",
-    caption: "Our sweet Highland Cows are ready for their close-up. Thank you @livepdx for sharing our farm with the world!",
+    alt: "Highland Cows at Highland Farms Oregon",
+    caption: "There's nothing quite like a morning with our Highland Cows at the base of Mt. Hood.",
+    likes: "2,841",
+    comments: "134",
+    timeAgo: "4d",
+    isReel: true,
+  },
+  {
+    url: "https://www.instagram.com/reel/DUjsovNjzjf/",
+    image: "/images/farm/goats.jpg",
+    alt: "Highland Farms featured on LivePDX",
+    caption: "What a wild ride it's been! Thank you @livepdx for sharing our farm with Portland.",
     likes: "4,832",
     comments: "217",
-    timeAgo: "3w",
+    timeAgo: "2w",
     isReel: true,
     badge: "Featured on LivePDX",
   },
   {
-    url: "https://www.instagram.com/p/DCyQfgYy_ac/",
+    url: "https://www.instagram.com/reel/C8iizbbv47X/",
     image: "/images/weddings/hannah-max/01.jpg",
-    alt: "Wedding couple with Highland Cow in the forest",
-    caption: "When the cows crash the wedding photos and make it even more magical. Congratulations Hannah & Max!",
-    likes: "1,247",
-    comments: "89",
-    timeAgo: "2w",
-    isReel: false,
-  },
-  {
-    url: "https://www.instagram.com/p/DClXNVhyBqf/",
-    image: "/images/spa/spa-1.jpg",
-    alt: "Nordic spa cedar tubs nestled in the forest",
-    caption: "Nothing beats a soak in the forest after a long week. Our Nordic spa is open year-round.",
-    likes: "986",
-    comments: "54",
-    timeAgo: "1w",
-    isReel: false,
+    alt: "Forest wedding at Highland Farms",
+    caption: "Forest weddings hit different at Highland Farms. Surrounded by old-growth trees, Highland Cows, and the magic of Mt. Hood.",
+    likes: "1,563",
+    comments: "98",
+    timeAgo: "3w",
+    isReel: true,
   },
 ];
 
@@ -68,6 +70,7 @@ export function InstagramEmbed() {
         <SectionHeading
           eyebrow="Follow Along"
           title="See Highland Farms on Instagram"
+          subtitle="Join 18K+ followers for daily farm life, forest weddings, and Highland Cow moments."
         />
 
         {/* Instagram profile header */}
@@ -114,8 +117,14 @@ export function InstagramEmbed() {
                 </div>
               </div>
 
-              <p className="mt-1.5 text-sm text-muted font-sans font-light hidden sm:block">
+              <p className="mt-1 text-xs text-muted font-sans font-light hidden sm:block">
+                {PROFILE.location}
+              </p>
+              <p className="mt-0.5 text-sm text-charcoal/80 font-sans font-light hidden sm:block">
                 {PROFILE.bio}
+              </p>
+              <p className="mt-0.5 text-sm text-[#00376b] font-sans font-normal hidden sm:block">
+                {PROFILE.linkText}
               </p>
             </div>
 
