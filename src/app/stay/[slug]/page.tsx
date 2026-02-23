@@ -47,13 +47,13 @@ export default async function PropertyPage({
       { src: "/images/properties/camp.jpg", alt: "The Camp at Highland Farms" },
     ],
     lodge: [
-      { src: "/images/properties/lodge.jpg", alt: "The Lodge exterior" },
+      { src: "/images/properties/cottage.jpg", alt: "The Lodge exterior" },
       { src: "/images/properties/lodge-interior.jpg", alt: "The Lodge interior" },
       { src: "/images/properties/gallery-1.jpg", alt: "The Lodge living area" },
       { src: "/images/properties/gallery-3.jpg", alt: "The Lodge bedroom" },
     ],
     cottage: [
-      { src: "/images/properties/cottage.jpg", alt: "The Cottage exterior" },
+      { src: "/images/properties/lodge.jpg", alt: "The Cottage exterior" },
       { src: "/images/properties/cottage-interior.jpg", alt: "The Cottage interior" },
       { src: "/images/properties/gallery-2.jpg", alt: "The Cottage living space" },
       { src: "/images/properties/gallery-4.jpg", alt: "The Cottage bedroom" },
@@ -207,7 +207,11 @@ export default async function PropertyPage({
                       alt={p.name}
                       fill
                       sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                      className="object-cover transition-transform duration-300 group-hover:scale-105"
+                      className={`object-cover transition-transform duration-500 group-hover:scale-105 ${
+                        p.slug === "whole-farm" || p.slug === "camp"
+                          ? "object-[center_60%]"
+                          : ""
+                      }`}
                     />
                   </div>
                   <div className="p-5">

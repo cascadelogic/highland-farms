@@ -69,7 +69,11 @@ export default function StayPage() {
                         alt={property.name}
                         fill
                         sizes="(max-width: 1024px) 100vw, 50vw"
-                        className="object-cover transition-transform duration-300 group-hover:scale-105"
+                        className={`object-cover transition-transform duration-500 group-hover:scale-105 ${
+                          property.slug === "whole-farm" || property.slug === "camp"
+                            ? "object-[center_60%]"
+                            : ""
+                        }`}
                       />
                       <div className="absolute inset-0 bg-charcoal/0 group-hover:bg-charcoal/5 transition-colors" />
                     </div>

@@ -29,7 +29,11 @@ export function AccommodationsPreview() {
                     alt={property.name}
                     fill
                     sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
-                    className="object-cover transition-transform duration-700 group-hover:scale-105"
+                    className={`object-cover transition-transform duration-700 group-hover:scale-105 ${
+                      property.slug === "whole-farm" || property.slug === "camp"
+                        ? "object-[center_60%]"
+                        : ""
+                    }`}
                   />
                   <div className="absolute inset-0 bg-charcoal/0 group-hover:bg-charcoal/10 transition-colors" />
                 </div>

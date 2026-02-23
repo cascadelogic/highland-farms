@@ -28,7 +28,7 @@ export const properties: Property[] = [
     guests: 8,
     bedrooms: 4,
     baths: 2,
-    imageSrc: "/images/properties/lodge.jpg",
+    imageSrc: "/images/properties/cottage.jpg",
     bookingUrl: "/stay/lodge",
     highlights: [
       "Historic cedar mill",
@@ -46,7 +46,7 @@ export const properties: Property[] = [
     guests: 8,
     bedrooms: 3,
     baths: 1,
-    imageSrc: "/images/properties/cottage.jpg",
+    imageSrc: "/images/properties/lodge.jpg",
     bookingUrl: "/stay/cottage",
     highlights: [
       "Cozy & private",
