@@ -44,7 +44,7 @@ export default async function PropertyPage({
       { src: "/images/properties/whole-farm.jpg", alt: "The Whole Farm aerial view" },
       { src: "/images/properties/lodge.jpg", alt: "The Lodge at Highland Farms" },
       { src: "/images/properties/cottage.jpg", alt: "The Cottage at Highland Farms" },
-      { src: "/images/properties/camp.jpg", alt: "The Camp at Highland Farms" },
+      { src: "/images/properties/camp-1.jpg", alt: "The Camp at Highland Farms" },
     ],
     lodge: [
       { src: "/images/properties/cottage.jpg", alt: "The Lodge exterior" },
@@ -59,10 +59,13 @@ export default async function PropertyPage({
       { src: "/images/properties/gallery-4.jpg", alt: "The Cottage bedroom" },
     ],
     camp: [
-      { src: "/images/properties/camp.jpg", alt: "The Camp glamping setup" },
-      { src: "/images/properties/gallery-5.jpg", alt: "The Camp surroundings" },
-      { src: "/images/properties/gallery-6.jpg", alt: "The Camp Airstream" },
-      { src: "/images/properties/gallery-7.jpg", alt: "The Camp forest setting" },
+      { src: "/images/properties/camp-1.jpg", alt: "The Camp at Highland Farms in the forest" },
+      { src: "/images/properties/camp-2.jpg", alt: "The Camp Airstream and glamping tents" },
+      { src: "/images/properties/camp-3.jpg", alt: "Inside the Airstream at The Camp" },
+      { src: "/images/properties/camp-4.jpg", alt: "The Camp fire pit and seating area" },
+      { src: "/images/properties/camp-5.jpg", alt: "The Camp forest surroundings" },
+      { src: "/images/properties/camp-6.jpg", alt: "Glamping tent interior at The Camp" },
+      { src: "/images/properties/camp-7.jpg", alt: "The Camp experience at Highland Farms" },
     ],
   };
 

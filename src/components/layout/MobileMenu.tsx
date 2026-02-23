@@ -93,13 +93,25 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
                   <ul className="pl-4">
                     {item.children.map((child) => (
                       <li key={child.href}>
-                        <Link
-                          href={child.href}
-                          onClick={onClose}
-                          className="block py-2.5 text-sm text-muted font-light hover:text-forest transition-colors font-sans"
-                        >
-                          {child.label}
-                        </Link>
+                        {child.external ? (
+                          <a
+                            href={child.href}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            onClick={onClose}
+                            className="block py-2.5 text-sm text-muted font-light hover:text-forest transition-colors font-sans"
+                          >
+                            {child.label}
+                          </a>
+                        ) : (
+                          <Link
+                            href={child.href}
+                            onClick={onClose}
+                            className="block py-2.5 text-sm text-muted font-light hover:text-forest transition-colors font-sans"
+                          >
+                            {child.label}
+                          </Link>
+                        )}
                       </li>
                     ))}
                   </ul>

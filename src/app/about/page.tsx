@@ -23,10 +23,11 @@ const amenities = [
 ];
 
 const galleryImages = [
-  { src: "/images/farm/landscape-1.jpg", alt: "Highland Farms aerial view of the property" },
-  { src: "/images/farm/landscape-2.jpg", alt: "Forest path winding through the property" },
-  { src: "/images/farm/landscape-3.jpg", alt: "Spring-fed pond at Highland Farms" },
-  { src: "/images/farm/landscape-4.jpg", alt: "Mt. Hood visible from the farm" },
+  { src: "/images/farm/farm-grounds.jpg", alt: "Highland Farms property grounds and forest" },
+  { src: "/images/farm/ranch-view.jpg", alt: "View of the ranch at Highland Farms" },
+  { src: "/images/farm/mountain-view.jpg", alt: "Mt. Hood visible from Highland Farms" },
+  { src: "/images/farm/farm-garden.jpg", alt: "Garden and grounds at Highland Farms" },
+  { src: "/images/farm/agritourism.jpg", alt: "Highland Farms agritourism experience" },
   { src: "/images/farm/cows.jpg", alt: "Highland Cow mama and calf near the barn" },
 ];
 
@@ -34,7 +35,7 @@ export default function AboutPage() {
   return (
     <>
       {/* Hero */}
-      <section className="relative flex min-h-[60vh] items-center justify-center overflow-hidden pt-[var(--header-h,80px)]">
+      <section className="relative flex min-h-[60vh] items-center justify-center overflow-hidden pt-[var(--header-h,120px)]">
         <div className="absolute inset-0 bg-gradient-to-b from-charcoal/60 via-charcoal/40 to-charcoal/60" />
         <div className="absolute inset-0 bg-[url('/images/farm/about-hero.jpg')] bg-cover bg-center" />
         <div className="absolute inset-0 bg-black/35" />
@@ -187,9 +188,12 @@ export default function AboutPage() {
                 tour, or a weekend stay — the animals are always there to brighten
                 your day.
               </p>
-              <div className="mt-6">
+              <div className="mt-6 flex flex-wrap gap-3">
                 <Button href="/farm-tours" variant="outline" size="sm">
                   Book a Farm Tour
+                </Button>
+                <Button href="/nordic-spa" variant="outline" size="sm">
+                  Book a Spa Session
                 </Button>
               </div>
             </div>

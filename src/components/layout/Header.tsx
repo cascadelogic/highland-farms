@@ -97,15 +97,27 @@ export function Header() {
                     {item.children && (
                       <div className="absolute left-0 top-full pt-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
                         <div className="bg-white/95 backdrop-blur-md rounded-lg shadow-lg border border-black/5 py-2 min-w-[180px]">
-                          {item.children.map((child) => (
-                            <Link
-                              key={child.href}
-                              href={child.href}
-                              className="block px-4 py-2 text-xs tracking-wide text-charcoal/70 hover:text-forest hover:bg-sage/5 transition-colors font-sans"
-                            >
-                              {child.label}
-                            </Link>
-                          ))}
+                          {item.children.map((child) =>
+                            child.external ? (
+                              <a
+                                key={child.href}
+                                href={child.href}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="block px-4 py-2 text-xs tracking-wide text-charcoal/70 hover:text-forest hover:bg-sage/5 transition-colors font-sans"
+                              >
+                                {child.label}
+                              </a>
+                            ) : (
+                              <Link
+                                key={child.href}
+                                href={child.href}
+                                className="block px-4 py-2 text-xs tracking-wide text-charcoal/70 hover:text-forest hover:bg-sage/5 transition-colors font-sans"
+                              >
+                                {child.label}
+                              </Link>
+                            )
+                          )}
                         </div>
                       </div>
                     )}

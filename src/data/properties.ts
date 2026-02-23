@@ -64,7 +64,7 @@ export const properties: Property[] = [
     guests: 4,
     bedrooms: 1,
     baths: 1,
-    imageSrc: "/images/properties/camp.jpg",
+    imageSrc: "/images/properties/camp-1.jpg",
     bookingUrl: "/stay/camp",
     highlights: [
       "Airstream trailer",

@@ -17,7 +17,7 @@ export default function WeddingPortfolioPage() {
   return (
     <>
       {/* Portfolio Grid */}
-      <section className="pt-[calc(var(--header-h,80px)+3rem)] pb-20 lg:pb-28 bg-background">
+      <section className="pt-[calc(var(--header-h,120px)+3rem)] pb-20 lg:pb-28 bg-background">
         <Container>
           <SectionHeading
             eyebrow="Real Weddings"

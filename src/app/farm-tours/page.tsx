@@ -86,7 +86,7 @@ export default function FarmToursPage() {
     <>
       <FarmTourSchema />
       {/* Hero */}
-      <section className="relative flex min-h-[70vh] items-center justify-center overflow-hidden pt-[var(--header-h,80px)]">
+      <section className="relative flex min-h-[70vh] items-center justify-center overflow-hidden pt-[var(--header-h,120px)]">
         <div className="absolute inset-0 bg-gradient-to-b from-charcoal/60 via-charcoal/40 to-charcoal/60" />
         <div className="absolute inset-0 bg-[url('/images/farm/hero.jpg')] bg-cover bg-center" />
         <div className="absolute inset-0 bg-black/35" />
