@@ -17,11 +17,9 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
   const menuRef = useRef<HTMLDivElement>(null);
   const closeButtonRef = useRef<HTMLButtonElement>(null);
 
-  // Lock body scroll and focus close button on open
   useEffect(() => {
     if (isOpen) {
       document.body.style.overflow = "hidden";
-      // Focus the close button when menu opens
       setTimeout(() => closeButtonRef.current?.focus(), 50);
     } else {
       document.body.style.overflow = "";
@@ -31,7 +29,6 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
     };
   }, [isOpen]);
 
-  // Close on Escape key
   const handleKeyDown = useCallback(
     (e: KeyboardEvent) => {
       if (e.key === "Escape") onClose();
@@ -63,11 +60,11 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
             <Image
               src="/images/logo/HF-Lettermark.png"
               alt="Highland Farms"
-              width={40}
-              height={24}
-              className="h-6 w-auto"
+              width={36}
+              height={21}
+              className="h-5 w-auto"
             />
-            <span className="font-display text-xl font-semibold tracking-wide">
+            <span className="text-xs font-light tracking-[0.15em] uppercase font-sans">
               Highland Farms
             </span>
           </Link>
@@ -77,29 +74,29 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
             className="p-2 hover:opacity-70 transition-opacity"
             aria-label="Close menu"
           >
-            <X className="h-6 w-6" aria-hidden="true" />
+            <X className="h-5 w-5" aria-hidden="true" />
           </button>
         </div>
 
-        {/* CTAs at top for conversion */}
+        {/* CTAs at top */}
         <div className="px-6 pb-4 space-y-3">
           <Button href="/weddings" size="lg" className="w-full" onClick={onClose}>
-            Plan Your Wedding
+            Begin Your Story
           </Button>
           <Button href="/contact" variant="outline" size="lg" className="w-full" onClick={onClose}>
-            Contact Us
+            Inquire
           </Button>
         </div>
 
         {/* Nav links */}
         <nav className="flex-1 overflow-y-auto px-6 py-4" aria-label="Mobile navigation">
-          <ul className="space-y-1">
+          <ul className="space-y-0.5">
             {mainNavItems.map((item) => (
               <li key={item.href}>
                 <Link
                   href={item.href}
                   onClick={onClose}
-                  className="block py-3 text-lg font-medium text-charcoal hover:text-forest transition-colors border-b border-cream-light"
+                  className="block py-3 text-base font-light text-charcoal/80 hover:text-forest transition-colors border-b border-cream-light/50 font-sans"
                 >
                   {item.label}
                 </Link>
@@ -110,7 +107,7 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
                         <Link
                           href={child.href}
                           onClick={onClose}
-                          className="block py-2.5 text-base text-muted hover:text-forest transition-colors"
+                          className="block py-2.5 text-sm text-muted font-light hover:text-forest transition-colors font-sans"
                         >
                           {child.label}
                         </Link>
@@ -124,11 +121,11 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
         </nav>
 
         {/* Contact info */}
-        <div className="border-t border-cream-light px-6 py-5 text-sm text-muted">
+        <div className="border-t border-cream-light/50 px-6 py-5 text-xs text-muted font-light font-sans tracking-wide">
           <a href={`tel:${CONTACT.phone.replace(/\s/g, "")}`} className="block hover:text-forest transition-colors">
             {CONTACT.phone}
           </a>
-          <a href={`mailto:${CONTACT.email}`} className="block hover:text-forest transition-colors">
+          <a href={`mailto:${CONTACT.email}`} className="block mt-1 hover:text-forest transition-colors">
             {CONTACT.email}
           </a>
         </div>

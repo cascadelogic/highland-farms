@@ -19,14 +19,14 @@ export function ImageGallery({ images, columns = 3, className }: ImageGalleryPro
       {images.map((image, i) => (
         <div
           key={i}
-          className="relative aspect-[4/3] overflow-hidden rounded-sm"
+          className="relative aspect-[4/3] overflow-hidden rounded-xl"
         >
           <Image
             src={image.src}
             alt={image.alt}
             fill
             sizes={`(max-width: 640px) 100vw, (max-width: 1024px) 50vw, ${Math.round(100 / columns)}vw`}
-            className="object-cover hover:scale-105 transition-transform duration-300"
+            className="object-cover hover:scale-105 transition-transform duration-700"
           />
         </div>
       ))}

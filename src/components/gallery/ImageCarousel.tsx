@@ -26,7 +26,7 @@ export function ImageCarousel({ images, className, aspectRatio = "video" }: Imag
 
   return (
     <div className={cn("relative group", className)}>
-      <div className="overflow-hidden rounded-sm" ref={emblaRef}>
+      <div className="overflow-hidden rounded-xl" ref={emblaRef}>
         <div className="flex">
           {images.map((image, i) => (
             <div key={i} className="min-w-0 flex-[0_0_100%]">

@@ -62,13 +62,13 @@ export default function FarmToursPage() {
         <div className="absolute inset-0 bg-black/35" />
 
         <div className="relative z-10 mx-auto max-w-3xl px-4 text-center text-white">
-          <p className="mb-4 text-sm font-medium uppercase tracking-[0.3em] text-white/80 font-sans">
+          <p className="mb-4 text-sm font-light uppercase tracking-[0.3em] text-white/60 font-sans">
             Highland Farms Oregon
           </p>
-          <h1 className="text-4xl font-medium leading-tight sm:text-5xl md:text-6xl">
+          <h1 className="text-4xl font-normal leading-tight sm:text-5xl md:text-6xl">
             Meet Our Highland Cows
           </h1>
-          <p className="mx-auto mt-5 max-w-xl text-lg text-white/85 leading-relaxed font-sans">
+          <p className="mx-auto mt-5 max-w-xl text-lg text-white/75 leading-relaxed font-sans font-light">
             Book a private farm tour and get up close with our gentle Highland
             Cows, Icelandic Sheep, White Peacocks, and more.
           </p>
@@ -100,10 +100,10 @@ export default function FarmToursPage() {
                 <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-full bg-cream">
                   <feature.icon className="h-6 w-6 text-forest" />
                 </div>
-                <h3 className="mt-5 text-lg font-semibold text-charcoal font-sans">
+                <h3 className="mt-5 text-lg font-normal text-charcoal font-display">
                   {feature.title}
                 </h3>
-                <p className="mt-2 text-sm text-muted leading-relaxed font-sans">
+                <p className="mt-2 text-sm text-muted leading-relaxed font-sans font-light">
                   {feature.description}
                 </p>
               </div>
@@ -131,13 +131,13 @@ export default function FarmToursPage() {
             title="Tour Details & Pricing"
           />
 
-          <div className="rounded-sm bg-white p-8 shadow-sm">
+          <div className="rounded-xl bg-white p-8 shadow-sm">
             <div className="space-y-4">
               <div className="flex items-center justify-between border-b border-cream-light pb-4">
-                <span className="text-base font-medium text-charcoal font-sans">
+                <span className="text-base font-normal text-charcoal font-sans">
                   Private Highland Cow Farm Tour
                 </span>
-                <span className="text-lg font-semibold text-forest font-sans">
+                <span className="text-lg font-normal text-forest font-sans">
                   Contact for Pricing
                 </span>
               </div>
@@ -177,10 +177,10 @@ export default function FarmToursPage() {
           <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-full bg-cream mb-6">
             <Gift className="h-6 w-6 text-forest" />
           </div>
-          <h2 className="text-3xl font-medium sm:text-4xl">
+          <h2 className="text-3xl font-normal sm:text-4xl">
             Give the Gift of Highland Farms
           </h2>
-          <p className="mx-auto mt-4 max-w-lg text-base text-muted font-sans leading-relaxed">
+          <p className="mx-auto mt-4 max-w-lg text-base text-muted font-sans font-light leading-relaxed">
             Farm tours and spa sessions make unforgettable gifts. Purchase a
             gift certificate for someone special.
           </p>
@@ -212,7 +212,7 @@ export default function FarmToursPage() {
             ))}
           </div>
           <blockquote>
-            <p className="text-xl font-medium leading-relaxed text-charcoal sm:text-2xl">
+            <p className="text-xl font-normal leading-relaxed text-charcoal sm:text-2xl font-display">
               &ldquo;Huge shoutout to Dante, our tour guide — he was incredible!
               We were able to pet, brush and feed some of the beautiful and sweet
               highland cows.&rdquo;
@@ -225,7 +225,7 @@ export default function FarmToursPage() {
             href="https://share.google/jrLOI4AhnpzbPPBpF"
             target="_blank"
             rel="noopener noreferrer"
-            className="mt-4 inline-flex items-center gap-1 text-sm font-medium text-forest hover:text-forest-light transition-colors font-sans"
+            className="mt-4 inline-flex items-center gap-1 text-sm font-light text-forest hover:text-forest-light transition-colors font-sans tracking-wide"
           >
             Read all reviews on Google &rarr;
           </a>

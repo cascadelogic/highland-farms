@@ -54,7 +54,7 @@ export default async function WeddingDetailPage({
             All Weddings
           </Link>
 
-          <h1 className="mt-6 text-4xl font-medium sm:text-5xl">
+          <h1 className="mt-6 text-4xl font-normal sm:text-5xl">
             {couple.names}
           </h1>
           <p className="mt-2 text-base text-muted font-sans">
@@ -76,19 +76,19 @@ export default async function WeddingDetailPage({
           <div className="flex items-center justify-between">
             <Link
               href={`/wedding-portfolio/${prevCouple.slug}`}
-              className="text-sm font-medium text-charcoal hover:text-forest transition-colors font-sans"
+              className="text-sm font-light text-charcoal hover:text-forest transition-colors font-sans"
             >
               &larr; {prevCouple.names}
             </Link>
             <Link
               href="/wedding-portfolio"
-              className="text-sm font-medium text-muted hover:text-forest transition-colors font-sans"
+              className="text-sm font-light text-muted hover:text-forest transition-colors font-sans"
             >
               All Weddings
             </Link>
             <Link
               href={`/wedding-portfolio/${nextCouple.slug}`}
-              className="text-sm font-medium text-charcoal hover:text-forest transition-colors font-sans"
+              className="text-sm font-light text-charcoal hover:text-forest transition-colors font-sans"
             >
               {nextCouple.names} &rarr;
             </Link>
@@ -99,7 +99,7 @@ export default async function WeddingDetailPage({
       {/* CTA */}
       <section className="py-20 lg:py-28 bg-background">
         <Container className="max-w-3xl text-center">
-          <h2 className="text-3xl font-medium sm:text-4xl">
+          <h2 className="text-3xl font-normal sm:text-4xl">
             Inspired? Let&apos;s Plan Yours.
           </h2>
           <p className="mx-auto mt-4 max-w-lg text-base text-muted font-sans leading-relaxed">

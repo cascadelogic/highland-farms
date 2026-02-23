@@ -54,12 +54,12 @@ export function InstagramEmbed({
         />
 
         {/* Instagram profile card */}
-        <div className="mx-auto mb-10 flex flex-col sm:flex-row items-center justify-center gap-4 rounded-sm bg-white p-5 shadow-sm max-w-lg">
+        <div className="mx-auto mb-10 flex flex-col sm:flex-row items-center justify-center gap-4 rounded-xl bg-white p-5 shadow-sm max-w-lg">
           <div className="flex h-14 w-14 items-center justify-center rounded-full bg-gradient-to-br from-purple-500 via-pink-500 to-orange-400 shrink-0">
             <Instagram className="h-7 w-7 text-white" />
           </div>
           <div className="text-center sm:text-left">
-            <p className="text-base font-semibold text-charcoal font-sans">
+            <p className="text-base font-normal text-charcoal font-sans">
               {CONTACT.instagramHandle}
             </p>
             <p className="text-sm text-muted font-sans">
@@ -70,7 +70,7 @@ export function InstagramEmbed({
             href={CONTACT.instagram}
             target="_blank"
             rel="noopener noreferrer"
-            className="shrink-0 inline-flex items-center gap-2 rounded-lg bg-[#0095f6] px-5 py-2 text-sm font-semibold text-white hover:bg-[#1877f2] transition-colors"
+            className="shrink-0 inline-flex items-center gap-2 rounded-lg bg-[#0095f6] px-5 py-2 text-sm font-normal text-white hover:bg-[#1877f2] transition-colors"
           >
             Follow
           </a>
@@ -80,7 +80,7 @@ export function InstagramEmbed({
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
           {showFeaturedReel && (
             <div className="md:col-span-1">
-              <p className="mb-2 text-center text-xs font-semibold uppercase tracking-widest text-forest font-sans">
+              <p className="mb-2 text-center text-xs font-normal uppercase tracking-widest text-forest font-sans">
                 As Seen On LivePDX
               </p>
               <blockquote
@@ -134,7 +134,7 @@ export function InstagramEmbed({
             href={CONTACT.instagram}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 rounded-sm border border-charcoal/20 bg-white px-6 py-3 text-sm font-medium text-charcoal hover:border-charcoal/40 hover:shadow-sm transition-all font-sans"
+            className="inline-flex items-center gap-2 rounded-full border border-charcoal/20 bg-white px-6 py-3 text-sm font-light text-charcoal hover:border-charcoal/40 hover:shadow-sm transition-all font-sans tracking-wide"
           >
             <Instagram className="h-4 w-4" />
             View More on Instagram

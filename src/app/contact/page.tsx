@@ -21,10 +21,10 @@ export default function ContactPage() {
         <div className="absolute inset-0 bg-black/35" />
 
         <div className="relative z-10 mx-auto max-w-3xl px-4 text-center text-white">
-          <h1 className="text-4xl font-medium leading-tight sm:text-5xl">
+          <h1 className="text-4xl font-normal leading-tight sm:text-5xl">
             Get in Touch
           </h1>
-          <p className="mx-auto mt-4 max-w-xl text-lg text-white/85 leading-relaxed font-sans">
+          <p className="mx-auto mt-4 max-w-xl text-lg text-white/75 leading-relaxed font-sans font-light">
             We&apos;d love to hear from you. Reach out to start planning your
             Highland Farms experience.
           </p>
@@ -37,7 +37,7 @@ export default function ContactPage() {
           <div className="grid grid-cols-1 gap-12 lg:grid-cols-2">
             {/* Left: Contact Info */}
             <div>
-              <h2 className="text-2xl font-medium sm:text-3xl">
+              <h2 className="text-2xl font-normal sm:text-3xl">
                 Contact Information
               </h2>
               <p className="mt-4 text-base text-muted leading-relaxed font-sans">
@@ -51,7 +51,7 @@ export default function ContactPage() {
                     <Phone className="h-5 w-5 text-forest" />
                   </div>
                   <div>
-                    <h3 className="text-sm font-semibold text-charcoal font-sans">Phone</h3>
+                    <h3 className="text-sm font-normal text-charcoal font-sans">Phone</h3>
                     <a href={`tel:${CONTACT.phone.replace(/\s/g, "")}`} className="block text-base text-muted hover:text-forest transition-colors font-sans">
                       {CONTACT.phone}
                     </a>
@@ -66,7 +66,7 @@ export default function ContactPage() {
                     <Mail className="h-5 w-5 text-forest" />
                   </div>
                   <div>
-                    <h3 className="text-sm font-semibold text-charcoal font-sans">Email</h3>
+                    <h3 className="text-sm font-normal text-charcoal font-sans">Email</h3>
                     <a href={`mailto:${CONTACT.email}`} className="block text-base text-muted hover:text-forest transition-colors font-sans">
                       {CONTACT.email}
                     </a>
@@ -81,7 +81,7 @@ export default function ContactPage() {
                     <MapPin className="h-5 w-5 text-forest" />
                   </div>
                   <div>
-                    <h3 className="text-sm font-semibold text-charcoal font-sans">Address</h3>
+                    <h3 className="text-sm font-normal text-charcoal font-sans">Address</h3>
                     <p className="text-base text-muted font-sans">{CONTACT.fullAddress}</p>
                     <p className="text-sm text-muted/80 font-sans mt-1">
                       50 min from Portland &middot; 20 min from Mt. Hood
@@ -94,7 +94,7 @@ export default function ContactPage() {
                     <Instagram className="h-5 w-5 text-forest" />
                   </div>
                   <div>
-                    <h3 className="text-sm font-semibold text-charcoal font-sans">Instagram</h3>
+                    <h3 className="text-sm font-normal text-charcoal font-sans">Instagram</h3>
                     <a
                       href={CONTACT.instagram}
                       target="_blank"
@@ -111,7 +111,7 @@ export default function ContactPage() {
                     <Clock className="h-5 w-5 text-forest" />
                   </div>
                   <div>
-                    <h3 className="text-sm font-semibold text-charcoal font-sans">Response Time</h3>
+                    <h3 className="text-sm font-normal text-charcoal font-sans">Response Time</h3>
                     <p className="text-base text-muted font-sans">We typically respond within 24 hours</p>
                   </div>
                 </div>
@@ -119,7 +119,7 @@ export default function ContactPage() {
             </div>
 
             {/* Right: Real Inquiry Form */}
-            <div className="rounded-sm border border-cream-dark bg-white p-8 shadow-sm">
+            <div className="rounded-xl border border-cream-dark bg-white p-8 shadow-sm">
               <ContactForm
                 heading="Send Us a Message"
                 subtitle="Tell us about your event or question and we'll get back to you shortly."

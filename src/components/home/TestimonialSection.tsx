@@ -23,17 +23,17 @@ export function TestimonialSection() {
             <div key={t.attribution} className="text-center md:text-left">
               <div className="flex justify-center md:justify-start mb-4">
                 {[...Array(5)].map((_, i) => (
-                  <Star key={i} className="h-4 w-4 fill-accent text-accent" />
+                  <Star key={i} className="h-4 w-4 fill-gold/70 text-gold/70" />
                 ))}
               </div>
 
               <blockquote>
-                <p className="text-base font-medium leading-relaxed text-charcoal sm:text-lg">
+                <p className="text-base font-normal leading-relaxed text-charcoal sm:text-lg font-display">
                   &ldquo;{t.quote}&rdquo;
                 </p>
               </blockquote>
 
-              <p className="mt-4 text-sm text-muted font-sans">
+              <p className="mt-4 text-sm text-muted font-sans font-light">
                 — {t.attribution}
               </p>
             </div>
@@ -46,7 +46,7 @@ export function TestimonialSection() {
             href="https://share.google/jrLOI4AhnpzbPPBpF"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 text-sm font-medium text-forest hover:text-forest-light transition-colors font-sans"
+            className="inline-flex items-center gap-2 text-sm font-light text-forest hover:text-forest-light transition-colors font-sans tracking-wide"
           >
             Read all 146+ reviews on Google &rarr;
           </a>

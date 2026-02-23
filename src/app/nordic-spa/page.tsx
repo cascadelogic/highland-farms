@@ -35,15 +35,15 @@ export default function NordicSpaPage() {
         <div className="absolute inset-0 bg-black/35" />
 
         <div className="relative z-10 mx-auto max-w-3xl px-4 text-center text-white">
-          <p className="mb-4 text-sm font-medium uppercase tracking-[0.3em] text-white/80 font-sans">
+          <p className="mb-4 text-sm font-light uppercase tracking-[0.3em] text-white/60 font-sans">
             Highland Farms Oregon
           </p>
-          <h1 className="text-4xl font-medium leading-tight sm:text-5xl md:text-6xl">
+          <h1 className="text-4xl font-normal leading-tight sm:text-5xl md:text-6xl">
             Soak in the Forest
           </h1>
-          <p className="mx-auto mt-5 max-w-xl text-lg text-white/85 leading-relaxed font-sans">
+          <p className="mx-auto mt-5 max-w-xl text-lg text-white/75 leading-relaxed font-sans font-light">
             Cedar soaking tubs nestled among towering Pacific Northwest
-            evergreens. Unwind in nature's embrace.
+            evergreens. Unwind in nature&apos;s embrace.
           </p>
           <div className="mt-8">
             <Button
@@ -92,10 +92,10 @@ export default function NordicSpaPage() {
                 <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-full bg-cream">
                   <feature.icon className="h-6 w-6 text-forest" />
                 </div>
-                <h3 className="mt-5 text-lg font-semibold text-charcoal font-sans">
+                <h3 className="mt-5 text-lg font-normal text-charcoal font-display">
                   {feature.title}
                 </h3>
-                <p className="mt-2 text-sm text-muted leading-relaxed font-sans">
+                <p className="mt-2 text-sm text-muted leading-relaxed font-sans font-light">
                   {feature.description}
                 </p>
               </div>
@@ -120,13 +120,13 @@ export default function NordicSpaPage() {
             title="Session Details & Pricing"
           />
 
-          <div className="rounded-sm bg-white p-8 shadow-sm">
+          <div className="rounded-xl bg-white p-8 shadow-sm">
             <div className="space-y-4">
               <div className="flex items-center justify-between border-b border-cream-light pb-4">
-                <span className="text-base font-medium text-charcoal font-sans">
+                <span className="text-base font-normal text-charcoal font-sans">
                   Private Nordic Spa Session
                 </span>
-                <span className="text-lg font-semibold text-forest font-sans">
+                <span className="text-lg font-normal text-forest font-sans">
                   Contact for Pricing
                 </span>
               </div>
@@ -166,10 +166,10 @@ export default function NordicSpaPage() {
           <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-full bg-cream mb-6">
             <Sparkles className="h-6 w-6 text-forest" />
           </div>
-          <h2 className="text-3xl font-medium sm:text-4xl">
+          <h2 className="text-3xl font-normal sm:text-4xl">
             Combine With a Farm Tour
           </h2>
-          <p className="mx-auto mt-4 max-w-lg text-base text-muted font-sans leading-relaxed">
+          <p className="mx-auto mt-4 max-w-lg text-base text-muted font-sans font-light leading-relaxed">
             Make it a full Highland Farms experience — meet the Highland Cows,
             then unwind in the cedar tubs. Book both and save.
           </p>
@@ -202,7 +202,7 @@ export default function NordicSpaPage() {
             ))}
           </div>
           <blockquote>
-            <p className="text-xl font-medium leading-relaxed text-charcoal sm:text-2xl">
+            <p className="text-xl font-normal leading-relaxed text-charcoal sm:text-2xl font-display">
               &ldquo;We loved walking the property, taking in the peaceful forest
               setting, and soaking in the hot tub under the stars. This was easily
               one of the highlights of our Oregon trip.&rdquo;
@@ -215,7 +215,7 @@ export default function NordicSpaPage() {
             href="https://share.google/jrLOI4AhnpzbPPBpF"
             target="_blank"
             rel="noopener noreferrer"
-            className="mt-4 inline-flex items-center gap-1 text-sm font-medium text-forest hover:text-forest-light transition-colors font-sans"
+            className="mt-4 inline-flex items-center gap-1 text-sm font-light text-forest hover:text-forest-light transition-colors font-sans tracking-wide"
           >
             Read all reviews on Google &rarr;
           </a>

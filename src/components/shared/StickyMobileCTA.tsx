@@ -13,7 +13,7 @@ interface StickyMobileCTAProps {
 
 export function StickyMobileCTA({ label, href, sublabel, className, external }: StickyMobileCTAProps) {
   const linkClasses =
-    "flex items-center justify-center gap-2 w-full rounded-sm bg-forest py-3.5 text-base font-medium tracking-wide text-white transition-colors hover:bg-forest-light active:bg-forest-light";
+    "flex items-center justify-center gap-2 w-full rounded-full bg-forest py-3.5 text-sm font-light uppercase tracking-wider text-white transition-colors hover:bg-forest-light active:bg-forest-light";
 
   return (
     <div className={cn("fixed bottom-0 left-0 right-0 z-30 lg:hidden", className)}>

@@ -24,13 +24,13 @@ export default function StayPage() {
         <div className="absolute inset-0 bg-black/35" />
 
         <div className="relative z-10 mx-auto max-w-3xl px-4 text-center text-white">
-          <p className="mb-4 text-sm font-medium uppercase tracking-[0.3em] text-white/80 font-sans">
+          <p className="mb-4 text-sm font-light uppercase tracking-[0.3em] text-white/60 font-sans">
             50 min from Portland &middot; 20 min from Mt. Hood
           </p>
-          <h1 className="text-4xl font-medium leading-tight sm:text-5xl md:text-6xl">
+          <h1 className="text-4xl font-normal leading-tight sm:text-5xl md:text-6xl">
             Stay at Highland Farms
           </h1>
-          <p className="mx-auto mt-5 max-w-xl text-lg text-white/85 leading-relaxed font-sans">
+          <p className="mx-auto mt-5 max-w-xl text-lg text-white/75 leading-relaxed font-sans font-light">
             Rest in the heart of the forest. Four unique accommodations nestled
             among towering evergreens at the base of Mt. Hood.
           </p>
@@ -38,9 +38,9 @@ export default function StayPage() {
       </section>
 
       {/* Book Direct Banner */}
-      <section className="bg-forest py-4 text-center">
-        <p className="text-sm font-medium text-white tracking-wide font-sans">
-          Book Direct for the Best Rate — No Hidden Fees
+      <section className="bg-charcoal/90 py-4 text-center backdrop-blur-sm">
+        <p className="text-xs font-light text-white/80 tracking-[0.15em] uppercase font-sans">
+          Book Direct for the Best Rate &mdash; No Hidden Fees
         </p>
       </section>
 
@@ -63,7 +63,7 @@ export default function StayPage() {
                 {/* Image */}
                 <div className="flex-1">
                   <Link href={property.bookingUrl} className="block group">
-                    <div className="relative aspect-[4/3] overflow-hidden rounded-sm">
+                    <div className="relative aspect-[4/3] overflow-hidden rounded-xl">
                       <Image
                         src={property.imageSrc}
                         alt={property.name}
@@ -78,7 +78,7 @@ export default function StayPage() {
 
                 {/* Details */}
                 <div className="flex-1">
-                  <h3 className="text-3xl font-medium text-charcoal">
+                  <h3 className="text-3xl font-normal text-charcoal">
                     {property.name}
                   </h3>
                   <p className="mt-1 text-base italic text-muted font-sans">

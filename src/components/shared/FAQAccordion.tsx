@@ -30,7 +30,7 @@ export function FAQAccordion({ items }: FAQAccordionProps) {
                 aria-expanded={isOpen}
                 aria-controls={panelId}
               >
-                <span className="text-base font-medium text-charcoal pr-4 font-sans">
+                <span className="text-base font-normal text-charcoal pr-4 font-sans">
                   {item.question}
                 </span>
                 <ChevronDown
@@ -52,7 +52,7 @@ export function FAQAccordion({ items }: FAQAccordionProps) {
                 isOpen ? "max-h-96 pb-5" : "max-h-0"
               )}
             >
-              <p className="text-sm text-muted leading-relaxed font-sans">
+              <p className="text-sm text-muted leading-relaxed font-sans font-light">
                 {item.answer}
               </p>
             </div>

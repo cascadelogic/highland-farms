@@ -6,26 +6,26 @@ import { StaggerChildren, StaggerItem } from "@/components/ui/StaggerChildren";
 
 const highlights = [
   {
-    title: "All-Inclusive Packages",
-    description: "Venue, accommodations, coordinator, setup — everything handled so you can focus on your day.",
+    title: "All-Inclusive",
+    description: "Venue, accommodations, coordinator, setup — everything handled so you can focus on each other.",
     image: "/images/weddings/ceremony.jpg",
     alt: "Wedding couple at reception table with string lights in the forest",
   },
   {
-    title: "Highland Cow Photo Ops",
-    description: "Unforgettable wedding photos with our gentle Highland Cows against the Mt. Hood backdrop.",
+    title: "Highland Cow Moments",
+    description: "Unforgettable photos with our gentle Highland Cows against the Pacific Northwest backdrop.",
     image: "/images/weddings/reception.jpg",
     alt: "Wedding reception setup at Highland Farms",
   },
   {
-    title: "Forest Ceremony Sites",
+    title: "Forest Ceremonies",
     description: "Exchange vows under towering old-growth trees draped in moss, beside a spring-fed pond.",
     image: "/images/weddings/couple.jpg",
     alt: "Ceremony setup with wooden arch and chairs in the forest",
   },
   {
-    title: "Lodging for 24 Guests",
-    description: "Your closest family and friends stay on-site in our Lodge, Cottage, and Camp accommodations.",
+    title: "Stay On-Site",
+    description: "Your closest family and friends stay together in our Lodge, Cottage, and Camp.",
     image: "/images/properties/lodge.jpg",
     alt: "The Lodge at Highland Farms",
   },
@@ -33,20 +33,20 @@ const highlights = [
 
 export function WeddingHighlights() {
   return (
-    <section className="py-20 lg:py-28 bg-warm-white">
+    <section className="py-24 lg:py-32 bg-warm-white">
       <Container>
         <SectionHeading
-          eyebrow="Why Highland Farms"
+          eyebrow="The Experience"
           title="A Wedding Venue Like No Other"
           subtitle="Five acres of forest, farm, and magic at the base of Mt. Hood."
         />
 
-        <StaggerChildren className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
+        <StaggerChildren className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
           {highlights.map((item) => (
             <StaggerItem key={item.title} className="w-full">
               <Link
                 href="/weddings"
-                className="group block h-full overflow-hidden rounded-sm bg-white shadow-sm hover:shadow-md transition-shadow"
+                className="group block h-full overflow-hidden rounded-xl bg-white shadow-sm hover:shadow-lg transition-all duration-500"
               >
                 <div className="relative aspect-[4/3] overflow-hidden">
                   <Image
@@ -54,16 +54,16 @@ export function WeddingHighlights() {
                     alt={item.alt}
                     fill
                     sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
-                    className="object-cover transition-transform duration-300 group-hover:scale-105"
+                    className="object-cover transition-transform duration-700 group-hover:scale-105"
                   />
-                  <div className="absolute inset-0 bg-charcoal/0 group-hover:bg-charcoal/10 transition-colors" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                 </div>
 
                 <div className="p-5">
-                  <h3 className="text-lg font-semibold text-charcoal font-sans">
+                  <h3 className="text-base font-display font-normal text-charcoal">
                     {item.title}
                   </h3>
-                  <p className="mt-2 text-sm text-muted leading-relaxed font-sans">
+                  <p className="mt-2 text-sm text-muted leading-relaxed font-sans font-light">
                     {item.description}
                   </p>
                 </div>

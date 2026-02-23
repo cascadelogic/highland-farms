@@ -23,7 +23,6 @@ export function Header() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Keep a CSS variable on <html> with the header height so pages can use it for top padding
   useEffect(() => {
     function updateHeight() {
       if (headerRef.current) {
@@ -40,39 +39,37 @@ export function Header() {
   return (
     <>
       <div ref={headerRef} className="fixed top-0 left-0 right-0 z-40">
-        {/* Announcement bar — sits above the nav */}
         <AnnouncementBar />
 
-        {/* Navigation bar */}
         <header
           className={cn(
-            "transition-all duration-300",
+            "transition-all duration-500",
             scrolled
-              ? "bg-white/95 backdrop-blur-md shadow-sm"
-              : "bg-charcoal/60 backdrop-blur-sm"
+              ? "bg-white/95 backdrop-blur-md shadow-[0_1px_0_rgba(0,0,0,0.04)]"
+              : "bg-gradient-to-b from-black/40 to-transparent"
           )}
         >
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <div className="flex h-18 items-center justify-between">
+            <div className="flex h-16 items-center justify-between lg:h-18">
               {/* Logo */}
               <Link
                 href="/"
-                className="flex items-center gap-2 transition-opacity hover:opacity-80"
+                className="flex items-center gap-2.5 transition-opacity hover:opacity-80"
               >
                 <Image
                   src="/images/logo/HF-logo-white.png"
                   alt="Highland Farms"
-                  width={48}
-                  height={28}
+                  width={44}
+                  height={26}
                   className={cn(
-                    "h-7 w-auto transition-all duration-300",
-                    scrolled ? "brightness-0 opacity-80" : ""
+                    "h-6 w-auto transition-all duration-500",
+                    scrolled ? "brightness-0 opacity-70" : ""
                   )}
                   priority
                 />
                 <span
                   className={cn(
-                    "font-display text-lg font-semibold tracking-wide transition-colors hidden sm:inline",
+                    "text-sm font-light tracking-[0.15em] uppercase transition-colors hidden sm:inline font-sans",
                     scrolled ? "text-charcoal" : "text-white"
                   )}
                 >
@@ -81,31 +78,30 @@ export function Header() {
               </Link>
 
               {/* Desktop nav */}
-              <nav className="hidden lg:flex items-center gap-1">
+              <nav className="hidden lg:flex items-center gap-0.5">
                 {mainNavItems.map((item) => (
                   <div key={item.href} className="relative group">
                     <Link
                       href={item.href}
                       className={cn(
-                        "flex items-center gap-1 px-3 py-2 text-sm font-medium tracking-wide transition-colors",
+                        "flex items-center gap-1 px-3.5 py-2 text-xs font-light tracking-[0.12em] uppercase transition-colors font-sans",
                         scrolled
-                          ? "text-charcoal hover:text-forest"
-                          : "text-white/90 hover:text-white"
+                          ? "text-charcoal/70 hover:text-charcoal"
+                          : "text-white/80 hover:text-white"
                       )}
                     >
                       {item.label}
-                      {item.children && <ChevronDown className="h-3.5 w-3.5" />}
+                      {item.children && <ChevronDown className="h-3 w-3 opacity-50" />}
                     </Link>
 
-                    {/* Dropdown */}
                     {item.children && (
                       <div className="absolute left-0 top-full pt-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
-                        <div className="bg-white rounded-md shadow-lg border border-cream-light py-2 min-w-[180px]">
+                        <div className="bg-white/95 backdrop-blur-md rounded-lg shadow-lg border border-black/5 py-2 min-w-[180px]">
                           {item.children.map((child) => (
                             <Link
                               key={child.href}
                               href={child.href}
-                              className="block px-4 py-2 text-sm text-charcoal hover:bg-cream-light hover:text-forest transition-colors"
+                              className="block px-4 py-2 text-xs tracking-wide text-charcoal/70 hover:text-forest hover:bg-sage/5 transition-colors font-sans"
                             >
                               {child.label}
                             </Link>
@@ -116,7 +112,6 @@ export function Header() {
                   </div>
                 ))}
 
-                {/* Instagram */}
                 <a
                   href={CONTACT.instagram}
                   target="_blank"
@@ -124,20 +119,20 @@ export function Header() {
                   className={cn(
                     "ml-2 p-2 transition-colors",
                     scrolled
-                      ? "text-charcoal hover:text-forest"
-                      : "text-white/90 hover:text-white"
+                      ? "text-charcoal/50 hover:text-charcoal"
+                      : "text-white/60 hover:text-white"
                   )}
                   aria-label="Follow us on Instagram"
                 >
-                  <Instagram className="h-4.5 w-4.5" />
+                  <Instagram className="h-4 w-4" />
                 </a>
 
-                {/* CTA */}
                 <Link
-                  href="/weddings"
-                  className="ml-3 inline-flex items-center justify-center rounded-sm bg-forest px-5 py-2.5 text-sm font-medium tracking-wide text-white transition-colors hover:bg-forest-light"
+                  href="/contact"
+                  className="ml-3 inline-flex items-center justify-center rounded-full border border-white/30 bg-white/10 backdrop-blur-sm px-5 py-2 text-xs font-light tracking-[0.12em] uppercase text-white transition-all hover:bg-white/20 hover:border-white/50"
+                  style={scrolled ? { borderColor: 'rgba(74,103,65,0.3)', backgroundColor: 'rgba(74,103,65,0.05)', color: '#4A6741' } : {}}
                 >
-                  Plan Your Wedding
+                  Inquire
                 </Link>
               </nav>
 
@@ -150,7 +145,7 @@ export function Header() {
                 )}
                 aria-label="Open menu"
               >
-                <Menu className="h-6 w-6" />
+                <Menu className="h-5 w-5" />
               </button>
             </div>
           </div>

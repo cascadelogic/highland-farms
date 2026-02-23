@@ -70,7 +70,7 @@ export function ContactForm({
 
   if (status === "success") {
     return (
-      <div className={cn("rounded-sm bg-forest/5 border border-forest/20 p-8 text-center", className)}>
+      <div className={cn("rounded-lg bg-forest/5 border border-forest/20 p-8 text-center", className)}>
         <CheckCircle className="mx-auto h-12 w-12 text-forest" />
         <h3 className="mt-4 text-xl font-medium text-charcoal">
           Thank You!
@@ -100,7 +100,7 @@ export function ContactForm({
       )}
 
       {status === "error" && (
-        <div className="mb-6 flex items-center gap-2 rounded-sm bg-red-50 border border-red-200 px-4 py-3 text-sm text-red-700 font-sans">
+        <div className="mb-6 flex items-center gap-2 rounded-lg bg-red-50 border border-red-200 px-4 py-3 text-sm text-red-700 font-sans">
           <AlertCircle className="h-4 w-4 shrink-0" />
           {serverError || "Something went wrong. Please try again."}
         </div>
@@ -109,7 +109,7 @@ export function ContactForm({
       <form onSubmit={handleSubmit(onSubmit)} className="space-y-5">
         <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
           <div>
-            <label htmlFor="form-name" className="block text-sm font-medium text-charcoal mb-1.5 font-sans">
+            <label htmlFor="form-name" className="block text-sm font-normal text-charcoal mb-1.5 font-sans">
               Your Name *
             </label>
             <input
@@ -117,7 +117,7 @@ export function ContactForm({
               id="form-name"
               {...register("name")}
               className={cn(
-                "w-full rounded-sm border bg-white px-4 py-3 text-sm font-sans text-charcoal placeholder:text-muted/60 focus:outline-none focus:ring-1",
+                "w-full rounded-lg border bg-white px-4 py-3 text-sm font-sans text-charcoal placeholder:text-muted/60 focus:outline-none focus:ring-1",
                 errors.name
                   ? "border-red-300 focus:border-red-500 focus:ring-red-500"
                   : "border-cream-dark focus:border-forest focus:ring-forest"
@@ -129,7 +129,7 @@ export function ContactForm({
             )}
           </div>
           <div>
-            <label htmlFor="form-email" className="block text-sm font-medium text-charcoal mb-1.5 font-sans">
+            <label htmlFor="form-email" className="block text-sm font-normal text-charcoal mb-1.5 font-sans">
               Email Address *
             </label>
             <input
@@ -137,7 +137,7 @@ export function ContactForm({
               id="form-email"
               {...register("email")}
               className={cn(
-                "w-full rounded-sm border bg-white px-4 py-3 text-sm font-sans text-charcoal placeholder:text-muted/60 focus:outline-none focus:ring-1",
+                "w-full rounded-lg border bg-white px-4 py-3 text-sm font-sans text-charcoal placeholder:text-muted/60 focus:outline-none focus:ring-1",
                 errors.email
                   ? "border-red-300 focus:border-red-500 focus:ring-red-500"
                   : "border-cream-dark focus:border-forest focus:ring-forest"
@@ -152,26 +152,26 @@ export function ContactForm({
 
         <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
           <div>
-            <label htmlFor="form-phone" className="block text-sm font-medium text-charcoal mb-1.5 font-sans">
+            <label htmlFor="form-phone" className="block text-sm font-normal text-charcoal mb-1.5 font-sans">
               Phone (optional)
             </label>
             <input
               type="tel"
               id="form-phone"
               {...register("phone")}
-              className="w-full rounded-sm border border-cream-dark bg-white px-4 py-3 text-sm font-sans text-charcoal placeholder:text-muted/60 focus:border-forest focus:outline-none focus:ring-1 focus:ring-forest"
+              className="w-full rounded-lg border border-cream-dark bg-white px-4 py-3 text-sm font-sans text-charcoal placeholder:text-muted/60 focus:border-forest focus:outline-none focus:ring-1 focus:ring-forest"
               placeholder="(555) 123-4567"
             />
           </div>
           <div>
-            <label htmlFor="form-event-type" className="block text-sm font-medium text-charcoal mb-1.5 font-sans">
+            <label htmlFor="form-event-type" className="block text-sm font-normal text-charcoal mb-1.5 font-sans">
               Event Type *
             </label>
             <select
               id="form-event-type"
               {...register("event_type")}
               className={cn(
-                "w-full rounded-sm border bg-white px-4 py-3 text-sm font-sans text-charcoal focus:outline-none focus:ring-1",
+                "w-full rounded-lg border bg-white px-4 py-3 text-sm font-sans text-charcoal focus:outline-none focus:ring-1",
                 errors.event_type
                   ? "border-red-300 focus:border-red-500 focus:ring-red-500"
                   : "border-cream-dark focus:border-forest focus:ring-forest"
@@ -193,19 +193,19 @@ export function ContactForm({
         </div>
 
         <div>
-          <label htmlFor="form-date" className="block text-sm font-medium text-charcoal mb-1.5 font-sans">
+          <label htmlFor="form-date" className="block text-sm font-normal text-charcoal mb-1.5 font-sans">
             Preferred Date (optional)
           </label>
           <input
             type="date"
             id="form-date"
             {...register("preferred_date")}
-            className="w-full rounded-sm border border-cream-dark bg-white px-4 py-3 text-sm font-sans text-charcoal focus:border-forest focus:outline-none focus:ring-1 focus:ring-forest"
+            className="w-full rounded-lg border border-cream-dark bg-white px-4 py-3 text-sm font-sans text-charcoal focus:border-forest focus:outline-none focus:ring-1 focus:ring-forest"
           />
         </div>
 
         <div>
-          <label htmlFor="form-message" className="block text-sm font-medium text-charcoal mb-1.5 font-sans">
+          <label htmlFor="form-message" className="block text-sm font-normal text-charcoal mb-1.5 font-sans">
             Tell Us About Your Vision *
           </label>
           <textarea
@@ -213,7 +213,7 @@ export function ContactForm({
             {...register("message")}
             rows={4}
             className={cn(
-              "w-full rounded-sm border bg-white px-4 py-3 text-sm font-sans text-charcoal placeholder:text-muted/60 focus:outline-none focus:ring-1 resize-none",
+              "w-full rounded-lg border bg-white px-4 py-3 text-sm font-sans text-charcoal placeholder:text-muted/60 focus:outline-none focus:ring-1 resize-none",
               errors.message
                 ? "border-red-300 focus:border-red-500 focus:ring-red-500"
                 : "border-cream-dark focus:border-forest focus:ring-forest"
@@ -228,7 +228,7 @@ export function ContactForm({
         <button
           type="submit"
           disabled={status === "submitting"}
-          className="w-full rounded-sm bg-forest px-6 py-3.5 text-base font-medium tracking-wide text-white transition-colors hover:bg-forest-light disabled:opacity-60 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+          className="w-full rounded-full bg-forest px-6 py-3.5 text-sm font-light uppercase tracking-wider text-white transition-colors hover:bg-forest-light disabled:opacity-60 disabled:cursor-not-allowed flex items-center justify-center gap-2"
         >
           {status === "submitting" ? (
             <>

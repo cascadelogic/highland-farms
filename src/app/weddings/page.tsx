@@ -43,13 +43,13 @@ export default function WeddingsPage() {
         <div className="absolute inset-0 bg-black/35" />
 
         <div className="relative z-10 mx-auto max-w-3xl px-4 text-center text-white">
-          <p className="mb-4 text-sm font-medium uppercase tracking-[0.3em] text-white/80 font-sans">
+          <p className="mb-4 text-sm font-light uppercase tracking-[0.3em] text-white/60 font-sans">
             All-Inclusive Wedding Venue
           </p>
-          <h1 className="text-4xl font-medium leading-tight sm:text-5xl md:text-6xl">
+          <h1 className="text-4xl font-normal leading-tight sm:text-5xl md:text-6xl">
             Your Dream Wedding in the Forest
           </h1>
-          <p className="mx-auto mt-5 max-w-xl text-lg text-white/85 leading-relaxed font-sans">
+          <p className="mx-auto mt-5 max-w-xl text-lg text-white/75 leading-relaxed font-sans font-light">
             Exchange vows under towering evergreens, celebrate with Highland Cows,
             and host your closest family and friends on-site at the base of Mt. Hood.
           </p>
@@ -82,7 +82,7 @@ export default function WeddingsPage() {
             {included.map((item) => (
               <div
                 key={item.text}
-                className="flex items-start gap-4 rounded-sm bg-white p-5 shadow-sm"
+                className="flex items-start gap-4 rounded-xl bg-white p-5 shadow-sm"
               >
                 <div className="flex h-10 w-10 items-center justify-center rounded-full bg-cream shrink-0">
                   <item.icon className="h-5 w-5 text-forest" />
@@ -101,10 +101,10 @@ export default function WeddingsPage() {
         <Container>
           <div className="grid grid-cols-1 gap-12 lg:grid-cols-2 lg:items-center">
             <div>
-              <p className="text-sm font-medium uppercase tracking-[0.2em] text-muted mb-3 font-sans">
+              <p className="text-sm font-normal italic text-sage tracking-wide font-display mb-3">
                 The Venue
               </p>
-              <h2 className="text-3xl font-medium sm:text-4xl">
+              <h2 className="text-3xl font-normal sm:text-4xl">
                 Five Acres of Forest &amp; Farm
               </h2>
               <p className="mt-4 text-base text-muted leading-relaxed font-sans">
@@ -140,7 +140,7 @@ export default function WeddingsPage() {
               </ul>
             </div>
 
-            <div className="relative aspect-[4/3] overflow-hidden rounded-sm">
+            <div className="relative aspect-[4/3] overflow-hidden rounded-xl">
               <Image
                 src="/images/hero/farm-aerial.jpg"
                 alt="Aerial view of Highland Farms wedding venue"
@@ -178,7 +178,7 @@ export default function WeddingsPage() {
             ))}
           </div>
           <blockquote>
-            <p className="text-xl font-medium leading-relaxed text-charcoal sm:text-2xl">
+            <p className="text-xl font-normal leading-relaxed text-charcoal sm:text-2xl font-display">
               &ldquo;We had our wedding at Highland Farms and I can not recommend
               them highly enough!! An absolutely stunning and unique venue that
               surpassed our wildest dreams! Connor made every part of the process
@@ -192,7 +192,7 @@ export default function WeddingsPage() {
             href="https://share.google/jrLOI4AhnpzbPPBpF"
             target="_blank"
             rel="noopener noreferrer"
-            className="mt-4 inline-flex items-center gap-1 text-sm font-medium text-forest hover:text-forest-light transition-colors font-sans"
+            className="mt-4 inline-flex items-center gap-1 text-sm font-light text-forest hover:text-forest-light transition-colors font-sans tracking-wide"
           >
             Read all 146+ reviews on Google &rarr;
           </a>
@@ -207,7 +207,7 @@ export default function WeddingsPage() {
             title="Get Your Custom Quote"
             subtitle="Every wedding at Highland Farms is unique. Tell us your vision and we'll create a custom package."
           />
-          <div className="mx-auto max-w-xl rounded-sm border border-cream-dark bg-white p-8 shadow-sm">
+          <div className="mx-auto max-w-xl rounded-xl border border-cream-dark bg-white p-8 shadow-sm">
             <ContactForm
               defaultEventType="wedding"
               heading=""

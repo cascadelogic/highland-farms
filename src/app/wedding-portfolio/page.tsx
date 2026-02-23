@@ -23,13 +23,13 @@ export default function WeddingPortfolioPage() {
         <div className="absolute inset-0 bg-black/35" />
 
         <div className="relative z-10 mx-auto max-w-3xl px-4 text-center text-white">
-          <p className="mb-4 text-sm font-medium uppercase tracking-[0.3em] text-white/80 font-sans">
+          <p className="mb-4 text-sm font-light uppercase tracking-[0.3em] text-white/60 font-sans">
             Real Weddings
           </p>
-          <h1 className="text-4xl font-medium leading-tight sm:text-5xl md:text-6xl">
+          <h1 className="text-4xl font-normal leading-tight sm:text-5xl md:text-6xl">
             Wedding Portfolio
           </h1>
-          <p className="mx-auto mt-5 max-w-xl text-lg text-white/85 leading-relaxed font-sans">
+          <p className="mx-auto mt-5 max-w-xl text-lg text-white/75 leading-relaxed font-sans font-light">
             Every love story is unique. Browse real celebrations at Highland Farms
             and imagine your own.
           </p>
@@ -55,7 +55,7 @@ export default function WeddingPortfolioPage() {
               <Link
                 key={couple.slug}
                 href={`/wedding-portfolio/${couple.slug}`}
-                className="group block overflow-hidden rounded-sm bg-white shadow-sm hover:shadow-md transition-shadow"
+                className="group block overflow-hidden rounded-xl bg-white shadow-sm hover:shadow-md transition-all duration-500"
               >
                 <div className="relative aspect-[3/4] overflow-hidden">
                   <Image
@@ -67,10 +67,10 @@ export default function WeddingPortfolioPage() {
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent" />
                   <div className="absolute bottom-0 left-0 right-0 p-6">
-                    <h2 className="text-2xl font-medium text-white">
+                    <h2 className="text-2xl font-normal text-white">
                       {couple.names}
                     </h2>
-                    <p className="mt-1 text-sm font-medium text-white/80 font-sans">
+                    <p className="mt-1 text-sm font-light text-white/70 font-sans tracking-wide">
                       View Gallery &rarr;
                     </p>
                   </div>
@@ -84,10 +84,10 @@ export default function WeddingPortfolioPage() {
       {/* CTA */}
       <section className="py-20 lg:py-28 bg-cream">
         <Container className="max-w-3xl text-center">
-          <h2 className="text-3xl font-medium sm:text-4xl">
+          <h2 className="text-3xl font-normal sm:text-4xl">
             Ready to Write Your Own Story?
           </h2>
-          <p className="mx-auto mt-4 max-w-lg text-base text-muted font-sans leading-relaxed">
+          <p className="mx-auto mt-4 max-w-lg text-base text-muted font-sans font-light leading-relaxed">
             Highland Farms weddings are all-inclusive. We handle the venue,
             accommodations, and coordination so you can focus on each other.
           </p>

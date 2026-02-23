@@ -39,7 +39,7 @@ export default function ShopPage() {
       {/* Gift Certificate Banner */}
       <section className="bg-cream">
         <Container className="py-8 text-center">
-          <h2 className="text-xl font-medium sm:text-2xl">
+          <h2 className="text-xl font-normal sm:text-2xl">
             Gift Certificates Available
           </h2>
           <p className="mt-2 text-sm text-muted font-sans">
@@ -60,7 +60,7 @@ export default function ShopPage() {
             {products.map((product) => (
               <div
                 key={product.name}
-                className="group overflow-hidden rounded-sm bg-white shadow-sm hover:shadow-md transition-shadow"
+                className="group overflow-hidden rounded-xl bg-white shadow-sm hover:shadow-md transition-all duration-500"
               >
                 <div className="relative aspect-square bg-gradient-to-br from-cream to-cream-dark overflow-hidden">
                   <div className="absolute inset-0 flex items-center justify-center text-xs text-muted font-sans p-2 text-center">
@@ -71,10 +71,10 @@ export default function ShopPage() {
                   <p className="text-xs text-muted uppercase tracking-wider font-sans">
                     {product.category}
                   </p>
-                  <h3 className="mt-1 text-sm font-medium text-charcoal font-sans leading-snug">
+                  <h3 className="mt-1 text-sm font-normal text-charcoal font-sans leading-snug">
                     {product.name}
                   </h3>
-                  <p className="mt-2 text-base font-semibold text-forest font-sans">
+                  <p className="mt-2 text-base font-normal text-forest font-sans">
                     ${product.price.toFixed(2)}
                   </p>
                 </div>

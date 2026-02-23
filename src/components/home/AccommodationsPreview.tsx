@@ -21,7 +21,7 @@ export function AccommodationsPreview() {
             <StaggerItem key={property.slug} className="w-full">
               <Link
                 href={property.bookingUrl}
-                className="group block h-full overflow-hidden rounded-sm bg-white shadow-sm hover:shadow-md transition-shadow"
+                className="group block h-full overflow-hidden rounded-xl bg-white shadow-sm hover:shadow-md transition-all duration-500"
               >
                 <div className="relative aspect-[4/3] overflow-hidden">
                   <Image
@@ -29,13 +29,13 @@ export function AccommodationsPreview() {
                     alt={property.name}
                     fill
                     sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
-                    className="object-cover transition-transform duration-300 group-hover:scale-105"
+                    className="object-cover transition-transform duration-700 group-hover:scale-105"
                   />
                   <div className="absolute inset-0 bg-charcoal/0 group-hover:bg-charcoal/10 transition-colors" />
                 </div>
 
                 <div className="p-5">
-                  <h3 className="text-lg font-semibold text-charcoal font-sans">
+                  <h3 className="text-lg font-normal text-charcoal font-display">
                     {property.name}
                   </h3>
                   <p className="mt-1 text-sm italic text-muted font-sans">
@@ -57,7 +57,7 @@ export function AccommodationsPreview() {
                     </span>
                   </div>
 
-                  <p className="mt-4 text-sm font-medium text-forest group-hover:text-forest-light transition-colors font-sans">
+                  <p className="mt-4 text-sm font-light text-forest group-hover:text-forest-light transition-colors font-sans tracking-wide">
                     View &amp; Book &rarr;
                   </p>
                 </div>

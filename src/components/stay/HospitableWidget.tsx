@@ -23,8 +23,8 @@ export function HospitableWidget({ widgetUrl, propertyName }: HospitableWidgetPr
 
   if (!widgetUrl) {
     return (
-      <div className="rounded-sm border-2 border-dashed border-cream-dark bg-warm-white p-12 text-center">
-        <p className="text-lg font-medium text-charcoal font-sans">
+      <div className="rounded-xl border-2 border-dashed border-cream-dark bg-warm-white p-12 text-center">
+        <p className="text-lg font-normal text-charcoal font-sans">
           Booking Widget Coming Soon
         </p>
         <p className="mt-2 text-sm text-muted font-sans">
@@ -43,7 +43,7 @@ export function HospitableWidget({ widgetUrl, propertyName }: HospitableWidgetPr
         height="900"
         frameBorder="0"
         title={`Book ${propertyName}`}
-        className="rounded-sm"
+        className="rounded-xl"
         allow="payment"
       />
     </div>

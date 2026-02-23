@@ -37,10 +37,10 @@ export default function AboutPage() {
         <div className="absolute inset-0 bg-black/35" />
 
         <div className="relative z-10 mx-auto max-w-3xl px-4 text-center text-white">
-          <h1 className="text-4xl font-medium leading-tight sm:text-5xl md:text-6xl">
+          <h1 className="text-4xl font-normal leading-tight sm:text-5xl md:text-6xl">
             About The Farm
           </h1>
-          <p className="mx-auto mt-5 max-w-xl text-lg text-white/85 leading-relaxed font-sans">
+          <p className="mx-auto mt-5 max-w-xl text-lg text-white/75 leading-relaxed font-sans font-light">
             A space where loved ones come together to reconnect with nature and
             each other.
           </p>
@@ -52,10 +52,10 @@ export default function AboutPage() {
         <Container>
           <div className="grid grid-cols-1 gap-12 lg:grid-cols-2 lg:items-center">
             <div>
-              <p className="text-sm font-medium uppercase tracking-[0.2em] text-muted mb-3 font-sans">
+              <p className="text-sm font-normal italic text-sage tracking-wide font-display mb-3">
                 The Story of a Farm
               </p>
-              <h2 className="text-3xl font-medium sm:text-4xl">
+              <h2 className="text-3xl font-normal sm:text-4xl">
                 From Cedar Mill to Highland Farms
               </h2>
               <p className="mt-4 text-base text-muted leading-relaxed font-sans">
@@ -77,7 +77,7 @@ export default function AboutPage() {
               </p>
             </div>
 
-            <div className="relative aspect-[4/3] overflow-hidden rounded-sm">
+            <div className="relative aspect-[4/3] overflow-hidden rounded-xl">
               <Image
                 src="/images/farm/highland-cows-hero.jpg"
                 alt="Highland Cows at Highland Farms Oregon"
@@ -104,7 +104,7 @@ export default function AboutPage() {
                 <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-full bg-white">
                   <amenity.icon className="h-6 w-6 text-forest" />
                 </div>
-                <h3 className="mt-4 text-base font-semibold text-charcoal font-sans">
+                <h3 className="mt-4 text-base font-normal text-charcoal font-sans">
                   {amenity.label}
                 </h3>
                 <p className="mt-1 text-sm text-muted font-sans">
@@ -119,10 +119,10 @@ export default function AboutPage() {
       {/* The Forest Valley */}
       <section className="py-20 lg:py-28 bg-background">
         <Container className="max-w-3xl text-center">
-          <p className="text-sm font-medium uppercase tracking-[0.2em] text-muted mb-3 font-sans">
+          <p className="text-sm font-normal italic text-sage tracking-wide font-display mb-3">
             The Forest Valley
           </p>
-          <h2 className="text-3xl font-medium sm:text-4xl">
+          <h2 className="text-3xl font-normal sm:text-4xl">
             Brightwood, Oregon
           </h2>
           <p className="mt-4 text-base text-muted leading-relaxed font-sans">
@@ -143,7 +143,7 @@ export default function AboutPage() {
       <section className="py-20 lg:py-28 bg-warm-white">
         <Container>
           <div className="grid grid-cols-1 gap-12 lg:grid-cols-2 lg:items-center">
-            <div className="relative aspect-[4/3] overflow-hidden rounded-sm lg:order-1">
+            <div className="relative aspect-[4/3] overflow-hidden rounded-xl lg:order-1">
               <Image
                 src="/images/farm/farm-animals.jpg"
                 alt="Highland Cows and San Clemente Goats at Highland Farms"
@@ -154,10 +154,10 @@ export default function AboutPage() {
             </div>
 
             <div>
-              <p className="text-sm font-medium uppercase tracking-[0.2em] text-muted mb-3 font-sans">
+              <p className="text-sm font-normal italic text-sage tracking-wide font-display mb-3">
                 Cultivate &amp; Connect
               </p>
-              <h2 className="text-3xl font-medium sm:text-4xl">The Farm</h2>
+              <h2 className="text-3xl font-normal sm:text-4xl">The Farm</h2>
               <p className="mt-4 text-base text-muted leading-relaxed font-sans">
                 At the heart of Highland Farms are our animals. Our gentle
                 Highland Cows are the stars, but they share the property with

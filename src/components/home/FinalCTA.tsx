@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { Phone, Mail } from "lucide-react";
 import { Button } from "@/components/ui/Button";
 import { Container } from "@/components/ui/Container";
@@ -5,25 +6,35 @@ import { CONTACT } from "@/lib/constants";
 
 export function FinalCTA() {
   return (
-    <section className="relative py-24 lg:py-32 overflow-hidden">
+    <section className="relative py-28 lg:py-36 overflow-hidden">
       {/* Background */}
-      <div className="absolute inset-0 bg-gradient-to-br from-forest to-charcoal" />
-      <div className="absolute inset-0 bg-[url('/images/hero/forest-bg.jpg')] bg-cover bg-center opacity-20" />
+      <Image
+        src="/images/weddings/details.jpg"
+        alt=""
+        fill
+        sizes="100vw"
+        className="object-cover"
+        aria-hidden="true"
+      />
+      <div className="absolute inset-0 bg-charcoal/70 backdrop-blur-[2px]" />
 
       <Container className="relative z-10 text-center text-white">
-        <h2 className="text-3xl font-medium sm:text-4xl lg:text-5xl">
-          Ready to Plan Your Dream Wedding?
+        <p className="text-xs font-light tracking-[0.3em] uppercase text-white/50 font-sans mb-4">
+          Your Story Starts Here
+        </p>
+        <h2 className="text-3xl font-normal sm:text-4xl lg:text-5xl">
+          Ready to Begin?
         </h2>
-        <p className="mx-auto mt-4 max-w-xl text-lg text-white/80 font-sans leading-relaxed">
+        <p className="mx-auto mt-5 max-w-md text-base text-white/60 font-sans font-light leading-relaxed">
           Let us create an unforgettable experience for you and your loved ones
           at the base of Mt. Hood.
         </p>
 
-        <div className="mt-10 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
+        <div className="mt-10 flex flex-col items-center gap-3 sm:flex-row sm:justify-center">
           <Button
             href="/contact"
             size="lg"
-            className="bg-white text-charcoal hover:bg-cream"
+            className="bg-white/95 text-charcoal hover:bg-white shadow-lg"
           >
             Get in Touch
           </Button>
@@ -31,27 +42,27 @@ export function FinalCTA() {
             href="/weddings"
             variant="outline"
             size="lg"
-            className="border-white text-white hover:bg-white/10 hover:text-white"
+            className="border-white/25 text-white hover:bg-white/10 hover:border-white/40 hover:text-white"
           >
-            View Wedding Packages
+            Explore Weddings
           </Button>
         </div>
 
         {/* Direct contact */}
-        <div className="mt-10 flex flex-col items-center gap-4 sm:flex-row sm:justify-center text-sm text-white/70 font-sans">
+        <div className="mt-10 flex flex-col items-center gap-4 sm:flex-row sm:justify-center text-xs text-white/40 font-sans font-light tracking-wide">
           <a
             href={`tel:${CONTACT.phone.replace(/\s/g, "")}`}
-            className="flex items-center gap-2 hover:text-white transition-colors"
+            className="flex items-center gap-2 hover:text-white/70 transition-colors"
           >
-            <Phone className="h-4 w-4" />
+            <Phone className="h-3.5 w-3.5" />
             {CONTACT.phone}
           </a>
-          <span className="hidden sm:inline">&middot;</span>
+          <span className="hidden sm:inline text-white/15">&middot;</span>
           <a
             href={`mailto:${CONTACT.email}`}
-            className="flex items-center gap-2 hover:text-white transition-colors"
+            className="flex items-center gap-2 hover:text-white/70 transition-colors"
           >
-            <Mail className="h-4 w-4" />
+            <Mail className="h-3.5 w-3.5" />
             {CONTACT.email}
           </a>
         </div>

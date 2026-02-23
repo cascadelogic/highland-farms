@@ -4,7 +4,7 @@ import { cn } from "@/lib/utils";
 interface ButtonProps {
   children: React.ReactNode;
   href?: string;
-  variant?: "primary" | "outline" | "ghost";
+  variant?: "primary" | "outline" | "ghost" | "soft";
   size?: "default" | "lg" | "sm";
   className?: string;
   onClick?: () => void;
@@ -14,17 +14,19 @@ interface ButtonProps {
 
 const variants = {
   primary:
-    "bg-forest text-white hover:bg-forest-light",
+    "bg-forest text-white hover:bg-forest-light shadow-sm hover:shadow-md",
   outline:
-    "border-2 border-forest text-forest hover:bg-forest hover:text-white",
+    "border border-forest/30 text-forest hover:bg-forest/5 hover:border-forest/50",
   ghost:
-    "text-forest hover:bg-cream/50",
+    "text-forest hover:bg-sage/10",
+  soft:
+    "bg-sage/15 text-forest hover:bg-sage/25",
 };
 
 const sizes = {
-  sm: "px-4 py-2 text-sm",
-  default: "px-6 py-3 text-base",
-  lg: "px-8 py-4 text-lg",
+  sm: "px-5 py-2 text-sm",
+  default: "px-7 py-3 text-sm",
+  lg: "px-9 py-3.5 text-base",
 };
 
 export function Button({
@@ -38,7 +40,7 @@ export function Button({
   external,
 }: ButtonProps) {
   const classes = cn(
-    "inline-flex items-center justify-center font-medium tracking-wide transition-colors duration-200 rounded-sm",
+    "inline-flex items-center justify-center font-medium tracking-wider uppercase text-[0.8em] transition-all duration-300 rounded-full",
     variants[variant],
     sizes[size],
     className

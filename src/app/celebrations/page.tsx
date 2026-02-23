@@ -57,13 +57,13 @@ export default function CelebrationsPage() {
         <div className="absolute inset-0 bg-black/35" />
 
         <div className="relative z-10 mx-auto max-w-3xl px-4 text-center text-white">
-          <p className="mb-4 text-sm font-medium uppercase tracking-[0.3em] text-white/80 font-sans">
+          <p className="mb-4 text-sm font-light uppercase tracking-[0.3em] text-white/60 font-sans">
             Gather Together
           </p>
-          <h1 className="text-4xl font-medium leading-tight sm:text-5xl md:text-6xl">
+          <h1 className="text-4xl font-normal leading-tight sm:text-5xl md:text-6xl">
             Celebrations at Highland Farms
           </h1>
-          <p className="mx-auto mt-5 max-w-xl text-lg text-white/85 leading-relaxed font-sans">
+          <p className="mx-auto mt-5 max-w-xl text-lg text-white/75 leading-relaxed font-sans font-light">
             From intimate gatherings to milestone celebrations — every event is
             extraordinary when surrounded by forest, farm, and Mt. Hood.
           </p>
@@ -88,12 +88,12 @@ export default function CelebrationsPage() {
             {eventTypes.map((event) => (
               <div
                 key={event.title}
-                className="rounded-sm bg-white p-6 shadow-sm hover:shadow-md transition-shadow"
+                className="rounded-xl bg-white p-6 shadow-sm hover:shadow-md transition-shadow"
               >
                 <div className="flex h-12 w-12 items-center justify-center rounded-full bg-cream">
                   <event.icon className="h-5 w-5 text-forest" />
                 </div>
-                <h3 className="mt-4 text-lg font-semibold text-charcoal font-sans">
+                <h3 className="mt-4 text-lg font-normal text-charcoal font-sans">
                   {event.title}
                 </h3>
                 <p className="mt-2 text-sm text-muted leading-relaxed font-sans">
@@ -109,7 +109,7 @@ export default function CelebrationsPage() {
       <section className="py-20 lg:py-28 bg-cream">
         <Container>
           <div className="grid grid-cols-1 gap-12 lg:grid-cols-2 lg:items-center">
-            <div className="relative aspect-[4/3] overflow-hidden rounded-sm">
+            <div className="relative aspect-[4/3] overflow-hidden rounded-xl">
               <Image
                 src="/images/farm/events-retreats.jpg"
                 alt="Celebration event at Highland Farms"
@@ -120,7 +120,7 @@ export default function CelebrationsPage() {
             </div>
 
             <div>
-              <h2 className="text-3xl font-medium sm:text-4xl">
+              <h2 className="text-3xl font-normal sm:text-4xl">
                 The Highland Farms Experience
               </h2>
               <p className="mt-4 text-base text-muted leading-relaxed font-sans">
@@ -152,7 +152,7 @@ export default function CelebrationsPage() {
             title="Get in Touch"
             subtitle="Every event is custom. Tell us your vision and we'll help plan the perfect celebration."
           />
-          <div className="mx-auto max-w-xl rounded-sm border border-cream-dark bg-white p-8 shadow-sm">
+          <div className="mx-auto max-w-xl rounded-xl border border-cream-dark bg-white p-8 shadow-sm">
             <ContactForm
               defaultEventType="celebration"
               heading=""

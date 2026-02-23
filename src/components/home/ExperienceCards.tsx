@@ -17,7 +17,7 @@ const experiences = [
     title: "Nordic Forest Spa",
     description:
       "Soak in cedar hot tubs nestled among towering evergreens. Unwind with the sounds of the forest in our private 60-minute spa sessions.",
-    cta: "Book a Spa Session",
+    cta: "Book a Session",
     href: "/nordic-spa",
     image: "/images/spa/spa-1.jpg",
     alt: "Cedar spa deck nestled in the forest at Highland Farms",
@@ -26,19 +26,19 @@ const experiences = [
 
 export function ExperienceCards() {
   return (
-    <section id="experiences" className="py-20 lg:py-28 bg-warm-white">
+    <section id="experiences" className="py-24 lg:py-32 bg-background">
       <Container>
         <SectionHeading
-          eyebrow="Experience the Farm"
-          title="More Than a Venue"
-          subtitle="Highland Farms isn't just for weddings. Explore our farm tours and Nordic spa."
+          eyebrow="Beyond the Wedding"
+          title="More to Discover"
+          subtitle="Highland Farms is a world unto itself. Explore our farm tours and Nordic spa."
         />
 
         <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
           {experiences.map((exp) => (
             <div
               key={exp.title}
-              className="group overflow-hidden rounded-sm bg-white shadow-sm hover:shadow-md transition-shadow"
+              className="group overflow-hidden rounded-xl bg-white shadow-sm hover:shadow-lg transition-all duration-500"
             >
               <div className="relative aspect-[16/10] overflow-hidden">
                 <Image
@@ -46,20 +46,20 @@ export function ExperienceCards() {
                   alt={exp.alt}
                   fill
                   sizes="(max-width: 768px) 100vw, 50vw"
-                  className="object-cover transition-transform duration-300 group-hover:scale-105"
+                  className="object-cover transition-transform duration-700 group-hover:scale-105"
                 />
-                <div className="absolute inset-0 bg-charcoal/0 group-hover:bg-charcoal/5 transition-colors" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/15 to-transparent" />
               </div>
 
               <div className="p-8">
-                <h3 className="text-2xl font-medium text-charcoal">
+                <h3 className="text-xl font-display font-normal text-charcoal">
                   {exp.title}
                 </h3>
-                <p className="mt-3 text-base text-muted leading-relaxed font-sans">
+                <p className="mt-3 text-sm text-muted leading-relaxed font-sans font-light">
                   {exp.description}
                 </p>
                 <div className="mt-6">
-                  <Button href={exp.href} variant="outline">
+                  <Button href={exp.href} variant="outline" size="sm">
                     {exp.cta}
                   </Button>
                 </div>

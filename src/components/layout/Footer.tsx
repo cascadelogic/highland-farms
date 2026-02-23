@@ -6,24 +6,24 @@ import { CONTACT, SITE } from "@/lib/constants";
 
 export function Footer() {
   return (
-    <footer className="bg-charcoal text-white">
+    <footer className="bg-charcoal text-white/80">
       <Container className="py-16">
         <div className="grid grid-cols-1 gap-10 md:grid-cols-2 lg:grid-cols-4">
           {/* Brand */}
           <div>
-            <Link href="/" className="inline-flex items-center gap-2">
+            <Link href="/" className="inline-flex items-center gap-2.5">
               <Image
                 src="/images/logo/HF-logo-white.png"
                 alt="Highland Farms"
-                width={40}
-                height={24}
-                className="h-6 w-auto"
+                width={36}
+                height={21}
+                className="h-5 w-auto opacity-80"
               />
-              <span className="font-display text-2xl font-semibold tracking-wide">
+              <span className="text-xs font-light tracking-[0.15em] uppercase text-white/70 font-sans">
                 Highland Farms
               </span>
             </Link>
-            <p className="mt-3 text-sm text-white/70 leading-relaxed">
+            <p className="mt-4 text-sm text-white/50 leading-relaxed font-light font-sans">
               {SITE.description}
             </p>
             {/* Google Reviews */}
@@ -31,21 +31,20 @@ export function Footer() {
               href="https://share.google/jrLOI4AhnpzbPPBpF"
               target="_blank"
               rel="noopener noreferrer"
-              className="mt-4 inline-flex items-center gap-2 text-sm text-white/70 hover:text-white transition-colors"
+              className="mt-4 inline-flex items-center gap-2 text-xs text-white/50 hover:text-white/70 transition-colors font-sans"
             >
               <div className="flex">
                 {[...Array(5)].map((_, i) => (
-                  <Star key={i} className="h-3.5 w-3.5 fill-accent text-accent" />
+                  <Star key={i} className="h-3 w-3 fill-gold/70 text-gold/70" />
                 ))}
               </div>
-              <span>4.9 on Google (146+ reviews)</span>
+              <span>4.9 on Google</span>
             </a>
-            {/* Travel Oregon */}
             <a
               href="https://traveloregon.com/plan-your-trip/places-to-stay/farm-ranch-stays/highland-farms/"
               target="_blank"
               rel="noopener noreferrer"
-              className="mt-2 block text-xs text-white/50 hover:text-white/70 transition-colors"
+              className="mt-2 block text-xs text-white/35 hover:text-white/55 transition-colors font-sans font-light"
             >
               Featured on Travel Oregon
             </a>
@@ -53,10 +52,10 @@ export function Footer() {
 
           {/* Quick Links */}
           <div>
-            <h3 className="text-sm font-semibold uppercase tracking-wider text-white/50 mb-4 font-sans">
+            <h3 className="text-xs font-light uppercase tracking-[0.15em] text-white/35 mb-5 font-sans">
               Explore
             </h3>
-            <ul className="space-y-2.5">
+            <ul className="space-y-3">
               {[
                 { label: "Weddings", href: "/weddings" },
                 { label: "Farm Tours", href: "/farm-tours" },
@@ -68,7 +67,7 @@ export function Footer() {
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="text-sm text-white/70 hover:text-white transition-colors"
+                    className="text-sm text-white/50 hover:text-white/80 transition-colors font-light font-sans"
                   >
                     {link.label}
                   </Link>
@@ -79,40 +78,40 @@ export function Footer() {
 
           {/* Contact */}
           <div>
-            <h3 className="text-sm font-semibold uppercase tracking-wider text-white/50 mb-4 font-sans">
+            <h3 className="text-xs font-light uppercase tracking-[0.15em] text-white/35 mb-5 font-sans">
               Contact
             </h3>
             <ul className="space-y-3">
               <li>
                 <a
                   href={`tel:${CONTACT.phone.replace(/\s/g, "")}`}
-                  className="flex items-center gap-2.5 text-sm text-white/70 hover:text-white transition-colors"
+                  className="flex items-center gap-2.5 text-sm text-white/50 hover:text-white/80 transition-colors font-light font-sans"
                 >
-                  <Phone className="h-4 w-4 shrink-0" />
+                  <Phone className="h-3.5 w-3.5 shrink-0 opacity-50" />
                   {CONTACT.phone}
                 </a>
               </li>
               <li>
                 <a
                   href={`tel:${CONTACT.phoneAlt.replace(/[^\d+]/g, "")}`}
-                  className="flex items-center gap-2.5 text-sm text-white/70 hover:text-white transition-colors"
+                  className="flex items-center gap-2.5 text-sm text-white/50 hover:text-white/80 transition-colors font-light font-sans"
                 >
-                  <Phone className="h-4 w-4 shrink-0" />
+                  <Phone className="h-3.5 w-3.5 shrink-0 opacity-50" />
                   {CONTACT.phoneAlt}
                 </a>
               </li>
               <li>
                 <a
                   href={`mailto:${CONTACT.email}`}
-                  className="flex items-center gap-2.5 text-sm text-white/70 hover:text-white transition-colors"
+                  className="flex items-center gap-2.5 text-sm text-white/50 hover:text-white/80 transition-colors font-light font-sans"
                 >
-                  <Mail className="h-4 w-4 shrink-0" />
+                  <Mail className="h-3.5 w-3.5 shrink-0 opacity-50" />
                   {CONTACT.email}
                 </a>
               </li>
               <li>
-                <div className="flex items-start gap-2.5 text-sm text-white/70">
-                  <MapPin className="h-4 w-4 shrink-0 mt-0.5" />
+                <div className="flex items-start gap-2.5 text-sm text-white/50 font-light font-sans">
+                  <MapPin className="h-3.5 w-3.5 shrink-0 mt-0.5 opacity-50" />
                   <span>{CONTACT.fullAddress}</span>
                 </div>
               </li>
@@ -121,24 +120,24 @@ export function Footer() {
 
           {/* Social & Legal */}
           <div>
-            <h3 className="text-sm font-semibold uppercase tracking-wider text-white/50 mb-4 font-sans">
+            <h3 className="text-xs font-light uppercase tracking-[0.15em] text-white/35 mb-5 font-sans">
               Follow Us
             </h3>
             <a
               href={CONTACT.instagram}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 text-sm text-white/70 hover:text-white transition-colors"
+              className="inline-flex items-center gap-2 text-sm text-white/50 hover:text-white/80 transition-colors font-light font-sans"
             >
-              <Instagram className="h-5 w-5" />
+              <Instagram className="h-4 w-4" />
               {CONTACT.instagramHandle}
             </a>
 
             <div className="mt-8 space-y-2">
-              <Link href="/privacy" className="block text-xs text-white/40 hover:text-white/70 transition-colors">
+              <Link href="/privacy" className="block text-xs text-white/25 hover:text-white/50 transition-colors font-light font-sans">
                 Privacy Policy
               </Link>
-              <Link href="/terms" className="block text-xs text-white/40 hover:text-white/70 transition-colors">
+              <Link href="/terms" className="block text-xs text-white/25 hover:text-white/50 transition-colors font-light font-sans">
                 Terms of Service
               </Link>
             </div>
@@ -146,7 +145,7 @@ export function Footer() {
         </div>
 
         {/* Copyright */}
-        <div className="mt-12 border-t border-white/10 pt-8 text-center text-xs text-white/40">
+        <div className="mt-14 border-t border-white/5 pt-8 text-center text-xs text-white/25 font-light font-sans">
           <p>&copy; {new Date().getFullYear()} Highland Farms Oregon. All rights reserved.</p>
         </div>
       </Container>

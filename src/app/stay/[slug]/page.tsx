@@ -98,7 +98,7 @@ export default async function PropertyPage({
           <div className="grid grid-cols-1 gap-12 lg:grid-cols-5">
             {/* Left: Details */}
             <div className="lg:col-span-2">
-              <h1 className="text-3xl font-medium sm:text-4xl">
+              <h1 className="text-3xl font-normal sm:text-4xl">
                 {property.name}
               </h1>
               <p className="mt-2 text-lg italic text-muted font-sans">
@@ -129,7 +129,7 @@ export default async function PropertyPage({
 
               {/* Highlights */}
               <div className="mt-6">
-                <h3 className="text-sm font-semibold uppercase tracking-wider text-charcoal font-sans mb-3">
+                <h3 className="text-xs font-light uppercase tracking-[0.15em] text-muted font-sans mb-3">
                   Highlights
                 </h3>
                 <ul className="space-y-2">
@@ -149,7 +149,7 @@ export default async function PropertyPage({
 
               {/* Activities */}
               <div className="mt-6">
-                <h3 className="text-sm font-semibold uppercase tracking-wider text-charcoal font-sans mb-3">
+                <h3 className="text-xs font-light uppercase tracking-[0.15em] text-muted font-sans mb-3">
                   While You&apos;re Here
                 </h3>
                 <div className="space-y-2">
@@ -169,9 +169,9 @@ export default async function PropertyPage({
             {/* Right: Booking Widget */}
             <div className="lg:col-span-3">
               <div className="lg:sticky lg:top-24">
-                <div className="rounded-sm border border-cream-dark bg-white p-1">
-                  <div className="bg-forest text-white text-center py-3 rounded-sm mb-1">
-                    <p className="text-sm font-medium tracking-wide font-sans">
+                <div className="rounded-xl border border-cream-dark bg-white p-1">
+                  <div className="bg-charcoal/90 text-white text-center py-3 rounded-xl mb-1">
+                    <p className="text-xs font-light tracking-[0.15em] uppercase font-sans">
                       Book Direct — Best Rate Guaranteed
                     </p>
                   </div>
@@ -189,7 +189,7 @@ export default async function PropertyPage({
       {/* Other Properties */}
       <section className="py-20 lg:py-28 bg-warm-white">
         <Container>
-          <h2 className="text-center text-2xl font-medium mb-10 sm:text-3xl">
+          <h2 className="text-center text-2xl font-normal mb-10 sm:text-3xl">
             Explore Other Accommodations
           </h2>
           <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
@@ -199,7 +199,7 @@ export default async function PropertyPage({
                 <Link
                   key={p.slug}
                   href={p.bookingUrl}
-                  className="group overflow-hidden rounded-sm bg-white shadow-sm hover:shadow-md transition-shadow"
+                  className="group overflow-hidden rounded-xl bg-white shadow-sm hover:shadow-md transition-all duration-500"
                 >
                   <div className="relative aspect-[4/3] overflow-hidden">
                     <Image
@@ -211,13 +211,13 @@ export default async function PropertyPage({
                     />
                   </div>
                   <div className="p-5">
-                    <h3 className="text-lg font-semibold text-charcoal font-sans">
+                    <h3 className="text-lg font-normal text-charcoal font-display">
                       {p.name}
                     </h3>
                     <p className="mt-1 text-sm text-muted font-sans">
                       {p.guests} Guests &middot; {p.bedrooms} Beds &middot; {p.baths} Baths
                     </p>
-                    <p className="mt-3 text-sm font-medium text-forest group-hover:text-forest-light transition-colors font-sans">
+                    <p className="mt-3 text-sm font-light text-forest group-hover:text-forest-light transition-colors font-sans tracking-wide">
                       View &amp; Book &rarr;
                     </p>
                   </div>
