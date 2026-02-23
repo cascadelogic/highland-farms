@@ -18,6 +18,8 @@ const PROFILE = {
   verified: false,
 };
 
+const PROFILE_AVATAR = "/images/farm/instagram-profile.jpg";
+
 const instagramPosts = [
   {
     url: "https://www.instagram.com/reel/DG1WGsSSt9e/",
@@ -28,6 +30,7 @@ const instagramPosts = [
     comments: "134",
     timeAgo: "4d",
     isReel: true,
+    featured: false,
   },
   {
     url: "https://www.instagram.com/reel/DUjsovNjzjf/",
@@ -38,7 +41,7 @@ const instagramPosts = [
     comments: "217",
     timeAgo: "2w",
     isReel: true,
-    badge: "Featured on LivePDX",
+    featured: true,
   },
   {
     url: "https://www.instagram.com/reel/C8iizbbv47X/",
@@ -49,6 +52,7 @@ const instagramPosts = [
     comments: "98",
     timeAgo: "3w",
     isReel: true,
+    featured: false,
   },
 ];
 
@@ -73,6 +77,45 @@ export function InstagramEmbed() {
           subtitle="Join 18K+ followers for daily farm life, forest weddings, and Highland Cow moments."
         />
 
+        {/* As Seen On LivePDX banner */}
+        <div className="mx-auto mb-8 max-w-2xl">
+          <a
+            href="https://www.instagram.com/reel/DUjsovNjzjf/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group block rounded-2xl bg-gradient-to-r from-[#0d9488] to-[#14b8a6] p-[1px] shadow-sm hover:shadow-md transition-all duration-500"
+          >
+            <div className="flex items-center justify-between gap-4 rounded-2xl bg-white px-6 py-4">
+              <div className="flex items-center gap-4">
+                <div className="flex items-center justify-center h-10 w-10 rounded-full bg-[#0d9488]/10 shrink-0">
+                  <Play className="h-4 w-4 text-[#0d9488] fill-[#0d9488]" />
+                </div>
+                <div>
+                  <p className="text-xs font-light uppercase tracking-[0.15em] text-[#0d9488] font-sans">
+                    As Seen On
+                  </p>
+                  <p className="text-lg font-display font-normal text-charcoal">
+                    Live<span className="text-[#0d9488]">PDX</span>
+                  </p>
+                </div>
+              </div>
+              <div className="text-right hidden sm:block">
+                <p className="text-sm text-charcoal/80 font-sans font-light">
+                  Featured on Portland&apos;s favorite local guide
+                </p>
+                <p className="text-xs text-[#0d9488] font-sans mt-0.5 group-hover:underline">
+                  Watch the feature &rarr;
+                </p>
+              </div>
+              <div className="block sm:hidden">
+                <p className="text-xs text-[#0d9488] font-sans group-hover:underline">
+                  Watch &rarr;
+                </p>
+              </div>
+            </div>
+          </a>
+        </div>
+
         {/* Instagram profile header */}
         <div className="mx-auto mb-10 max-w-2xl rounded-2xl bg-white p-6 shadow-sm border border-cream-dark/30">
           <div className="flex items-center gap-5">
@@ -82,7 +125,7 @@ export function InstagramEmbed() {
                 <div className="h-full w-full rounded-full bg-white p-[2px]">
                   <div className="relative h-full w-full rounded-full overflow-hidden">
                     <Image
-                      src="/images/farm/cow-2.jpg"
+                      src={PROFILE_AVATAR}
                       alt="Highland Farms"
                       fill
                       sizes="80px"
@@ -148,15 +191,29 @@ export function InstagramEmbed() {
               href={post.url}
               target="_blank"
               rel="noopener noreferrer"
-              className="group block rounded-2xl bg-white border border-cream-dark/30 overflow-hidden shadow-sm hover:shadow-md transition-all duration-500"
+              className={`group block rounded-2xl bg-white overflow-hidden shadow-sm hover:shadow-md transition-all duration-500 ${
+                post.featured
+                  ? "border-2 border-[#0d9488]/40 ring-1 ring-[#0d9488]/10"
+                  : "border border-cream-dark/30"
+              }`}
             >
+              {/* Featured badge */}
+              {post.featured && (
+                <div className="flex items-center justify-center gap-2 bg-gradient-to-r from-[#0d9488] to-[#14b8a6] px-3.5 py-2">
+                  <Play className="h-3 w-3 text-white fill-white" />
+                  <span className="text-xs font-medium text-white tracking-wide font-sans">
+                    As Seen on Live<span className="font-semibold">PDX</span>
+                  </span>
+                </div>
+              )}
+
               {/* Post header */}
               <div className="flex items-center gap-2.5 px-3.5 py-2.5">
                 <div className="h-8 w-8 rounded-full bg-gradient-to-br from-[#f09433] via-[#dc2743] to-[#bc1888] p-[2px] shrink-0">
                   <div className="h-full w-full rounded-full bg-white p-[1px]">
                     <div className="relative h-full w-full rounded-full overflow-hidden">
                       <Image
-                        src="/images/farm/cow-2.jpg"
+                        src={PROFILE_AVATAR}
                         alt=""
                         fill
                         sizes="32px"
@@ -169,11 +226,6 @@ export function InstagramEmbed() {
                   <p className="text-xs font-medium text-charcoal font-sans truncate">
                     highlandfarmsor
                   </p>
-                  {post.badge && (
-                    <p className="text-[10px] text-muted font-sans font-light truncate">
-                      {post.badge}
-                    </p>
-                  )}
                 </div>
                 <MoreHorizontal className="h-4 w-4 text-muted/60 shrink-0" />
               </div>
@@ -187,8 +239,14 @@ export function InstagramEmbed() {
                   sizes="(max-width: 768px) 100vw, 33vw"
                   className="object-cover transition-transform duration-700 group-hover:scale-[1.02]"
                 />
-                {post.isReel && (
+                {post.isReel && !post.featured && (
                   <div className="absolute top-3 right-3 flex items-center gap-1 rounded-full bg-black/50 px-2.5 py-1 backdrop-blur-sm">
+                    <Play className="h-3 w-3 text-white fill-white" />
+                    <span className="text-[10px] font-medium text-white">Reel</span>
+                  </div>
+                )}
+                {post.featured && (
+                  <div className="absolute top-3 right-3 flex items-center gap-1 rounded-full bg-[#0d9488]/90 px-2.5 py-1 backdrop-blur-sm">
                     <Play className="h-3 w-3 text-white fill-white" />
                     <span className="text-[10px] font-medium text-white">Reel</span>
                   </div>
@@ -199,7 +257,7 @@ export function InstagramEmbed() {
               <div className="px-3.5 pt-2.5 pb-1">
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-4">
-                    <Heart className="h-[22px] w-[22px] text-charcoal hover:text-muted transition-colors" />
+                    <Heart className={`h-[22px] w-[22px] transition-colors ${post.featured ? "text-red-500 fill-red-500" : "text-charcoal hover:text-muted"}`} />
                     <MessageCircle className="h-[22px] w-[22px] text-charcoal hover:text-muted transition-colors scale-x-[-1]" />
                     <Send className="h-[20px] w-[20px] text-charcoal hover:text-muted transition-colors -rotate-12" />
                   </div>
