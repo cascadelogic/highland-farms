@@ -1,31 +1,33 @@
 import type { Metadata } from "next";
 import Image from "next/image";
-import { Bed, UtensilsCrossed, Wifi, Car } from "lucide-react";
+import Link from "next/link";
+import { Bed, UtensilsCrossed, Wifi, Car, Users, TreePine, Heart } from "lucide-react";
 import { Container } from "@/components/ui/Container";
 import { SectionHeading } from "@/components/ui/SectionHeading";
+import { Button } from "@/components/ui/Button";
 import { ImageCarousel } from "@/components/gallery/ImageCarousel";
 import { EventCategoryCards } from "@/components/shared/EventCategoryCards";
 
 export const metadata: Metadata = {
   title: "About The Farm — Highland Farms Brightwood, Oregon",
   description:
-    "The story of Highland Farms — a transformed cedar mill property at the base of Mt. Hood featuring Scottish Highland Cows, forest lodging for 24 guests, and unforgettable experiences in Brightwood, Oregon.",
+    "The story of Highland Farms — from a California ranch dream to a five-acre forest property at the base of Mt. Hood. Scottish Highland Cows, forest lodging for 24 guests, Nordic spa, and unforgettable experiences in Brightwood, Oregon.",
   alternates: { canonical: "/about" },
 };
 
 const amenities = [
-  { icon: Bed, label: "Lodging Available", description: "Sleep up to 24 guests across three accommodations" },
-  { icon: UtensilsCrossed, label: "3 Kitchens", description: "Full kitchens in the Lodge, Cottage, and Camp" },
+  { icon: Bed, label: "Lodging for 24", description: "Three unique accommodations across the property" },
+  { icon: UtensilsCrossed, label: "3 Full Kitchens", description: "In the Lodge, Cottage, and Airstream Camp" },
   { icon: Wifi, label: "WiFi Access", description: "Stay connected throughout the property" },
   { icon: Car, label: "Event Parking", description: "Ample parking for guests and vendors" },
 ];
 
 const galleryImages = [
-  { src: "/images/farm/landscape-1.jpg", alt: "Highland Farms aerial view" },
-  { src: "/images/farm/landscape-2.jpg", alt: "Forest path on property" },
-  { src: "/images/farm/landscape-3.jpg", alt: "Spring-fed pond" },
-  { src: "/images/farm/landscape-4.jpg", alt: "Mt. Hood from the farm" },
-  { src: "/images/farm/cows.jpg", alt: "Highland Cows grazing" },
+  { src: "/images/farm/landscape-1.jpg", alt: "Highland Farms aerial view of the property" },
+  { src: "/images/farm/landscape-2.jpg", alt: "Forest path winding through the property" },
+  { src: "/images/farm/landscape-3.jpg", alt: "Spring-fed pond at Highland Farms" },
+  { src: "/images/farm/landscape-4.jpg", alt: "Mt. Hood visible from the farm" },
+  { src: "/images/farm/cows.jpg", alt: "Highland Cow mama and calf near the barn" },
 ];
 
 export default function AboutPage() {
@@ -38,17 +40,20 @@ export default function AboutPage() {
         <div className="absolute inset-0 bg-black/35" />
 
         <div className="relative z-10 mx-auto max-w-3xl px-4 text-center text-white">
+          <p className="mb-4 text-sm font-light uppercase tracking-[0.3em] text-white/80 font-sans">
+            Our Story
+          </p>
           <h1 className="text-4xl font-normal leading-tight sm:text-5xl md:text-6xl">
             About The Farm
           </h1>
-          <p className="mx-auto mt-5 max-w-xl text-lg text-white/85 leading-relaxed font-sans font-light">
-            A space where loved ones come together to reconnect with nature and
-            each other.
+          <p className="mx-auto mt-5 max-w-xl text-lg text-white/85 leading-relaxed font-sans font-light italic">
+            &ldquo;We created Highland Farms with the intention of providing a space
+            where loved ones can come together to reconnect with nature and each other.&rdquo;
           </p>
         </div>
       </section>
 
-      {/* The Story */}
+      {/* The Origin Story */}
       <section className="py-20 lg:py-28 bg-background">
         <Container>
           <div className="grid grid-cols-1 gap-12 lg:grid-cols-2 lg:items-center">
@@ -57,31 +62,30 @@ export default function AboutPage() {
                 The Story of a Farm
               </p>
               <h2 className="text-3xl font-normal sm:text-4xl">
-                From Cedar Mill to Highland Farms
+                From a California Ranch to Mt. Hood
               </h2>
-              <p className="mt-4 text-base text-muted leading-relaxed font-sans">
-                Highland Farms began with a vision — to transform an overgrown
-                cedar mill property at the base of Mt. Hood into a place where
-                people could reconnect with nature, with animals, and with each
-                other.
+              <p className="mt-5 text-base text-muted leading-relaxed font-sans">
+                Every farm has a story — that of Highland Farms begins on a ranch
+                600 miles south of Mount Hood, located halfway between the fertile
+                fields of the Central Valley and the Pacific Ocean. The Church ranch
+                in Salinas, California, cultivated a deep love and passion for farm
+                life, the smells of the earth, and the cowboy lifestyle in Connor
+                McWilliams.
               </p>
               <p className="mt-4 text-base text-muted leading-relaxed font-sans">
-                Founder Connor McWilliams discovered the property and saw its
-                potential: a spring-fed pond, old-growth trees draped in moss,
-                and five acres of forest waiting to be brought back to life. What
-                followed was years of passionate work to create the Highland Farms
-                you see today.
-              </p>
-              <p className="mt-4 text-base text-muted leading-relaxed font-sans">
-                &ldquo;The potential to be a place for man, a place for nature,
-                a place for everything and everything in its place.&rdquo;
+                This passion coupled itself with an enterprising plan: hang a shingle
+                as a general contractor until that career could yield a farm and
+                livestock of his own. Work in the construction industry naturally led
+                to experience in hospitality and design, and being a natural dreamer,
+                Connor couldn&apos;t imagine owning a property without creating an
+                experience to share with the world.
               </p>
             </div>
 
             <div className="relative aspect-[4/3] overflow-hidden rounded-xl">
               <Image
-                src="/images/farm/highland-cows-hero.jpg"
-                alt="Highland Cows at Highland Farms Oregon"
+                src="/images/farm/farm-life.jpg"
+                alt="Connor with a Highland Cow calf at Highland Farms"
                 fill
                 sizes="(max-width: 1024px) 100vw, 50vw"
                 className="object-cover"
@@ -91,8 +95,110 @@ export default function AboutPage() {
         </Container>
       </section>
 
-      {/* Amenities */}
+      {/* The Vision */}
       <section className="py-20 lg:py-28 bg-cream">
+        <Container className="max-w-3xl">
+          <div className="text-center">
+            <p className="text-sm font-normal italic text-sage tracking-wide font-display mb-3">
+              The Vision
+            </p>
+            <h2 className="text-3xl font-normal sm:text-4xl">
+              Uncovering the Potential
+            </h2>
+          </div>
+          <p className="mt-6 text-base text-muted leading-relaxed font-sans text-center">
+            This vision led to the creation of Highland Farms — an overgrown property
+            uncovered from decades of nature&apos;s re-wilding at the base of Mt. Hood.
+            Highland Farms needed someone with a dream to see its full potential:
+          </p>
+
+          <div className="mt-10 grid grid-cols-1 gap-6 sm:grid-cols-2">
+            {[
+              {
+                icon: TreePine,
+                text: "The potential of its old-growth trees fringing the property, draped in moss and quiet.",
+              },
+              {
+                icon: Heart,
+                text: "The potential of its natural spring-fed pond, a sanctuary for rest, retreat, and rejuvenation.",
+              },
+              {
+                icon: Users,
+                text: "The potential of its perfect location, tucked between Mt. Hood and Oregon's Rose City.",
+              },
+              {
+                icon: TreePine,
+                text: "The potential of its field and forest, where Highland cattle forage amongst the trees and welcome calves in the front pastures.",
+              },
+            ].map((item) => (
+              <div
+                key={item.text}
+                className="flex items-start gap-4 rounded-xl bg-white p-5 shadow-sm"
+              >
+                <div className="flex h-10 w-10 items-center justify-center rounded-full bg-cream shrink-0">
+                  <item.icon className="h-5 w-5 text-forest" />
+                </div>
+                <p className="text-sm text-charcoal leading-relaxed font-sans italic">
+                  {item.text}
+                </p>
+              </div>
+            ))}
+          </div>
+
+          <blockquote className="mt-10 text-center">
+            <p className="text-xl font-normal leading-relaxed text-charcoal sm:text-2xl font-display">
+              &ldquo;The potential to be a place for man, a place for nature,
+              a place for everything and everything in its place. This is Highland Farms.&rdquo;
+            </p>
+          </blockquote>
+        </Container>
+      </section>
+
+      {/* The Farm & Animals */}
+      <section className="py-20 lg:py-28 bg-warm-white">
+        <Container>
+          <div className="grid grid-cols-1 gap-12 lg:grid-cols-2 lg:items-center">
+            <div className="relative aspect-[4/3] overflow-hidden rounded-xl lg:order-1">
+              <Image
+                src="/images/farm/farm-animals.jpg"
+                alt="Guests petting Highland Cows in the barn at Highland Farms"
+                fill
+                sizes="(max-width: 1024px) 100vw, 50vw"
+                className="object-cover"
+              />
+            </div>
+
+            <div>
+              <p className="text-sm font-normal italic text-sage tracking-wide font-display mb-3">
+                Cultivate &amp; Connect
+              </p>
+              <h2 className="text-3xl font-normal sm:text-4xl">The Farm</h2>
+              <p className="mt-5 text-base text-muted leading-relaxed font-sans">
+                Curate an event you won&apos;t forget by incorporating the creatures
+                of Highland Farms. Whether taking wedding photos beside Highland Cows
+                or having your leadership team meet San Clemente Goats, farm
+                proprietor Connor McWilliams and his team of guides help visitors
+                get up close to the animals that call the farm home.
+              </p>
+              <p className="mt-4 text-base text-muted leading-relaxed font-sans">
+                Our gentle Scottish Highland Cows are the stars, but they share the
+                property with Icelandic Sheep, White Peacocks, African Grey Geese,
+                and San Clemente Goats. Whether you&apos;re here for a wedding, a farm
+                tour, or a weekend stay — the animals are always there to brighten
+                your day.
+              </p>
+              <div className="mt-6">
+                <Button href="/farm-tours" variant="outline" size="sm">
+                  Book a Farm Tour
+                </Button>
+              </div>
+            </div>
+          </div>
+        </Container>
+      </section>
+
+      {/* Property Amenities */}
+      <section className="py-20 lg:py-28 bg-background">
         <Container>
           <SectionHeading
             eyebrow="The Lay of the Land"
@@ -102,7 +208,7 @@ export default function AboutPage() {
           <div className="grid grid-cols-2 gap-6 lg:grid-cols-4">
             {amenities.map((amenity) => (
               <div key={amenity.label} className="text-center">
-                <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-full bg-white">
+                <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-full bg-cream">
                   <amenity.icon className="h-6 w-6 text-forest" />
                 </div>
                 <h3 className="mt-4 text-base font-normal text-charcoal font-sans">
@@ -117,69 +223,90 @@ export default function AboutPage() {
         </Container>
       </section>
 
-      {/* The Forest Valley */}
-      <section className="py-20 lg:py-28 bg-background">
-        <Container className="max-w-3xl text-center">
-          <p className="text-sm font-normal italic text-sage tracking-wide font-display mb-3">
-            The Forest Valley
-          </p>
-          <h2 className="text-3xl font-normal sm:text-4xl">
-            Brightwood, Oregon
-          </h2>
-          <p className="mt-4 text-base text-muted leading-relaxed font-sans">
-            Midway between Mount Hood and the fertile Willamette Valley,
-            Highland Farms sits in the heart of the Sandy River corridor. The
-            area has a rich history — Oregon Trail traders and trappers once
-            traversed these very forests. Today, it&apos;s a haven for those seeking
-            peace, beauty, and connection with the Pacific Northwest.
-          </p>
-          <p className="mt-4 text-base text-muted leading-relaxed font-sans">
-            Just 50 minutes from Portland and 20 minutes from Mt. Hood, Highland
-            Farms is accessible yet feels worlds away from the city.
-          </p>
-        </Container>
-      </section>
-
-      {/* The Farm */}
-      <section className="py-20 lg:py-28 bg-warm-white">
+      {/* Accommodations */}
+      <section className="py-20 lg:py-28 bg-cream">
         <Container>
-          <div className="grid grid-cols-1 gap-12 lg:grid-cols-2 lg:items-center">
-            <div className="relative aspect-[4/3] overflow-hidden rounded-xl lg:order-1">
-              <Image
-                src="/images/farm/farm-animals.jpg"
-                alt="Highland Cows and San Clemente Goats at Highland Farms"
-                fill
-                sizes="(max-width: 1024px) 100vw, 50vw"
-                className="object-cover"
-              />
-            </div>
+          <SectionHeading
+            eyebrow="Stay With Us"
+            title="The Accommodations"
+            subtitle="Three unique spaces designed for comfort and connection."
+          />
 
-            <div>
-              <p className="text-sm font-normal italic text-sage tracking-wide font-display mb-3">
-                Cultivate &amp; Connect
-              </p>
-              <h2 className="text-3xl font-normal sm:text-4xl">The Farm</h2>
-              <p className="mt-4 text-base text-muted leading-relaxed font-sans">
-                At the heart of Highland Farms are our animals. Our gentle
-                Highland Cows are the stars, but they share the property with
-                Icelandic Sheep, White Peacocks, African Grey Geese, and San
-                Clemente Goats.
-              </p>
-              <p className="mt-4 text-base text-muted leading-relaxed font-sans">
-                Whether you&apos;re here for a wedding, a farm tour, or a weekend
-                stay, the animals are always there to brighten your day.
-                They&apos;re perfect for photos, for calming the soul, and for
-                creating memories that last a lifetime.
-              </p>
-            </div>
+          <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
+            {[
+              {
+                name: "The Lodge",
+                tagline: "Relax & Reminisce",
+                description:
+                  "Your home base for the perfect gathering. Sleeps 8 with four bedrooms, a spacious family room, dining room, and an outdoor deck overlooking the farm and surrounding forest.",
+                href: "/stay/lodge",
+              },
+              {
+                name: "The Cottage",
+                tagline: "Retreat & Converse",
+                description:
+                  "A perfect space to continue dinner conversations into the night. Located a stone's throw from The Lodge with its own full kitchen, three bedrooms, and a patio with Adirondack chairs overlooking the farm.",
+                href: "/stay/cottage",
+              },
+              {
+                name: "The Camp",
+                tagline: "Recenter & Connect",
+                description:
+                  "A forest camping experience you won't forget. Sleeps 6 between the iconic Airstream and two queen-bed canvas tents. The Airstream features a full kitchen, bath, WiFi, and TV.",
+                href: "/stay/camp",
+              },
+            ].map((acc) => (
+              <Link
+                key={acc.name}
+                href={acc.href}
+                className="group block rounded-xl bg-white p-6 shadow-sm hover:shadow-md transition-all"
+              >
+                <h3 className="text-xl font-normal text-charcoal font-display">
+                  {acc.name}
+                </h3>
+                <p className="mt-1 text-sm italic text-sage font-display">
+                  {acc.tagline}
+                </p>
+                <p className="mt-3 text-sm text-muted leading-relaxed font-sans">
+                  {acc.description}
+                </p>
+                <p className="mt-4 text-sm font-light text-forest group-hover:text-forest-light transition-colors font-sans tracking-wide">
+                  View &amp; Book &rarr;
+                </p>
+              </Link>
+            ))}
           </div>
         </Container>
       </section>
 
-      {/* Gallery */}
+      {/* The Forest Valley */}
+      <section className="py-20 lg:py-28 bg-warm-white">
+        <Container className="max-w-3xl text-center">
+          <p className="text-sm font-normal italic text-sage tracking-wide font-display mb-3">
+            Explore &amp; Engage
+          </p>
+          <h2 className="text-3xl font-normal sm:text-4xl">
+            The Forest Valley
+          </h2>
+          <p className="mt-5 text-base text-muted leading-relaxed font-sans">
+            Brightwood, Oregon, sits in a forested valley midway between Mount Hood
+            and the fertile Willamette Valley. Perched on a sloping foothill above
+            the confluence of the Sandy and Salmon Rivers, Highland Farms shares the
+            same views witnessed by the fur traders and trappers that established
+            the infamous Oregon Trail.
+          </p>
+          <p className="mt-4 text-base text-muted leading-relaxed font-sans">
+            Just 50 minutes from Portland and 20 minutes from Mt. Hood, Highland
+            Farms is accessible yet feels worlds away from the city. Experience the
+            Mount Hood Territory at your doorstep.
+          </p>
+        </Container>
+      </section>
+
+      {/* Property Gallery */}
       <section className="py-20 lg:py-28 bg-background">
         <Container>
-          <SectionHeading title="The Property" />
+          <SectionHeading title="The Property" subtitle="Five acres of forest, farm, and magic." />
           <ImageCarousel images={galleryImages} aspectRatio="video" />
         </Container>
       </section>

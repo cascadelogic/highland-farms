@@ -46,12 +46,12 @@ function FarmTourSchema() {
 }
 
 const galleryImages = [
-  { src: "/images/farm/cow-2.jpg", alt: "Guests petting a Highland Cow during a farm tour" },
-  { src: "/images/farm/goats.jpg", alt: "Highland Cow with fluffy hair near the barn" },
-  { src: "/images/farm/sheep.jpg", alt: "Farm guide with a Highland Cow calf in the forest" },
-  { src: "/images/farm/geese.jpg", alt: "Brushing a Highland Cow on the farm" },
+  { src: "/images/farm/farm-animals.jpg", alt: "Guests petting a Highland Cow during a barn tour" },
   { src: "/images/farm/agritourism-stay.jpg", alt: "Couple meeting Highland Cows in the forest" },
-  { src: "/images/farm/cow-1.jpg", alt: "Highland Farms entrance sign and lodge" },
+  { src: "/images/farm/farm-life.jpg", alt: "Farm guide walking with a Highland Cow calf in the forest" },
+  { src: "/images/farm/geese.jpg", alt: "Farmer bonding with a resting Highland Cow" },
+  { src: "/images/farm/cows.jpg", alt: "Highland Cow mama and calf near the barn" },
+  { src: "/images/farm/farm-visit.jpg", alt: "Highland Cow close-up with shaggy hair and horns" },
 ];
 
 const features = [
