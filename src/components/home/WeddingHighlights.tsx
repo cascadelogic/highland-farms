@@ -8,14 +8,14 @@ const highlights = [
   {
     title: "All-Inclusive Packages",
     description: "Venue, on-site lodging for 24, event coordination, setup and teardown — we handle everything.",
-    image: "/images/weddings/details.jpg",
-    alt: "Wedding details and floral arrangements at Highland Farms",
+    image: "/images/weddings/ceremony-2.jpg",
+    alt: "Elegant outdoor dining setup at Highland Farms wedding",
   },
   {
     title: "Highland Cow Photo Ops",
     description: "Unforgettable photos with our gentle Highland Cows against the Pacific Northwest backdrop.",
-    image: "/images/farm/highland-cows-hero.jpg",
-    alt: "Highland Cows in the forest at Highland Farms Oregon",
+    image: "/images/weddings/ceremony-1.jpg",
+    alt: "Wedding couple posing with Highland Cow at Highland Farms",
   },
   {
     title: "Forest Ceremonies",
@@ -27,7 +27,7 @@ const highlights = [
     title: "Stay On-Site",
     description: "Your closest family and friends stay together in our Lodge, Cottage, and Camp.",
     image: "/images/properties/lodge.jpg",
-    alt: "The Lodge at Highland Farms",
+    alt: "The Cottage at Highland Farms",
   },
 ];
 

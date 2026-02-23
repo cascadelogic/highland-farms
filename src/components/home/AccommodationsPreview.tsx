@@ -21,7 +21,7 @@ export function AccommodationsPreview() {
             <StaggerItem key={property.slug} className="w-full">
               <Link
                 href={property.bookingUrl}
-                className="group block h-full overflow-hidden rounded-xl bg-white shadow-sm hover:shadow-md transition-all duration-500"
+                className="group flex flex-col h-full overflow-hidden rounded-xl bg-white shadow-sm hover:shadow-md transition-all duration-500"
               >
                 <div className="relative aspect-[4/3] overflow-hidden">
                   <Image
@@ -38,7 +38,7 @@ export function AccommodationsPreview() {
                   <div className="absolute inset-0 bg-charcoal/0 group-hover:bg-charcoal/10 transition-colors" />
                 </div>
 
-                <div className="p-5">
+                <div className="flex flex-col flex-1 p-5">
                   <h3 className="text-lg font-normal text-charcoal font-display">
                     {property.name}
                   </h3>
@@ -61,7 +61,7 @@ export function AccommodationsPreview() {
                     </span>
                   </div>
 
-                  <p className="mt-4 text-sm font-light text-forest group-hover:text-forest-light transition-colors font-sans tracking-wide">
+                  <p className="mt-auto pt-4 text-sm font-light text-forest group-hover:text-forest-light transition-colors font-sans tracking-wide">
                     View &amp; Book &rarr;
                   </p>
                 </div>

@@ -18,7 +18,7 @@ const PROFILE = {
   verified: false,
 };
 
-const PROFILE_AVATAR = "/images/farm/instagram-profile.jpg";
+const PROFILE_AVATAR = "/images/farm/instagram-profile.png";
 
 const instagramPosts = [
   {
