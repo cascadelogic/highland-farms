@@ -6,9 +6,10 @@ import { EventCategoryCards } from "@/components/shared/EventCategoryCards";
 import { CONTACT } from "@/lib/constants";
 
 export const metadata: Metadata = {
-  title: "Contact Us",
+  title: "Contact Us — Highland Farms Oregon",
   description:
-    "Contact Highland Farms Oregon for weddings, farm tours, Nordic spa sessions, and farm stays. Located in Brightwood, Oregon at the base of Mt. Hood.",
+    "Contact Highland Farms for weddings, farm tours, Nordic spa sessions, and farm stays in Brightwood, Oregon. Located 50 minutes from Portland at the base of Mt. Hood. Call (831) 214-2053.",
+  alternates: { canonical: "/contact" },
 };
 
 export default function ContactPage() {

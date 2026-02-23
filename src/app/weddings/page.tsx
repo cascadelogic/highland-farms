@@ -10,9 +10,17 @@ import { StickyMobileCTA } from "@/components/shared/StickyMobileCTA";
 import { CONTACT } from "@/lib/constants";
 
 export const metadata: Metadata = {
-  title: "Farm & Forest Weddings",
+  title: "Farm & Forest Weddings — Brightwood, Oregon",
   description:
-    "All-inclusive farm and forest weddings at Highland Farms, Oregon. Exchange vows under towering evergreens with Highland Cows, on-site lodging for 24 guests, at the base of Mt. Hood.",
+    "All-inclusive farm and forest weddings at Highland Farms, Brightwood, Oregon. Exchange vows under towering evergreens with Highland Cows, on-site lodging for 24 guests, at the base of Mt. Hood. 50 minutes from Portland.",
+  alternates: { canonical: "/weddings" },
+  openGraph: {
+    title: "Farm & Forest Weddings at Highland Farms Oregon",
+    description:
+      "All-inclusive wedding venue at the base of Mt. Hood with five acres of forest, Scottish Highland Cows, and on-site lodging for 24 guests.",
+    url: "https://highlandfarmsoregon.com/weddings",
+    type: "website",
+  },
 };
 
 const included = [

@@ -11,10 +11,39 @@ import { nordicSpaFAQ } from "@/data/nordic-spa";
 import { BOOKING_LINKS } from "@/lib/constants";
 
 export const metadata: Metadata = {
-  title: "Nordic Forest Spa",
+  title: "Nordic Forest Spa — Brightwood, Oregon",
   description:
-    "Soak in cedar hot tubs nestled among towering evergreens. Book a private 60-minute Nordic spa session at Highland Farms, Brightwood, Oregon.",
+    "Soak in cedar hot tubs nestled among towering evergreens near Portland, Oregon. Book a private 60-minute Nordic spa session at Highland Farms, Brightwood. Forest bathing at the base of Mt. Hood.",
+  alternates: { canonical: "/nordic-spa" },
+  openGraph: {
+    title: "Nordic Forest Spa at Highland Farms Oregon",
+    description:
+      "Private 60-minute cedar soaking tub sessions for 6-8 guests in a forest setting at the base of Mt. Hood.",
+    url: "https://highlandfarmsoregon.com/nordic-spa",
+    type: "website",
+  },
 };
+
+function NordicSpaSchema() {
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: nordicSpaFAQ.map((item) => ({
+      "@type": "Question",
+      name: item.question,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: item.answer,
+      },
+    })),
+  };
+  return (
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+    />
+  );
+}
 
 const galleryImages = [
   { src: "/images/spa/spa-1.jpg", alt: "Cedar spa deck nestled among old-growth forest" },
@@ -28,6 +57,7 @@ const galleryImages = [
 export default function NordicSpaPage() {
   return (
     <>
+      <NordicSpaSchema />
       {/* Hero */}
       <section className="relative flex min-h-[70vh] items-center justify-center overflow-hidden pt-[var(--header-h,80px)]">
         <div className="absolute inset-0 bg-gradient-to-b from-charcoal/60 via-charcoal/40 to-charcoal/60" />

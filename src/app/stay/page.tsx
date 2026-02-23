@@ -9,9 +9,17 @@ import { EventCategoryCards } from "@/components/shared/EventCategoryCards";
 import { properties } from "@/data/properties";
 
 export const metadata: Metadata = {
-  title: "Stay With Us",
+  title: "Farm Stays — Brightwood, Oregon",
   description:
-    "Book your farm stay at Highland Farms, Oregon. Choose from The Lodge, The Cottage, The Camp, or reserve the whole farm. 50 minutes from Portland, 20 minutes from Mt. Hood.",
+    "Book a farm stay at Highland Farms near Portland, Oregon. Choose from The Lodge, The Cottage, The Camp, or reserve the whole farm for up to 24 guests. 50 minutes from Portland, 20 minutes from Mt. Hood in Brightwood.",
+  alternates: { canonical: "/stay" },
+  openGraph: {
+    title: "Stay at Highland Farms — Farm Stays in Brightwood, Oregon",
+    description:
+      "Four unique forest accommodations at the base of Mt. Hood. Book direct for the best rate.",
+    url: "https://highlandfarmsoregon.com/stay",
+    type: "website",
+  },
 };
 
 export default function StayPage() {

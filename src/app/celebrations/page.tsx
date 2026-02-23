@@ -9,9 +9,10 @@ import { EventCategoryCards } from "@/components/shared/EventCategoryCards";
 import { CONTACT } from "@/lib/constants";
 
 export const metadata: Metadata = {
-  title: "Celebrations & Events",
+  title: "Celebrations & Events — Highland Farms Oregon",
   description:
-    "Host your engagement party, birthday, rehearsal dinner, anniversary, or special celebration at Highland Farms, Oregon. Highland Cows, forest setting, Nordic spa.",
+    "Host your engagement party, birthday, rehearsal dinner, anniversary, or special celebration at Highland Farms in Brightwood, Oregon. Highland Cows, forest setting, Nordic spa, and on-site lodging near Portland.",
+  alternates: { canonical: "/celebrations" },
 };
 
 const eventTypes = [

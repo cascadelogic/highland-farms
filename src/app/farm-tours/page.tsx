@@ -11,10 +11,39 @@ import { farmTourFAQ } from "@/data/farm-tours";
 import { BOOKING_LINKS } from "@/lib/constants";
 
 export const metadata: Metadata = {
-  title: "Highland Cow Farm Tours",
+  title: "Highland Cow Farm Tours — Brightwood, Oregon",
   description:
-    "Book a private Highland Cow farm tour in Oregon. Meet our Highland Cows, Icelandic Sheep, White Peacocks, and more. 60-minute private experiences at the base of Mt. Hood.",
+    "Book a private Highland Cow farm tour near Portland, Oregon. Meet Scottish Highland Cows, Icelandic Sheep, White Peacocks, and more. 60-minute private experiences at the base of Mt. Hood in Brightwood.",
+  alternates: { canonical: "/farm-tours" },
+  openGraph: {
+    title: "Highland Cow Farm Tours at Highland Farms Oregon",
+    description:
+      "Private 60-minute farm tours for up to 6 guests. Meet Highland Cows and farm animals at the base of Mt. Hood.",
+    url: "https://highlandfarmsoregon.com/farm-tours",
+    type: "website",
+  },
 };
+
+function FarmTourSchema() {
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: farmTourFAQ.map((item) => ({
+      "@type": "Question",
+      name: item.question,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: item.answer,
+      },
+    })),
+  };
+  return (
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+    />
+  );
+}
 
 const galleryImages = [
   { src: "/images/farm/cow-2.jpg", alt: "Guests petting a Highland Cow during a farm tour" },
@@ -55,6 +84,7 @@ const features = [
 export default function FarmToursPage() {
   return (
     <>
+      <FarmTourSchema />
       {/* Hero */}
       <section className="relative flex min-h-[70vh] items-center justify-center overflow-hidden pt-[var(--header-h,80px)]">
         <div className="absolute inset-0 bg-gradient-to-b from-charcoal/60 via-charcoal/40 to-charcoal/60" />

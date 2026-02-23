@@ -7,9 +7,10 @@ import { ImageCarousel } from "@/components/gallery/ImageCarousel";
 import { EventCategoryCards } from "@/components/shared/EventCategoryCards";
 
 export const metadata: Metadata = {
-  title: "About The Farm",
+  title: "About The Farm — Highland Farms Brightwood, Oregon",
   description:
-    "The story of Highland Farms — a transformed cedar mill property at the base of Mt. Hood featuring Highland Cows, forest lodging, and unforgettable experiences in Brightwood, Oregon.",
+    "The story of Highland Farms — a transformed cedar mill property at the base of Mt. Hood featuring Scottish Highland Cows, forest lodging for 24 guests, and unforgettable experiences in Brightwood, Oregon.",
+  alternates: { canonical: "/about" },
 };
 
 const amenities = [

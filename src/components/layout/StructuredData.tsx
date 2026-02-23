@@ -1,69 +1,264 @@
-import { CONTACT, SITE } from "@/lib/constants";
+import { CONTACT, SITE, BOOKING_LINKS } from "@/lib/constants";
+
+const address = {
+  "@type": "PostalAddress",
+  streetAddress: CONTACT.address,
+  addressLocality: CONTACT.city,
+  addressRegion: CONTACT.state,
+  postalCode: CONTACT.zip,
+  addressCountry: "US",
+};
+
+const geo = {
+  "@type": "GeoCoordinates",
+  latitude: CONTACT.coordinates.lat,
+  longitude: CONTACT.coordinates.lng,
+};
 
 export function StructuredData() {
   const jsonLd = {
     "@context": "https://schema.org",
     "@graph": [
+      // ── Primary LocalBusiness (enhanced for local SEO) ──
       {
-        "@type": "LocalBusiness",
+        "@type": ["LocalBusiness", "LodgingBusiness", "EventVenue"],
         "@id": `${SITE.url}/#business`,
         name: "Highland Farms Oregon",
+        alternateName: "Highland Farms",
         description: SITE.description,
         url: SITE.url,
         telephone: CONTACT.phone,
         email: CONTACT.email,
-        address: {
-          "@type": "PostalAddress",
-          streetAddress: CONTACT.address,
-          addressLocality: CONTACT.city,
-          addressRegion: CONTACT.state,
-          postalCode: CONTACT.zip,
-          addressCountry: "US",
-        },
-        geo: {
-          "@type": "GeoCoordinates",
-          latitude: CONTACT.coordinates.lat,
-          longitude: CONTACT.coordinates.lng,
-        },
+        address,
+        geo,
+        hasMap: `https://www.google.com/maps?q=${CONTACT.coordinates.lat},${CONTACT.coordinates.lng}`,
         sameAs: [CONTACT.instagram],
+        image: [
+          `${SITE.url}/images/hero/home.jpg`,
+          `${SITE.url}/images/weddings/couple.jpg`,
+          `${SITE.url}/images/farm/highland-cows-hero.jpg`,
+        ],
+        logo: `${SITE.url}/images/logo/HF-Lettermark.png`,
+        priceRange: "$$$$",
+        currenciesAccepted: "USD",
+        paymentAccepted: "Cash, Credit Card",
+        areaServed: [
+          {
+            "@type": "City",
+            name: "Portland",
+            "@id": "https://en.wikipedia.org/wiki/Portland,_Oregon",
+          },
+          {
+            "@type": "City",
+            name: "Brightwood",
+          },
+          {
+            "@type": "State",
+            name: "Oregon",
+            "@id": "https://en.wikipedia.org/wiki/Oregon",
+          },
+          {
+            "@type": "GeoCircle",
+            geoMidpoint: geo,
+            geoRadius: "100000",
+          },
+        ],
+        knowsAbout: [
+          "Farm weddings",
+          "Forest weddings",
+          "Highland Cow farm tours",
+          "Nordic spa experiences",
+          "Farm stays",
+          "Intimate weddings",
+          "Destination weddings",
+          "Event venue",
+        ],
+        keywords:
+          "Oregon wedding venue, farm wedding, Mt Hood wedding, Highland Cow farm tour, Nordic spa Oregon, farm stay Oregon, Brightwood Oregon, Portland wedding venue, forest wedding, intimate wedding venue, destination wedding Oregon",
+        slogan: SITE.tagline,
+        numberOfRooms: 8,
+        petsAllowed: false,
+        checkinTime: "15:00",
+        checkoutTime: "11:00",
+        amenityFeature: [
+          { "@type": "LocationFeatureSpecification", name: "Free WiFi", value: true },
+          { "@type": "LocationFeatureSpecification", name: "Free Parking", value: true },
+          { "@type": "LocationFeatureSpecification", name: "Full Kitchen", value: true },
+          { "@type": "LocationFeatureSpecification", name: "Highland Cow Farm Tours", value: true },
+          { "@type": "LocationFeatureSpecification", name: "Nordic Cedar Soaking Spa", value: true },
+          { "@type": "LocationFeatureSpecification", name: "Forest Setting", value: true },
+          { "@type": "LocationFeatureSpecification", name: "On-Site Lodging", value: true },
+          { "@type": "LocationFeatureSpecification", name: "Event Coordination", value: true },
+        ],
+        maximumAttendeeCapacity: 24,
+        containsPlace: [
+          {
+            "@type": "Accommodation",
+            name: "The Lodge",
+            description:
+              "Historic cedar mill lodge sleeping 8 guests across 4 bedrooms with forest deck views and full kitchen.",
+            url: `${SITE.url}/stay/lodge`,
+            occupancy: {
+              "@type": "QuantitativeValue",
+              maxValue: 8,
+            },
+            numberOfBedrooms: 4,
+            numberOfBathroomsTotal: 2,
+          },
+          {
+            "@type": "Accommodation",
+            name: "The Cottage",
+            description:
+              "Cozy retreat near The Lodge with 3 bedrooms, full kitchen, and forest surroundings. Sleeps 8 guests.",
+            url: `${SITE.url}/stay/cottage`,
+            occupancy: {
+              "@type": "QuantitativeValue",
+              maxValue: 8,
+            },
+            numberOfBedrooms: 3,
+            numberOfBathroomsTotal: 1,
+          },
+          {
+            "@type": "Accommodation",
+            name: "The Camp",
+            description:
+              "Glamping experience with a restored Airstream trailer and canvas tent camping under towering evergreens.",
+            url: `${SITE.url}/stay/camp`,
+            occupancy: {
+              "@type": "QuantitativeValue",
+              maxValue: 4,
+            },
+            numberOfBedrooms: 1,
+            numberOfBathroomsTotal: 1,
+          },
+        ],
       },
+
+      // ── EventVenue (wedding-specific) ──
       {
         "@type": "EventVenue",
         "@id": `${SITE.url}/#venue`,
-        name: "Highland Farms Oregon",
+        name: "Highland Farms Wedding Venue",
         description:
-          "All-inclusive farm and forest wedding venue at the base of Mt. Hood. Five acres of forest, Highland Cows, on-site lodging for 24 guests.",
+          "All-inclusive farm and forest wedding venue at the base of Mt. Hood. Five acres of old-growth forest, Scottish Highland Cows, on-site lodging for 24 guests, and dedicated event coordination.",
         url: `${SITE.url}/weddings`,
-        address: {
-          "@type": "PostalAddress",
-          streetAddress: CONTACT.address,
-          addressLocality: CONTACT.city,
-          addressRegion: CONTACT.state,
-          postalCode: CONTACT.zip,
-          addressCountry: "US",
-        },
-        geo: {
-          "@type": "GeoCoordinates",
-          latitude: CONTACT.coordinates.lat,
-          longitude: CONTACT.coordinates.lng,
-        },
+        address,
+        geo,
         maximumAttendeeCapacity: 24,
+        isAccessibleForFree: false,
+        publicAccess: false,
+        image: `${SITE.url}/images/weddings/couple.jpg`,
       },
+
+      // ── TouristAttraction (farm tours) ──
       {
         "@type": "TouristAttraction",
         "@id": `${SITE.url}/#attraction`,
-        name: "Highland Farms Farm Tours",
+        name: "Highland Farms Highland Cow Farm Tours",
         description:
-          "Private Highland Cow farm tours featuring Highland Cows, Icelandic Sheep, White Peacocks, and more. 60-minute private experiences.",
+          "Private 60-minute farm tours for up to 6 guests. Meet Scottish Highland Cows, Icelandic Sheep, White Peacocks, Nigerian Dwarf Goats, Kunekune Pigs, geese, and chickens at the base of Mt. Hood.",
         url: `${SITE.url}/farm-tours`,
-        address: {
-          "@type": "PostalAddress",
-          streetAddress: CONTACT.address,
-          addressLocality: CONTACT.city,
-          addressRegion: CONTACT.state,
-          postalCode: CONTACT.zip,
-          addressCountry: "US",
+        address,
+        geo,
+        isAccessibleForFree: false,
+        publicAccess: true,
+        touristType: ["Families", "Animal lovers", "Nature enthusiasts"],
+        image: `${SITE.url}/images/farm/highland-cows-hero.jpg`,
+      },
+
+      // ── Product (farm tour offering) ──
+      {
+        "@type": "Product",
+        "@id": `${SITE.url}/#farm-tour-product`,
+        name: "Highland Cow Farm Tour",
+        description:
+          "Private 60-minute Highland Cow farm tour for up to 6 guests. Meet Highland Cows, Icelandic Sheep, White Peacocks, and more.",
+        url: `${SITE.url}/farm-tours`,
+        brand: {
+          "@type": "Brand",
+          name: "Highland Farms Oregon",
         },
+        offers: {
+          "@type": "Offer",
+          url: BOOKING_LINKS.farmTour,
+          availability: "https://schema.org/InStock",
+          priceCurrency: "USD",
+        },
+      },
+
+      // ── Product (Nordic spa offering) ──
+      {
+        "@type": "Product",
+        "@id": `${SITE.url}/#spa-product`,
+        name: "Nordic Forest Spa Session",
+        description:
+          "Private 60-minute cedar soaking tub session for 6-8 guests in a forest setting. Nordic-inspired forest bathing experience.",
+        url: `${SITE.url}/nordic-spa`,
+        brand: {
+          "@type": "Brand",
+          name: "Highland Farms Oregon",
+        },
+        offers: {
+          "@type": "Offer",
+          url: BOOKING_LINKS.nordicSpa,
+          availability: "https://schema.org/InStock",
+          priceCurrency: "USD",
+        },
+      },
+
+      // ── WebSite (for sitelinks search box) ──
+      {
+        "@type": "WebSite",
+        "@id": `${SITE.url}/#website`,
+        url: SITE.url,
+        name: "Highland Farms Oregon",
+        description: SITE.description,
+        publisher: { "@id": `${SITE.url}/#business` },
+        inLanguage: "en-US",
+      },
+
+      // ── BreadcrumbList (site structure) ──
+      {
+        "@type": "BreadcrumbList",
+        "@id": `${SITE.url}/#breadcrumb`,
+        itemListElement: [
+          {
+            "@type": "ListItem",
+            position: 1,
+            name: "Home",
+            item: SITE.url,
+          },
+          {
+            "@type": "ListItem",
+            position: 2,
+            name: "Weddings",
+            item: `${SITE.url}/weddings`,
+          },
+          {
+            "@type": "ListItem",
+            position: 3,
+            name: "Farm Tours",
+            item: `${SITE.url}/farm-tours`,
+          },
+          {
+            "@type": "ListItem",
+            position: 4,
+            name: "Nordic Spa",
+            item: `${SITE.url}/nordic-spa`,
+          },
+          {
+            "@type": "ListItem",
+            position: 5,
+            name: "Stay",
+            item: `${SITE.url}/stay`,
+          },
+          {
+            "@type": "ListItem",
+            position: 6,
+            name: "Contact",
+            item: `${SITE.url}/contact`,
+          },
+        ],
       },
     ],
   };
