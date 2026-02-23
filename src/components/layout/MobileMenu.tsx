@@ -3,9 +3,8 @@
 import { useEffect, useRef, useCallback } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { X } from "lucide-react";
+import { X, Phone, Mail, Instagram } from "lucide-react";
 import { mainNavItems } from "@/data/navigation";
-import { Button } from "@/components/ui/Button";
 import { CONTACT } from "@/lib/constants";
 
 interface MobileMenuProps {
@@ -78,25 +77,15 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
           </button>
         </div>
 
-        {/* CTAs at top */}
-        <div className="px-6 pb-4 space-y-3">
-          <Button href="/weddings" size="lg" className="w-full" onClick={onClose}>
-            Begin Your Story
-          </Button>
-          <Button href="/contact" variant="outline" size="lg" className="w-full" onClick={onClose}>
-            Inquire
-          </Button>
-        </div>
-
         {/* Nav links */}
-        <nav className="flex-1 overflow-y-auto px-6 py-4" aria-label="Mobile navigation">
-          <ul className="space-y-0.5">
+        <nav className="flex-1 overflow-y-auto px-6 pt-2 pb-4" aria-label="Mobile navigation">
+          <ul className="space-y-0">
             {mainNavItems.map((item) => (
               <li key={item.href}>
                 <Link
                   href={item.href}
                   onClick={onClose}
-                  className="block py-3 text-base font-light text-charcoal hover:text-forest transition-colors border-b border-cream-dark/30 font-sans"
+                  className="block py-3.5 text-lg font-normal text-charcoal hover:text-forest transition-colors border-b border-cream-dark/20 font-display"
                 >
                   {item.label}
                 </Link>
@@ -117,17 +106,51 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
                 )}
               </li>
             ))}
+
+            {/* Contact as a nav item */}
+            <li>
+              <Link
+                href="/contact"
+                onClick={onClose}
+                className="block py-3.5 text-lg font-normal text-forest hover:text-forest-light transition-colors font-display"
+              >
+                Get in Touch
+              </Link>
+            </li>
           </ul>
         </nav>
 
-        {/* Contact info */}
-        <div className="border-t border-cream-dark/30 px-6 py-5 text-xs text-charcoal/70 font-light font-sans tracking-wide">
-          <a href={`tel:${CONTACT.phone.replace(/\s/g, "")}`} className="block hover:text-forest transition-colors">
-            {CONTACT.phone}
-          </a>
-          <a href={`mailto:${CONTACT.email}`} className="block mt-1 hover:text-forest transition-colors">
-            {CONTACT.email}
-          </a>
+        {/* Footer with contact info */}
+        <div className="border-t border-cream-dark/20 px-6 py-5 space-y-3">
+          <div className="flex items-center gap-3">
+            <a
+              href={`tel:${CONTACT.phone.replace(/\s/g, "")}`}
+              className="flex items-center gap-2 text-sm text-charcoal/70 hover:text-forest transition-colors font-sans font-light"
+            >
+              <Phone className="h-3.5 w-3.5 shrink-0" />
+              {CONTACT.phone}
+            </a>
+          </div>
+          <div className="flex items-center gap-3">
+            <a
+              href={`mailto:${CONTACT.email}`}
+              className="flex items-center gap-2 text-sm text-charcoal/70 hover:text-forest transition-colors font-sans font-light"
+            >
+              <Mail className="h-3.5 w-3.5 shrink-0" />
+              {CONTACT.email}
+            </a>
+          </div>
+          <div className="flex items-center gap-3">
+            <a
+              href={CONTACT.instagram}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-2 text-sm text-charcoal/70 hover:text-forest transition-colors font-sans font-light"
+            >
+              <Instagram className="h-3.5 w-3.5 shrink-0" />
+              {CONTACT.instagramHandle}
+            </a>
+          </div>
         </div>
       </div>
     </div>

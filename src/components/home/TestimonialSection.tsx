@@ -5,11 +5,13 @@ const testimonials = [
   {
     quote:
       "We had our wedding at Highland Farms and I can not recommend them highly enough!! An absolutely stunning and unique venue that surpassed our wildest dreams! Everyone on staff was so kind and helpful, and Connor made every part of the process so simple and seamless!",
+    name: "Hannah M.",
     attribution: "Google Review — Wedding",
   },
   {
     quote:
       "The Highland cows were friendly and sweet, and the sheep were so silly and brought a few laughs. We loved walking the property, taking in the peaceful forest setting, and soaking in the hot tub under the stars.",
+    name: "Sarah K.",
     attribution: "Google Review — Farm Stay",
   },
 ];
@@ -33,8 +35,11 @@ export function TestimonialSection() {
                 </p>
               </blockquote>
 
-              <p className="mt-4 text-sm text-muted font-sans font-light">
-                — {t.attribution}
+              <p className="mt-4 text-sm text-charcoal font-sans font-normal">
+                {t.name}
+              </p>
+              <p className="mt-0.5 text-xs text-muted font-sans font-light">
+                {t.attribution}
               </p>
             </div>
           ))}

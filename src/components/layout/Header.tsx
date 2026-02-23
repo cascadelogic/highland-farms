@@ -69,7 +69,7 @@ export function Header() {
                 />
                 <span
                   className={cn(
-                    "text-sm font-light tracking-[0.15em] uppercase transition-colors hidden sm:inline font-sans",
+                    "text-xs sm:text-sm font-light tracking-[0.15em] uppercase transition-colors font-sans",
                     scrolled ? "text-charcoal" : "text-white"
                   )}
                 >

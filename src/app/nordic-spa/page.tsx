@@ -238,8 +238,11 @@ export default function NordicSpaPage() {
               one of the highlights of our Oregon trip.&rdquo;
             </p>
           </blockquote>
-          <p className="mt-6 text-sm text-muted font-sans">
-            — Google Review
+          <p className="mt-6 text-sm text-charcoal font-sans font-normal">
+            Emily T.
+          </p>
+          <p className="mt-0.5 text-xs text-muted font-sans font-light">
+            Google Review — Farm Stay
           </p>
           <a
             href="https://share.google/jrLOI4AhnpzbPPBpF"

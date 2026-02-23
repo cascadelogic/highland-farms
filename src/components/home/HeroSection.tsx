@@ -16,8 +16,8 @@ export function HeroSection() {
         quality={85}
       />
       {/* Dreamy overlay */}
-      <div className="absolute inset-0 bg-gradient-to-b from-black/35 via-black/15 to-black/50" />
-      <div className="absolute inset-0 bg-gradient-to-r from-black/10 via-transparent to-black/10" />
+      <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/40 to-black/60" />
+      <div className="absolute inset-0 bg-gradient-to-r from-black/15 via-transparent to-black/15" />
 
       {/* Content */}
       <div className="relative z-10 mx-auto max-w-3xl px-4 text-center text-white">

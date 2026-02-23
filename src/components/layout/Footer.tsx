@@ -44,9 +44,19 @@ export function Footer() {
               href="https://traveloregon.com/plan-your-trip/places-to-stay/farm-ranch-stays/highland-farms/"
               target="_blank"
               rel="noopener noreferrer"
-              className="mt-2 block text-xs text-white/55 hover:text-white/55 transition-colors font-sans font-light"
+              className="mt-3 inline-flex items-center gap-2.5 rounded-lg border border-white/15 bg-white/5 px-3.5 py-2 hover:bg-white/10 hover:border-white/25 transition-all"
             >
-              Featured on Travel Oregon
+              <svg viewBox="0 0 24 24" className="h-5 w-5 text-[#6B9E3C] shrink-0" fill="currentColor">
+                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/>
+              </svg>
+              <div>
+                <p className="text-[10px] font-light uppercase tracking-[0.12em] text-white/50 font-sans leading-none">
+                  Featured on
+                </p>
+                <p className="text-xs font-normal text-white/75 font-sans mt-0.5">
+                  Travel Oregon
+                </p>
+              </div>
             </a>
           </div>
 

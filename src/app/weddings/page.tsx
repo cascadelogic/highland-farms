@@ -193,8 +193,11 @@ export default function WeddingsPage() {
               so simple and seamless!&rdquo;
             </p>
           </blockquote>
-          <p className="mt-6 text-sm text-muted font-sans">
-            — Google Review
+          <p className="mt-6 text-sm text-charcoal font-sans font-normal">
+            Hannah M.
+          </p>
+          <p className="mt-0.5 text-xs text-muted font-sans font-light">
+            Google Review — Wedding
           </p>
           <a
             href="https://share.google/jrLOI4AhnpzbPPBpF"

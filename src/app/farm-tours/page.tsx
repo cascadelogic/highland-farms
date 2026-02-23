@@ -248,8 +248,11 @@ export default function FarmToursPage() {
               highland cows.&rdquo;
             </p>
           </blockquote>
-          <p className="mt-6 text-sm text-muted font-sans">
-            — Google Review
+          <p className="mt-6 text-sm text-charcoal font-sans font-normal">
+            Jessica R.
+          </p>
+          <p className="mt-0.5 text-xs text-muted font-sans font-light">
+            Google Review — Farm Tour
           </p>
           <a
             href="https://share.google/jrLOI4AhnpzbPPBpF"
