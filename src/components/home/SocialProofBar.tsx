@@ -1,4 +1,4 @@
-import { Star, MapPin } from "lucide-react";
+import { Star, Instagram } from "lucide-react";
 import { Container } from "@/components/ui/Container";
 
 export function SocialProofBar() {
@@ -39,10 +39,15 @@ export function SocialProofBar() {
 
           <div className="h-3 w-px bg-charcoal/10" />
 
-          <p className="flex items-center gap-1.5 text-xs font-light tracking-wide font-sans">
-            <MapPin className="h-3 w-3 text-sage" />
-            50 min from Portland &middot; 20 min from Mt. Hood
-          </p>
+          <a
+            href="https://www.instagram.com/highlandfarmsor"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-1.5 text-xs font-light tracking-wide font-sans hover:text-charcoal transition-colors"
+          >
+            <Instagram className="h-3.5 w-3.5 text-charcoal/50" />
+            18K+ followers on Instagram
+          </a>
         </div>
 
         {/* Mobile: compact badge row */}
@@ -77,12 +82,17 @@ export function SocialProofBar() {
             </span>
           </a>
 
-          <div className="inline-flex items-center gap-1.5 rounded-full bg-cream/60 px-3 py-1.5">
-            <MapPin className="h-2.5 w-2.5 text-sage" />
+          <a
+            href="https://www.instagram.com/highlandfarmsor"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-1.5 rounded-full bg-cream/60 px-3 py-1.5"
+          >
+            <Instagram className="h-2.5 w-2.5 text-charcoal/60" />
             <span className="text-[11px] font-light text-charcoal/80 font-sans">
-              Near Portland
+              18K+ followers
             </span>
-          </div>
+          </a>
         </div>
       </Container>
     </section>
