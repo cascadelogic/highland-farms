@@ -4,6 +4,7 @@ import { Playfair_Display } from "next/font/google";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { AnnouncementBar } from "@/components/layout/AnnouncementBar";
+import { GoogleTagManager, GoogleTagManagerNoScript } from "@/components/layout/GoogleTagManager";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -51,7 +52,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <GoogleTagManager />
       <body className={`${geistSans.variable} ${playfair.variable} antialiased`}>
+        <GoogleTagManagerNoScript />
         <AnnouncementBar />
         <Header />
         <main>{children}</main>

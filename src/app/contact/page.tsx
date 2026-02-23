@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Phone, Mail, MapPin, Instagram, Clock } from "lucide-react";
 import { Container } from "@/components/ui/Container";
-import { SectionHeading } from "@/components/ui/SectionHeading";
+import { ContactForm } from "@/components/forms/ContactForm";
 import { EventCategoryCards } from "@/components/shared/EventCategoryCards";
 import { CONTACT } from "@/lib/constants";
 
@@ -118,112 +118,12 @@ export default function ContactPage() {
               </div>
             </div>
 
-            {/* Right: Inquiry Form */}
-            <div>
-              <div className="rounded-sm border border-cream-dark bg-white p-8 shadow-sm">
-                <SectionHeading
-                  title="Send Us a Message"
-                  subtitle="Tell us about your event or question and we'll get back to you shortly."
-                  align="left"
-                  className="mb-8"
-                />
-
-                {/* Placeholder form — Supabase-backed in Phase 3 */}
-                <form className="space-y-5">
-                  <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
-                    <div>
-                      <label htmlFor="contact-name" className="block text-sm font-medium text-charcoal mb-1.5 font-sans">
-                        Your Name
-                      </label>
-                      <input
-                        type="text"
-                        id="contact-name"
-                        name="name"
-                        className="w-full rounded-sm border border-cream-dark bg-white px-4 py-3 text-sm font-sans text-charcoal placeholder:text-muted/60 focus:border-forest focus:outline-none focus:ring-1 focus:ring-forest"
-                        placeholder="First & Last Name"
-                      />
-                    </div>
-                    <div>
-                      <label htmlFor="contact-email" className="block text-sm font-medium text-charcoal mb-1.5 font-sans">
-                        Email Address
-                      </label>
-                      <input
-                        type="email"
-                        id="contact-email"
-                        name="email"
-                        className="w-full rounded-sm border border-cream-dark bg-white px-4 py-3 text-sm font-sans text-charcoal placeholder:text-muted/60 focus:border-forest focus:outline-none focus:ring-1 focus:ring-forest"
-                        placeholder="you@email.com"
-                      />
-                    </div>
-                  </div>
-
-                  <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
-                    <div>
-                      <label htmlFor="contact-phone" className="block text-sm font-medium text-charcoal mb-1.5 font-sans">
-                        Phone (optional)
-                      </label>
-                      <input
-                        type="tel"
-                        id="contact-phone"
-                        name="phone"
-                        className="w-full rounded-sm border border-cream-dark bg-white px-4 py-3 text-sm font-sans text-charcoal placeholder:text-muted/60 focus:border-forest focus:outline-none focus:ring-1 focus:ring-forest"
-                        placeholder="(555) 123-4567"
-                      />
-                    </div>
-                    <div>
-                      <label htmlFor="contact-event-type" className="block text-sm font-medium text-charcoal mb-1.5 font-sans">
-                        Event Type
-                      </label>
-                      <select
-                        id="contact-event-type"
-                        name="event-type"
-                        className="w-full rounded-sm border border-cream-dark bg-white px-4 py-3 text-sm font-sans text-charcoal focus:border-forest focus:outline-none focus:ring-1 focus:ring-forest"
-                      >
-                        <option value="">Select type</option>
-                        <option value="wedding">Wedding</option>
-                        <option value="elopement">Elopement</option>
-                        <option value="celebration">Celebration</option>
-                        <option value="retreat">Retreat</option>
-                        <option value="photoshoot">Photoshoot</option>
-                        <option value="farm-stay">Farm Stay</option>
-                        <option value="other">Other</option>
-                      </select>
-                    </div>
-                  </div>
-
-                  <div>
-                    <label htmlFor="contact-date" className="block text-sm font-medium text-charcoal mb-1.5 font-sans">
-                      Preferred Date (optional)
-                    </label>
-                    <input
-                      type="date"
-                      id="contact-date"
-                      name="date"
-                      className="w-full rounded-sm border border-cream-dark bg-white px-4 py-3 text-sm font-sans text-charcoal focus:border-forest focus:outline-none focus:ring-1 focus:ring-forest"
-                    />
-                  </div>
-
-                  <div>
-                    <label htmlFor="contact-message" className="block text-sm font-medium text-charcoal mb-1.5 font-sans">
-                      Message
-                    </label>
-                    <textarea
-                      id="contact-message"
-                      name="message"
-                      rows={5}
-                      className="w-full rounded-sm border border-cream-dark bg-white px-4 py-3 text-sm font-sans text-charcoal placeholder:text-muted/60 focus:border-forest focus:outline-none focus:ring-1 focus:ring-forest resize-none"
-                      placeholder="Tell us about your event or question..."
-                    />
-                  </div>
-
-                  <button
-                    type="submit"
-                    className="w-full rounded-sm bg-forest px-6 py-3.5 text-base font-medium tracking-wide text-white transition-colors hover:bg-forest-light"
-                  >
-                    Send Message
-                  </button>
-                </form>
-              </div>
+            {/* Right: Real Inquiry Form */}
+            <div className="rounded-sm border border-cream-dark bg-white p-8 shadow-sm">
+              <ContactForm
+                heading="Send Us a Message"
+                subtitle="Tell us about your event or question and we'll get back to you shortly."
+              />
             </div>
           </div>
         </Container>

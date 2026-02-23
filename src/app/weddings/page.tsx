@@ -3,8 +3,8 @@ import { Check, Users, TreePine, Camera, UtensilsCrossed, Music, Heart } from "l
 import { Container } from "@/components/ui/Container";
 import { Button } from "@/components/ui/Button";
 import { SectionHeading } from "@/components/ui/SectionHeading";
-import { ImageCarousel } from "@/components/gallery/ImageCarousel";
 import { ImageGallery } from "@/components/gallery/ImageGallery";
+import { ContactForm } from "@/components/forms/ContactForm";
 import { CONTACT } from "@/lib/constants";
 
 export const metadata: Metadata = {
@@ -178,27 +178,27 @@ export default function WeddingsPage() {
         </Container>
       </section>
 
-      {/* CTA */}
-      <section className="py-20 lg:py-28 bg-forest text-white text-center">
-        <Container className="max-w-3xl">
-          <h2 className="text-3xl font-medium sm:text-4xl">
-            Ready to Start Planning?
-          </h2>
-          <p className="mx-auto mt-4 max-w-xl text-lg text-white/80 font-sans leading-relaxed">
-            Every wedding at Highland Farms is unique. Tell us about your vision
-            and we&apos;ll create a custom package for your special day.
-          </p>
-          <div className="mt-8 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
-            <Button href="/contact" size="lg" className="bg-white text-charcoal hover:bg-cream">
-              Get Your Custom Quote
-            </Button>
-            <a
-              href={`tel:${CONTACT.phone.replace(/\s/g, "")}`}
-              className="text-sm text-white/80 hover:text-white transition-colors font-sans"
-            >
-              Or call us at {CONTACT.phone}
-            </a>
+      {/* Inquiry Form */}
+      <section className="py-20 lg:py-28 bg-warm-white">
+        <Container className="max-w-4xl">
+          <SectionHeading
+            eyebrow="Ready to Start Planning?"
+            title="Get Your Custom Quote"
+            subtitle="Every wedding at Highland Farms is unique. Tell us your vision and we'll create a custom package."
+          />
+          <div className="mx-auto max-w-xl rounded-sm border border-cream-dark bg-white p-8 shadow-sm">
+            <ContactForm
+              defaultEventType="wedding"
+              heading=""
+              subtitle=""
+            />
           </div>
+          <p className="mt-6 text-center text-sm text-muted font-sans">
+            Or call us directly at{" "}
+            <a href={`tel:${CONTACT.phone.replace(/\s/g, "")}`} className="text-forest hover:text-forest-light transition-colors">
+              {CONTACT.phone}
+            </a>
+          </p>
         </Container>
       </section>
     </>
