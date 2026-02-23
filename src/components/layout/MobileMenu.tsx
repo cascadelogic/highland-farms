@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useCallback } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { X } from "lucide-react";
 import { mainNavItems } from "@/data/navigation";
 import { Button } from "@/components/ui/Button";
@@ -58,8 +59,17 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
       <div className="flex h-full flex-col">
         {/* Header */}
         <div className="flex items-center justify-between px-6 py-5">
-          <Link href="/" onClick={onClose} className="font-display text-xl font-semibold tracking-wide">
-            Highland Farms
+          <Link href="/" onClick={onClose} className="inline-flex items-center gap-2">
+            <Image
+              src="/images/logo/HF-Lettermark.png"
+              alt="Highland Farms"
+              width={40}
+              height={24}
+              className="h-6 w-auto"
+            />
+            <span className="font-display text-xl font-semibold tracking-wide">
+              Highland Farms
+            </span>
           </Link>
           <button
             ref={closeButtonRef}

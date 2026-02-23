@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/Button";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { ImageGallery } from "@/components/gallery/ImageGallery";
 import { ContactForm } from "@/components/forms/ContactForm";
+import { StickyMobileCTA } from "@/components/shared/StickyMobileCTA";
 import { CONTACT } from "@/lib/constants";
 
 export const metadata: Metadata = {
@@ -24,19 +25,19 @@ const included = [
 ];
 
 const galleryImages = [
-  { src: "/images/weddings/ceremony.jpg", alt: "Forest ceremony setup" },
-  { src: "/images/weddings/couple.jpg", alt: "Couple with Highland Cows" },
-  { src: "/images/weddings/reception.jpg", alt: "Outdoor reception" },
-  { src: "/images/weddings/details.jpg", alt: "Wedding details" },
-  { src: "/images/weddings/guests.jpg", alt: "Guests enjoying the farm" },
-  { src: "/images/weddings/sunset.jpg", alt: "Sunset at Highland Farms" },
+  { src: "/images/weddings/ceremony.jpg", alt: "Couple at reception table with string lights" },
+  { src: "/images/weddings/hannah-max/01.jpg", alt: "Couple kissing with Highland Cow calf in forest" },
+  { src: "/images/weddings/couple.jpg", alt: "Forest ceremony setup with wooden arch" },
+  { src: "/images/weddings/details.jpg", alt: "Wedding details and florals" },
+  { src: "/images/weddings/guests.jpg", alt: "Wedding celebration at Highland Farms" },
+  { src: "/images/weddings/sunset.jpg", alt: "Evening reception at Highland Farms" },
 ];
 
 export default function WeddingsPage() {
   return (
     <>
       {/* Hero */}
-      <section className="relative flex min-h-[75vh] items-center justify-center overflow-hidden">
+      <section className="relative flex min-h-[75vh] items-center justify-center overflow-hidden pt-[var(--header-h,80px)]">
         <div className="absolute inset-0 bg-gradient-to-b from-charcoal/60 via-charcoal/40 to-charcoal/60" />
         <div className="absolute inset-0 bg-[url('/images/weddings/hero.jpg')] bg-cover bg-center" />
         <div className="absolute inset-0 bg-black/35" />
@@ -160,25 +161,41 @@ export default function WeddingsPage() {
             subtitle="See real celebrations at Highland Farms."
           />
           <ImageGallery images={galleryImages} columns={3} />
+          <div className="mt-10 text-center">
+            <Button href="/wedding-portfolio" variant="outline">
+              View Full Wedding Portfolio &rarr;
+            </Button>
+          </div>
         </Container>
       </section>
 
       {/* Testimonial */}
       <section className="py-20 lg:py-28 bg-background">
         <Container className="max-w-3xl text-center">
+          <div className="flex justify-center mb-6">
+            {[...Array(5)].map((_, i) => (
+              <Heart key={i} className="h-4 w-4 fill-accent text-accent" />
+            ))}
+          </div>
           <blockquote>
-            <p className="text-2xl font-medium leading-relaxed text-charcoal">
-              &ldquo;Highland Farms was beyond anything we could have imagined.
-              The forest ceremony, the Highland Cows, the lodge — every detail
-              was perfect. Our guests are still talking about it.&rdquo;
+            <p className="text-xl font-medium leading-relaxed text-charcoal sm:text-2xl">
+              &ldquo;We had our wedding at Highland Farms and I can not recommend
+              them highly enough!! An absolutely stunning and unique venue that
+              surpassed our wildest dreams! Connor made every part of the process
+              so simple and seamless!&rdquo;
             </p>
           </blockquote>
-          <p className="mt-6 text-sm font-semibold text-charcoal font-sans">
-            — A Happy Couple
+          <p className="mt-6 text-sm text-muted font-sans">
+            — Google Review
           </p>
-          <p className="mt-1 text-xs text-muted font-sans">
-            Replace with real testimonial
-          </p>
+          <a
+            href="https://share.google/jrLOI4AhnpzbPPBpF"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mt-4 inline-flex items-center gap-1 text-sm font-medium text-forest hover:text-forest-light transition-colors font-sans"
+          >
+            Read all 146+ reviews on Google &rarr;
+          </a>
         </Container>
       </section>
 
@@ -205,6 +222,13 @@ export default function WeddingsPage() {
           </p>
         </Container>
       </section>
+
+      {/* Sticky mobile CTA */}
+      <StickyMobileCTA
+        label="Get Your Custom Quote"
+        href="/contact"
+      />
+      <div className="h-20 lg:hidden" />
     </>
   );
 }

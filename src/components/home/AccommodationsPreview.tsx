@@ -18,10 +18,10 @@ export function AccommodationsPreview() {
 
         <StaggerChildren className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {properties.map((property) => (
-            <StaggerItem key={property.slug}>
+            <StaggerItem key={property.slug} className="w-full">
               <Link
                 href={property.bookingUrl}
-                className="group block overflow-hidden rounded-sm bg-white shadow-sm hover:shadow-md transition-shadow"
+                className="group block h-full overflow-hidden rounded-sm bg-white shadow-sm hover:shadow-md transition-shadow"
               >
                 <div className="relative aspect-[4/3] overflow-hidden">
                   <Image

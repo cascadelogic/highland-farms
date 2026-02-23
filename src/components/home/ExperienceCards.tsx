@@ -10,8 +10,8 @@ const experiences = [
       "Get up close with our gentle Highland Cows, Icelandic Sheep, White Peacocks, and African Grey Geese. A private 60-minute experience your family will never forget.",
     cta: "Book a Farm Tour",
     href: "/farm-tours",
-    image: "/images/farm/highland-cows-hero.jpg",
-    alt: "Highland Cows at Highland Farms Oregon",
+    image: "/images/farm/cow-2.jpg",
+    alt: "Guests petting a Highland Cow during a farm tour",
   },
   {
     title: "Nordic Forest Spa",
@@ -19,8 +19,8 @@ const experiences = [
       "Soak in cedar hot tubs nestled among towering evergreens. Unwind with the sounds of the forest in our private 60-minute spa sessions.",
     cta: "Book a Spa Session",
     href: "/nordic-spa",
-    image: "/images/spa/forest-spa-1.jpg",
-    alt: "Cedar soaking tub in the forest at Highland Farms",
+    image: "/images/spa/spa-1.jpg",
+    alt: "Cedar spa deck nestled in the forest at Highland Farms",
   },
 ];
 

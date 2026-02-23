@@ -1,5 +1,6 @@
 import Link from "next/link";
-import { Instagram, Phone, Mail, MapPin } from "lucide-react";
+import Image from "next/image";
+import { Instagram, Phone, Mail, MapPin, Star } from "lucide-react";
 import { Container } from "@/components/ui/Container";
 import { CONTACT, SITE } from "@/lib/constants";
 
@@ -10,12 +11,44 @@ export function Footer() {
         <div className="grid grid-cols-1 gap-10 md:grid-cols-2 lg:grid-cols-4">
           {/* Brand */}
           <div>
-            <Link href="/" className="font-display text-2xl font-semibold tracking-wide">
-              Highland Farms
+            <Link href="/" className="inline-flex items-center gap-2">
+              <Image
+                src="/images/logo/HF-logo-white.png"
+                alt="Highland Farms"
+                width={40}
+                height={24}
+                className="h-6 w-auto"
+              />
+              <span className="font-display text-2xl font-semibold tracking-wide">
+                Highland Farms
+              </span>
             </Link>
             <p className="mt-3 text-sm text-white/70 leading-relaxed">
               {SITE.description}
             </p>
+            {/* Google Reviews */}
+            <a
+              href="https://share.google/jrLOI4AhnpzbPPBpF"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-4 inline-flex items-center gap-2 text-sm text-white/70 hover:text-white transition-colors"
+            >
+              <div className="flex">
+                {[...Array(5)].map((_, i) => (
+                  <Star key={i} className="h-3.5 w-3.5 fill-accent text-accent" />
+                ))}
+              </div>
+              <span>4.9 on Google (146+ reviews)</span>
+            </a>
+            {/* Travel Oregon */}
+            <a
+              href="https://traveloregon.com/plan-your-trip/places-to-stay/farm-ranch-stays/highland-farms/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-2 block text-xs text-white/50 hover:text-white/70 transition-colors"
+            >
+              Featured on Travel Oregon
+            </a>
           </div>
 
           {/* Quick Links */}

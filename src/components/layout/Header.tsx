@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { Menu, Instagram, ChevronDown } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { mainNavItems } from "@/data/navigation";
@@ -47,8 +48,8 @@ export function Header() {
           className={cn(
             "transition-all duration-300",
             scrolled
-              ? "bg-white/90 backdrop-blur-md shadow-sm"
-              : "bg-transparent"
+              ? "bg-white/95 backdrop-blur-md shadow-sm"
+              : "bg-charcoal/60 backdrop-blur-sm"
           )}
         >
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -56,12 +57,27 @@ export function Header() {
               {/* Logo */}
               <Link
                 href="/"
-                className={cn(
-                  "font-display text-xl font-semibold tracking-wide transition-colors",
-                  scrolled ? "text-charcoal" : "text-white"
-                )}
+                className="flex items-center gap-2 transition-opacity hover:opacity-80"
               >
-                Highland Farms
+                <Image
+                  src="/images/logo/HF-logo-white.png"
+                  alt="Highland Farms"
+                  width={48}
+                  height={28}
+                  className={cn(
+                    "h-7 w-auto transition-all duration-300",
+                    scrolled ? "brightness-0 opacity-80" : ""
+                  )}
+                  priority
+                />
+                <span
+                  className={cn(
+                    "font-display text-lg font-semibold tracking-wide transition-colors hidden sm:inline",
+                    scrolled ? "text-charcoal" : "text-white"
+                  )}
+                >
+                  Highland Farms
+                </span>
               </Link>
 
               {/* Desktop nav */}

@@ -1,7 +1,14 @@
 import type { NavItem } from "@/lib/types";
 
 export const mainNavItems: NavItem[] = [
-  { label: "Weddings", href: "/weddings" },
+  {
+    label: "Weddings",
+    href: "/weddings",
+    children: [
+      { label: "Wedding Info", href: "/weddings" },
+      { label: "Wedding Portfolio", href: "/wedding-portfolio" },
+    ],
+  },
   { label: "Farm Tours", href: "/farm-tours" },
   { label: "Nordic Spa", href: "/nordic-spa" },
   { label: "Stay", href: "/stay" },

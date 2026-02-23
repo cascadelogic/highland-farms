@@ -9,19 +9,19 @@ const highlights = [
     title: "All-Inclusive Packages",
     description: "Venue, accommodations, coordinator, setup — everything handled so you can focus on your day.",
     image: "/images/weddings/ceremony.jpg",
-    alt: "Wedding ceremony in the forest at Highland Farms",
+    alt: "Wedding couple at reception table with string lights in the forest",
   },
   {
     title: "Highland Cow Photo Ops",
     description: "Unforgettable wedding photos with our gentle Highland Cows against the Mt. Hood backdrop.",
-    image: "/images/weddings/couple.jpg",
-    alt: "Couple with Highland Cows at Highland Farms",
+    image: "/images/weddings/reception.jpg",
+    alt: "Wedding reception setup at Highland Farms",
   },
   {
     title: "Forest Ceremony Sites",
     description: "Exchange vows under towering old-growth trees draped in moss, beside a spring-fed pond.",
-    image: "/images/weddings/details.jpg",
-    alt: "Forest ceremony setup at Highland Farms",
+    image: "/images/weddings/couple.jpg",
+    alt: "Ceremony setup with wooden arch and chairs in the forest",
   },
   {
     title: "Lodging for 24 Guests",
@@ -43,10 +43,10 @@ export function WeddingHighlights() {
 
         <StaggerChildren className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {highlights.map((item) => (
-            <StaggerItem key={item.title}>
+            <StaggerItem key={item.title} className="w-full">
               <Link
                 href="/weddings"
-                className="group block overflow-hidden rounded-sm bg-white shadow-sm hover:shadow-md transition-shadow"
+                className="group block h-full overflow-hidden rounded-sm bg-white shadow-sm hover:shadow-md transition-shadow"
               >
                 <div className="relative aspect-[4/3] overflow-hidden">
                   <Image

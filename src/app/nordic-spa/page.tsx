@@ -17,19 +17,21 @@ export const metadata: Metadata = {
 };
 
 const galleryImages = [
-  { src: "/images/spa/tub-1.jpg", alt: "Cedar soaking tub in the forest" },
-  { src: "/images/spa/tub-2.jpg", alt: "Steam rising from cedar tub" },
-  { src: "/images/spa/forest.jpg", alt: "Towering evergreens surrounding spa" },
-  { src: "/images/spa/detail.jpg", alt: "Spa detail" },
+  { src: "/images/spa/spa-1.jpg", alt: "Cedar spa deck nestled among old-growth forest" },
+  { src: "/images/spa/spa-2.jpg", alt: "Spa deck with cold plunge tub and string lights" },
+  { src: "/images/spa/spa-3.jpg", alt: "Guests in robes relaxing on the spa deck" },
+  { src: "/images/spa/spa-6.jpg", alt: "Inside the cedar sauna" },
+  { src: "/images/spa/spa-7.jpg", alt: "Overhead view of guests in the soaking tub" },
+  { src: "/images/spa/spa-8.jpg", alt: "Steam room with chromotherapy lighting" },
 ];
 
 export default function NordicSpaPage() {
   return (
     <>
       {/* Hero */}
-      <section className="relative flex min-h-[70vh] items-center justify-center overflow-hidden">
+      <section className="relative flex min-h-[70vh] items-center justify-center overflow-hidden pt-[var(--header-h,80px)]">
         <div className="absolute inset-0 bg-gradient-to-b from-charcoal/60 via-charcoal/40 to-charcoal/60" />
-        <div className="absolute inset-0 bg-[url('/images/spa/hero.jpg')] bg-cover bg-center" />
+        <div className="absolute inset-0 bg-[url('/images/spa/spa-1.jpg')] bg-cover bg-center" />
         <div className="absolute inset-0 bg-black/35" />
 
         <div className="relative z-10 mx-auto max-w-3xl px-4 text-center text-white">
@@ -194,18 +196,29 @@ export default function NordicSpaPage() {
       {/* Social Proof */}
       <section className="py-20 lg:py-28 bg-cream">
         <Container className="max-w-3xl text-center">
+          <div className="flex justify-center mb-6">
+            {[...Array(5)].map((_, i) => (
+              <Sparkles key={i} className="h-4 w-4 text-accent" />
+            ))}
+          </div>
           <blockquote>
-            <p className="text-2xl font-medium leading-relaxed text-charcoal">
-              &ldquo;Soaking in the cedar tubs surrounded by the forest was pure
-              magic. The most relaxing experience I&apos;ve ever had.&rdquo;
+            <p className="text-xl font-medium leading-relaxed text-charcoal sm:text-2xl">
+              &ldquo;We loved walking the property, taking in the peaceful forest
+              setting, and soaking in the hot tub under the stars. This was easily
+              one of the highlights of our Oregon trip.&rdquo;
             </p>
           </blockquote>
-          <p className="mt-6 text-sm font-semibold text-charcoal font-sans">
-            — A Happy Guest
+          <p className="mt-6 text-sm text-muted font-sans">
+            — Google Review
           </p>
-          <p className="mt-1 text-xs text-muted font-sans">
-            Replace with real testimonial
-          </p>
+          <a
+            href="https://share.google/jrLOI4AhnpzbPPBpF"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mt-4 inline-flex items-center gap-1 text-sm font-medium text-forest hover:text-forest-light transition-colors font-sans"
+          >
+            Read all reviews on Google &rarr;
+          </a>
         </Container>
       </section>
 
@@ -214,6 +227,7 @@ export default function NordicSpaPage() {
       <StickyMobileCTA
         label="Book Your Spa Session"
         href={BOOKING_LINKS.nordicSpa}
+        external
       />
 
       <div className="h-20 lg:hidden" />

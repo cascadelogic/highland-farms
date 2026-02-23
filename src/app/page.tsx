@@ -7,6 +7,8 @@ import { ExperienceCards } from "@/components/home/ExperienceCards";
 import { AccommodationsPreview } from "@/components/home/AccommodationsPreview";
 import { LocationBlock } from "@/components/home/LocationBlock";
 import { FinalCTA } from "@/components/home/FinalCTA";
+import { InstagramEmbed } from "@/components/shared/InstagramEmbed";
+import { StickyMobileCTA } from "@/components/shared/StickyMobileCTA";
 import { FadeIn } from "@/components/ui/FadeIn";
 
 export default function Home() {
@@ -30,9 +32,20 @@ export default function Home() {
         <AccommodationsPreview />
       </FadeIn>
       <FadeIn>
+        <InstagramEmbed />
+      </FadeIn>
+      <FadeIn>
         <LocationBlock />
       </FadeIn>
       <FinalCTA />
+
+      {/* Sticky mobile CTA for Meta ad traffic */}
+      <StickyMobileCTA
+        label="Plan Your Wedding"
+        href="/weddings"
+      />
+      {/* Bottom padding for sticky CTA on mobile */}
+      <div className="h-20 lg:hidden" />
     </>
   );
 }

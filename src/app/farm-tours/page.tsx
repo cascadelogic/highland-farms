@@ -17,12 +17,12 @@ export const metadata: Metadata = {
 };
 
 const galleryImages = [
-  { src: "/images/farm/cow-1.jpg", alt: "Highland Cow close-up" },
-  { src: "/images/farm/cow-2.jpg", alt: "Guest brushing Highland Cow" },
-  { src: "/images/farm/sheep.jpg", alt: "Icelandic Sheep" },
-  { src: "/images/farm/peacock.jpg", alt: "White Peacock" },
-  { src: "/images/farm/geese.jpg", alt: "African Grey Geese" },
-  { src: "/images/farm/goats.jpg", alt: "San Clemente Goats" },
+  { src: "/images/farm/cow-2.jpg", alt: "Guests petting a Highland Cow during a farm tour" },
+  { src: "/images/farm/goats.jpg", alt: "Highland Cow with fluffy hair near the barn" },
+  { src: "/images/farm/sheep.jpg", alt: "Farm guide with a Highland Cow calf in the forest" },
+  { src: "/images/farm/geese.jpg", alt: "Brushing a Highland Cow on the farm" },
+  { src: "/images/farm/agritourism-stay.jpg", alt: "Couple meeting Highland Cows in the forest" },
+  { src: "/images/farm/cow-1.jpg", alt: "Highland Farms entrance sign and lodge" },
 ];
 
 const features = [
@@ -56,7 +56,7 @@ export default function FarmToursPage() {
   return (
     <>
       {/* Hero */}
-      <section className="relative flex min-h-[70vh] items-center justify-center overflow-hidden">
+      <section className="relative flex min-h-[70vh] items-center justify-center overflow-hidden pt-[var(--header-h,80px)]">
         <div className="absolute inset-0 bg-gradient-to-b from-charcoal/60 via-charcoal/40 to-charcoal/60" />
         <div className="absolute inset-0 bg-[url('/images/farm/hero.jpg')] bg-cover bg-center" />
         <div className="absolute inset-0 bg-black/35" />
@@ -206,19 +206,29 @@ export default function FarmToursPage() {
       {/* Social Proof */}
       <section className="py-20 lg:py-28 bg-cream">
         <Container className="max-w-3xl text-center">
+          <div className="flex justify-center mb-6">
+            {[...Array(5)].map((_, i) => (
+              <Sparkles key={i} className="h-4 w-4 text-accent" />
+            ))}
+          </div>
           <blockquote>
-            <p className="text-2xl font-medium leading-relaxed text-charcoal">
-              &ldquo;The Highland Cows were so gentle and friendly. My kids are
-              still talking about it weeks later. An absolute must-do when
-              visiting Oregon!&rdquo;
+            <p className="text-xl font-medium leading-relaxed text-charcoal sm:text-2xl">
+              &ldquo;Huge shoutout to Dante, our tour guide — he was incredible!
+              We were able to pet, brush and feed some of the beautiful and sweet
+              highland cows.&rdquo;
             </p>
           </blockquote>
-          <p className="mt-6 text-sm font-semibold text-charcoal font-sans">
-            — A Happy Visitor
+          <p className="mt-6 text-sm text-muted font-sans">
+            — Google Review
           </p>
-          <p className="mt-1 text-xs text-muted font-sans">
-            Replace with real testimonial
-          </p>
+          <a
+            href="https://share.google/jrLOI4AhnpzbPPBpF"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mt-4 inline-flex items-center gap-1 text-sm font-medium text-forest hover:text-forest-light transition-colors font-sans"
+          >
+            Read all reviews on Google &rarr;
+          </a>
         </Container>
       </section>
 
@@ -228,6 +238,7 @@ export default function FarmToursPage() {
       <StickyMobileCTA
         label="Book Your Farm Tour"
         href={BOOKING_LINKS.farmTour}
+        external
       />
 
       {/* Bottom padding for sticky CTA on mobile */}

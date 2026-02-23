@@ -1,31 +1,55 @@
 import { Star } from "lucide-react";
 import { Container } from "@/components/ui/Container";
 
+const testimonials = [
+  {
+    quote:
+      "We had our wedding at Highland Farms and I can not recommend them highly enough!! An absolutely stunning and unique venue that surpassed our wildest dreams! Everyone on staff was so kind and helpful, and Connor made every part of the process so simple and seamless!",
+    attribution: "Google Review — Wedding",
+  },
+  {
+    quote:
+      "The Highland cows were friendly and sweet, and the sheep were so silly and brought a few laughs. We loved walking the property, taking in the peaceful forest setting, and soaking in the hot tub under the stars.",
+    attribution: "Google Review — Farm Stay",
+  },
+];
+
 export function TestimonialSection() {
   return (
-    <section className="py-20 lg:py-28 bg-cream">
-      <Container className="max-w-3xl text-center">
-        <div className="flex justify-center mb-6">
-          {[...Array(5)].map((_, i) => (
-            <Star key={i} className="h-5 w-5 fill-accent text-accent" />
+    <section className="py-16 lg:py-24 bg-cream">
+      <Container className="max-w-4xl">
+        <div className="grid grid-cols-1 gap-10 md:grid-cols-2">
+          {testimonials.map((t) => (
+            <div key={t.attribution} className="text-center md:text-left">
+              <div className="flex justify-center md:justify-start mb-4">
+                {[...Array(5)].map((_, i) => (
+                  <Star key={i} className="h-4 w-4 fill-accent text-accent" />
+                ))}
+              </div>
+
+              <blockquote>
+                <p className="text-base font-medium leading-relaxed text-charcoal sm:text-lg">
+                  &ldquo;{t.quote}&rdquo;
+                </p>
+              </blockquote>
+
+              <p className="mt-4 text-sm text-muted font-sans">
+                — {t.attribution}
+              </p>
+            </div>
           ))}
         </div>
 
-        <blockquote>
-          <p className="text-2xl font-medium leading-relaxed text-charcoal sm:text-3xl">
-            &ldquo;Highland Farms was beyond anything we could have imagined.
-            The forest, the Highland Cows, the lodge — every detail was perfect.
-            Our guests are still talking about it.&rdquo;
-          </p>
-        </blockquote>
-
-        <div className="mt-8">
-          <p className="text-base font-semibold text-charcoal font-sans">
-            — A Happy Couple
-          </p>
-          <p className="mt-1 text-sm text-muted font-sans">
-            Replace with real testimonial
-          </p>
+        {/* Google reviews link */}
+        <div className="mt-10 text-center">
+          <a
+            href="https://share.google/jrLOI4AhnpzbPPBpF"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 text-sm font-medium text-forest hover:text-forest-light transition-colors font-sans"
+          >
+            Read all 146+ reviews on Google &rarr;
+          </a>
         </div>
       </Container>
     </section>
