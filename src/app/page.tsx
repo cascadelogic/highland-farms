@@ -7,18 +7,31 @@ import { ExperienceCards } from "@/components/home/ExperienceCards";
 import { AccommodationsPreview } from "@/components/home/AccommodationsPreview";
 import { LocationBlock } from "@/components/home/LocationBlock";
 import { FinalCTA } from "@/components/home/FinalCTA";
+import { FadeIn } from "@/components/ui/FadeIn";
 
 export default function Home() {
   return (
     <>
       <HeroSection />
       <SocialProofBar />
-      <WeddingHighlights />
-      <InquirySection />
-      <TestimonialSection />
-      <ExperienceCards />
-      <AccommodationsPreview />
-      <LocationBlock />
+      <FadeIn>
+        <WeddingHighlights />
+      </FadeIn>
+      <FadeIn>
+        <InquirySection />
+      </FadeIn>
+      <FadeIn>
+        <TestimonialSection />
+      </FadeIn>
+      <FadeIn>
+        <ExperienceCards />
+      </FadeIn>
+      <FadeIn>
+        <AccommodationsPreview />
+      </FadeIn>
+      <FadeIn>
+        <LocationBlock />
+      </FadeIn>
       <FinalCTA />
     </>
   );

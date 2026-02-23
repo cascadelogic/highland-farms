@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { Container } from "@/components/ui/Container";
 import { SectionHeading } from "@/components/ui/SectionHeading";
+import { StaggerChildren, StaggerItem } from "@/components/ui/StaggerChildren";
 
 const highlights = [
   {
@@ -35,32 +36,32 @@ export function WeddingHighlights() {
           subtitle="Five acres of forest, farm, and magic at the base of Mt. Hood."
         />
 
-        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
+        <StaggerChildren className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {highlights.map((item) => (
-            <Link
-              key={item.title}
-              href="/weddings"
-              className="group overflow-hidden rounded-sm bg-white shadow-sm hover:shadow-md transition-shadow"
-            >
-              {/* Image placeholder */}
-              <div className="relative aspect-[4/3] bg-gradient-to-br from-cream to-cream-dark overflow-hidden">
-                <div className="absolute inset-0 flex items-center justify-center text-xs text-muted p-4 text-center font-sans">
-                  {item.imagePlaceholder}
+            <StaggerItem key={item.title}>
+              <Link
+                href="/weddings"
+                className="group block overflow-hidden rounded-sm bg-white shadow-sm hover:shadow-md transition-shadow"
+              >
+                <div className="relative aspect-[4/3] bg-gradient-to-br from-cream to-cream-dark overflow-hidden">
+                  <div className="absolute inset-0 flex items-center justify-center text-xs text-muted p-4 text-center font-sans">
+                    {item.imagePlaceholder}
+                  </div>
+                  <div className="absolute inset-0 bg-charcoal/0 group-hover:bg-charcoal/10 transition-colors" />
                 </div>
-                <div className="absolute inset-0 bg-charcoal/0 group-hover:bg-charcoal/10 transition-colors" />
-              </div>
 
-              <div className="p-5">
-                <h3 className="text-lg font-semibold text-charcoal font-sans">
-                  {item.title}
-                </h3>
-                <p className="mt-2 text-sm text-muted leading-relaxed font-sans">
-                  {item.description}
-                </p>
-              </div>
-            </Link>
+                <div className="p-5">
+                  <h3 className="text-lg font-semibold text-charcoal font-sans">
+                    {item.title}
+                  </h3>
+                  <p className="mt-2 text-sm text-muted leading-relaxed font-sans">
+                    {item.description}
+                  </p>
+                </div>
+              </Link>
+            </StaggerItem>
           ))}
-        </div>
+        </StaggerChildren>
       </Container>
     </section>
   );

@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect } from "react";
+import { useEffect, useRef, useCallback } from "react";
 import Link from "next/link";
 import { X } from "lucide-react";
 import { mainNavItems } from "@/data/navigation";
@@ -13,9 +13,15 @@ interface MobileMenuProps {
 }
 
 export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
+  const menuRef = useRef<HTMLDivElement>(null);
+  const closeButtonRef = useRef<HTMLButtonElement>(null);
+
+  // Lock body scroll and focus close button on open
   useEffect(() => {
     if (isOpen) {
       document.body.style.overflow = "hidden";
+      // Focus the close button when menu opens
+      setTimeout(() => closeButtonRef.current?.focus(), 50);
     } else {
       document.body.style.overflow = "";
     }
@@ -24,10 +30,31 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
     };
   }, [isOpen]);
 
+  // Close on Escape key
+  const handleKeyDown = useCallback(
+    (e: KeyboardEvent) => {
+      if (e.key === "Escape") onClose();
+    },
+    [onClose]
+  );
+
+  useEffect(() => {
+    if (isOpen) {
+      document.addEventListener("keydown", handleKeyDown);
+      return () => document.removeEventListener("keydown", handleKeyDown);
+    }
+  }, [isOpen, handleKeyDown]);
+
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 z-50 bg-warm-white">
+    <div
+      className="fixed inset-0 z-50 bg-warm-white"
+      role="dialog"
+      aria-modal="true"
+      aria-label="Navigation menu"
+      ref={menuRef}
+    >
       <div className="flex h-full flex-col">
         {/* Header */}
         <div className="flex items-center justify-between px-6 py-5">
@@ -35,11 +62,12 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
             Highland Farms
           </Link>
           <button
+            ref={closeButtonRef}
             onClick={onClose}
             className="p-2 hover:opacity-70 transition-opacity"
             aria-label="Close menu"
           >
-            <X className="h-6 w-6" />
+            <X className="h-6 w-6" aria-hidden="true" />
           </button>
         </div>
 
@@ -54,7 +82,7 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
         </div>
 
         {/* Nav links */}
-        <nav className="flex-1 overflow-y-auto px-6 py-4">
+        <nav className="flex-1 overflow-y-auto px-6 py-4" aria-label="Mobile navigation">
           <ul className="space-y-1">
             {mainNavItems.map((item) => (
               <li key={item.href}>
@@ -87,8 +115,12 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
 
         {/* Contact info */}
         <div className="border-t border-cream-light px-6 py-5 text-sm text-muted">
-          <p>{CONTACT.phone}</p>
-          <p>{CONTACT.email}</p>
+          <a href={`tel:${CONTACT.phone.replace(/\s/g, "")}`} className="block hover:text-forest transition-colors">
+            {CONTACT.phone}
+          </a>
+          <a href={`mailto:${CONTACT.email}`} className="block hover:text-forest transition-colors">
+            {CONTACT.email}
+          </a>
         </div>
       </div>
     </div>

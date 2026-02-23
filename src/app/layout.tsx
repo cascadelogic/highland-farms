@@ -4,6 +4,8 @@ import { Playfair_Display } from "next/font/google";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { AnnouncementBar } from "@/components/layout/AnnouncementBar";
+import { SkipLink } from "@/components/layout/SkipLink";
+import { StructuredData } from "@/components/layout/StructuredData";
 import { GoogleTagManager, GoogleTagManagerNoScript } from "@/components/layout/GoogleTagManager";
 import "./globals.css";
 
@@ -25,6 +27,10 @@ export const metadata: Metadata = {
   },
   description:
     "All-inclusive farm and forest weddings at the base of Mt. Hood. Highland Cow farm tours, Nordic spa, and luxury farm stays in Brightwood, Oregon.",
+  metadataBase: new URL("https://highlandfarmsoregon.com"),
+  alternates: {
+    canonical: "/",
+  },
   keywords: [
     "Oregon wedding venue",
     "farm wedding",
@@ -33,6 +39,9 @@ export const metadata: Metadata = {
     "Nordic spa Oregon",
     "farm stay Oregon",
     "Brightwood Oregon",
+    "Portland wedding venue",
+    "forest wedding Oregon",
+    "intimate wedding venue",
   ],
   openGraph: {
     title: "Highland Farms | Oregon's Premier Farm Wedding Venue",
@@ -43,6 +52,16 @@ export const metadata: Metadata = {
     locale: "en_US",
     type: "website",
   },
+  twitter: {
+    card: "summary_large_image",
+    title: "Highland Farms | Oregon's Premier Farm Wedding Venue",
+    description:
+      "All-inclusive farm and forest weddings at the base of Mt. Hood.",
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
 };
 
 export default function RootLayout({
@@ -52,12 +71,16 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        <StructuredData />
+      </head>
       <GoogleTagManager />
       <body className={`${geistSans.variable} ${playfair.variable} antialiased`}>
         <GoogleTagManagerNoScript />
+        <SkipLink />
         <AnnouncementBar />
         <Header />
-        <main>{children}</main>
+        <main id="main-content">{children}</main>
         <Footer />
       </body>
     </html>
