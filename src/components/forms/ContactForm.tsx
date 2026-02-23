@@ -3,8 +3,9 @@
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { CheckCircle, AlertCircle, Loader2 } from "lucide-react";
+import { CheckCircle, AlertCircle, Loader2, Star, Phone } from "lucide-react";
 import { inquirySchema, type InquiryFormData } from "@/lib/schemas";
+import { CONTACT } from "@/lib/constants";
 import { cn } from "@/lib/utils";
 
 interface ContactFormProps {
@@ -12,13 +13,25 @@ interface ContactFormProps {
   className?: string;
   heading?: string;
   subtitle?: string;
+  showTrustSignals?: boolean;
+  ctaText?: string;
 }
+
+const inputClasses =
+  "w-full rounded-lg border bg-white px-4 py-3 text-base font-sans text-charcoal placeholder:text-muted/50 focus:outline-none focus:ring-2 focus:ring-forest/30 focus:border-forest transition-colors";
+const inputErrorClasses =
+  "border-red-300 focus:border-red-500 focus:ring-red-500/30";
+const inputDefaultClasses = "border-cream-dark";
+const labelClasses =
+  "block text-sm font-normal text-charcoal mb-1.5 font-sans";
 
 export function ContactForm({
   defaultEventType = "",
   className,
   heading = "Get Your Custom Quote",
   subtitle = "Tell us about your vision and we'll create a personalized package.",
+  showTrustSignals = true,
+  ctaText = "Get Your Custom Quote",
 }: ContactFormProps) {
   const [status, setStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
   const [serverError, setServerError] = useState("");
@@ -70,19 +83,52 @@ export function ContactForm({
 
   if (status === "success") {
     return (
-      <div className={cn("rounded-lg bg-forest/5 border border-forest/20 p-8 text-center", className)}>
-        <CheckCircle className="mx-auto h-12 w-12 text-forest" />
-        <h3 className="mt-4 text-xl font-medium text-charcoal">
+      <div className={cn("rounded-xl bg-forest/5 border border-forest/20 p-8 sm:p-10 text-center", className)}>
+        <CheckCircle className="mx-auto h-14 w-14 text-forest" />
+        <h3 className="mt-5 text-2xl font-normal text-charcoal font-display">
           Thank You!
         </h3>
-        <p className="mt-2 text-base text-muted font-sans">
-          We&apos;ve received your inquiry and will get back to you within 24 hours.
+        <p className="mt-3 text-base text-muted font-sans leading-relaxed">
+          We&apos;ve received your inquiry and will get back to you within 24 hours
+          with a personalized response.
         </p>
+
+        <div className="mt-6 rounded-lg bg-cream/60 p-5 text-left">
+          <p className="text-sm font-normal text-charcoal font-sans mb-2">What happens next:</p>
+          <ol className="space-y-2 text-sm text-muted font-sans">
+            <li className="flex items-start gap-2">
+              <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-forest/10 text-xs font-medium text-forest">1</span>
+              We&apos;ll review your inquiry and prepare a custom response
+            </li>
+            <li className="flex items-start gap-2">
+              <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-forest/10 text-xs font-medium text-forest">2</span>
+              You&apos;ll receive availability details and pricing within 24 hours
+            </li>
+            <li className="flex items-start gap-2">
+              <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-forest/10 text-xs font-medium text-forest">3</span>
+              We&apos;ll schedule a call or visit to discuss your vision
+            </li>
+          </ol>
+        </div>
+
+        <div className="mt-6 flex flex-col items-center gap-3">
+          <p className="text-sm text-muted font-sans">
+            Need a faster response? Call us directly:
+          </p>
+          <a
+            href={`tel:${CONTACT.phone.replace(/\s/g, "")}`}
+            className="inline-flex items-center gap-2 rounded-full bg-forest/10 px-5 py-2.5 text-sm font-medium text-forest hover:bg-forest/15 transition-colors font-sans"
+          >
+            <Phone className="h-4 w-4" />
+            {CONTACT.phone}
+          </a>
+        </div>
+
         <button
           onClick={() => setStatus("idle")}
-          className="mt-6 text-sm font-medium text-forest hover:text-forest-light transition-colors font-sans"
+          className="mt-6 text-sm text-muted hover:text-charcoal transition-colors font-sans underline underline-offset-4"
         >
-          Submit Another Inquiry
+          Submit another inquiry
         </button>
       </div>
     );
@@ -92,9 +138,9 @@ export function ContactForm({
     <div className={className}>
       {heading && (
         <div className="mb-8">
-          <h3 className="text-2xl font-medium text-charcoal">{heading}</h3>
+          <h3 className="text-2xl font-normal text-charcoal font-display">{heading}</h3>
           {subtitle && (
-            <p className="mt-2 text-sm text-muted font-sans">{subtitle}</p>
+            <p className="mt-2 text-sm text-muted font-sans leading-relaxed">{subtitle}</p>
           )}
         </div>
       )}
@@ -107,20 +153,20 @@ export function ContactForm({
       )}
 
       <form onSubmit={handleSubmit(onSubmit)} className="space-y-5">
+        {/* Name & Email - most important, first */}
         <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
           <div>
-            <label htmlFor="form-name" className="block text-sm font-normal text-charcoal mb-1.5 font-sans">
+            <label htmlFor="form-name" className={labelClasses}>
               Your Name *
             </label>
             <input
               type="text"
               id="form-name"
+              autoComplete="name"
               {...register("name")}
               className={cn(
-                "w-full rounded-lg border bg-white px-4 py-3 text-sm font-sans text-charcoal placeholder:text-muted/60 focus:outline-none focus:ring-1",
-                errors.name
-                  ? "border-red-300 focus:border-red-500 focus:ring-red-500"
-                  : "border-cream-dark focus:border-forest focus:ring-forest"
+                inputClasses,
+                errors.name ? inputErrorClasses : inputDefaultClasses
               )}
               placeholder="First & Last Name"
             />
@@ -129,18 +175,17 @@ export function ContactForm({
             )}
           </div>
           <div>
-            <label htmlFor="form-email" className="block text-sm font-normal text-charcoal mb-1.5 font-sans">
+            <label htmlFor="form-email" className={labelClasses}>
               Email Address *
             </label>
             <input
               type="email"
               id="form-email"
+              autoComplete="email"
               {...register("email")}
               className={cn(
-                "w-full rounded-lg border bg-white px-4 py-3 text-sm font-sans text-charcoal placeholder:text-muted/60 focus:outline-none focus:ring-1",
-                errors.email
-                  ? "border-red-300 focus:border-red-500 focus:ring-red-500"
-                  : "border-cream-dark focus:border-forest focus:ring-forest"
+                inputClasses,
+                errors.email ? inputErrorClasses : inputDefaultClasses
               )}
               placeholder="you@email.com"
             />
@@ -150,38 +195,41 @@ export function ContactForm({
           </div>
         </div>
 
+        {/* Phone & Event Type */}
         <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
           <div>
-            <label htmlFor="form-phone" className="block text-sm font-normal text-charcoal mb-1.5 font-sans">
-              Phone (optional)
+            <label htmlFor="form-phone" className={labelClasses}>
+              Phone Number
+              <span className="text-muted/60 font-light ml-1">(recommended)</span>
             </label>
             <input
               type="tel"
               id="form-phone"
+              autoComplete="tel"
               {...register("phone")}
-              className="w-full rounded-lg border border-cream-dark bg-white px-4 py-3 text-sm font-sans text-charcoal placeholder:text-muted/60 focus:border-forest focus:outline-none focus:ring-1 focus:ring-forest"
+              className={cn(inputClasses, inputDefaultClasses)}
               placeholder="(555) 123-4567"
             />
           </div>
           <div>
-            <label htmlFor="form-event-type" className="block text-sm font-normal text-charcoal mb-1.5 font-sans">
+            <label htmlFor="form-event-type" className={labelClasses}>
               Event Type *
             </label>
             <select
               id="form-event-type"
               {...register("event_type")}
               className={cn(
-                "w-full rounded-lg border bg-white px-4 py-3 text-sm font-sans text-charcoal focus:outline-none focus:ring-1",
-                errors.event_type
-                  ? "border-red-300 focus:border-red-500 focus:ring-red-500"
-                  : "border-cream-dark focus:border-forest focus:ring-forest"
+                inputClasses,
+                errors.event_type ? inputErrorClasses : inputDefaultClasses
               )}
             >
               <option value="">Select an event type</option>
               <option value="wedding">Wedding</option>
               <option value="elopement">Elopement</option>
-              <option value="celebration">Celebration</option>
-              <option value="retreat">Retreat</option>
+              <option value="engagement-party">Engagement Party</option>
+              <option value="rehearsal-dinner">Rehearsal Dinner</option>
+              <option value="celebration">Birthday / Anniversary</option>
+              <option value="retreat">Retreat / Reunion</option>
               <option value="photoshoot">Photoshoot</option>
               <option value="farm-stay">Farm Stay</option>
               <option value="other">Other</option>
@@ -192,43 +240,79 @@ export function ContactForm({
           </div>
         </div>
 
-        <div>
-          <label htmlFor="form-date" className="block text-sm font-normal text-charcoal mb-1.5 font-sans">
-            Preferred Date (optional)
-          </label>
-          <input
-            type="date"
-            id="form-date"
-            {...register("preferred_date")}
-            className="w-full rounded-lg border border-cream-dark bg-white px-4 py-3 text-sm font-sans text-charcoal focus:border-forest focus:outline-none focus:ring-1 focus:ring-forest"
-          />
+        {/* Guest Count & Date - side by side */}
+        <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
+          <div>
+            <label htmlFor="form-guest-count" className={labelClasses}>
+              Estimated Guest Count
+            </label>
+            <select
+              id="form-guest-count"
+              {...register("guest_count")}
+              className={cn(inputClasses, inputDefaultClasses)}
+            >
+              <option value="">Select a range</option>
+              <option value="2-10">2 - 10 guests</option>
+              <option value="11-24">11 - 24 guests (full property)</option>
+              <option value="25-50">25 - 50 guests</option>
+              <option value="50+">50+ guests</option>
+            </select>
+          </div>
+          <div>
+            <label htmlFor="form-date" className={labelClasses}>
+              Preferred Date
+            </label>
+            <input
+              type="date"
+              id="form-date"
+              {...register("preferred_date")}
+              className={cn(inputClasses, inputDefaultClasses)}
+            />
+          </div>
         </div>
 
+        {/* Message - optional, lower friction */}
         <div>
-          <label htmlFor="form-message" className="block text-sm font-normal text-charcoal mb-1.5 font-sans">
-            Tell Us About Your Vision *
+          <label htmlFor="form-message" className={labelClasses}>
+            Tell Us About Your Vision
+            <span className="text-muted/60 font-light ml-1">(optional)</span>
           </label>
           <textarea
             id="form-message"
             {...register("message")}
-            rows={4}
-            className={cn(
-              "w-full rounded-lg border bg-white px-4 py-3 text-sm font-sans text-charcoal placeholder:text-muted/60 focus:outline-none focus:ring-1 resize-none",
-              errors.message
-                ? "border-red-300 focus:border-red-500 focus:ring-red-500"
-                : "border-cream-dark focus:border-forest focus:ring-forest"
-            )}
-            placeholder="Share your dream event details..."
+            rows={3}
+            className={cn(inputClasses, inputDefaultClasses, "resize-none")}
+            placeholder="Share any details about your event — dates, ideas, questions..."
           />
-          {errors.message && (
-            <p className="mt-1 text-xs text-red-600 font-sans">{errors.message.message}</p>
-          )}
         </div>
 
+        {/* How did you hear about us - attribution */}
+        <div>
+          <label htmlFor="form-referral" className={labelClasses}>
+            How did you hear about us?
+          </label>
+          <select
+            id="form-referral"
+            {...register("referral_source")}
+            className={cn(inputClasses, inputDefaultClasses)}
+          >
+            <option value="">Select one</option>
+            <option value="google">Google Search</option>
+            <option value="instagram">Instagram</option>
+            <option value="facebook">Facebook</option>
+            <option value="tiktok">TikTok</option>
+            <option value="travel-oregon">Travel Oregon</option>
+            <option value="word-of-mouth">Word of Mouth</option>
+            <option value="wedding-wire">Wedding Wire / The Knot</option>
+            <option value="other">Other</option>
+          </select>
+        </div>
+
+        {/* Submit button - large, full-width, prominent */}
         <button
           type="submit"
           disabled={status === "submitting"}
-          className="w-full rounded-full bg-forest px-6 py-3.5 text-sm font-light uppercase tracking-wider text-white transition-colors hover:bg-forest-light disabled:opacity-60 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+          className="w-full rounded-full bg-forest px-6 py-4 text-base font-medium tracking-wide text-white transition-all hover:bg-forest-light hover:shadow-md disabled:opacity-60 disabled:cursor-not-allowed flex items-center justify-center gap-2"
         >
           {status === "submitting" ? (
             <>
@@ -236,13 +320,28 @@ export function ContactForm({
               Sending...
             </>
           ) : (
-            "Get Your Custom Quote"
+            ctaText
           )}
         </button>
 
-        <p className="text-center text-xs text-muted font-sans">
-          We typically respond within 24 hours.
-        </p>
+        {/* Trust signals below form */}
+        {showTrustSignals && (
+          <div className="flex flex-col items-center gap-3 pt-2">
+            <div className="flex items-center gap-1.5">
+              <div className="flex">
+                {[...Array(5)].map((_, i) => (
+                  <Star key={i} className="h-3.5 w-3.5 fill-gold text-gold" />
+                ))}
+              </div>
+              <span className="text-xs text-muted font-sans">
+                4.9 on Google &middot; 146+ reviews
+              </span>
+            </div>
+            <p className="text-xs text-muted/80 font-sans text-center">
+              We respond within 24 hours &middot; No commitment required
+            </p>
+          </div>
+        )}
       </form>
     </div>
   );

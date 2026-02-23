@@ -215,19 +215,20 @@ export default function WeddingsPage() {
         <Container className="max-w-4xl">
           <SectionHeading
             eyebrow="Ready to Start Planning?"
-            title="Get Your Custom Quote"
-            subtitle="Every wedding at Highland Farms is unique. Tell us your vision and we'll create a custom package."
+            title="Check Availability for Your Date"
+            subtitle="2026 dates are filling quickly. Every wedding at Highland Farms is unique — tell us your vision and we'll create a custom package."
           />
-          <div className="mx-auto max-w-xl rounded-xl border border-cream-dark bg-white p-8 shadow-sm">
+          <div className="mx-auto max-w-xl rounded-xl border border-cream-dark bg-white p-6 sm:p-8 shadow-sm">
             <ContactForm
               defaultEventType="wedding"
               heading=""
               subtitle=""
+              ctaText="Check Availability"
             />
           </div>
           <p className="mt-6 text-center text-sm text-muted font-sans">
-            Or call us directly at{" "}
-            <a href={`tel:${CONTACT.phone.replace(/\s/g, "")}`} className="text-forest hover:text-forest-light transition-colors">
+            Prefer to talk? Call us at{" "}
+            <a href={`tel:${CONTACT.phone.replace(/\s/g, "")}`} className="text-forest font-medium hover:text-forest-light transition-colors">
               {CONTACT.phone}
             </a>
           </p>

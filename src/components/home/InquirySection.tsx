@@ -8,15 +8,16 @@ export function InquirySection() {
       <Container className="max-w-4xl">
         <SectionHeading
           eyebrow="Start Planning"
-          title="Get Your Custom Quote"
-          subtitle="Tell us about your vision and we'll create a personalized package for your special day."
+          title="Check Availability"
+          subtitle="2026 dates are filling quickly. Tell us your vision and we'll check availability for your preferred date."
         />
 
-        <div className="mx-auto max-w-xl">
+        <div className="mx-auto max-w-xl rounded-xl border border-cream-dark bg-white p-6 sm:p-8 shadow-sm">
           <ContactForm
             defaultEventType="wedding"
             heading=""
             subtitle=""
+            ctaText="Check Availability"
           />
         </div>
       </Container>

@@ -120,10 +120,11 @@ export default function ContactPage() {
             </div>
 
             {/* Right: Real Inquiry Form */}
-            <div className="rounded-xl border border-cream-dark bg-white p-8 shadow-sm">
+            <div className="rounded-xl border border-cream-dark bg-white p-6 sm:p-8 shadow-sm">
               <ContactForm
                 heading="Send Us a Message"
                 subtitle="Tell us about your event or question and we'll get back to you shortly."
+                ctaText="Send Message"
               />
             </div>
           </div>

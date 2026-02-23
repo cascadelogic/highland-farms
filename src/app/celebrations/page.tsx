@@ -150,19 +150,20 @@ export default function CelebrationsPage() {
         <Container className="max-w-4xl">
           <SectionHeading
             eyebrow="Plan Your Celebration"
-            title="Get in Touch"
-            subtitle="Every event is custom. Tell us your vision and we'll help plan the perfect celebration."
+            title="Let's Plan Something Special"
+            subtitle="Every event at Highland Farms is custom-tailored. Tell us your vision and we'll make it happen."
           />
-          <div className="mx-auto max-w-xl rounded-xl border border-cream-dark bg-white p-8 shadow-sm">
+          <div className="mx-auto max-w-xl rounded-xl border border-cream-dark bg-white p-6 sm:p-8 shadow-sm">
             <ContactForm
               defaultEventType="celebration"
               heading=""
               subtitle=""
+              ctaText="Plan My Event"
             />
           </div>
           <p className="mt-6 text-center text-sm text-muted font-sans">
-            Or call us directly at{" "}
-            <a href={`tel:${CONTACT.phone.replace(/\s/g, "")}`} className="text-forest hover:text-forest-light transition-colors">
+            Prefer to talk? Call us at{" "}
+            <a href={`tel:${CONTACT.phone.replace(/\s/g, "")}`} className="text-forest font-medium hover:text-forest-light transition-colors">
               {CONTACT.phone}
             </a>
           </p>

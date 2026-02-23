@@ -70,7 +70,7 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
           <button
             ref={closeButtonRef}
             onClick={onClose}
-            className="p-2 hover:opacity-70 transition-opacity"
+            className="p-3 -mr-1 hover:opacity-70 transition-opacity"
             aria-label="Close menu"
           >
             <X className="h-5 w-5" aria-hidden="true" />

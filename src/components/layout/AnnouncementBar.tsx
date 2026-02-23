@@ -20,19 +20,19 @@ export function AnnouncementBar() {
   if (!visible) return null;
 
   return (
-    <div className="relative bg-charcoal/90 backdrop-blur-sm text-white text-center text-xs py-2.5 px-10">
-      <p className="font-light tracking-[0.15em] uppercase font-sans">
-        Intimate Forest Weddings &middot; Now Booking 2026{" "}
+    <div className="relative bg-charcoal/90 backdrop-blur-sm text-white text-center text-xs py-2.5 px-12 sm:px-10">
+      <p className="font-light tracking-[0.1em] sm:tracking-[0.15em] uppercase font-sans">
+        Forest Weddings &middot; Now Booking 2026{" "}
         <Link href="/weddings" className="underline underline-offset-4 decoration-gold/70 hover:decoration-gold transition-colors ml-1">
           Inquire
         </Link>
       </p>
       <button
         onClick={dismiss}
-        className="absolute right-3 top-1/2 -translate-y-1/2 p-1 hover:opacity-70 transition-opacity"
+        className="absolute right-2 top-1/2 -translate-y-1/2 p-2.5 hover:opacity-70 transition-opacity"
         aria-label="Dismiss announcement"
       >
-        <X className="h-3.5 w-3.5" />
+        <X className="h-4 w-4" />
       </button>
     </div>
   );

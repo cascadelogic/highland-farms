@@ -15,7 +15,7 @@ export async function POST(request: Request) {
       );
     }
 
-    const { name, email, phone, event_type, preferred_date, message } = result.data;
+    const { name, email, phone, event_type, guest_count, preferred_date, referral_source, message } = result.data;
 
     // Insert into Supabase
     const { error } = await supabase.from("event_inquiries").insert({
@@ -23,8 +23,10 @@ export async function POST(request: Request) {
       email,
       phone: phone || null,
       event_type,
+      guest_count: guest_count || null,
       preferred_date: preferred_date || null,
-      message,
+      referral_source: referral_source || null,
+      message: message || null,
     });
 
     if (error) {
