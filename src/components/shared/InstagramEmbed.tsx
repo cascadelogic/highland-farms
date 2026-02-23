@@ -1,49 +1,34 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import Image from "next/image";
 import { Container } from "@/components/ui/Container";
 import { SectionHeading } from "@/components/ui/SectionHeading";
-import { Instagram } from "lucide-react";
+import { Instagram, Play, ExternalLink } from "lucide-react";
 import { CONTACT } from "@/lib/constants";
 
-interface InstagramEmbedProps {
-  /** Show the featured LivePDX viral reel */
-  showFeaturedReel?: boolean;
-  /** Additional post URLs to embed */
-  additionalPosts?: string[];
-}
-
-const DEFAULT_POSTS = [
-  "https://www.instagram.com/reel/DUjsovNjzjf/", // LivePDX viral reel
-  "https://www.instagram.com/p/DCyQfgYy_ac/",
-  "https://www.instagram.com/p/DClXNVhyBqf/",
+const instagramPosts = [
+  {
+    url: "https://www.instagram.com/reel/DUjsovNjzjf/",
+    image: "/images/farm/cow-2.jpg",
+    alt: "Highland Cow up close — viral LivePDX reel",
+    label: "As Seen On LivePDX",
+    isReel: true,
+  },
+  {
+    url: "https://www.instagram.com/p/DCyQfgYy_ac/",
+    image: "/images/weddings/hannah-max/01.jpg",
+    alt: "Wedding couple with Highland Cow in the forest",
+    isReel: false,
+  },
+  {
+    url: "https://www.instagram.com/p/DClXNVhyBqf/",
+    image: "/images/spa/spa-1.jpg",
+    alt: "Nordic spa cedar tubs nestled in the forest",
+    isReel: false,
+  },
 ];
 
-export function InstagramEmbed({
-  showFeaturedReel = true,
-  additionalPosts,
-}: InstagramEmbedProps) {
-  const scriptLoaded = useRef(false);
-  const posts = additionalPosts || DEFAULT_POSTS;
-
-  useEffect(() => {
-    if (scriptLoaded.current) {
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      (window as any).instgrm?.Embeds?.process?.();
-      return;
-    }
-    const existing = document.querySelector(
-      'script[src="https://www.instagram.com/embed.js"]'
-    );
-    if (!existing) {
-      const script = document.createElement("script");
-      script.src = "https://www.instagram.com/embed.js";
-      script.async = true;
-      document.body.appendChild(script);
-    }
-    scriptLoaded.current = true;
-  }, []);
-
+export function InstagramEmbed() {
   return (
     <section className="py-16 lg:py-24 bg-warm-white overflow-hidden">
       <Container>
@@ -62,7 +47,7 @@ export function InstagramEmbed({
             <p className="text-base font-normal text-charcoal font-sans">
               {CONTACT.instagramHandle}
             </p>
-            <p className="text-sm text-muted font-sans">
+            <p className="text-sm text-muted font-sans font-light">
               Highland Cows, forest weddings &amp; farm life
             </p>
           </div>
@@ -76,55 +61,45 @@ export function InstagramEmbed({
           </a>
         </div>
 
-        {/* Featured viral reel + additional posts */}
+        {/* Post grid */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
-          {showFeaturedReel && (
-            <div className="md:col-span-1">
-              <p className="mb-2 text-center text-xs font-normal uppercase tracking-widest text-forest font-sans">
-                As Seen On LivePDX
-              </p>
-              <blockquote
-                className="instagram-media"
-                data-instgrm-permalink={posts[0]}
-                data-instgrm-version="14"
-                data-instgrm-captioned
-                style={{
-                  background: "#FFF",
-                  border: 0,
-                  borderRadius: "8px",
-                  boxShadow:
-                    "0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15)",
-                  margin: "0 auto",
-                  maxWidth: "540px",
-                  minWidth: "280px",
-                  padding: 0,
-                  width: "100%",
-                }}
+          {instagramPosts.map((post) => (
+            <a
+              key={post.url}
+              href={post.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group relative block overflow-hidden rounded-xl aspect-square"
+            >
+              <Image
+                src={post.image}
+                alt={post.alt}
+                fill
+                sizes="(max-width: 768px) 100vw, 33vw"
+                className="object-cover transition-transform duration-700 group-hover:scale-105"
               />
-            </div>
-          )}
+              {/* Hover overlay */}
+              <div className="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-colors duration-300 flex items-center justify-center">
+                <Instagram className="h-8 w-8 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+              </div>
 
-          {/* Additional posts */}
-          {posts.slice(1).map((url) => (
-            <div key={url} className="md:col-span-1">
-              <blockquote
-                className="instagram-media"
-                data-instgrm-permalink={url}
-                data-instgrm-version="14"
-                style={{
-                  background: "#FFF",
-                  border: 0,
-                  borderRadius: "8px",
-                  boxShadow:
-                    "0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15)",
-                  margin: "0 auto",
-                  maxWidth: "540px",
-                  minWidth: "280px",
-                  padding: 0,
-                  width: "100%",
-                }}
-              />
-            </div>
+              {/* Reel indicator */}
+              {post.isReel && (
+                <div className="absolute top-3 right-3 flex items-center gap-1 rounded-full bg-black/50 px-2.5 py-1 backdrop-blur-sm">
+                  <Play className="h-3 w-3 text-white fill-white" />
+                  <span className="text-[10px] font-light text-white tracking-wide">Reel</span>
+                </div>
+              )}
+
+              {/* Label */}
+              {post.label && (
+                <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/60 to-transparent p-4 pt-10">
+                  <p className="text-xs font-light tracking-[0.15em] uppercase text-white/90 font-sans">
+                    {post.label}
+                  </p>
+                </div>
+              )}
+            </a>
           ))}
         </div>
 
@@ -138,6 +113,7 @@ export function InstagramEmbed({
           >
             <Instagram className="h-4 w-4" />
             View More on Instagram
+            <ExternalLink className="h-3 w-3 text-muted" />
           </a>
         </div>
       </Container>
