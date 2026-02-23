@@ -33,7 +33,7 @@ const instagramPosts = [
     featured: false,
   },
   {
-    url: "https://www.instagram.com/reel/DUjsovNjzjf/",
+    url: "https://www.instagram.com/reel/DUjsovNjzjf/?utm_source=ig_web_copy_link",
     image: "/images/farm/goats.jpg",
     alt: "Highland Farms featured on LivePDX",
     caption: "What a wild ride it's been! Thank you @livepdx for sharing our farm with Portland.",
@@ -42,6 +42,7 @@ const instagramPosts = [
     timeAgo: "2w",
     isReel: true,
     featured: true,
+    postedBy: "livepdxofficial",
   },
   {
     url: "https://www.instagram.com/reel/C8iizbbv47X/",
@@ -80,7 +81,7 @@ export function InstagramEmbed() {
         {/* As Seen On LivePDX banner */}
         <div className="mx-auto mb-8 max-w-2xl">
           <a
-            href="https://www.instagram.com/reel/DUjsovNjzjf/"
+            href="https://www.instagram.com/reel/DUjsovNjzjf/?utm_source=ig_web_copy_link"
             target="_blank"
             rel="noopener noreferrer"
             className="group block rounded-2xl bg-gradient-to-r from-[#0d9488] to-[#14b8a6] p-[1px] shadow-sm hover:shadow-md transition-all duration-500"
@@ -209,11 +210,15 @@ export function InstagramEmbed() {
 
               {/* Post header */}
               <div className="flex items-center gap-2.5 px-3.5 py-2.5">
-                <div className="h-8 w-8 rounded-full bg-gradient-to-br from-[#f09433] via-[#dc2743] to-[#bc1888] p-[2px] shrink-0">
+                <div className={`h-8 w-8 rounded-full p-[2px] shrink-0 ${
+                  post.featured
+                    ? "bg-gradient-to-br from-[#0d9488] to-[#14b8a6]"
+                    : "bg-gradient-to-br from-[#f09433] via-[#dc2743] to-[#bc1888]"
+                }`}>
                   <div className="h-full w-full rounded-full bg-white p-[1px]">
                     <div className="relative h-full w-full rounded-full overflow-hidden">
                       <Image
-                        src={PROFILE_AVATAR}
+                        src={post.featured ? "/images/farm/goats.jpg" : PROFILE_AVATAR}
                         alt=""
                         fill
                         sizes="32px"
@@ -224,7 +229,7 @@ export function InstagramEmbed() {
                 </div>
                 <div className="flex-1 min-w-0">
                   <p className="text-xs font-medium text-charcoal font-sans truncate">
-                    highlandfarmsor
+                    {("postedBy" in post && post.postedBy) || "highlandfarmsor"}
                   </p>
                 </div>
                 <MoreHorizontal className="h-4 w-4 text-muted/60 shrink-0" />
@@ -275,7 +280,9 @@ export function InstagramEmbed() {
               {/* Caption */}
               <div className="px-3.5 pt-1 pb-1">
                 <p className="text-xs text-charcoal font-sans line-clamp-2">
-                  <span className="font-medium">highlandfarmsor</span>{" "}
+                  <span className="font-medium">
+                    {("postedBy" in post && post.postedBy) || "highlandfarmsor"}
+                  </span>{" "}
                   <span className="font-light text-charcoal/80">{post.caption}</span>
                 </p>
               </div>
