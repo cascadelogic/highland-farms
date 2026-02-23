@@ -33,7 +33,7 @@ const instagramPosts = [
     featured: false,
   },
   {
-    url: "https://www.instagram.com/reel/DUjsovNjzjf/?utm_source=ig_web_copy_link",
+    url: "https://www.instagram.com/reel/DUjsovNjzjf/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==",
     image: "/images/farm/goats.jpg",
     alt: "Highland Farms featured on LivePDX",
     caption: "What a wild ride it's been! Thank you @livepdx for sharing our farm with Portland.",
@@ -81,7 +81,7 @@ export function InstagramEmbed() {
         {/* As Seen On LivePDX banner */}
         <div className="mx-auto mb-8 max-w-2xl">
           <a
-            href="https://www.instagram.com/reel/DUjsovNjzjf/?utm_source=ig_web_copy_link"
+            href="https://www.instagram.com/reel/DUjsovNjzjf/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA=="
             target="_blank"
             rel="noopener noreferrer"
             className="group block rounded-2xl bg-gradient-to-r from-[#0d9488] to-[#14b8a6] p-[1px] shadow-sm hover:shadow-md transition-all duration-500"
