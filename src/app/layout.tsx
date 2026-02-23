@@ -3,7 +3,6 @@ import { Geist } from "next/font/google";
 import { Playfair_Display } from "next/font/google";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
-import { AnnouncementBar } from "@/components/layout/AnnouncementBar";
 import { SkipLink } from "@/components/layout/SkipLink";
 import { StructuredData } from "@/components/layout/StructuredData";
 import { GoogleTagManager, GoogleTagManagerNoScript } from "@/components/layout/GoogleTagManager";
@@ -78,7 +77,6 @@ export default function RootLayout({
       <body className={`${geistSans.variable} ${playfair.variable} antialiased`}>
         <GoogleTagManagerNoScript />
         <SkipLink />
-        <AnnouncementBar />
         <Header />
         <main id="main-content">{children}</main>
         <Footer />

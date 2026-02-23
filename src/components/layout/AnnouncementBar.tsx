@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import Link from "next/link";
 import { X } from "lucide-react";
 
 export function AnnouncementBar() {
@@ -20,11 +21,11 @@ export function AnnouncementBar() {
 
   return (
     <div className="relative bg-forest text-white text-center text-sm py-2.5 px-10">
-      <p className="font-medium tracking-wide">
-        All-Inclusive Farm & Forest Weddings — Dates Going Fast.{" "}
-        <a href="/weddings" className="underline underline-offset-2 hover:opacity-80">
+      <p className="font-medium tracking-wide font-sans">
+        All-Inclusive Farm &amp; Forest Weddings — Dates Going Fast.{" "}
+        <Link href="/weddings" className="underline underline-offset-2 hover:opacity-80">
           Learn More
-        </a>
+        </Link>
       </p>
       <button
         onClick={dismiss}
