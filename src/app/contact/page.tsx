@@ -24,7 +24,7 @@ export default function ContactPage() {
           <h1 className="text-4xl font-normal leading-tight sm:text-5xl">
             Get in Touch
           </h1>
-          <p className="mx-auto mt-4 max-w-xl text-lg text-white/75 leading-relaxed font-sans font-light">
+          <p className="mx-auto mt-4 max-w-xl text-lg text-white/85 leading-relaxed font-sans font-light">
             We&apos;d love to hear from you. Reach out to start planning your
             Highland Farms experience.
           </p>

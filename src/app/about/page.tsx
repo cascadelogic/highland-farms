@@ -40,7 +40,7 @@ export default function AboutPage() {
           <h1 className="text-4xl font-normal leading-tight sm:text-5xl md:text-6xl">
             About The Farm
           </h1>
-          <p className="mx-auto mt-5 max-w-xl text-lg text-white/75 leading-relaxed font-sans font-light">
+          <p className="mx-auto mt-5 max-w-xl text-lg text-white/85 leading-relaxed font-sans font-light">
             A space where loved ones come together to reconnect with nature and
             each other.
           </p>

@@ -20,7 +20,7 @@ export function LocationBlock() {
         <p className="mt-4 text-sm text-muted font-sans font-light">
           {CONTACT.fullAddress}
         </p>
-        <p className="mt-1 text-xs text-muted/60 font-sans font-light tracking-wide">
+        <p className="mt-1 text-xs text-muted/80 font-sans font-light tracking-wide">
           50 minutes from Portland &middot; 20 minutes from Mt. Hood
         </p>
       </Container>

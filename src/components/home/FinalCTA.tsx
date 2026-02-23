@@ -19,13 +19,13 @@ export function FinalCTA() {
       <div className="absolute inset-0 bg-charcoal/70 backdrop-blur-[2px]" />
 
       <Container className="relative z-10 text-center text-white">
-        <p className="text-xs font-light tracking-[0.3em] uppercase text-white/50 font-sans mb-4">
+        <p className="text-xs font-light tracking-[0.3em] uppercase text-white/70 font-sans mb-4">
           Your Story Starts Here
         </p>
         <h2 className="text-3xl font-normal sm:text-4xl lg:text-5xl">
           Ready to Begin?
         </h2>
-        <p className="mx-auto mt-5 max-w-md text-base text-white/60 font-sans font-light leading-relaxed">
+        <p className="mx-auto mt-5 max-w-md text-base text-white/80 font-sans font-light leading-relaxed">
           Let us create an unforgettable experience for you and your loved ones
           at the base of Mt. Hood.
         </p>
@@ -42,14 +42,14 @@ export function FinalCTA() {
             href="/weddings"
             variant="outline"
             size="lg"
-            className="border-white/25 text-white hover:bg-white/10 hover:border-white/40 hover:text-white"
+            className="border-white/50 text-white hover:bg-white/10 hover:border-white/70 hover:text-white"
           >
             Explore Weddings
           </Button>
         </div>
 
         {/* Direct contact */}
-        <div className="mt-10 flex flex-col items-center gap-4 sm:flex-row sm:justify-center text-xs text-white/40 font-sans font-light tracking-wide">
+        <div className="mt-10 flex flex-col items-center gap-4 sm:flex-row sm:justify-center text-xs text-white/65 font-sans font-light tracking-wide">
           <a
             href={`tel:${CONTACT.phone.replace(/\s/g, "")}`}
             className="flex items-center gap-2 hover:text-white/70 transition-colors"
@@ -57,7 +57,7 @@ export function FinalCTA() {
             <Phone className="h-3.5 w-3.5" />
             {CONTACT.phone}
           </a>
-          <span className="hidden sm:inline text-white/15">&middot;</span>
+          <span className="hidden sm:inline text-white/40">&middot;</span>
           <a
             href={`mailto:${CONTACT.email}`}
             className="flex items-center gap-2 hover:text-white/70 transition-colors"

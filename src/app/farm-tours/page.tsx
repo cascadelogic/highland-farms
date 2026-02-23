@@ -62,13 +62,13 @@ export default function FarmToursPage() {
         <div className="absolute inset-0 bg-black/35" />
 
         <div className="relative z-10 mx-auto max-w-3xl px-4 text-center text-white">
-          <p className="mb-4 text-sm font-light uppercase tracking-[0.3em] text-white/60 font-sans">
+          <p className="mb-4 text-sm font-light uppercase tracking-[0.3em] text-white/80 font-sans">
             Highland Farms Oregon
           </p>
           <h1 className="text-4xl font-normal leading-tight sm:text-5xl md:text-6xl">
             Meet Our Highland Cows
           </h1>
-          <p className="mx-auto mt-5 max-w-xl text-lg text-white/75 leading-relaxed font-sans font-light">
+          <p className="mx-auto mt-5 max-w-xl text-lg text-white/85 leading-relaxed font-sans font-light">
             Book a private farm tour and get up close with our gentle Highland
             Cows, Icelandic Sheep, White Peacocks, and more.
           </p>

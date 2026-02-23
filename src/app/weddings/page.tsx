@@ -43,13 +43,13 @@ export default function WeddingsPage() {
         <div className="absolute inset-0 bg-black/35" />
 
         <div className="relative z-10 mx-auto max-w-3xl px-4 text-center text-white">
-          <p className="mb-4 text-sm font-light uppercase tracking-[0.3em] text-white/60 font-sans">
+          <p className="mb-4 text-sm font-light uppercase tracking-[0.3em] text-white/80 font-sans">
             All-Inclusive Wedding Venue
           </p>
           <h1 className="text-4xl font-normal leading-tight sm:text-5xl md:text-6xl">
             Your Dream Wedding in the Forest
           </h1>
-          <p className="mx-auto mt-5 max-w-xl text-lg text-white/75 leading-relaxed font-sans font-light">
+          <p className="mx-auto mt-5 max-w-xl text-lg text-white/85 leading-relaxed font-sans font-light">
             Exchange vows under towering evergreens, celebrate with Highland Cows,
             and host your closest family and friends on-site at the base of Mt. Hood.
           </p>
@@ -61,7 +61,7 @@ export default function WeddingsPage() {
               href="#gallery"
               variant="outline"
               size="lg"
-              className="border-white text-white hover:bg-white/10 hover:text-white"
+              className="border-white/60 text-white hover:bg-white/10 hover:border-white/80 hover:text-white"
             >
               View Gallery
             </Button>

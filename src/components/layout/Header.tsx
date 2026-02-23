@@ -87,7 +87,7 @@ export function Header() {
                         "flex items-center gap-1 px-3.5 py-2 text-xs font-light tracking-[0.12em] uppercase transition-colors font-sans",
                         scrolled
                           ? "text-charcoal/70 hover:text-charcoal"
-                          : "text-white/80 hover:text-white"
+                          : "text-white/90 hover:text-white"
                       )}
                     >
                       {item.label}
@@ -119,8 +119,8 @@ export function Header() {
                   className={cn(
                     "ml-2 p-2 transition-colors",
                     scrolled
-                      ? "text-charcoal/50 hover:text-charcoal"
-                      : "text-white/60 hover:text-white"
+                      ? "text-charcoal/60 hover:text-charcoal"
+                      : "text-white/80 hover:text-white"
                   )}
                   aria-label="Follow us on Instagram"
                 >
@@ -129,7 +129,7 @@ export function Header() {
 
                 <Link
                   href="/contact"
-                  className="ml-3 inline-flex items-center justify-center rounded-full border border-white/30 bg-white/10 backdrop-blur-sm px-5 py-2 text-xs font-light tracking-[0.12em] uppercase text-white transition-all hover:bg-white/20 hover:border-white/50"
+                  className="ml-3 inline-flex items-center justify-center rounded-full border border-white/50 bg-white/10 backdrop-blur-sm px-5 py-2 text-xs font-light tracking-[0.12em] uppercase text-white transition-all hover:bg-white/20 hover:border-white/70"
                   style={scrolled ? { borderColor: 'rgba(74,103,65,0.3)', backgroundColor: 'rgba(74,103,65,0.05)', color: '#4A6741' } : {}}
                 >
                   Inquire

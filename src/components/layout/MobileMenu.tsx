@@ -96,7 +96,7 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
                 <Link
                   href={item.href}
                   onClick={onClose}
-                  className="block py-3 text-base font-light text-charcoal/80 hover:text-forest transition-colors border-b border-cream-light/50 font-sans"
+                  className="block py-3 text-base font-light text-charcoal hover:text-forest transition-colors border-b border-cream-dark/30 font-sans"
                 >
                   {item.label}
                 </Link>
@@ -121,7 +121,7 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
         </nav>
 
         {/* Contact info */}
-        <div className="border-t border-cream-light/50 px-6 py-5 text-xs text-muted font-light font-sans tracking-wide">
+        <div className="border-t border-cream-dark/30 px-6 py-5 text-xs text-charcoal/70 font-light font-sans tracking-wide">
           <a href={`tel:${CONTACT.phone.replace(/\s/g, "")}`} className="block hover:text-forest transition-colors">
             {CONTACT.phone}
           </a>

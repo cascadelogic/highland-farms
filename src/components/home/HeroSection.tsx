@@ -31,7 +31,7 @@ export function HeroSection() {
           aria-hidden="true"
         />
 
-        <p className="mb-4 text-xs font-light tracking-[0.35em] uppercase text-white/70 font-sans">
+        <p className="mb-4 text-xs font-light tracking-[0.35em] uppercase text-white/80 font-sans">
           Brightwood, Oregon &middot; At the Base of Mt. Hood
         </p>
 
@@ -39,13 +39,13 @@ export function HeroSection() {
           Where Forest Meets Forever
         </h1>
 
-        <p className="mx-auto mt-5 max-w-md text-sm text-white/75 leading-relaxed sm:text-base font-sans font-light">
+        <p className="mx-auto mt-5 max-w-md text-sm text-white/85 leading-relaxed sm:text-base font-sans font-light">
           Intimate, all-inclusive weddings surrounded by towering evergreens,
           Highland Cows, and Pacific Northwest magic.
         </p>
 
         {/* Social proof */}
-        <div className="mt-6 flex flex-wrap items-center justify-center gap-x-5 gap-y-2 text-white/60 text-xs font-sans">
+        <div className="mt-6 flex flex-wrap items-center justify-center gap-x-5 gap-y-2 text-white/75 text-xs font-sans">
           <a
             href="https://share.google/jrLOI4AhnpzbPPBpF"
             target="_blank"
@@ -59,7 +59,7 @@ export function HeroSection() {
             </div>
             <span>4.9 on Google</span>
           </a>
-          <span className="hidden sm:inline text-white/20">&middot;</span>
+          <span className="hidden sm:inline text-white/40">&middot;</span>
           <a
             href="https://traveloregon.com/plan-your-trip/places-to-stay/farm-ranch-stays/highland-farms/"
             target="_blank"
@@ -79,7 +79,7 @@ export function HeroSection() {
             href="#experiences"
             variant="outline"
             size="lg"
-            className="w-full sm:w-auto border-white/30 text-white hover:bg-white/10 hover:border-white/50 hover:text-white"
+            className="w-full sm:w-auto border-white/50 text-white hover:bg-white/10 hover:border-white/70 hover:text-white"
           >
             Explore the Farm
           </Button>
@@ -88,7 +88,7 @@ export function HeroSection() {
 
       {/* Scroll indicator */}
       <div className="absolute bottom-8 left-1/2 -translate-x-1/2 hidden sm:flex flex-col items-center gap-2 animate-[gentle-float_3s_ease-in-out_infinite]">
-        <span className="text-[10px] font-light tracking-[0.25em] uppercase text-white/40 font-sans">
+        <span className="text-[10px] font-light tracking-[0.25em] uppercase text-white/60 font-sans">
           Scroll
         </span>
         <svg
@@ -96,7 +96,7 @@ export function HeroSection() {
           height="24"
           viewBox="0 0 16 24"
           fill="none"
-          className="text-white/40"
+          className="text-white/60"
           aria-hidden="true"
         >
           <path

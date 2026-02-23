@@ -5,7 +5,7 @@ export function SocialProofBar() {
   return (
     <section className="bg-warm-white py-5 border-b border-cream-light/50">
       <Container>
-        <div className="flex flex-col items-center justify-center gap-3 sm:flex-row sm:gap-8 text-charcoal/60">
+        <div className="flex flex-col items-center justify-center gap-3 sm:flex-row sm:gap-8 text-charcoal/75">
           {/* Google Rating */}
           <a
             href="https://share.google/jrLOI4AhnpzbPPBpF"
