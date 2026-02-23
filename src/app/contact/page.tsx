@@ -1,0 +1,235 @@
+import type { Metadata } from "next";
+import { Phone, Mail, MapPin, Instagram, Clock } from "lucide-react";
+import { Container } from "@/components/ui/Container";
+import { SectionHeading } from "@/components/ui/SectionHeading";
+import { EventCategoryCards } from "@/components/shared/EventCategoryCards";
+import { CONTACT } from "@/lib/constants";
+
+export const metadata: Metadata = {
+  title: "Contact Us",
+  description:
+    "Contact Highland Farms Oregon for weddings, farm tours, Nordic spa sessions, and farm stays. Located in Brightwood, Oregon at the base of Mt. Hood.",
+};
+
+export default function ContactPage() {
+  return (
+    <>
+      {/* Hero */}
+      <section className="relative flex min-h-[40vh] items-center justify-center overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-b from-charcoal/60 via-charcoal/40 to-charcoal/60" />
+        <div className="absolute inset-0 bg-[url('/images/farm/contact-hero.jpg')] bg-cover bg-center" />
+        <div className="absolute inset-0 bg-black/35" />
+
+        <div className="relative z-10 mx-auto max-w-3xl px-4 text-center text-white">
+          <h1 className="text-4xl font-medium leading-tight sm:text-5xl">
+            Get in Touch
+          </h1>
+          <p className="mx-auto mt-4 max-w-xl text-lg text-white/85 leading-relaxed font-sans">
+            We&apos;d love to hear from you. Reach out to start planning your
+            Highland Farms experience.
+          </p>
+        </div>
+      </section>
+
+      {/* Contact Info + Form */}
+      <section className="py-20 lg:py-28 bg-background">
+        <Container>
+          <div className="grid grid-cols-1 gap-12 lg:grid-cols-2">
+            {/* Left: Contact Info */}
+            <div>
+              <h2 className="text-2xl font-medium sm:text-3xl">
+                Contact Information
+              </h2>
+              <p className="mt-4 text-base text-muted leading-relaxed font-sans">
+                Whether you&apos;re planning a wedding, booking a farm tour, or
+                just have a question — we&apos;re here to help.
+              </p>
+
+              <div className="mt-8 space-y-6">
+                <div className="flex items-start gap-4">
+                  <div className="flex h-10 w-10 items-center justify-center rounded-full bg-cream shrink-0">
+                    <Phone className="h-5 w-5 text-forest" />
+                  </div>
+                  <div>
+                    <h3 className="text-sm font-semibold text-charcoal font-sans">Phone</h3>
+                    <a href={`tel:${CONTACT.phone.replace(/\s/g, "")}`} className="block text-base text-muted hover:text-forest transition-colors font-sans">
+                      {CONTACT.phone}
+                    </a>
+                    <a href={`tel:${CONTACT.phoneAlt.replace(/[^\d+]/g, "")}`} className="block text-base text-muted hover:text-forest transition-colors font-sans">
+                      {CONTACT.phoneAlt}
+                    </a>
+                  </div>
+                </div>
+
+                <div className="flex items-start gap-4">
+                  <div className="flex h-10 w-10 items-center justify-center rounded-full bg-cream shrink-0">
+                    <Mail className="h-5 w-5 text-forest" />
+                  </div>
+                  <div>
+                    <h3 className="text-sm font-semibold text-charcoal font-sans">Email</h3>
+                    <a href={`mailto:${CONTACT.email}`} className="block text-base text-muted hover:text-forest transition-colors font-sans">
+                      {CONTACT.email}
+                    </a>
+                    <a href={`mailto:${CONTACT.emailAlt}`} className="block text-base text-muted hover:text-forest transition-colors font-sans">
+                      {CONTACT.emailAlt}
+                    </a>
+                  </div>
+                </div>
+
+                <div className="flex items-start gap-4">
+                  <div className="flex h-10 w-10 items-center justify-center rounded-full bg-cream shrink-0">
+                    <MapPin className="h-5 w-5 text-forest" />
+                  </div>
+                  <div>
+                    <h3 className="text-sm font-semibold text-charcoal font-sans">Address</h3>
+                    <p className="text-base text-muted font-sans">{CONTACT.fullAddress}</p>
+                    <p className="text-sm text-muted/80 font-sans mt-1">
+                      50 min from Portland &middot; 20 min from Mt. Hood
+                    </p>
+                  </div>
+                </div>
+
+                <div className="flex items-start gap-4">
+                  <div className="flex h-10 w-10 items-center justify-center rounded-full bg-cream shrink-0">
+                    <Instagram className="h-5 w-5 text-forest" />
+                  </div>
+                  <div>
+                    <h3 className="text-sm font-semibold text-charcoal font-sans">Instagram</h3>
+                    <a
+                      href={CONTACT.instagram}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-base text-muted hover:text-forest transition-colors font-sans"
+                    >
+                      {CONTACT.instagramHandle}
+                    </a>
+                  </div>
+                </div>
+
+                <div className="flex items-start gap-4">
+                  <div className="flex h-10 w-10 items-center justify-center rounded-full bg-cream shrink-0">
+                    <Clock className="h-5 w-5 text-forest" />
+                  </div>
+                  <div>
+                    <h3 className="text-sm font-semibold text-charcoal font-sans">Response Time</h3>
+                    <p className="text-base text-muted font-sans">We typically respond within 24 hours</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Right: Inquiry Form */}
+            <div>
+              <div className="rounded-sm border border-cream-dark bg-white p-8 shadow-sm">
+                <SectionHeading
+                  title="Send Us a Message"
+                  subtitle="Tell us about your event or question and we'll get back to you shortly."
+                  align="left"
+                  className="mb-8"
+                />
+
+                {/* Placeholder form — Supabase-backed in Phase 3 */}
+                <form className="space-y-5">
+                  <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
+                    <div>
+                      <label htmlFor="contact-name" className="block text-sm font-medium text-charcoal mb-1.5 font-sans">
+                        Your Name
+                      </label>
+                      <input
+                        type="text"
+                        id="contact-name"
+                        name="name"
+                        className="w-full rounded-sm border border-cream-dark bg-white px-4 py-3 text-sm font-sans text-charcoal placeholder:text-muted/60 focus:border-forest focus:outline-none focus:ring-1 focus:ring-forest"
+                        placeholder="First & Last Name"
+                      />
+                    </div>
+                    <div>
+                      <label htmlFor="contact-email" className="block text-sm font-medium text-charcoal mb-1.5 font-sans">
+                        Email Address
+                      </label>
+                      <input
+                        type="email"
+                        id="contact-email"
+                        name="email"
+                        className="w-full rounded-sm border border-cream-dark bg-white px-4 py-3 text-sm font-sans text-charcoal placeholder:text-muted/60 focus:border-forest focus:outline-none focus:ring-1 focus:ring-forest"
+                        placeholder="you@email.com"
+                      />
+                    </div>
+                  </div>
+
+                  <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
+                    <div>
+                      <label htmlFor="contact-phone" className="block text-sm font-medium text-charcoal mb-1.5 font-sans">
+                        Phone (optional)
+                      </label>
+                      <input
+                        type="tel"
+                        id="contact-phone"
+                        name="phone"
+                        className="w-full rounded-sm border border-cream-dark bg-white px-4 py-3 text-sm font-sans text-charcoal placeholder:text-muted/60 focus:border-forest focus:outline-none focus:ring-1 focus:ring-forest"
+                        placeholder="(555) 123-4567"
+                      />
+                    </div>
+                    <div>
+                      <label htmlFor="contact-event-type" className="block text-sm font-medium text-charcoal mb-1.5 font-sans">
+                        Event Type
+                      </label>
+                      <select
+                        id="contact-event-type"
+                        name="event-type"
+                        className="w-full rounded-sm border border-cream-dark bg-white px-4 py-3 text-sm font-sans text-charcoal focus:border-forest focus:outline-none focus:ring-1 focus:ring-forest"
+                      >
+                        <option value="">Select type</option>
+                        <option value="wedding">Wedding</option>
+                        <option value="elopement">Elopement</option>
+                        <option value="celebration">Celebration</option>
+                        <option value="retreat">Retreat</option>
+                        <option value="photoshoot">Photoshoot</option>
+                        <option value="farm-stay">Farm Stay</option>
+                        <option value="other">Other</option>
+                      </select>
+                    </div>
+                  </div>
+
+                  <div>
+                    <label htmlFor="contact-date" className="block text-sm font-medium text-charcoal mb-1.5 font-sans">
+                      Preferred Date (optional)
+                    </label>
+                    <input
+                      type="date"
+                      id="contact-date"
+                      name="date"
+                      className="w-full rounded-sm border border-cream-dark bg-white px-4 py-3 text-sm font-sans text-charcoal focus:border-forest focus:outline-none focus:ring-1 focus:ring-forest"
+                    />
+                  </div>
+
+                  <div>
+                    <label htmlFor="contact-message" className="block text-sm font-medium text-charcoal mb-1.5 font-sans">
+                      Message
+                    </label>
+                    <textarea
+                      id="contact-message"
+                      name="message"
+                      rows={5}
+                      className="w-full rounded-sm border border-cream-dark bg-white px-4 py-3 text-sm font-sans text-charcoal placeholder:text-muted/60 focus:border-forest focus:outline-none focus:ring-1 focus:ring-forest resize-none"
+                      placeholder="Tell us about your event or question..."
+                    />
+                  </div>
+
+                  <button
+                    type="submit"
+                    className="w-full rounded-sm bg-forest px-6 py-3.5 text-base font-medium tracking-wide text-white transition-colors hover:bg-forest-light"
+                  >
+                    Send Message
+                  </button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </Container>
+      </section>
+
+      <EventCategoryCards />
+    </>
+  );
+}
