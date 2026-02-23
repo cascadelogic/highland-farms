@@ -53,6 +53,12 @@ h1, h2, h3 {
   letter-spacing: -0.01em;
 }
 
+/* Prevent horizontal overflow/bounce on mobile */
+html,
+body {
+  overflow-x: hidden;
+}
+
 /* Smooth scrolling */
 html {
   scroll-behavior: smooth;

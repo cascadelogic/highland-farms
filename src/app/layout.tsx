@@ -75,12 +75,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" className="overflow-x-hidden">
       <head>
         <StructuredData />
       </head>
       <GoogleTagManager />
-      <body className={`${geistSans.variable} ${playfair.variable} antialiased`}>
+      <body className={`${geistSans.variable} ${playfair.variable} antialiased overflow-x-hidden`}>
         <GoogleTagManagerNoScript />
         <SkipLink />
         <Header />
