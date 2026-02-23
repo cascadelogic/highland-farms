@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { PartyPopper, Heart, Cake, GlassWater, Users, Sparkles } from "lucide-react";
 import { Container } from "@/components/ui/Container";
 import { Button } from "@/components/ui/Button";
@@ -108,10 +109,14 @@ export default function CelebrationsPage() {
       <section className="py-20 lg:py-28 bg-cream">
         <Container>
           <div className="grid grid-cols-1 gap-12 lg:grid-cols-2 lg:items-center">
-            <div className="relative aspect-[4/3] overflow-hidden rounded-sm bg-gradient-to-br from-cream-dark to-charcoal/20">
-              <div className="absolute inset-0 flex items-center justify-center text-sm text-muted font-sans">
-                Celebration event photo
-              </div>
+            <div className="relative aspect-[4/3] overflow-hidden rounded-sm">
+              <Image
+                src="/images/farm/events-retreats.jpg"
+                alt="Celebration event at Highland Farms"
+                fill
+                sizes="(max-width: 1024px) 100vw, 50vw"
+                className="object-cover"
+              />
             </div>
 
             <div>

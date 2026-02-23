@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { Users, BedDouble, Bath } from "lucide-react";
 import { Container } from "@/components/ui/Container";
@@ -22,10 +23,14 @@ export function AccommodationsPreview() {
                 href={property.bookingUrl}
                 className="group block overflow-hidden rounded-sm bg-white shadow-sm hover:shadow-md transition-shadow"
               >
-                <div className="relative aspect-[4/3] bg-gradient-to-br from-cream to-cream-dark overflow-hidden">
-                  <div className="absolute inset-0 flex items-center justify-center text-xs text-muted font-sans">
-                    {property.name} Photo
-                  </div>
+                <div className="relative aspect-[4/3] overflow-hidden">
+                  <Image
+                    src={property.imageSrc}
+                    alt={property.name}
+                    fill
+                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                    className="object-cover transition-transform duration-300 group-hover:scale-105"
+                  />
                   <div className="absolute inset-0 bg-charcoal/0 group-hover:bg-charcoal/10 transition-colors" />
                 </div>
 

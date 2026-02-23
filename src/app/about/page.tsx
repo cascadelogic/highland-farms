@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { Bed, UtensilsCrossed, Wifi, Car } from "lucide-react";
 import { Container } from "@/components/ui/Container";
 import { SectionHeading } from "@/components/ui/SectionHeading";
@@ -76,10 +77,14 @@ export default function AboutPage() {
               </p>
             </div>
 
-            <div className="relative aspect-[4/3] overflow-hidden rounded-sm bg-gradient-to-br from-cream to-cream-dark">
-              <div className="absolute inset-0 flex items-center justify-center text-sm text-muted font-sans">
-                Founder with Highland Cows photo
-              </div>
+            <div className="relative aspect-[4/3] overflow-hidden rounded-sm">
+              <Image
+                src="/images/farm/highland-cows-hero.jpg"
+                alt="Highland Cows at Highland Farms Oregon"
+                fill
+                sizes="(max-width: 1024px) 100vw, 50vw"
+                className="object-cover"
+              />
             </div>
           </div>
         </Container>
@@ -138,10 +143,14 @@ export default function AboutPage() {
       <section className="py-20 lg:py-28 bg-warm-white">
         <Container>
           <div className="grid grid-cols-1 gap-12 lg:grid-cols-2 lg:items-center">
-            <div className="relative aspect-[4/3] overflow-hidden rounded-sm bg-gradient-to-br from-cream to-cream-dark lg:order-1">
-              <div className="absolute inset-0 flex items-center justify-center text-sm text-muted font-sans">
-                Highland Cows and San Clemente Goats
-              </div>
+            <div className="relative aspect-[4/3] overflow-hidden rounded-sm lg:order-1">
+              <Image
+                src="/images/farm/farm-animals.jpg"
+                alt="Highland Cows and San Clemente Goats at Highland Farms"
+                fill
+                sizes="(max-width: 1024px) 100vw, 50vw"
+                className="object-cover"
+              />
             </div>
 
             <div>

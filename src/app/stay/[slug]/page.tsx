@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import { Users, BedDouble, Bath, ArrowLeft } from "lucide-react";
@@ -38,11 +39,35 @@ export default async function PropertyPage({
 
   if (!property) notFound();
 
-  const carouselImages = [
-    { src: property.imageSrc, alt: `${property.name} exterior` },
-    { src: property.imageSrc, alt: `${property.name} interior` },
-    { src: property.imageSrc, alt: `${property.name} living area` },
-    { src: property.imageSrc, alt: `${property.name} bedroom` },
+  const propertyGallery: Record<string, { src: string; alt: string }[]> = {
+    "whole-farm": [
+      { src: "/images/properties/whole-farm.jpg", alt: "The Whole Farm aerial view" },
+      { src: "/images/properties/lodge.jpg", alt: "The Lodge at Highland Farms" },
+      { src: "/images/properties/cottage.jpg", alt: "The Cottage at Highland Farms" },
+      { src: "/images/properties/camp.jpg", alt: "The Camp at Highland Farms" },
+    ],
+    lodge: [
+      { src: "/images/properties/lodge.jpg", alt: "The Lodge exterior" },
+      { src: "/images/properties/lodge-interior.jpg", alt: "The Lodge interior" },
+      { src: "/images/properties/gallery-1.jpg", alt: "The Lodge living area" },
+      { src: "/images/properties/gallery-3.jpg", alt: "The Lodge bedroom" },
+    ],
+    cottage: [
+      { src: "/images/properties/cottage.jpg", alt: "The Cottage exterior" },
+      { src: "/images/properties/cottage-interior.jpg", alt: "The Cottage interior" },
+      { src: "/images/properties/gallery-2.jpg", alt: "The Cottage living space" },
+      { src: "/images/properties/gallery-4.jpg", alt: "The Cottage bedroom" },
+    ],
+    camp: [
+      { src: "/images/properties/camp.jpg", alt: "The Camp glamping setup" },
+      { src: "/images/properties/gallery-5.jpg", alt: "The Camp surroundings" },
+      { src: "/images/properties/gallery-6.jpg", alt: "The Camp Airstream" },
+      { src: "/images/properties/gallery-7.jpg", alt: "The Camp forest setting" },
+    ],
+  };
+
+  const carouselImages = propertyGallery[property.slug] || [
+    { src: property.imageSrc, alt: `${property.name}` },
   ];
 
   return (
@@ -176,10 +201,14 @@ export default async function PropertyPage({
                   href={p.bookingUrl}
                   className="group overflow-hidden rounded-sm bg-white shadow-sm hover:shadow-md transition-shadow"
                 >
-                  <div className="relative aspect-[4/3] bg-gradient-to-br from-cream to-cream-dark overflow-hidden">
-                    <div className="absolute inset-0 flex items-center justify-center text-xs text-muted font-sans">
-                      {p.name} Photo
-                    </div>
+                  <div className="relative aspect-[4/3] overflow-hidden">
+                    <Image
+                      src={p.imageSrc}
+                      alt={p.name}
+                      fill
+                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                      className="object-cover transition-transform duration-300 group-hover:scale-105"
+                    />
                   </div>
                   <div className="p-5">
                     <h3 className="text-lg font-semibold text-charcoal font-sans">

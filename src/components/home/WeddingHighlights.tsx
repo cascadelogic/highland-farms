@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { Container } from "@/components/ui/Container";
 import { SectionHeading } from "@/components/ui/SectionHeading";
@@ -7,22 +8,26 @@ const highlights = [
   {
     title: "All-Inclusive Packages",
     description: "Venue, accommodations, coordinator, setup — everything handled so you can focus on your day.",
-    imagePlaceholder: "Wedding ceremony in forest",
+    image: "/images/weddings/ceremony.jpg",
+    alt: "Wedding ceremony in the forest at Highland Farms",
   },
   {
     title: "Highland Cow Photo Ops",
     description: "Unforgettable wedding photos with our gentle Highland Cows against the Mt. Hood backdrop.",
-    imagePlaceholder: "Couple with Highland Cow",
+    image: "/images/weddings/couple.jpg",
+    alt: "Couple with Highland Cows at Highland Farms",
   },
   {
     title: "Forest Ceremony Sites",
     description: "Exchange vows under towering old-growth trees draped in moss, beside a spring-fed pond.",
-    imagePlaceholder: "Forest ceremony setup",
+    image: "/images/weddings/details.jpg",
+    alt: "Forest ceremony setup at Highland Farms",
   },
   {
     title: "Lodging for 24 Guests",
     description: "Your closest family and friends stay on-site in our Lodge, Cottage, and Camp accommodations.",
-    imagePlaceholder: "Lodge exterior",
+    image: "/images/properties/lodge.jpg",
+    alt: "The Lodge at Highland Farms",
   },
 ];
 
@@ -43,10 +48,14 @@ export function WeddingHighlights() {
                 href="/weddings"
                 className="group block overflow-hidden rounded-sm bg-white shadow-sm hover:shadow-md transition-shadow"
               >
-                <div className="relative aspect-[4/3] bg-gradient-to-br from-cream to-cream-dark overflow-hidden">
-                  <div className="absolute inset-0 flex items-center justify-center text-xs text-muted p-4 text-center font-sans">
-                    {item.imagePlaceholder}
-                  </div>
+                <div className="relative aspect-[4/3] overflow-hidden">
+                  <Image
+                    src={item.image}
+                    alt={item.alt}
+                    fill
+                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                    className="object-cover transition-transform duration-300 group-hover:scale-105"
+                  />
                   <div className="absolute inset-0 bg-charcoal/0 group-hover:bg-charcoal/10 transition-colors" />
                 </div>
 

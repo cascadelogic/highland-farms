@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { Container } from "@/components/ui/Container";
 
@@ -5,17 +6,20 @@ const categories = [
   {
     title: "Weddings & Elopements",
     href: "/weddings",
-    imagePlaceholder: "Wedding ceremony photo",
+    image: "/images/weddings/ceremony.jpg",
+    alt: "Wedding ceremony at Highland Farms",
   },
   {
     title: "Gatherings & Retreats",
     href: "/celebrations",
-    imagePlaceholder: "Group gathering photo",
+    image: "/images/farm/events-retreats.jpg",
+    alt: "Group gathering at Highland Farms",
   },
   {
     title: "Photoshoots & Productions",
     href: "/contact",
-    imagePlaceholder: "Photoshoot photo",
+    image: "/images/farm/agritourism-stay.jpg",
+    alt: "Photoshoot at Highland Farms",
   },
 ];
 
@@ -30,11 +34,15 @@ export function EventCategoryCards() {
               href={cat.href}
               className="group relative aspect-[4/3] overflow-hidden rounded-sm"
             >
-              {/* Background placeholder */}
-              <div className="absolute inset-0 bg-gradient-to-br from-cream-dark to-charcoal/30" />
+              <Image
+                src={cat.image}
+                alt={cat.alt}
+                fill
+                sizes="(max-width: 768px) 100vw, 33vw"
+                className="object-cover transition-transform duration-300 group-hover:scale-105"
+              />
               <div className="absolute inset-0 bg-charcoal/30 group-hover:bg-charcoal/40 transition-colors" />
 
-              {/* Content */}
               <div className="relative z-10 flex h-full items-end p-6">
                 <div>
                   <h3 className="text-xl font-medium text-white sm:text-2xl">

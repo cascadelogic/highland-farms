@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { Check, Users, TreePine, Camera, UtensilsCrossed, Music, Heart } from "lucide-react";
 import { Container } from "@/components/ui/Container";
 import { Button } from "@/components/ui/Button";
@@ -138,11 +139,14 @@ export default function WeddingsPage() {
               </ul>
             </div>
 
-            {/* Image placeholder */}
-            <div className="relative aspect-[4/3] overflow-hidden rounded-sm bg-gradient-to-br from-cream to-cream-dark">
-              <div className="absolute inset-0 flex items-center justify-center text-sm text-muted font-sans">
-                Venue overview photo
-              </div>
+            <div className="relative aspect-[4/3] overflow-hidden rounded-sm">
+              <Image
+                src="/images/hero/farm-aerial.jpg"
+                alt="Aerial view of Highland Farms wedding venue"
+                fill
+                sizes="(max-width: 1024px) 100vw, 50vw"
+                className="object-cover"
+              />
             </div>
           </div>
         </Container>

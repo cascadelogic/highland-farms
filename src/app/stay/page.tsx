@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { Users, BedDouble, Bath } from "lucide-react";
 import { Container } from "@/components/ui/Container";
@@ -62,10 +63,14 @@ export default function StayPage() {
                 {/* Image */}
                 <div className="flex-1">
                   <Link href={property.bookingUrl} className="block group">
-                    <div className="relative aspect-[4/3] overflow-hidden rounded-sm bg-gradient-to-br from-cream to-cream-dark">
-                      <div className="absolute inset-0 flex items-center justify-center text-sm text-muted font-sans">
-                        {property.name} Photo
-                      </div>
+                    <div className="relative aspect-[4/3] overflow-hidden rounded-sm">
+                      <Image
+                        src={property.imageSrc}
+                        alt={property.name}
+                        fill
+                        sizes="(max-width: 1024px) 100vw, 50vw"
+                        className="object-cover transition-transform duration-300 group-hover:scale-105"
+                      />
                       <div className="absolute inset-0 bg-charcoal/0 group-hover:bg-charcoal/5 transition-colors" />
                     </div>
                   </Link>

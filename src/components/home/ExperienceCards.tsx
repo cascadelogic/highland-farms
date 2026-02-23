@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { Button } from "@/components/ui/Button";
 import { Container } from "@/components/ui/Container";
 import { SectionHeading } from "@/components/ui/SectionHeading";
@@ -9,7 +10,8 @@ const experiences = [
       "Get up close with our gentle Highland Cows, Icelandic Sheep, White Peacocks, and African Grey Geese. A private 60-minute experience your family will never forget.",
     cta: "Book a Farm Tour",
     href: "/farm-tours",
-    imagePlaceholder: "Highland Cow close-up",
+    image: "/images/farm/highland-cows-hero.jpg",
+    alt: "Highland Cows at Highland Farms Oregon",
   },
   {
     title: "Nordic Forest Spa",
@@ -17,7 +19,8 @@ const experiences = [
       "Soak in cedar hot tubs nestled among towering evergreens. Unwind with the sounds of the forest in our private 60-minute spa sessions.",
     cta: "Book a Spa Session",
     href: "/nordic-spa",
-    imagePlaceholder: "Cedar soaking tub in forest",
+    image: "/images/spa/forest-spa-1.jpg",
+    alt: "Cedar soaking tub in the forest at Highland Farms",
   },
 ];
 
@@ -37,11 +40,14 @@ export function ExperienceCards() {
               key={exp.title}
               className="group overflow-hidden rounded-sm bg-white shadow-sm hover:shadow-md transition-shadow"
             >
-              {/* Image placeholder */}
-              <div className="relative aspect-[16/10] bg-gradient-to-br from-cream to-cream-dark overflow-hidden">
-                <div className="absolute inset-0 flex items-center justify-center text-sm text-muted font-sans">
-                  {exp.imagePlaceholder}
-                </div>
+              <div className="relative aspect-[16/10] overflow-hidden">
+                <Image
+                  src={exp.image}
+                  alt={exp.alt}
+                  fill
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                  className="object-cover transition-transform duration-300 group-hover:scale-105"
+                />
                 <div className="absolute inset-0 bg-charcoal/0 group-hover:bg-charcoal/5 transition-colors" />
               </div>
 

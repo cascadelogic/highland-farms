@@ -1,6 +1,7 @@
 "use client";
 
 import { useCallback } from "react";
+import Image from "next/image";
 import useEmblaCarousel from "embla-carousel-react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { cn } from "@/lib/utils";
@@ -29,13 +30,15 @@ export function ImageCarousel({ images, className, aspectRatio = "video" }: Imag
         <div className="flex">
           {images.map((image, i) => (
             <div key={i} className="min-w-0 flex-[0_0_100%]">
-              <div className={cn(
-                "relative bg-gradient-to-br from-cream to-cream-dark",
-                aspectClasses[aspectRatio]
-              )}>
-                <div className="absolute inset-0 flex items-center justify-center text-sm text-muted font-sans">
-                  {image.alt}
-                </div>
+              <div className={cn("relative", aspectClasses[aspectRatio])}>
+                <Image
+                  src={image.src}
+                  alt={image.alt}
+                  fill
+                  sizes="(max-width: 768px) 100vw, 80vw"
+                  className="object-cover"
+                  priority={i === 0}
+                />
               </div>
             </div>
           ))}

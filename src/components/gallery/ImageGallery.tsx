@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { cn } from "@/lib/utils";
 
 interface ImageGalleryProps {
@@ -18,11 +19,15 @@ export function ImageGallery({ images, columns = 3, className }: ImageGalleryPro
       {images.map((image, i) => (
         <div
           key={i}
-          className="relative aspect-[4/3] overflow-hidden rounded-sm bg-gradient-to-br from-cream to-cream-dark"
+          className="relative aspect-[4/3] overflow-hidden rounded-sm"
         >
-          <div className="absolute inset-0 flex items-center justify-center text-xs text-muted font-sans p-2 text-center">
-            {image.alt}
-          </div>
+          <Image
+            src={image.src}
+            alt={image.alt}
+            fill
+            sizes={`(max-width: 640px) 100vw, (max-width: 1024px) 50vw, ${Math.round(100 / columns)}vw`}
+            className="object-cover hover:scale-105 transition-transform duration-300"
+          />
         </div>
       ))}
     </div>
