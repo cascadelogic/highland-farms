@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 
 interface HospitableWidgetProps {
   widgetUrl: string;
@@ -8,13 +8,12 @@ interface HospitableWidgetProps {
 }
 
 export function HospitableWidget({ widgetUrl, propertyName }: HospitableWidgetProps) {
+  const iframeRef = useRef<HTMLIFrameElement>(null);
+
   useEffect(() => {
     function handleMessage(event: MessageEvent) {
-      if (event.data.iframeHeight) {
-        const iframe = document.getElementById("booking-iframe") as HTMLIFrameElement | null;
-        if (iframe) {
-          iframe.style.height = event.data.iframeHeight + "px";
-        }
+      if (event.data.iframeHeight && iframeRef.current) {
+        iframeRef.current.style.height = event.data.iframeHeight + "px";
       }
     }
     window.addEventListener("message", handleMessage);
@@ -35,15 +34,14 @@ export function HospitableWidget({ widgetUrl, propertyName }: HospitableWidgetPr
   }
 
   return (
-    <div className="min-w-[320px]">
+    <div className="overflow-hidden rounded-lg">
       <iframe
-        id="booking-iframe"
+        ref={iframeRef}
+        sandbox="allow-top-navigation allow-scripts allow-same-origin"
         src={widgetUrl}
-        width="100%"
-        height="900"
-        frameBorder="0"
         title={`Book ${propertyName}`}
-        className="rounded-xl"
+        className="block mx-auto border-0 max-w-full"
+        style={{ width: 315, height: 680 }}
         allow="payment"
       />
     </div>

@@ -12,6 +12,7 @@ export const properties: Property[] = [
     baths: 3.5,
     imageSrc: "/images/properties/whole-farm.jpg",
     bookingUrl: "/stay/whole-farm",
+    hospitable_widget_url: "https://booking.hospitable.com/widget/9c273e8f-0df2-4bd3-b639-da59849e328f/1336238",
     highlights: [
       "Full farm access",
       "Summer dates open April 1st",
@@ -30,6 +31,7 @@ export const properties: Property[] = [
     baths: 2.5,
     imageSrc: "/images/properties/cottage.jpg",
     bookingUrl: "/stay/lodge",
+    hospitable_widget_url: "https://booking.hospitable.com/widget/9c273e8f-0df2-4bd3-b639-da59849e328f/1573840",
     highlights: [
       "Cedar Hot Tub",
       "BBQ & Blackstone",
@@ -48,6 +50,7 @@ export const properties: Property[] = [
     baths: 1,
     imageSrc: "/images/properties/lodge.jpg",
     bookingUrl: "/stay/cottage",
+    hospitable_widget_url: "https://booking.hospitable.com/widget/9c273e8f-0df2-4bd3-b639-da59849e328f/1080252",
     highlights: [
       "Cedar Hot Tub",
       "BBQ",
@@ -66,6 +69,7 @@ export const properties: Property[] = [
     baths: 1,
     imageSrc: "/images/properties/camp-1.jpg",
     bookingUrl: "/stay/camp",
+    hospitable_widget_url: "https://booking.hospitable.com/widget/9c273e8f-0df2-4bd3-b639-da59849e328f/1574832",
     highlights: [
       "Airstream trailer",
       "Glamping tents",

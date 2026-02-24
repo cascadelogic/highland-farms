@@ -88,9 +88,9 @@ export default async function PropertyPage({
       {/* Property Details + Booking Widget */}
       <section className="py-12 bg-background">
         <Container>
-          <div className="grid grid-cols-1 gap-12 lg:grid-cols-5">
+          <div className="grid grid-cols-1 gap-12 lg:grid-cols-[1fr_380px] max-w-5xl mx-auto">
             {/* Left: Details */}
-            <div className="lg:col-span-2">
+            <div>
               <h1 className="text-3xl font-normal sm:text-4xl">
                 {property.name}
               </h1>
@@ -160,14 +160,12 @@ export default async function PropertyPage({
             </div>
 
             {/* Right: Booking Widget */}
-            <div className="lg:col-span-3">
+            <div>
               <div className="lg:sticky lg:top-24">
-                <div className="rounded-xl border border-cream-dark bg-white p-1">
-                  <div className="bg-charcoal/90 text-white text-center py-3 rounded-xl mb-1">
-                    <p className="text-xs font-light tracking-[0.15em] uppercase font-sans">
-                      Book Direct — Best Rate Guaranteed
-                    </p>
-                  </div>
+                <div className="rounded-xl border border-cream-dark bg-white p-3">
+                  <p className="text-center text-xs font-light tracking-[0.15em] uppercase text-muted font-sans mb-3">
+                    Book Direct &mdash; Best Rate Guaranteed
+                  </p>
                   <HospitableWidget
                     widgetUrl={property.hospitable_widget_url || ""}
                     propertyName={property.name}
