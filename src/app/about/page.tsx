@@ -186,7 +186,7 @@ export default function AboutPage() {
 
           {/* Property Map */}
           <div className="mt-16">
-            <div className="relative mx-auto max-w-4xl overflow-hidden rounded-xl bg-cream p-6 sm:p-10">
+            <div className="relative mx-auto max-w-4xl overflow-hidden rounded-xl bg-cream-dark p-6 sm:p-10">
               <Image
                 src="/images/farm/property-map.webp"
                 alt="Hand-drawn map of Highland Farms showing the lodge, cottage, barn, wedding area, pond, walking paths, pastures, and forest"
