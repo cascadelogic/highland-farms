@@ -31,7 +31,7 @@ export function HeroSection() {
           aria-hidden="true"
         />
 
-        <p className="mb-4 text-xs font-light tracking-[0.35em] uppercase text-white/80 font-sans">
+        <p className="mb-4 text-xl font-normal text-white/80 font-script">
           Brightwood, Oregon &middot; At the Base of Mt. Hood
         </p>
 

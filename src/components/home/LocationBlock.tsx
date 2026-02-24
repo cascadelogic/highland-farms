@@ -8,7 +8,7 @@ export function LocationBlock() {
       <Container className="text-center">
         <div className="flex items-center justify-center gap-2 text-sage mb-4">
           <MapPin className="h-4 w-4" />
-          <p className="text-xs font-light uppercase tracking-[0.2em] font-sans">
+          <p className="text-lg font-normal font-script">
             Location
           </p>
         </div>

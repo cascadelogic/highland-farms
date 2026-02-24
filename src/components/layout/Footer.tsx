@@ -19,7 +19,7 @@ export function Footer() {
                 height={21}
                 className="h-5 w-auto opacity-80"
               />
-              <span className="text-xs font-light tracking-[0.15em] uppercase text-white/70 font-sans">
+              <span className="text-lg font-normal text-white/70 font-script">
                 Highland Farms
               </span>
             </Link>

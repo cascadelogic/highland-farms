@@ -41,7 +41,7 @@ export default function AboutPage() {
         <div className="absolute inset-0 bg-black/35" />
 
         <div className="relative z-10 mx-auto max-w-3xl px-4 text-center text-white">
-          <p className="mb-4 text-sm font-light uppercase tracking-[0.3em] text-white/80 font-sans">
+          <p className="mb-4 text-xl font-normal text-white/80 font-script">
             Our Story
           </p>
           <h1 className="text-4xl font-normal leading-tight sm:text-5xl md:text-6xl">
@@ -59,7 +59,7 @@ export default function AboutPage() {
         <Container>
           <div className="grid grid-cols-1 gap-12 lg:grid-cols-2 lg:items-center">
             <div>
-              <p className="text-sm font-normal italic text-sage tracking-wide font-display mb-3">
+              <p className="text-lg font-normal text-sage font-script mb-3">
                 The Story of a Farm
               </p>
               <h2 className="text-3xl font-normal sm:text-4xl">
@@ -100,7 +100,7 @@ export default function AboutPage() {
       <section className="py-20 lg:py-28 bg-cream">
         <Container className="max-w-3xl">
           <div className="text-center">
-            <p className="text-sm font-normal italic text-sage tracking-wide font-display mb-3">
+            <p className="text-lg font-normal text-sage font-script mb-3">
               The Vision
             </p>
           </div>
@@ -129,7 +129,7 @@ export default function AboutPage() {
             </div>
 
             <div>
-              <p className="text-sm font-normal italic text-sage tracking-wide font-display mb-3">
+              <p className="text-lg font-normal text-sage font-script mb-3">
                 Cultivate &amp; Connect
               </p>
               <h2 className="text-3xl font-normal sm:text-4xl">The Farm</h2>
@@ -252,7 +252,7 @@ export default function AboutPage() {
       {/* The Forest Valley */}
       <section className="py-20 lg:py-28 bg-warm-white">
         <Container className="max-w-3xl text-center">
-          <p className="text-sm font-normal italic text-sage tracking-wide font-display mb-3">
+          <p className="text-lg font-normal text-sage font-script mb-3">
             Explore &amp; Engage
           </p>
           <h2 className="text-3xl font-normal sm:text-4xl">

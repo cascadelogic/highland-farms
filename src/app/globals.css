@@ -38,8 +38,9 @@
   --color-blush-light: var(--blush-light);
   --color-gold: var(--gold);
   --color-gold-light: var(--gold-light);
-  --font-sans: var(--font-geist-sans);
-  --font-display: var(--font-playfair);
+  --font-sans: var(--font-lora);
+  --font-display: var(--font-cormorant);
+  --font-script: var(--font-dancing);
 }
 
 body {
@@ -50,7 +51,8 @@ body {
 
 h1, h2, h3 {
   font-family: var(--font-display), Georgia, serif;
-  letter-spacing: -0.01em;
+  letter-spacing: 0.02em;
+  font-weight: 300;
 }
 
 /* Prevent horizontal overflow/bounce on mobile */

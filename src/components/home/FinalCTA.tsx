@@ -19,7 +19,7 @@ export function FinalCTA() {
       <div className="absolute inset-0 bg-charcoal/70 backdrop-blur-[2px]" />
 
       <Container className="relative z-10 text-center text-white">
-        <p className="text-xs font-light tracking-[0.3em] uppercase text-white/70 font-sans mb-4">
+        <p className="text-xl font-normal text-white/70 font-script mb-4">
           Your Story Starts Here
         </p>
         <h2 className="text-3xl font-normal sm:text-4xl lg:text-5xl">

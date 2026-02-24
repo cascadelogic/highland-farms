@@ -40,7 +40,7 @@ export function Button({
   external,
 }: ButtonProps) {
   const classes = cn(
-    "inline-flex items-center justify-center font-medium tracking-wider uppercase text-[0.8em] transition-all duration-300 rounded-full",
+    "inline-flex items-center justify-center font-normal tracking-[0.15em] uppercase text-[0.75em] transition-all duration-300 rounded-full",
     variants[variant],
     sizes[size],
     className
