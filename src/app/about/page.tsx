@@ -183,6 +183,20 @@ export default function AboutPage() {
               </div>
             ))}
           </div>
+
+          {/* Property Map */}
+          <div className="mt-16">
+            <div className="relative mx-auto max-w-4xl overflow-hidden rounded-xl">
+              <Image
+                src="/images/farm/property-map.webp"
+                alt="Hand-drawn map of Highland Farms showing the lodge, cottage, barn, wedding area, pond, walking paths, pastures, and forest"
+                width={1320}
+                height={880}
+                sizes="(max-width: 1024px) 100vw, 896px"
+                className="w-full h-auto"
+              />
+            </div>
+          </div>
         </Container>
       </section>
 
