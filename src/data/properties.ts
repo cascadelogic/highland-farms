@@ -55,4 +55,22 @@ export const properties: Property[] = [
       "Indoor/outdoor living",
     ],
   },
+  {
+    slug: "camp",
+    name: "The Camp",
+    tagline: "Recenter & connect",
+    description:
+      "A unique glamping experience featuring a restored Airstream trailer and canvas tent camping under the towering evergreens.",
+    guests: 4,
+    bedrooms: 1,
+    baths: 1,
+    imageSrc: "/images/properties/camp-1.jpg",
+    bookingUrl: "/stay/camp",
+    highlights: [
+      "Airstream trailer",
+      "Glamping tents",
+      "Under the stars",
+      "WiFi & kitchen access",
+    ],
+  },
 ];
