@@ -11,7 +11,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { path: "/stay", priority: 0.8, changeFrequency: "weekly" as const },
     { path: "/stay/lodge", priority: 0.7, changeFrequency: "monthly" as const },
     { path: "/stay/cottage", priority: 0.7, changeFrequency: "monthly" as const },
-    { path: "/stay/camp", priority: 0.7, changeFrequency: "monthly" as const },
     { path: "/stay/whole-farm", priority: 0.7, changeFrequency: "monthly" as const },
     { path: "/wedding-portfolio", priority: 0.8, changeFrequency: "monthly" as const },
     { path: "/wedding-portfolio/hannah-max", priority: 0.6, changeFrequency: "monthly" as const },

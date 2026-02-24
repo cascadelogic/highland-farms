@@ -12,12 +12,12 @@ import { CONTACT } from "@/lib/constants";
 export const metadata: Metadata = {
   title: "Farm & Forest Weddings — Brightwood, Oregon",
   description:
-    "All-inclusive farm and forest weddings at Highland Farms, Brightwood, Oregon. Exchange vows under towering evergreens with Highland Cows, on-site lodging for 24 guests, at the base of Mt. Hood. 50 minutes from Portland.",
+    "All-inclusive farm and forest weddings at Highland Farms, Brightwood, Oregon. Exchange vows under towering evergreens with Highland Cows, on-site lodging for 20 guests, at the base of Mt. Hood. 50 minutes from Portland.",
   alternates: { canonical: "/weddings" },
   openGraph: {
     title: "Farm & Forest Weddings at Highland Farms Oregon",
     description:
-      "All-inclusive wedding venue at the base of Mt. Hood with five acres of forest, Scottish Highland Cows, and on-site lodging for 24 guests.",
+      "All-inclusive wedding venue at the base of Mt. Hood with five acres of forest, Scottish Highland Cows, and on-site lodging for 20 guests.",
     url: "https://highlandfarmsoregon.com/weddings",
     type: "website",
   },
@@ -25,7 +25,7 @@ export const metadata: Metadata = {
 
 const included = [
   { icon: TreePine, text: "Exclusive use of the entire 5-acre property" },
-  { icon: Users, text: "On-site lodging for up to 24 guests" },
+  { icon: Users, text: "On-site lodging for up to 20 guests" },
   { icon: UtensilsCrossed, text: "Full kitchen access for catering" },
   { icon: Camera, text: "Highland Cow photo opportunities" },
   { icon: Music, text: "Ceremony and reception areas" },
@@ -113,19 +113,18 @@ export default function WeddingsPage() {
                 The Venue
               </p>
               <h2 className="text-3xl font-normal sm:text-4xl">
-                Five Acres of Forest &amp; Farm
+                Five Enchanted Acres
               </h2>
               <p className="mt-4 text-base text-muted leading-relaxed font-sans">
                 Highland Farms sits on five forested acres at the base of Mt.
-                Hood. The property features a historic cedar mill lodge,
+                Hood. The property features a cedar mill lodge,
                 spring-fed pond, old-growth trees draped in moss, and of course —
                 our beloved Highland Cows.
               </p>
               <p className="mt-4 text-base text-muted leading-relaxed font-sans">
-                Your wedding party can stay on-site in our Lodge (8 guests),
-                Cottage (8 guests), and Camp (4 guests) — making it a true
-                destination wedding experience for up to 24 of your closest
-                people.
+                Your wedding party can stay on-site in William Wallace Lodge
+                and Bonnie Lass Cottage — making it a true destination wedding
+                experience for up to 20 of your closest people.
               </p>
 
               <ul className="mt-6 space-y-2">
@@ -133,8 +132,9 @@ export default function WeddingsPage() {
                   "Forest ceremony sites",
                   "Outdoor reception areas",
                   "Highland Cow photo ops",
-                  "Nordic cedar soaking tubs",
-                  "On-site accommodations for 24",
+                  "The Nordic Spa",
+                  "Cedar Hot Tubs",
+                  "On-site accommodations for 20",
                   "Full kitchen for catering",
                 ].map((item) => (
                   <li

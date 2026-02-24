@@ -13,7 +13,7 @@ import { BOOKING_LINKS } from "@/lib/constants";
 export const metadata: Metadata = {
   title: "Highland Cow Farm Tours — Brightwood, Oregon",
   description:
-    "Book a private Highland Cow farm tour near Portland, Oregon. Meet Scottish Highland Cows, Icelandic Sheep, White Peacocks, and more. 60-minute private experiences at the base of Mt. Hood in Brightwood.",
+    "Book a private Highland Cow farm tour near Portland, Oregon. Meet Scottish Highland Cows, Icelandic Sheep, White Peacocks, guardian dogs, chickens, Guinea Fowl, and more. $75 per person, 60-minute private experiences at the base of Mt. Hood in Brightwood.",
   alternates: { canonical: "/farm-tours" },
   openGraph: {
     title: "Highland Cow Farm Tours at Highland Farms Oregon",
@@ -59,7 +59,7 @@ const features = [
     icon: Heart,
     title: "Meet the Animals",
     description:
-      "Highland Cows, Icelandic Sheep, White Peacocks, African Grey Geese, and San Clemente Goats.",
+      "Highland Cows, Icelandic Sheep, White Peacocks, guardian dogs, chickens, and Guinea Fowl.",
   },
   {
     icon: Users,
@@ -100,7 +100,7 @@ export default function FarmToursPage() {
           </h1>
           <p className="mx-auto mt-5 max-w-xl text-lg text-white/85 leading-relaxed font-sans font-light">
             Book a private farm tour and get up close with our gentle Highland
-            Cows, Icelandic Sheep, White Peacocks, and more.
+            Cows, Icelandic Sheep, White Peacocks, guardian dogs, and more.
           </p>
           <div className="mt-8">
             <Button
@@ -109,7 +109,7 @@ export default function FarmToursPage() {
               className="bg-white text-charcoal hover:bg-cream"
               external
             >
-              Book Your Private Tour
+              Book Your Tour
             </Button>
           </div>
         </div>
@@ -168,7 +168,7 @@ export default function FarmToursPage() {
                   Private Highland Cow Farm Tour
                 </span>
                 <span className="text-lg font-normal text-forest font-sans">
-                  Contact for Pricing
+                  $75 per person
                 </span>
               </div>
               <ul className="space-y-2.5 text-sm text-muted font-sans">
@@ -194,7 +194,7 @@ export default function FarmToursPage() {
                 className="w-full"
                 external
               >
-                Book Your Tour Now
+                Book Your Tour
               </Button>
             </div>
           </div>

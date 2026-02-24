@@ -7,7 +7,7 @@ import { StaggerChildren, StaggerItem } from "@/components/ui/StaggerChildren";
 const highlights = [
   {
     title: "All-Inclusive Packages",
-    description: "Venue, on-site lodging for 24, event coordination, setup and teardown — we handle everything.",
+    description: "Venue, on-site lodging for 16, event coordination, setup and teardown — we handle everything.",
     image: "/images/weddings/ceremony-2.jpg",
     alt: "Elegant outdoor dining setup at Highland Farms wedding",
   },
@@ -25,9 +25,9 @@ const highlights = [
   },
   {
     title: "Stay On-Site",
-    description: "Your closest family and friends stay together in our Lodge, Cottage, and Camp.",
+    description: "Your closest family and friends stay together in William Wallace Lodge and Bonnie Lass Cottage.",
     image: "/images/properties/lodge.jpg",
-    alt: "The Cottage at Highland Farms",
+    alt: "Bonnie Lass Cottage at Highland Farms",
   },
 ];
 

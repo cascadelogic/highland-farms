@@ -30,7 +30,7 @@ export function AccommodationsPreview() {
                     fill
                     sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
                     className={`object-cover transition-transform duration-700 group-hover:scale-105 ${
-                      property.slug === "whole-farm" || property.slug === "camp"
+                      property.slug === "whole-farm"
                         ? "object-[center_60%]"
                         : ""
                     }`}

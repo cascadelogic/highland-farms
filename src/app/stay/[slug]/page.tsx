@@ -42,30 +42,20 @@ export default async function PropertyPage({
   const propertyGallery: Record<string, { src: string; alt: string }[]> = {
     "whole-farm": [
       { src: "/images/properties/whole-farm.jpg", alt: "The Whole Farm aerial view" },
-      { src: "/images/properties/lodge.jpg", alt: "The Lodge at Highland Farms" },
-      { src: "/images/properties/cottage.jpg", alt: "The Cottage at Highland Farms" },
-      { src: "/images/properties/camp-1.jpg", alt: "The Camp at Highland Farms" },
+      { src: "/images/properties/lodge.jpg", alt: "William Wallace Lodge at Highland Farms" },
+      { src: "/images/properties/cottage.jpg", alt: "Bonnie Lass Cottage at Highland Farms" },
     ],
     lodge: [
-      { src: "/images/properties/cottage.jpg", alt: "The Lodge exterior" },
-      { src: "/images/properties/lodge-interior.jpg", alt: "The Lodge interior" },
-      { src: "/images/properties/gallery-1.jpg", alt: "The Lodge living area" },
-      { src: "/images/properties/gallery-3.jpg", alt: "The Lodge bedroom" },
+      { src: "/images/properties/cottage.jpg", alt: "William Wallace Lodge exterior" },
+      { src: "/images/properties/lodge-interior.jpg", alt: "William Wallace Lodge interior" },
+      { src: "/images/properties/gallery-1.jpg", alt: "William Wallace Lodge living area" },
+      { src: "/images/properties/gallery-3.jpg", alt: "William Wallace Lodge bedroom" },
     ],
     cottage: [
-      { src: "/images/properties/lodge.jpg", alt: "The Cottage exterior" },
-      { src: "/images/properties/cottage-interior.jpg", alt: "The Cottage interior" },
-      { src: "/images/properties/gallery-2.jpg", alt: "The Cottage living space" },
-      { src: "/images/properties/gallery-4.jpg", alt: "The Cottage bedroom" },
-    ],
-    camp: [
-      { src: "/images/properties/camp-1.jpg", alt: "The Camp at Highland Farms in the forest" },
-      { src: "/images/properties/camp-2.jpg", alt: "The Camp Airstream and glamping tents" },
-      { src: "/images/properties/camp-3.jpg", alt: "Inside the Airstream at The Camp" },
-      { src: "/images/properties/camp-4.jpg", alt: "The Camp fire pit and seating area" },
-      { src: "/images/properties/camp-5.jpg", alt: "The Camp forest surroundings" },
-      { src: "/images/properties/camp-6.jpg", alt: "Glamping tent interior at The Camp" },
-      { src: "/images/properties/camp-7.jpg", alt: "The Camp experience at Highland Farms" },
+      { src: "/images/properties/lodge.jpg", alt: "Bonnie Lass Cottage exterior" },
+      { src: "/images/properties/cottage-interior.jpg", alt: "Bonnie Lass Cottage interior" },
+      { src: "/images/properties/gallery-2.jpg", alt: "Bonnie Lass Cottage living space" },
+      { src: "/images/properties/gallery-4.jpg", alt: "Bonnie Lass Cottage bedroom" },
     ],
   };
 
@@ -211,7 +201,7 @@ export default async function PropertyPage({
                       fill
                       sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                       className={`object-cover transition-transform duration-500 group-hover:scale-105 ${
-                        p.slug === "whole-farm" || p.slug === "camp"
+                        p.slug === "whole-farm"
                           ? "object-[center_60%]"
                           : ""
                       }`}

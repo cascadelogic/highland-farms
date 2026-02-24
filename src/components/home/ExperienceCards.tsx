@@ -7,7 +7,7 @@ const experiences = [
   {
     title: "Highland Cow Farm Tours",
     description:
-      "Get up close with our gentle Highland Cows, Icelandic Sheep, White Peacocks, and African Grey Geese. A private 60-minute experience your family will never forget.",
+      "Get up close with our gentle Highland Cows, Icelandic Sheep, White Peacocks, guardian dogs, chickens, and Guinea Fowl. A private 60-minute experience your family will never forget.",
     cta: "Book a Farm Tour",
     href: "/farm-tours",
     image: "/images/farm/cow-2.jpg",
@@ -16,7 +16,7 @@ const experiences = [
   {
     title: "Nordic Forest Spa",
     description:
-      "Soak in cedar hot tubs nestled among towering evergreens. Unwind with the sounds of the forest in our private 60-minute spa sessions.",
+      "Relax in our wood burning dry sauna, unwind in the wet sauna, and refresh with our invigorating cold plunge. 60-minute sessions nestled among the evergreens.",
     cta: "Book a Session",
     href: "/nordic-spa",
     image: "/images/spa/spa-1.jpg",

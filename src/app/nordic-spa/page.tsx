@@ -13,12 +13,12 @@ import { BOOKING_LINKS } from "@/lib/constants";
 export const metadata: Metadata = {
   title: "Nordic Forest Spa — Brightwood, Oregon",
   description:
-    "Soak in cedar hot tubs nestled among towering evergreens near Portland, Oregon. Book a private 60-minute Nordic spa session at Highland Farms, Brightwood. Forest bathing at the base of Mt. Hood.",
+    "Relax in our wood burning dry sauna, wet sauna, and cold plunge nestled among towering evergreens near Portland, Oregon. Book a 60-minute Nordic spa session at Highland Farms, Brightwood. $75 per person at the base of Mt. Hood.",
   alternates: { canonical: "/nordic-spa" },
   openGraph: {
     title: "Nordic Forest Spa at Highland Farms Oregon",
     description:
-      "Private 60-minute cedar soaking tub sessions for 6-8 guests in a forest setting at the base of Mt. Hood.",
+      "60-minute Nordic spa sessions with dry sauna, wet sauna, and cold plunge for up to 6 guests in a forest setting at the base of Mt. Hood.",
     url: "https://highlandfarmsoregon.com/nordic-spa",
     type: "website",
   },
@@ -50,7 +50,7 @@ const galleryImages = [
   { src: "/images/spa/spa-2.jpg", alt: "Spa deck with cold plunge tub and string lights" },
   { src: "/images/spa/spa-3.jpg", alt: "Guests in robes relaxing on the spa deck" },
   { src: "/images/spa/spa-6.jpg", alt: "Inside the cedar sauna" },
-  { src: "/images/spa/spa-7.jpg", alt: "Overhead view of guests in the soaking tub" },
+  { src: "/images/spa/spa-7.jpg", alt: "Overhead view of the Nordic spa area" },
   { src: "/images/spa/spa-8.jpg", alt: "Steam room with chromotherapy lighting" },
 ];
 
@@ -69,11 +69,11 @@ export default function NordicSpaPage() {
             Highland Farms Oregon
           </p>
           <h1 className="text-4xl font-normal leading-tight sm:text-5xl md:text-6xl">
-            Soak in the Forest
+            Relax in the Forest
           </h1>
           <p className="mx-auto mt-5 max-w-xl text-lg text-white/85 leading-relaxed font-sans font-light">
-            Cedar soaking tubs nestled among towering Pacific Northwest
-            evergreens. Unwind in nature&apos;s embrace.
+            Relax in our wood burning dry sauna, unwind in the soothing wet
+            sauna, and refresh your senses with our invigorating cold plunge.
           </p>
           <div className="mt-8">
             <Button
@@ -94,28 +94,28 @@ export default function NordicSpaPage() {
           <SectionHeading
             eyebrow="The Experience"
             title="Nordic-Inspired Forest Bathing"
-            subtitle="Inspired by Scandinavian wellness traditions, our cedar soaking tubs bring you closer to nature."
+            subtitle="Inspired by Scandinavian wellness traditions, our Nordic spa brings you closer to nature."
           />
 
           <div className="grid grid-cols-1 gap-8 sm:grid-cols-3">
             {[
               {
                 icon: Droplets,
-                title: "Cedar Soaking Tubs",
+                title: "Wood Burning Dry Sauna",
                 description:
-                  "Hand-built cedar tubs filled with naturally heated water, set among the trees.",
+                  "A cedar dry sauna heated by a wood burning stove, nestled among the trees.",
               },
               {
                 icon: TreePine,
-                title: "Forest Setting",
+                title: "Wet Sauna & Cold Plunge",
                 description:
-                  "Surrounded by towering old-growth evergreens, moss-covered trees, and the sounds of nature.",
+                  "Unwind in the soothing wet sauna and refresh your senses with our invigorating cold plunge.",
               },
               {
                 icon: Clock,
                 title: "60-Minute Sessions",
                 description:
-                  "A full hour to soak, relax, and let the forest restore your mind and body.",
+                  "A full hour to relax and let the forest restore your mind and body.",
               },
             ].map((feature) => (
               <div key={feature.title} className="text-center">
@@ -154,24 +154,24 @@ export default function NordicSpaPage() {
             <div className="space-y-4">
               <div className="flex items-center justify-between border-b border-cream-light pb-4">
                 <span className="text-base font-normal text-charcoal font-sans">
-                  Private Nordic Spa Session
+                  Nordic Spa Session
                 </span>
                 <span className="text-lg font-normal text-forest font-sans">
-                  Contact for Pricing
+                  $75 per person
                 </span>
               </div>
               <ul className="space-y-2.5 text-sm text-muted font-sans">
                 <li className="flex items-center gap-2">
                   <Clock className="h-4 w-4 text-forest" />
-                  60-minute private session
+                  60-minute session
                 </li>
                 <li className="flex items-center gap-2">
                   <Users className="h-4 w-4 text-forest" />
-                  Accommodates 6-8 guests
+                  Accommodates up to 6 guests
                 </li>
                 <li className="flex items-center gap-2">
                   <Droplets className="h-4 w-4 text-forest" />
-                  Cedar soaking tub in the forest
+                  Dry sauna, wet sauna &amp; cold plunge
                 </li>
               </ul>
             </div>
@@ -201,7 +201,7 @@ export default function NordicSpaPage() {
           </h2>
           <p className="mx-auto mt-4 max-w-lg text-base text-muted font-sans font-light leading-relaxed">
             Make it a full Highland Farms experience — meet the Highland Cows,
-            then unwind in the cedar tubs. Book both and save.
+            then unwind at the Nordic Spa. Book both and save.
           </p>
           <div className="mt-8 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
             <Button href="/farm-tours">Book a Farm Tour</Button>

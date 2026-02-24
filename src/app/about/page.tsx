@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { Bed, UtensilsCrossed, Wifi, Car, Users, TreePine, Heart } from "lucide-react";
+import { Bed, UtensilsCrossed, Wifi, Car } from "lucide-react";
 import { Container } from "@/components/ui/Container";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { Button } from "@/components/ui/Button";
@@ -11,13 +11,13 @@ import { EventCategoryCards } from "@/components/shared/EventCategoryCards";
 export const metadata: Metadata = {
   title: "About The Farm — Highland Farms Brightwood, Oregon",
   description:
-    "The story of Highland Farms — from a California ranch dream to a five-acre forest property at the base of Mt. Hood. Scottish Highland Cows, forest lodging for 24 guests, Nordic spa, and unforgettable experiences in Brightwood, Oregon.",
+    "The story of Highland Farms — from a California ranch dream to a five-acre forest property at the base of Mt. Hood. Scottish Highland Cows, forest lodging for 16 guests, Nordic spa, and unforgettable experiences in Brightwood, Oregon.",
   alternates: { canonical: "/about" },
 };
 
 const amenities = [
-  { icon: Bed, label: "Lodging for 24", description: "Three unique accommodations across the property" },
-  { icon: UtensilsCrossed, label: "3 Full Kitchens", description: "In the Lodge, Cottage, and Airstream Camp" },
+  { icon: Bed, label: "Lodging for 16", description: "Two unique accommodations across the property" },
+  { icon: UtensilsCrossed, label: "Full Time Hospitality Team", description: "Our hospitality team believes in unreasonable hospitality" },
   { icon: Wifi, label: "WiFi Access", description: "Stay connected throughout the property" },
   { icon: Car, label: "Event Parking", description: "Ample parking for guests and vendors" },
 ];
@@ -45,7 +45,7 @@ export default function AboutPage() {
             Our Story
           </p>
           <h1 className="text-4xl font-normal leading-tight sm:text-5xl md:text-6xl">
-            About The Farm
+            The Farm
           </h1>
           <p className="mx-auto mt-5 max-w-xl text-lg text-white/85 leading-relaxed font-sans font-light italic">
             &ldquo;We created Highland Farms with the intention of providing a space
@@ -103,50 +103,9 @@ export default function AboutPage() {
             <p className="text-sm font-normal italic text-sage tracking-wide font-display mb-3">
               The Vision
             </p>
-            <h2 className="text-3xl font-normal sm:text-4xl">
-              Uncovering the Potential
-            </h2>
-          </div>
-          <p className="mt-6 text-base text-muted leading-relaxed font-sans text-center">
-            This vision led to the creation of Highland Farms — an overgrown property
-            uncovered from decades of nature&apos;s re-wilding at the base of Mt. Hood.
-            Highland Farms needed someone with a dream to see its full potential:
-          </p>
-
-          <div className="mt-10 grid grid-cols-1 gap-6 sm:grid-cols-2">
-            {[
-              {
-                icon: TreePine,
-                text: "The potential of its old-growth trees fringing the property, draped in moss and quiet.",
-              },
-              {
-                icon: Heart,
-                text: "The potential of its natural spring-fed pond, a sanctuary for rest, retreat, and rejuvenation.",
-              },
-              {
-                icon: Users,
-                text: "The potential of its perfect location, tucked between Mt. Hood and Oregon's Rose City.",
-              },
-              {
-                icon: TreePine,
-                text: "The potential of its field and forest, where Highland cattle forage amongst the trees and welcome calves in the front pastures.",
-              },
-            ].map((item) => (
-              <div
-                key={item.text}
-                className="flex items-start gap-4 rounded-xl bg-white p-5 shadow-sm"
-              >
-                <div className="flex h-10 w-10 items-center justify-center rounded-full bg-cream shrink-0">
-                  <item.icon className="h-5 w-5 text-forest" />
-                </div>
-                <p className="text-sm text-charcoal leading-relaxed font-sans italic">
-                  {item.text}
-                </p>
-              </div>
-            ))}
           </div>
 
-          <blockquote className="mt-10 text-center">
+          <blockquote className="text-center">
             <p className="text-xl font-normal leading-relaxed text-charcoal sm:text-2xl font-display">
               &ldquo;The potential to be a place for man, a place for nature,
               a place for everything and everything in its place. This is Highland Farms.&rdquo;
@@ -177,14 +136,14 @@ export default function AboutPage() {
               <p className="mt-5 text-base text-muted leading-relaxed font-sans">
                 Curate an event you won&apos;t forget by incorporating the creatures
                 of Highland Farms. Whether taking wedding photos beside Highland Cows
-                or having your leadership team meet San Clemente Goats, farm
+                or having your leadership team meet the farm animals, farm
                 proprietor Connor McWilliams and his team of guides help visitors
                 get up close to the animals that call the farm home.
               </p>
               <p className="mt-4 text-base text-muted leading-relaxed font-sans">
                 Our gentle Scottish Highland Cows are the stars, but they share the
-                property with Icelandic Sheep, White Peacocks, African Grey Geese,
-                and San Clemente Goats. Whether you&apos;re here for a wedding, a farm
+                property with Icelandic Sheep, White Peacocks, guardian dogs,
+                chickens, and Guinea Fowl. Whether you&apos;re here for a wedding, a farm
                 tour, or a weekend stay — the animals are always there to brighten
                 your day.
               </p>
@@ -233,31 +192,24 @@ export default function AboutPage() {
           <SectionHeading
             eyebrow="Stay With Us"
             title="The Accommodations"
-            subtitle="Three unique spaces designed for comfort and connection."
+            subtitle="Two unique spaces designed for comfort and connection."
           />
 
-          <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
+          <div className="grid grid-cols-1 gap-8 md:grid-cols-2 max-w-3xl mx-auto">
             {[
               {
-                name: "The Lodge",
+                name: "William Wallace Lodge",
                 tagline: "Relax & Reminisce",
                 description:
-                  "Your home base for the perfect gathering. Sleeps 8 with four bedrooms, a spacious family room, dining room, and an outdoor deck overlooking the farm and surrounding forest.",
+                  "Our cedar mill lodge is a warm and inviting retreat where scenic meals, fireside conversations, and lasting memories are made.",
                 href: "/stay/lodge",
               },
               {
-                name: "The Cottage",
+                name: "Bonnie Lass Cottage",
                 tagline: "Retreat & Converse",
                 description:
-                  "A perfect space to continue dinner conversations into the night. Located a stone's throw from The Lodge with its own full kitchen, three bedrooms, and a patio with Adirondack chairs overlooking the farm.",
+                  "A cozy retreat neighboring our barn pasture where the Scottish Highland Cows greet you in the morning and relax with you in the evenings.",
                 href: "/stay/cottage",
-              },
-              {
-                name: "The Camp",
-                tagline: "Recenter & Connect",
-                description:
-                  "A forest camping experience you won't forget. Sleeps 6 between the iconic Airstream and two queen-bed canvas tents. The Airstream features a full kitchen, bath, WiFi, and TV.",
-                href: "/stay/camp",
               },
             ].map((acc) => (
               <Link
@@ -290,7 +242,7 @@ export default function AboutPage() {
             Explore &amp; Engage
           </p>
           <h2 className="text-3xl font-normal sm:text-4xl">
-            The Forest Valley
+            Experience Mt. Hood Territory
           </h2>
           <p className="mt-5 text-base text-muted leading-relaxed font-sans">
             Brightwood, Oregon, sits in a forested valley midway between Mount Hood
@@ -310,7 +262,7 @@ export default function AboutPage() {
       {/* Property Gallery */}
       <section className="py-20 lg:py-28 bg-background">
         <Container>
-          <SectionHeading title="The Property" subtitle="Five acres of forest, farm, and magic." />
+          <SectionHeading title="The Property" subtitle="Five enchanted acres where nature and experience meet." />
           <ImageCarousel images={galleryImages} aspectRatio="video" />
         </Container>
       </section>

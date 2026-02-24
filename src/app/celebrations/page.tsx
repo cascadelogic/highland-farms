@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import { PartyPopper, Heart, Cake, GlassWater, Users, Sparkles } from "lucide-react";
 import { Container } from "@/components/ui/Container";
 import { Button } from "@/components/ui/Button";
@@ -29,7 +28,7 @@ const eventTypes = [
   {
     icon: GlassWater,
     title: "Rehearsal Dinners",
-    description: "The perfect setting for your rehearsal dinner. Dine under the trees the night before your big day.",
+    description: "Share an unforgettable meal beneath glittering crystal chandeliers in our rustic barn, where our Scottish Highland Cows and graceful White Peacocks make your rehearsal dinner a unique experience.",
   },
   {
     icon: PartyPopper,
@@ -62,11 +61,12 @@ export default function CelebrationsPage() {
             Gather Together
           </p>
           <h1 className="text-4xl font-normal leading-tight sm:text-5xl md:text-6xl">
-            Celebrations at Highland Farms
+            Celebrations
           </h1>
           <p className="mx-auto mt-5 max-w-xl text-lg text-white/85 leading-relaxed font-sans font-light">
-            From intimate gatherings to milestone celebrations — every event is
-            extraordinary when surrounded by forest, farm, and Mt. Hood.
+            From intimate gatherings to milestone celebrations — our elegant farm
+            creates an unforgettable setting where loved ones gather to celebrate
+            life&apos;s big moments.
           </p>
           <div className="mt-8">
             <Button href="/contact" size="lg" className="bg-white text-charcoal hover:bg-cream">
@@ -81,8 +81,8 @@ export default function CelebrationsPage() {
         <Container>
           <SectionHeading
             eyebrow="What We Host"
-            title="Every Gathering is Special"
-            subtitle="Highland Farms provides the backdrop — you bring the celebration."
+            title="Enchanted Gatherings"
+            subtitle="Highland Farms is a fully immersed, all-inclusive forest stage for your celebration."
           />
 
           <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
@@ -106,52 +106,13 @@ export default function CelebrationsPage() {
         </Container>
       </section>
 
-      {/* What's Included */}
-      <section className="py-20 lg:py-28 bg-cream">
-        <Container>
-          <div className="grid grid-cols-1 gap-12 lg:grid-cols-2 lg:items-center">
-            <div className="relative aspect-[4/3] overflow-hidden rounded-xl">
-              <Image
-                src="/images/farm/events-retreats.jpg"
-                alt="Celebration event at Highland Farms"
-                fill
-                sizes="(max-width: 1024px) 100vw, 50vw"
-                className="object-cover"
-              />
-            </div>
-
-            <div>
-              <h2 className="text-3xl font-normal sm:text-4xl">
-                The Highland Farms Experience
-              </h2>
-              <p className="mt-4 text-base text-muted leading-relaxed font-sans">
-                Every celebration at Highland Farms includes the full property
-                experience — Highland Cow interactions, forest surroundings,
-                Nordic cedar soaking tubs, and elegant outdoor dining areas with
-                customizable decor.
-              </p>
-              <p className="mt-4 text-base text-muted leading-relaxed font-sans">
-                Our team works with you to create a personalized experience that
-                fits your vision and your group. Pricing and packages vary by
-                event type and group size.
-              </p>
-              <div className="mt-8">
-                <Button href="/contact">
-                  Inquire About Your Event
-                </Button>
-              </div>
-            </div>
-          </div>
-        </Container>
-      </section>
-
       {/* Inquiry Form */}
       <section className="py-20 lg:py-28 bg-background">
         <Container className="max-w-4xl">
           <SectionHeading
             eyebrow="Plan Your Celebration"
-            title="Let's Plan Something Special"
-            subtitle="Every event at Highland Farms is custom-tailored. Tell us your vision and we'll make it happen."
+            title="Let's Plan Your Celebration"
+            subtitle="Every celebration at Highland Farms is tailored to your dreams. Share your vision with us and we'll make it happen."
           />
           <div className="mx-auto max-w-xl rounded-xl border border-cream-dark bg-white p-6 sm:p-8 shadow-sm">
             <ContactForm

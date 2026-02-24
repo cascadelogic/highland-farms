@@ -19,7 +19,7 @@ export const farmTourFAQ: FAQItem[] = [
   {
     question: "What animals will we see?",
     answer:
-      "You'll meet our Highland Cows, Icelandic Sheep, White Peacocks, African Grey Geese, and San Clemente Goats. You'll get to brush and pet the Highland Cows up close.",
+      "You will meet our Scottish Highland Cows, Icelandic Sheep, White Peacocks, guardian dogs, chickens, and Guinea Fowl on the tour.",
   },
   {
     question: "Is the tour suitable for children?",

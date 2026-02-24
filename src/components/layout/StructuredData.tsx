@@ -85,50 +85,37 @@ export function StructuredData() {
           { "@type": "LocationFeatureSpecification", name: "Free Parking", value: true },
           { "@type": "LocationFeatureSpecification", name: "Full Kitchen", value: true },
           { "@type": "LocationFeatureSpecification", name: "Highland Cow Farm Tours", value: true },
-          { "@type": "LocationFeatureSpecification", name: "Nordic Cedar Soaking Spa", value: true },
+          { "@type": "LocationFeatureSpecification", name: "Nordic Spa (Dry Sauna, Wet Sauna, Cold Plunge)", value: true },
           { "@type": "LocationFeatureSpecification", name: "Forest Setting", value: true },
           { "@type": "LocationFeatureSpecification", name: "On-Site Lodging", value: true },
           { "@type": "LocationFeatureSpecification", name: "Event Coordination", value: true },
         ],
-        maximumAttendeeCapacity: 24,
+        maximumAttendeeCapacity: 16,
         containsPlace: [
           {
             "@type": "Accommodation",
-            name: "The Lodge",
+            name: "William Wallace Lodge",
             description:
-              "Historic cedar mill lodge sleeping 8 guests across 4 bedrooms with forest deck views and full kitchen.",
+              "Cedar mill lodge sleeping 8 guests across 4 bedrooms with wrap-around deck, full kitchen, wood fireplace, and cedar hot tub.",
             url: `${SITE.url}/stay/lodge`,
             occupancy: {
               "@type": "QuantitativeValue",
               maxValue: 8,
             },
             numberOfBedrooms: 4,
-            numberOfBathroomsTotal: 2,
+            numberOfBathroomsTotal: 2.5,
           },
           {
             "@type": "Accommodation",
-            name: "The Cottage",
+            name: "Bonnie Lass Cottage",
             description:
-              "Cozy retreat near The Lodge with 3 bedrooms, full kitchen, and forest surroundings. Sleeps 8 guests.",
+              "Cozy retreat near William Wallace Lodge with 3 bedrooms, kitchenette, cedar hot tub, and barn pasture views. Sleeps 8 guests.",
             url: `${SITE.url}/stay/cottage`,
             occupancy: {
               "@type": "QuantitativeValue",
               maxValue: 8,
             },
             numberOfBedrooms: 3,
-            numberOfBathroomsTotal: 1,
-          },
-          {
-            "@type": "Accommodation",
-            name: "The Camp",
-            description:
-              "Glamping experience with a restored Airstream trailer and canvas tent camping under towering evergreens.",
-            url: `${SITE.url}/stay/camp`,
-            occupancy: {
-              "@type": "QuantitativeValue",
-              maxValue: 4,
-            },
-            numberOfBedrooms: 1,
             numberOfBathroomsTotal: 1,
           },
         ],
@@ -140,11 +127,11 @@ export function StructuredData() {
         "@id": `${SITE.url}/#venue`,
         name: "Highland Farms Wedding Venue",
         description:
-          "All-inclusive farm and forest wedding venue at the base of Mt. Hood. Five acres of old-growth forest, Scottish Highland Cows, on-site lodging for 24 guests, and dedicated event coordination.",
+          "All-inclusive farm and forest wedding venue at the base of Mt. Hood. Five acres of old-growth forest, Scottish Highland Cows, on-site lodging for 16 guests, and dedicated event coordination.",
         url: `${SITE.url}/weddings`,
         address,
         geo,
-        maximumAttendeeCapacity: 24,
+        maximumAttendeeCapacity: 16,
         isAccessibleForFree: false,
         publicAccess: false,
         image: `${SITE.url}/images/weddings/couple.jpg`,
@@ -156,7 +143,7 @@ export function StructuredData() {
         "@id": `${SITE.url}/#attraction`,
         name: "Highland Farms Highland Cow Farm Tours",
         description:
-          "Private 60-minute farm tours for up to 6 guests. Meet Scottish Highland Cows, Icelandic Sheep, White Peacocks, Nigerian Dwarf Goats, Kunekune Pigs, geese, and chickens at the base of Mt. Hood.",
+          "Private 60-minute farm tours for up to 6 guests. Meet Scottish Highland Cows, Icelandic Sheep, White Peacocks, guardian dogs, chickens, and Guinea Fowl at the base of Mt. Hood.",
         url: `${SITE.url}/farm-tours`,
         address,
         geo,
@@ -172,7 +159,7 @@ export function StructuredData() {
         "@id": `${SITE.url}/#farm-tour-product`,
         name: "Highland Cow Farm Tour",
         description:
-          "Private 60-minute Highland Cow farm tour for up to 6 guests. Meet Highland Cows, Icelandic Sheep, White Peacocks, and more.",
+          "Private 60-minute Highland Cow farm tour for up to 6 guests at $75 per person. Meet Highland Cows, Icelandic Sheep, White Peacocks, guardian dogs, chickens, and Guinea Fowl.",
         url: `${SITE.url}/farm-tours`,
         brand: {
           "@type": "Brand",
@@ -192,7 +179,7 @@ export function StructuredData() {
         "@id": `${SITE.url}/#spa-product`,
         name: "Nordic Forest Spa Session",
         description:
-          "Private 60-minute cedar soaking tub session for 6-8 guests in a forest setting. Nordic-inspired forest bathing experience.",
+          "60-minute Nordic spa session with wood burning dry sauna, wet sauna, and cold plunge for up to 6 guests in a forest setting.",
         url: `${SITE.url}/nordic-spa`,
         brand: {
           "@type": "Brand",
