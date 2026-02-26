@@ -11,37 +11,39 @@ export const metadata: Metadata = {
     "Shop Highland Farms merchandise, weighted Highland Cow plushies, farm-fresh eggs, Highland beef, Mangalitsa pork, and more. Gift certificates available.",
 };
 
+const SQUARESPACE = "https://highlandfarmsoregon.com";
+
 const products = [
   // Plush
-  { name: "Princess Fiona — White Highland Cow Plush", price: 65.0, category: "Plush", image: "/images/shop/princess-fiona-plush.jpg" },
-  { name: "Mr. Finley — Red Highland Cow Plush", price: 65.0, category: "Plush", image: "/images/shop/mr-finley-plush.jpg" },
+  { name: "Princess Fiona — White Highland Cow Plush", price: 65.0, category: "Plush", image: "/images/shop/princess-fiona-plush.jpg", url: `${SQUARESPACE}/shop/p/weighted-microwavable-highland-cow-plush-white` },
+  { name: "Mr. Finley — Red Highland Cow Plush", price: 65.0, category: "Plush", image: "/images/shop/mr-finley-plush.jpg", url: `${SQUARESPACE}/shop/p/weighted-mircrowavable-highland-cow-plush` },
   // Apparel
-  { name: "Highland Farms Camo Trucker Hat", price: 35.0, category: "Apparel", image: "/images/shop/camo-trucker-hat.jpg" },
-  { name: "The Dream Hoodie", price: 49.95, category: "Apparel", image: "/images/shop/dream-hoodie.png" },
-  { name: "The Dream T-Shirt", price: 29.95, category: "Apparel", image: "/images/shop/dream-tshirt.png" },
+  { name: "Highland Farms Camo Trucker Hat", price: 35.0, category: "Apparel", image: "/images/shop/camo-trucker-hat.jpg", url: `${SQUARESPACE}/shop/p/highland-farms-camo-trucker-hat` },
+  { name: "The Dream Hoodie", price: 49.95, category: "Apparel", image: "/images/shop/dream-hoodie.png", url: `${SQUARESPACE}/shop/p/highland-farms-the-dream-hoodie` },
+  { name: "The Dream T-Shirt", price: 29.95, category: "Apparel", image: "/images/shop/dream-tshirt.png", url: `${SQUARESPACE}/shop/p/highland-farms-the-dream-t-shirt` },
   // Farm Products
-  { name: "Farm Fresh Eggs (Dozen)", price: 8.0, category: "Farm Products", image: "/images/shop/eggs.jpg" },
+  { name: "Farm Fresh Eggs (Dozen)", price: 8.0, category: "Farm Products", image: "/images/shop/eggs.jpg", url: `${SQUARESPACE}/shop/p/a-dozen-eggs` },
   // Highland Beef
-  { name: "Highland Top Sirloin Ground Beef (1 lb)", price: 9.0, category: "Highland Beef", image: "/images/shop/ground-beef.jpg" },
-  { name: "Highland Beef New York Steak", price: null, category: "Highland Beef", image: "/images/shop/ny-steak.jpg" },
+  { name: "Highland Top Sirloin Ground Beef (1 lb)", price: 9.0, category: "Highland Beef", image: "/images/shop/ground-beef.jpg", url: `${SQUARESPACE}/shop/p/ground-beef` },
+  { name: "Highland Beef New York Steak", price: null, category: "Highland Beef", image: "/images/shop/ny-steak.jpg", url: `${SQUARESPACE}/shop/p/highland-beef-new-york-steak` },
   // Mangalitsa Pork
-  { name: "Mangalitsa — Thick Cut Peppered Bacon", price: null, category: "Mangalitsa Pork", image: "/images/shop/mangalitsa-peppered-bacon.jpg" },
-  { name: "Mangalitsa — Thick Cut Bacon", price: null, category: "Mangalitsa Pork", image: "/images/shop/mangalitsa-thick-cut-bacon.jpg" },
-  { name: "Mangalitsa — Peppered Bacon Ends", price: null, category: "Mangalitsa Pork", image: "/images/shop/mangalitsa-peppered-bacon-ends.jpg" },
-  { name: "Mangalitsa — Bacon Ends", price: null, category: "Mangalitsa Pork", image: "/images/shop/mangalitsa-bacon-ends.jpg" },
-  { name: "Mangalitsa — Cured Ham", price: null, category: "Mangalitsa Pork", image: "/images/shop/mangalitsa-cured-ham.png" },
-  { name: "Mangalitsa — Sirloin Roast (2 lb+)", price: null, category: "Mangalitsa Pork", image: "/images/shop/mangalitsa-sirloin-roast.jpg" },
-  { name: "Mangalitsa — Pork Shoulder Roast", price: null, category: "Mangalitsa Pork", image: "/images/shop/mangalitsa-shoulder-roast.png" },
-  { name: "Mangalitsa — Baby Back Ribs", price: null, category: "Mangalitsa Pork", image: "/images/shop/mangalitsa-baby-back-ribs.jpg" },
-  { name: "Mangalitsa — Spare Ribs", price: null, category: "Mangalitsa Pork", image: "/images/shop/mangalitsa-spare-ribs.jpg" },
-  { name: "Mangalitsa — Pork Tenderloin", price: null, category: "Mangalitsa Pork", image: "/images/shop/mangalitsa-tenderloin.jpg" },
-  { name: "Mangalitsa — Pork Chop Boneless", price: null, category: "Mangalitsa Pork", image: "/images/shop/mangalitsa-chop-boneless.jpg" },
-  { name: "Mangalitsa — Pork Chop Bone In", price: null, category: "Mangalitsa Pork", image: "/images/shop/mangalitsa-chop-bone-in.jpg" },
-  { name: "Mangalitsa — Sausage Links (1 lb)", price: null, category: "Mangalitsa Pork", image: "/images/shop/mangalitsa-sausage-links.png" },
-  { name: "Mangalitsa — Breakfast Sausage Ground (1 lb)", price: null, category: "Mangalitsa Pork", image: "/images/shop/mangalitsa-breakfast-sausage.jpg" },
+  { name: "Mangalitsa — Thick Cut Peppered Bacon", price: null, category: "Mangalitsa Pork", image: "/images/shop/mangalitsa-peppered-bacon.jpg", url: `${SQUARESPACE}/shop/p/mangalitsa-thick-cut-peppered-bacon` },
+  { name: "Mangalitsa — Thick Cut Bacon", price: null, category: "Mangalitsa Pork", image: "/images/shop/mangalitsa-thick-cut-bacon.jpg", url: `${SQUARESPACE}/shop/p/mangalitsa-thick-cut-bacon` },
+  { name: "Mangalitsa — Peppered Bacon Ends", price: null, category: "Mangalitsa Pork", image: "/images/shop/mangalitsa-peppered-bacon-ends.jpg", url: `${SQUARESPACE}/shop/p/mangalitsa-peppered-bacon-ends-82-113-lbs` },
+  { name: "Mangalitsa — Bacon Ends", price: null, category: "Mangalitsa Pork", image: "/images/shop/mangalitsa-bacon-ends.jpg", url: `${SQUARESPACE}/shop/p/mangalitsa-bacon-ends-82-113-lbs` },
+  { name: "Mangalitsa — Cured Ham", price: null, category: "Mangalitsa Pork", image: "/images/shop/mangalitsa-cured-ham.png", url: `${SQUARESPACE}/shop/p/mangalitsa-cured-hams` },
+  { name: "Mangalitsa — Sirloin Roast (2 lb+)", price: null, category: "Mangalitsa Pork", image: "/images/shop/mangalitsa-sirloin-roast.jpg", url: `${SQUARESPACE}/shop/p/mangalitsa-sirloin-roast-213-lb` },
+  { name: "Mangalitsa — Pork Shoulder Roast", price: null, category: "Mangalitsa Pork", image: "/images/shop/mangalitsa-shoulder-roast.png", url: `${SQUARESPACE}/shop/p/mangalitsa-pork-roast` },
+  { name: "Mangalitsa — Baby Back Ribs", price: null, category: "Mangalitsa Pork", image: "/images/shop/mangalitsa-baby-back-ribs.jpg", url: `${SQUARESPACE}/shop/p/mangalitsa-baby-back-ribs` },
+  { name: "Mangalitsa — Spare Ribs", price: null, category: "Mangalitsa Pork", image: "/images/shop/mangalitsa-spare-ribs.jpg", url: `${SQUARESPACE}/shop/p/mangalitsa-spare-ribs` },
+  { name: "Mangalitsa — Pork Tenderloin", price: null, category: "Mangalitsa Pork", image: "/images/shop/mangalitsa-tenderloin.jpg", url: `${SQUARESPACE}/shop/p/mangalitsa-pork-tenderloin` },
+  { name: "Mangalitsa — Pork Chop Boneless", price: null, category: "Mangalitsa Pork", image: "/images/shop/mangalitsa-chop-boneless.jpg", url: `${SQUARESPACE}/shop/p/mangalitsa-pork-chop-boneless` },
+  { name: "Mangalitsa — Pork Chop Bone In", price: null, category: "Mangalitsa Pork", image: "/images/shop/mangalitsa-chop-bone-in.jpg", url: `${SQUARESPACE}/shop/p/mangalitsa-pork-chop-bone-in` },
+  { name: "Mangalitsa — Sausage Links (1 lb)", price: null, category: "Mangalitsa Pork", image: "/images/shop/mangalitsa-sausage-links.png", url: `${SQUARESPACE}/shop/p/mangalitsa-special-blend-sausage` },
+  { name: "Mangalitsa — Breakfast Sausage Ground (1 lb)", price: null, category: "Mangalitsa Pork", image: "/images/shop/mangalitsa-breakfast-sausage.jpg", url: `${SQUARESPACE}/shop/p/mangalitsa-breakfast-sausage` },
   // Amenities
-  { name: "S'mores Kit for 1", price: 2.0, category: "Amenities", image: "/images/shop/smores-kit.jpg" },
-  { name: "Firewood & Kindling", price: 9.0, category: "Amenities", image: "/images/shop/firewood.jpg" },
+  { name: "S'mores Kit for 1", price: 2.0, category: "Amenities", image: "/images/shop/smores-kit.jpg", url: `${SQUARESPACE}/shop/p/smores-kit-for-two` },
+  { name: "Firewood & Kindling", price: 9.0, category: "Amenities", image: "/images/shop/firewood.jpg", url: `${SQUARESPACE}/shop/p/firewood` },
 ];
 
 export default function ShopPage() {
@@ -80,8 +82,11 @@ export default function ShopPage() {
         <Container>
           <div className="grid grid-cols-2 gap-6 sm:grid-cols-3 lg:grid-cols-4">
             {products.map((product) => (
-              <div
+              <a
                 key={product.name}
+                href={product.url}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="group overflow-hidden rounded-xl bg-white shadow-sm hover:shadow-md transition-all duration-500"
               >
                 <div className="relative aspect-square overflow-hidden bg-cream">
@@ -104,7 +109,7 @@ export default function ShopPage() {
                     {product.price ? `$${product.price.toFixed(2)}` : "Contact for Price"}
                   </p>
                 </div>
-              </div>
+              </a>
             ))}
           </div>
 
