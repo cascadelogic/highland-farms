@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import { supabase } from "@/lib/supabase";
 import { inquirySchema } from "@/lib/schemas";
+import { sendInquiryNotification } from "@/lib/email";
 
 // In-memory rate limiting (per warm serverless instance)
 const rateLimitMap = new Map<string, { count: number; resetAt: number }>();
@@ -112,6 +113,11 @@ export async function POST(request: Request) {
         { status: 500 }
       );
     }
+
+    // Send email notification (fire-and-forget — data is safe in Supabase)
+    sendInquiryNotification(result.data).catch((err) => {
+      console.error("Email notification error:", err);
+    });
 
     return NextResponse.json({ success: true });
   } catch {
