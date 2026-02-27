@@ -24,12 +24,13 @@ const amenities = [
 
 const galleryImages = [
   { src: "/images/farm/farm-aerial-new.jpg", alt: "Aerial drone view of Highland Farms with mountains" },
-  { src: "/images/farm/farm-grounds.jpg", alt: "Highland Farms property grounds and forest" },
-  { src: "/images/farm/ranch-view.jpg", alt: "View of the ranch at Highland Farms" },
-  { src: "/images/farm/mountain-view.jpg", alt: "Mt. Hood visible from Highland Farms" },
-  { src: "/images/farm/farm-garden.jpg", alt: "Garden and grounds at Highland Farms" },
-  { src: "/images/farm/agritourism.jpg", alt: "Highland Farms agritourism experience" },
-  { src: "/images/farm/cows.jpg", alt: "Highland Cow mama and calf near the barn" },
+  { src: "/images/farm/lodge-bridge.jpg", alt: "Lodge with wooden bridge at golden hour" },
+  { src: "/images/farm/barn-exterior.jpg", alt: "Modern barn with cedar accents and geometric windows" },
+  { src: "/images/farm/hot-tub-aerial.jpg", alt: "Cedar hot tub and deck from above" },
+  { src: "/images/farm/airstream-golden.jpg", alt: "Airstream nestled in the forest at golden hour" },
+  { src: "/images/farm/forest-creek.jpg", alt: "Forest creek with ferns and mossy stones" },
+  { src: "/images/farm/farm-aerial-2.jpg", alt: "Aerial view of Highland Farms with Mt. Hood foothills" },
+  { src: "/images/farm/cottage-snow.jpg", alt: "Cottage exterior in winter snow among the evergreens" },
 ];
 
 export default function AboutPage() {
