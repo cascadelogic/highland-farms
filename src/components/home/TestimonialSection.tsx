@@ -20,6 +20,7 @@ export function TestimonialSection() {
   return (
     <section className="py-16 lg:py-24 bg-cream">
       <Container className="max-w-4xl">
+        <h2 className="sr-only">Guest Reviews</h2>
         <div className="grid grid-cols-1 gap-10 md:grid-cols-2">
           {testimonials.map((t) => (
             <div key={t.attribution} className="text-center md:text-left">

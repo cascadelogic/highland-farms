@@ -1,26 +1,45 @@
+"use client";
+
+import { useState, useEffect } from "react";
 import Script from "next/script";
 
 const GTM_ID = process.env.NEXT_PUBLIC_GTM_ID;
+const CONSENT_KEY = "hf-cookie-consent";
 
 export function GoogleTagManager() {
-  if (!GTM_ID) return null;
+  const [consented, setConsented] = useState(false);
+
+  useEffect(() => {
+    // Check if user already consented
+    if (localStorage.getItem(CONSENT_KEY) === "accepted") {
+      setConsented(true);
+    }
+
+    // Listen for future consent
+    function handleConsent() {
+      setConsented(true);
+    }
+
+    window.addEventListener("cookie-consent-accepted", handleConsent);
+    return () => window.removeEventListener("cookie-consent-accepted", handleConsent);
+  }, []);
+
+  if (!GTM_ID || !consented) return null;
 
   return (
-    <>
-      <Script
-        id="gtm-script"
-        strategy="afterInteractive"
-        dangerouslySetInnerHTML={{
-          __html: `
-            (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-            new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-            j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-            'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-            })(window,document,'script','dataLayer','${GTM_ID}');
-          `,
-        }}
-      />
-    </>
+    <Script
+      id="gtm-script"
+      strategy="afterInteractive"
+      dangerouslySetInnerHTML={{
+        __html: `
+          (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+          new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+          j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+          'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+          })(window,document,'script','dataLayer','${GTM_ID}');
+        `,
+      }}
+    />
   );
 }
 

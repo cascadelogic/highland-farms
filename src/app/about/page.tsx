@@ -113,9 +113,9 @@ export default function AboutPage() {
       <section className="py-20 lg:py-28 bg-cream">
         <Container className="max-w-3xl">
           <div className="text-center">
-            <p className="text-lg font-normal text-sage font-script mb-3">
+            <h2 className="text-lg font-normal text-sage font-script mb-3">
               The Vision
-            </p>
+            </h2>
           </div>
 
           <blockquote className="text-center">
@@ -145,7 +145,7 @@ export default function AboutPage() {
               <p className="text-lg font-normal text-sage font-script mb-3">
                 Cultivate &amp; Connect
               </p>
-              <h2 className="text-3xl font-normal sm:text-4xl">The Farm</h2>
+              <h2 className="text-3xl font-normal sm:text-4xl">The Animals</h2>
               <p className="mt-5 text-base text-muted leading-relaxed font-sans">
                 Curate an event you won&apos;t forget by incorporating the loving
                 animals of Highland Farms. Whether taking photos beside Scottish

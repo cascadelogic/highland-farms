@@ -9,6 +9,10 @@ export const inquirySchema = z.object({
   preferred_date: z.string().optional(),
   referral_source: z.string().optional(),
   message: z.string().optional(),
+  // Honeypot field — should always be empty. Bots auto-fill it.
+  website: z.string().optional(),
+  // Timestamp for timing-based bot detection
+  _t: z.number().optional(),
 });
 
 export type InquiryFormData = z.infer<typeof inquirySchema>;

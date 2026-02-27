@@ -150,6 +150,9 @@ export function Footer() {
               <Link href="/terms" className="block text-xs text-white/50 hover:text-white/65 transition-colors font-light font-sans">
                 Terms of Service
               </Link>
+              <Link href="/accessibility" className="block text-xs text-white/50 hover:text-white/65 transition-colors font-light font-sans">
+                Accessibility
+              </Link>
             </div>
           </div>
         </div>

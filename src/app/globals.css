@@ -10,7 +10,7 @@
   --forest: #4A6741;
   --forest-light: #4E6B44;
   --charcoal: #3A3A3A;
-  --muted: #8A8A82;
+  --muted: #6F6F68;
   --accent: #B8976A;
   --sage: #8BA888;
   --sage-light: #A3BDA0;
@@ -92,6 +92,12 @@ html {
 @keyframes gentle-float {
   0%, 100% { transform: translateX(-50%) translateY(0); opacity: 0.6; }
   50% { transform: translateX(-50%) translateY(6px); opacity: 1; }
+}
+
+/* Cookie consent slide-up */
+@keyframes slide-up {
+  from { transform: translateY(100%); }
+  to { transform: translateY(0); }
 }
 
 /* Soft focus styles */

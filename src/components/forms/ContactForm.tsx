@@ -45,6 +45,8 @@ export function ContactForm({
     resolver: zodResolver(inquirySchema),
     defaultValues: {
       event_type: defaultEventType,
+      website: "",
+      _t: Date.now(),
     },
   });
 
@@ -146,7 +148,7 @@ export function ContactForm({
       )}
 
       {status === "error" && (
-        <div className="mb-6 flex items-center gap-2 rounded-lg bg-red-50 border border-red-200 px-4 py-3 text-sm text-red-700 font-sans">
+        <div role="alert" className="mb-6 flex items-center gap-2 rounded-lg bg-red-50 border border-red-200 px-4 py-3 text-sm text-red-700 font-sans">
           <AlertCircle className="h-4 w-4 shrink-0" />
           {serverError || "Something went wrong. Please try again."}
         </div>
@@ -163,6 +165,8 @@ export function ContactForm({
               type="text"
               id="form-name"
               autoComplete="name"
+              aria-required="true"
+              aria-describedby={errors.name ? "form-name-error" : undefined}
               {...register("name")}
               className={cn(
                 inputClasses,
@@ -171,7 +175,7 @@ export function ContactForm({
               placeholder="First & Last Name"
             />
             {errors.name && (
-              <p className="mt-1 text-xs text-red-600 font-sans">{errors.name.message}</p>
+              <p id="form-name-error" role="alert" className="mt-1 text-xs text-red-600 font-sans">{errors.name.message}</p>
             )}
           </div>
           <div>
@@ -182,6 +186,8 @@ export function ContactForm({
               type="email"
               id="form-email"
               autoComplete="email"
+              aria-required="true"
+              aria-describedby={errors.email ? "form-email-error" : undefined}
               {...register("email")}
               className={cn(
                 inputClasses,
@@ -190,7 +196,7 @@ export function ContactForm({
               placeholder="you@email.com"
             />
             {errors.email && (
-              <p className="mt-1 text-xs text-red-600 font-sans">{errors.email.message}</p>
+              <p id="form-email-error" role="alert" className="mt-1 text-xs text-red-600 font-sans">{errors.email.message}</p>
             )}
           </div>
         </div>
@@ -217,6 +223,8 @@ export function ContactForm({
             </label>
             <select
               id="form-event-type"
+              aria-required="true"
+              aria-describedby={errors.event_type ? "form-event-type-error" : undefined}
               {...register("event_type")}
               className={cn(
                 inputClasses,
@@ -235,7 +243,7 @@ export function ContactForm({
               <option value="other">Other</option>
             </select>
             {errors.event_type && (
-              <p className="mt-1 text-xs text-red-600 font-sans">{errors.event_type.message}</p>
+              <p id="form-event-type-error" role="alert" className="mt-1 text-xs text-red-600 font-sans">{errors.event_type.message}</p>
             )}
           </div>
         </div>
@@ -307,6 +315,19 @@ export function ContactForm({
             <option value="other">Other</option>
           </select>
         </div>
+
+        {/* Honeypot — hidden from real users, bots auto-fill it */}
+        <div className="absolute -left-[9999px]" aria-hidden="true">
+          <label htmlFor="form-website">Website</label>
+          <input
+            type="text"
+            id="form-website"
+            autoComplete="off"
+            tabIndex={-1}
+            {...register("website")}
+          />
+        </div>
+        <input type="hidden" {...register("_t", { valueAsNumber: true })} />
 
         {/* Submit button - large, full-width, prominent */}
         <button

@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback } from "react";
+import { useCallback, useEffect } from "react";
 import Image from "next/image";
 import useEmblaCarousel from "embla-carousel-react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
@@ -24,12 +24,48 @@ export function ImageCarousel({ images, className, aspectRatio = "video" }: Imag
   const scrollPrev = useCallback(() => emblaApi?.scrollPrev(), [emblaApi]);
   const scrollNext = useCallback(() => emblaApi?.scrollNext(), [emblaApi]);
 
+  // Keyboard navigation
+  useEffect(() => {
+    if (!emblaApi) return;
+
+    const rootNode = emblaApi.rootNode();
+
+    function handleKeyDown(e: KeyboardEvent) {
+      if (e.key === "ArrowLeft") {
+        e.preventDefault();
+        emblaApi?.scrollPrev();
+      } else if (e.key === "ArrowRight") {
+        e.preventDefault();
+        emblaApi?.scrollNext();
+      }
+    }
+
+    rootNode.addEventListener("keydown", handleKeyDown);
+    return () => rootNode.removeEventListener("keydown", handleKeyDown);
+  }, [emblaApi]);
+
   return (
-    <div className={cn("relative group", className)}>
-      <div className="overflow-hidden rounded-xl" ref={emblaRef}>
+    <div
+      className={cn("relative group", className)}
+      role="region"
+      aria-label="Image carousel"
+      aria-roledescription="carousel"
+    >
+      <div
+        className="overflow-hidden rounded-xl"
+        ref={emblaRef}
+        tabIndex={0}
+        aria-label="Use left and right arrow keys to navigate"
+      >
         <div className="flex">
           {images.map((image, i) => (
-            <div key={i} className="min-w-0 flex-[0_0_100%]">
+            <div
+              key={i}
+              className="min-w-0 flex-[0_0_100%]"
+              role="group"
+              aria-roledescription="slide"
+              aria-label={`Slide ${i + 1} of ${images.length}`}
+            >
               <div className={cn("relative", aspectClasses[aspectRatio])}>
                 <Image
                   src={image.src}
@@ -50,14 +86,14 @@ export function ImageCarousel({ images, className, aspectRatio = "video" }: Imag
         <>
           <button
             onClick={scrollPrev}
-            className="absolute left-3 top-1/2 -translate-y-1/2 rounded-full bg-white/80 p-2.5 shadow-md opacity-100 lg:opacity-0 lg:group-hover:opacity-100 transition-opacity hover:bg-white"
+            className="absolute left-3 top-1/2 -translate-y-1/2 rounded-full bg-white/80 p-2.5 shadow-md opacity-100 lg:opacity-0 lg:group-hover:opacity-100 focus:opacity-100 transition-opacity hover:bg-white"
             aria-label="Previous image"
           >
             <ChevronLeft className="h-5 w-5 text-charcoal" />
           </button>
           <button
             onClick={scrollNext}
-            className="absolute right-3 top-1/2 -translate-y-1/2 rounded-full bg-white/80 p-2.5 shadow-md opacity-100 lg:opacity-0 lg:group-hover:opacity-100 transition-opacity hover:bg-white"
+            className="absolute right-3 top-1/2 -translate-y-1/2 rounded-full bg-white/80 p-2.5 shadow-md opacity-100 lg:opacity-0 lg:group-hover:opacity-100 focus:opacity-100 transition-opacity hover:bg-white"
             aria-label="Next image"
           >
             <ChevronRight className="h-5 w-5 text-charcoal" />
