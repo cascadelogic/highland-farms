@@ -33,11 +33,14 @@ const included = [
 ];
 
 const galleryImages = [
-  { src: "/images/weddings/ceremony.jpg", alt: "Couple at reception table with string lights" },
-  { src: "/images/weddings/hannah-max/01.jpg", alt: "Couple kissing with Highland Cow calf in forest" },
+  { src: "/images/weddings/ceremony-3.jpg", alt: "Couple kissing with Highland Cow calf on forest bridge" },
+  { src: "/images/weddings/forest-ceremony.jpg", alt: "Forest ceremony under towering evergreens" },
   { src: "/images/weddings/couple.jpg", alt: "Forest ceremony setup with wooden arch" },
-  { src: "/images/weddings/details.jpg", alt: "Wedding details and florals" },
-  { src: "/images/weddings/guests.jpg", alt: "Wedding celebration at Highland Farms" },
+  { src: "/images/weddings/reception-toast.jpg", alt: "Guests toasting at outdoor forest dinner" },
+  { src: "/images/weddings/details.jpg", alt: "Couple with Highland Cows at golden hour" },
+  { src: "/images/weddings/guests.jpg", alt: "Bride crowd surfing at outdoor dance floor" },
+  { src: "/images/weddings/getting-ready.jpg", alt: "Bride getting ready in the cedar cabin" },
+  { src: "/images/weddings/couple-dinner.jpg", alt: "Couple at sweetheart table with string lights" },
   { src: "/images/weddings/sunset.jpg", alt: "Evening reception at Highland Farms" },
 ];
 

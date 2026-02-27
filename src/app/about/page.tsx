@@ -23,6 +23,7 @@ const amenities = [
 ];
 
 const galleryImages = [
+  { src: "/images/farm/farm-aerial-new.jpg", alt: "Aerial drone view of Highland Farms with mountains" },
   { src: "/images/farm/farm-grounds.jpg", alt: "Highland Farms property grounds and forest" },
   { src: "/images/farm/ranch-view.jpg", alt: "View of the ranch at Highland Farms" },
   { src: "/images/farm/mountain-view.jpg", alt: "Mt. Hood visible from Highland Farms" },

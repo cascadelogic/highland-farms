@@ -14,8 +14,8 @@ const highlights = [
   {
     title: "Highland Cow Photo Ops",
     description: "Unforgettable photos with our gentle Highland Cows against the Pacific Northwest backdrop.",
-    image: "/images/weddings/ceremony-1.jpg",
-    alt: "Wedding couple posing with Highland Cow at Highland Farms",
+    image: "/images/weddings/ceremony-3.jpg",
+    alt: "Wedding couple kissing with Highland Cow calf on forest bridge",
   },
   {
     title: "Forest Ceremonies",

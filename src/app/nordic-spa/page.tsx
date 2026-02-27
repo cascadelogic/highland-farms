@@ -48,10 +48,12 @@ function NordicSpaSchema() {
 const galleryImages = [
   { src: "/images/spa/spa-1.jpg", alt: "Cedar spa deck nestled among old-growth forest" },
   { src: "/images/spa/spa-2.jpg", alt: "Spa deck with cold plunge tub and string lights" },
+  { src: "/images/spa/spa-8.jpg", alt: "Friends laughing together in the cedar sauna" },
   { src: "/images/spa/spa-3.jpg", alt: "Guests in robes relaxing on the spa deck" },
   { src: "/images/spa/spa-6.jpg", alt: "Inside the cedar sauna" },
+  { src: "/images/spa/spa-9.jpg", alt: "Sauna interior view through cedar doorway" },
   { src: "/images/spa/spa-7.jpg", alt: "Overhead view of the Nordic spa area" },
-  { src: "/images/spa/spa-8.jpg", alt: "Steam room with chromotherapy lighting" },
+  { src: "/images/spa/spa-robes.jpg", alt: "Two guests in robes enjoying the cedar sauna" },
 ];
 
 export default function NordicSpaPage() {

@@ -47,10 +47,12 @@ function FarmTourSchema() {
 
 const galleryImages = [
   { src: "/images/farm/farm-animals.jpg", alt: "Guests petting a Highland Cow during a barn tour" },
+  { src: "/images/farm/cow-calf.jpg", alt: "Young girl feeding a Highland Cow calf" },
   { src: "/images/farm/agritourism-stay.jpg", alt: "Couple meeting Highland Cows in the forest" },
+  { src: "/images/farm/white-peacock.jpg", alt: "White peacock perched in the barn" },
   { src: "/images/farm/farm-life.jpg", alt: "Farm guide walking with a Highland Cow calf in the forest" },
-  { src: "/images/farm/geese.jpg", alt: "Farmer bonding with a resting Highland Cow" },
   { src: "/images/farm/cows.jpg", alt: "Highland Cow mama and calf near the barn" },
+  { src: "/images/farm/geese.jpg", alt: "Farmer bonding with a resting Highland Cow" },
   { src: "/images/farm/farm-visit.jpg", alt: "Highland Cow close-up with shaggy hair and horns" },
 ];
 

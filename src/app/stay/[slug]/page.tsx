@@ -42,12 +42,14 @@ export default async function PropertyPage({
   const propertyGallery: Record<string, { src: string; alt: string }[]> = {
     "whole-farm": [
       { src: "/images/properties/whole-farm.jpg", alt: "The Whole Farm aerial view" },
+      { src: "/images/properties/lodge-winter.jpg", alt: "Lodge in winter with snow-covered grounds and pond" },
       { src: "/images/properties/lodge.jpg", alt: "William Wallace Lodge at Highland Farms" },
       { src: "/images/properties/cottage.jpg", alt: "Bonnie Lass Cottage at Highland Farms" },
     ],
     lodge: [
       { src: "/images/properties/cottage.jpg", alt: "William Wallace Lodge exterior" },
       { src: "/images/properties/lodge-interior.jpg", alt: "William Wallace Lodge interior" },
+      { src: "/images/properties/cabin-interior.jpg", alt: "Cozy cabin bedroom with wood paneling" },
       { src: "/images/properties/gallery-1.jpg", alt: "William Wallace Lodge living area" },
       { src: "/images/properties/gallery-3.jpg", alt: "William Wallace Lodge bedroom" },
     ],
