@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { Users, BedDouble, Bath } from "lucide-react";
+import { Users, BedDouble, Bath, Wifi } from "lucide-react";
 import { Container } from "@/components/ui/Container";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { StaggerChildren, StaggerItem } from "@/components/ui/StaggerChildren";
@@ -16,8 +16,8 @@ export function AccommodationsPreview() {
           subtitle="Rest in the heart of the forest. Each space has been thoughtfully designed for comfort and connection."
         />
 
-        <StaggerChildren className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
-          {properties.map((property) => (
+        <StaggerChildren className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          {properties.filter((p) => p.slug !== "camp").map((property) => (
             <StaggerItem key={property.slug} className="w-full">
               <Link
                 href={property.bookingUrl}
@@ -53,11 +53,15 @@ export function AccommodationsPreview() {
                     </span>
                     <span className="flex items-center gap-1">
                       <BedDouble className="h-3.5 w-3.5" aria-hidden="true" />
-                      <span>{property.bedrooms} beds</span>
+                      <span>{property.bedrooms} bedrooms</span>
                     </span>
                     <span className="flex items-center gap-1">
                       <Bath className="h-3.5 w-3.5" aria-hidden="true" />
-                      <span>{property.baths} baths</span>
+                      <span>{property.baths} bathrooms</span>
+                    </span>
+                    <span className="flex items-center gap-1">
+                      <Wifi className="h-3.5 w-3.5" aria-hidden="true" />
+                      <span>WiFi</span>
                     </span>
                   </div>
 

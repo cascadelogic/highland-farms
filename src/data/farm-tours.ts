@@ -24,7 +24,7 @@ export const farmTourFAQ: FAQItem[] = [
   {
     question: "Is the tour suitable for children?",
     answer:
-      "Absolutely! Our farm tours are perfect for all ages. Children love interacting with the gentle Highland Cows and other animals.",
+      "Absolutely! Our farm tours are perfect for all ages. Children love interacting with the gentle Scottish Highland Cows and other animals.",
   },
   {
     question: "What should I wear?",

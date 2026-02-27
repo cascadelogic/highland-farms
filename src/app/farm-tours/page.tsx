@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { Clock, Users, Heart, Sparkles, Gift } from "lucide-react";
 import { Container } from "@/components/ui/Container";
 import { Button } from "@/components/ui/Button";
@@ -18,7 +19,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Highland Cow Farm Tours at Highland Farms Oregon",
     description:
-      "Private 60-minute farm tours for up to 6 guests. Meet Highland Cows and farm animals at the base of Mt. Hood.",
+      "Private 60-minute farm tours for up to 6 guests. Meet Scottish Highland Cows and farm animals at the base of Mt. Hood.",
     url: "https://highlandfarmsoregon.com/farm-tours",
     type: "website",
   },
@@ -48,7 +49,7 @@ function FarmTourSchema() {
 const galleryImages = [
   { src: "/images/farm/farm-animals.jpg", alt: "Guests petting a Highland Cow during a barn tour" },
   { src: "/images/farm/cow-calf.jpg", alt: "Young girl feeding a Highland Cow calf" },
-  { src: "/images/farm/agritourism-stay.jpg", alt: "Couple meeting Highland Cows in the forest" },
+  { src: "/images/farm/agritourism-stay.jpg", alt: "Couple meeting Scottish Highland Cows in the forest" },
   { src: "/images/farm/white-peacock.jpg", alt: "White peacock perched in the barn" },
   { src: "/images/farm/farm-life.jpg", alt: "Farm guide walking with a Highland Cow calf in the forest" },
   { src: "/images/farm/cows.jpg", alt: "Highland Cow mama and calf near the barn" },
@@ -61,7 +62,7 @@ const features = [
     icon: Heart,
     title: "Meet the Animals",
     description:
-      "Highland Cows, Icelandic Sheep, White Peacocks, guardian dogs, chickens, and Guinea Fowl.",
+      "Scottish Highland Cows, Icelandic Sheep, White Peacocks, guardian dogs, chickens, and Guinea Fowl.",
   },
   {
     icon: Users,
@@ -73,13 +74,13 @@ const features = [
     icon: Clock,
     title: "60-Minute Experience",
     description:
-      "Plenty of time to brush, pet, and photograph the Highland Cows and explore the farm.",
+      "Plenty of time to brush, pet, and photograph the Scottish Highland Cows and explore the farm.",
   },
   {
     icon: Sparkles,
     title: "Perfect for All Ages",
     description:
-      "From toddlers to grandparents, everyone falls in love with our gentle Highland Cows.",
+      "From toddlers to grandparents, everyone falls in love with our gentle Scottish Highland Cows.",
   },
 ];
 
@@ -98,7 +99,7 @@ export default function FarmToursPage() {
             Highland Farms Oregon
           </p>
           <h1 className="text-4xl font-normal leading-tight sm:text-5xl md:text-6xl">
-            Meet Our Highland Cows
+            Meet Our Scottish Highland Cows
           </h1>
           <p className="mx-auto mt-5 max-w-xl text-lg text-white/85 leading-relaxed font-sans font-light">
             Book a private farm tour and get up close with our gentle Highland
@@ -206,8 +207,15 @@ export default function FarmToursPage() {
       {/* Gift Certificates */}
       <section className="py-20 lg:py-28 bg-background">
         <Container className="max-w-3xl text-center">
-          <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-full bg-cream mb-6">
-            <Gift className="h-6 w-6 text-forest" />
+          <div className="flex justify-center mb-6">
+            <Image
+              src="/images/illustrations/highland-cow-white.png"
+              alt=""
+              width={200}
+              height={160}
+              className="h-28 w-auto opacity-60"
+              aria-hidden="true"
+            />
           </div>
           <h2 className="text-3xl font-normal sm:text-4xl">
             Give the Gift of Highland Farms

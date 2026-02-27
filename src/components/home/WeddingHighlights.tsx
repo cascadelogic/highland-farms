@@ -6,33 +6,27 @@ import { StaggerChildren, StaggerItem } from "@/components/ui/StaggerChildren";
 
 const highlights = [
   {
-    title: "All-Inclusive Packages",
-    description: "Venue, on-site lodging for 16, event coordination, setup and teardown — we handle everything.",
+    title: "All-Inclusive Wedding Packages",
+    description: "Your story comes first, and to make your day effortlessly magical, everything you need is woven into one enchanting price.",
     image: "/images/weddings/ceremony-2.jpg",
     alt: "Elegant outdoor dining setup at Highland Farms wedding",
   },
   {
-    title: "Highland Cow Photo Ops",
-    description: "Unforgettable photos with our gentle Highland Cows against the Pacific Northwest backdrop.",
+    title: "Scottish Highland Cow Moments",
+    description: "Unforgettable photo moments with our gentle Scottish Highland Cows against the ethereal Pacific Northwest forest.",
     image: "/images/weddings/ceremony-3.jpg",
     alt: "Wedding couple kissing with Highland Cow calf on forest bridge",
   },
   {
-    title: "Forest Ceremonies",
-    description: "Exchange vows under towering old-growth trees draped in moss, beside a spring-fed pond.",
-    image: "/images/weddings/couple.jpg",
-    alt: "Ceremony setup with wooden arch and chairs in the forest",
-  },
-  {
     title: "Celebrations & Corporate",
-    description: "From rehearsal dinners to corporate retreats — our enchanted farm creates an unforgettable setting.",
+    description: "From graduations and birthday parties to corporate and family retreats, celebrate every milestone that matters.",
     image: "/images/events/celebrations-hero.jpg",
     alt: "Celebration event at Highland Farms",
     href: "/celebrations",
   },
   {
     title: "Stay on the Farm",
-    description: "Your closest family and friends stay together in William Wallace Lodge and Bonnie Lass Cottage.",
+    description: "Commune with your closest family, and friends in our William Wallace Lodge and Bonnie Lass Cottage.",
     image: "/images/properties/lodge.jpg",
     alt: "Bonnie Lass Cottage at Highland Farms",
     href: "/stay",
@@ -46,10 +40,10 @@ export function WeddingHighlights() {
         <SectionHeading
           eyebrow="The Experience"
           title="A Wedding Venue Like No Other"
-          subtitle="Five acres of forest, farm, and magic at the base of Mt. Hood."
+          subtitle="Five acres of enchanted forest, and farmland, a realm where love stories begin."
         />
 
-        <StaggerChildren className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
+        <StaggerChildren className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-2 max-w-4xl mx-auto">
           {highlights.map((item) => (
             <StaggerItem key={item.title} className="w-full">
               <Link

@@ -10,7 +10,7 @@ import { CONTACT } from "@/lib/constants";
 export const metadata: Metadata = {
   title: "Celebrations & Events — Highland Farms Oregon",
   description:
-    "Host your engagement party, birthday, rehearsal dinner, anniversary, or special celebration at Highland Farms in Brightwood, Oregon. Highland Cows, forest setting, Nordic spa, and on-site lodging near Portland.",
+    "Host your engagement party, birthday, rehearsal dinner, anniversary, or special celebration at Highland Farms in Brightwood, Oregon. Scottish Highland Cows, forest setting, Nordic spa, and on-site lodging near Portland.",
   alternates: { canonical: "/celebrations" },
 };
 
@@ -18,12 +18,12 @@ const eventTypes = [
   {
     icon: Heart,
     title: "Engagement Parties",
-    description: "Celebrate your engagement surrounded by forest and Highland Cows. An intimate start to your wedding journey.",
+    description: "Celebrate your engagement amongst Scottish Highland Cows and towering trees. Our elegant farm hosts intimate gatherings where loved ones toast to your future in Oregon's most magical setting.",
   },
   {
     icon: Cake,
     title: "Birthday Parties & Mitzvahs",
-    description: "From milestone birthdays to bar and bat mitzvahs — create unforgettable memories on the farm.",
+    description: "Celebrate life's milestones surrounded by Scottish Highland Cows and nature's beauty. Our elegant farm transforms birthdays and mitzvahs into once-in-a-lifetime moments filled with pure joy.",
   },
   {
     icon: GlassWater,
@@ -38,12 +38,12 @@ const eventTypes = [
   {
     icon: Sparkles,
     title: "Celebrations of Life",
-    description: "Honor a loved one in a peaceful, beautiful setting surrounded by nature and gentle animals.",
+    description: "Honor a loved one in a peaceful, beautiful setting surrounded by nature as the Scottish Highland Cows lend their quiet presence.",
   },
   {
     icon: Users,
     title: "Retreats & Reunions",
-    description: "Family reunions, wellness retreats, corporate off-sites, and creative workshops in the forest.",
+    description: "Family reunions, wellness retreats, corporate off-sites and creative workshops centered around the energy of the farm and its loving animals.",
   },
 ];
 
@@ -64,7 +64,7 @@ export default function CelebrationsPage() {
             Celebrations
           </h1>
           <p className="mx-auto mt-5 max-w-xl text-lg text-white/85 leading-relaxed font-sans font-light">
-            From intimate gatherings to milestone celebrations — our elegant farm
+            From intimate gatherings to milestone celebrations, our elegant farm
             creates an unforgettable setting where loved ones gather to celebrate
             life&apos;s big moments.
           </p>

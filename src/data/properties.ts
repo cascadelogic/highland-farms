@@ -15,7 +15,7 @@ export const properties: Property[] = [
     hospitable_widget_url: "https://booking.hospitable.com/widget/9c273e8f-0df2-4bd3-b639-da59849e328f/1336238",
     highlights: [
       "Full farm access",
-      "Summer dates open April 1st",
+      "2 separate accommodations",
       "Perfect for large family & friend gatherings",
       "2 Cedar Hot Tubs",
     ],

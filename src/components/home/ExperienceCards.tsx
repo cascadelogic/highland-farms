@@ -7,7 +7,7 @@ const experiences = [
   {
     title: "Highland Cow Farm Tours",
     description:
-      "Get up close with our gentle Highland Cows, Icelandic Sheep, White Peacocks, guardian dogs, chickens, and Guinea Fowl. A private 60-minute experience your family will never forget.",
+      "Get up close with our gentle Scottish Highland Cows, Icelandic Sheep, White Peacocks, guardian dogs, chickens, and Guinea Fowl. A private 60-minute experience your family will never forget.",
     cta: "Book a Farm Tour",
     href: "/farm-tours",
     image: "/images/farm/cow-2.jpg",

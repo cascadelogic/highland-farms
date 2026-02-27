@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { Clock, Users, Droplets, TreePine, Sparkles } from "lucide-react";
 import { Container } from "@/components/ui/Container";
 import { Button } from "@/components/ui/Button";
@@ -139,7 +140,7 @@ export default function NordicSpaPage() {
       {/* Gallery */}
       <section className="py-20 lg:py-28 bg-background">
         <Container>
-          <SectionHeading title="The Spa" subtitle="Where forest meets water." />
+          <SectionHeading title="The Spa" subtitle="A peaceful retreat surrounded by quiet beauty." />
           <ImageCarousel images={galleryImages} aspectRatio="video" />
         </Container>
       </section>
@@ -195,14 +196,21 @@ export default function NordicSpaPage() {
       {/* Upsell */}
       <section className="py-20 lg:py-28 bg-background">
         <Container className="max-w-3xl text-center">
-          <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-full bg-cream mb-6">
-            <Sparkles className="h-6 w-6 text-forest" />
+          <div className="flex justify-center mb-6">
+            <Image
+              src="/images/illustrations/highland-cow-mirrored.png"
+              alt=""
+              width={200}
+              height={160}
+              className="h-28 w-auto opacity-60"
+              aria-hidden="true"
+            />
           </div>
           <h2 className="text-3xl font-normal sm:text-4xl">
             Combine With a Farm Tour
           </h2>
           <p className="mx-auto mt-4 max-w-lg text-base text-muted font-sans font-light leading-relaxed">
-            Make it a full Highland Farms experience — meet the Highland Cows,
+            Make it a full Highland Farms experience — meet the Scottish Highland Cows,
             then unwind at the Nordic Spa. Book both and save.
           </p>
           <div className="mt-8 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">

@@ -22,7 +22,7 @@ export function AnnouncementBar() {
   return (
     <div className="relative bg-charcoal/90 backdrop-blur-sm text-white text-center text-xs py-2.5 px-12 sm:px-10">
       <p className="font-light tracking-[0.1em] sm:tracking-[0.15em] uppercase font-sans">
-        Forest Weddings &middot; Now Booking 2026{" "}
+        Forest Weddings &middot; Now Booking 2027{" "}
         <Link href="/weddings" className="underline underline-offset-4 decoration-gold/70 hover:decoration-gold transition-colors ml-1">
           Inquire
         </Link>

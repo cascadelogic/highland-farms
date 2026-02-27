@@ -36,12 +36,12 @@ export function HeroSection() {
         </p>
 
         <h1 className="text-3xl font-normal leading-snug sm:text-4xl md:text-5xl lg:text-[3.5rem] lg:leading-tight">
-          Where Forest Meets Forever
+          Oregon&apos;s Premier Wedding Venue
         </h1>
 
         <p className="mx-auto mt-5 max-w-md text-sm text-white/85 leading-relaxed sm:text-base font-sans font-light">
-          Intimate, all-inclusive weddings surrounded by towering evergreens,
-          Highland Cows, and Pacific Northwest magic.
+          Intimate, all inclusive, retreat style weddings surrounded by towering
+          evergreens, whispering streams, and our beloved Scottish Highland Cows.
         </p>
 
         {/* Social proof */}

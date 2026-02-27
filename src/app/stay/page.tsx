@@ -8,6 +8,12 @@ import { Button } from "@/components/ui/Button";
 import { EventCategoryCards } from "@/components/shared/EventCategoryCards";
 import { properties } from "@/data/properties";
 
+const propertyIllustrations: Record<string, string> = {
+  lodge: "/images/illustrations/lodge-illustration.png",
+  cottage: "/images/illustrations/cottage-illustration.png",
+  "whole-farm": "/images/illustrations/farm-scene.png",
+};
+
 export const metadata: Metadata = {
   title: "Farm Stays — Brightwood, Oregon",
   description:
@@ -51,6 +57,9 @@ export default function StayPage() {
         <p className="text-xs font-light text-white/80 tracking-[0.15em] uppercase font-sans">
           Book Direct for the Best Rate &mdash; No Hidden Fees
         </p>
+        <p className="mt-1 text-[10px] font-light text-white/50 tracking-[0.1em] uppercase font-sans">
+          No outside pets allowed
+        </p>
       </section>
 
       {/* Properties */}
@@ -59,6 +68,7 @@ export default function StayPage() {
           <SectionHeading
             eyebrow="The Accommodations"
             title="Find Your Perfect Stay"
+            subtitle="(Summer Dates Open April 1st)"
           />
 
           <div className="space-y-16">
@@ -91,6 +101,18 @@ export default function StayPage() {
 
                 {/* Details */}
                 <div className="flex-1">
+                  {propertyIllustrations[property.slug] && (
+                    <div className="mb-4">
+                      <Image
+                        src={propertyIllustrations[property.slug]}
+                        alt=""
+                        width={180}
+                        height={110}
+                        className="h-20 w-auto opacity-60"
+                        aria-hidden="true"
+                      />
+                    </div>
+                  )}
                   <h3 className="text-3xl font-normal text-charcoal">
                     {property.name}
                   </h3>
@@ -110,7 +132,7 @@ export default function StayPage() {
                     </span>
                     <span className="flex items-center gap-1.5">
                       <Bath className="h-4 w-4" />
-                      {property.baths} Baths
+                      {property.baths} Bathrooms
                     </span>
                   </div>
 

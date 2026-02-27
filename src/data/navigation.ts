@@ -12,7 +12,7 @@ export const mainNavItems: NavItem[] = [
   },
   { label: "Farm Tours", href: "/farm-tours" },
   { label: "Nordic Spa", href: "/nordic-spa" },
-  { label: "Stay", href: "/stay" },
+  { label: "Stays", href: "/stay" },
   { label: "Celebrations", href: "/celebrations" },
   { label: "About", href: "/about" },
   {

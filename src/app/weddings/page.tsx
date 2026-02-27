@@ -12,7 +12,7 @@ import { CONTACT } from "@/lib/constants";
 export const metadata: Metadata = {
   title: "Farm & Forest Weddings — Brightwood, Oregon",
   description:
-    "All-inclusive farm and forest weddings at Highland Farms, Brightwood, Oregon. Exchange vows under towering evergreens with Highland Cows, on-site lodging for 20 guests, at the base of Mt. Hood. 50 minutes from Portland.",
+    "All-inclusive farm and forest weddings at Highland Farms, Brightwood, Oregon. Exchange vows under towering evergreens with Scottish Highland Cows, on-site lodging for 20 guests, at the base of Mt. Hood. 50 minutes from Portland.",
   alternates: { canonical: "/weddings" },
   openGraph: {
     title: "Farm & Forest Weddings at Highland Farms Oregon",
@@ -37,7 +37,7 @@ const galleryImages = [
   { src: "/images/weddings/forest-ceremony.jpg", alt: "Forest ceremony under towering evergreens" },
   { src: "/images/weddings/couple.jpg", alt: "Forest ceremony setup with wooden arch" },
   { src: "/images/weddings/reception-toast.jpg", alt: "Guests toasting at outdoor forest dinner" },
-  { src: "/images/weddings/details.jpg", alt: "Couple with Highland Cows at golden hour" },
+  { src: "/images/weddings/details.jpg", alt: "Couple with Scottish Highland Cows at golden hour" },
   { src: "/images/weddings/guests.jpg", alt: "Bride crowd surfing at outdoor dance floor" },
   { src: "/images/weddings/getting-ready.jpg", alt: "Bride getting ready in the cedar cabin" },
   { src: "/images/weddings/couple-dinner.jpg", alt: "Couple at sweetheart table with string lights" },
@@ -61,7 +61,7 @@ export default function WeddingsPage() {
             Your Dream Wedding in the Forest
           </h1>
           <p className="mx-auto mt-5 max-w-xl text-lg text-white/85 leading-relaxed font-sans font-light">
-            Exchange vows under towering evergreens, celebrate with Highland Cows,
+            Exchange vows under towering evergreens, celebrate with Scottish Highland Cows,
             and host your closest family and friends on-site at the base of Mt. Hood.
           </p>
           <div className="mt-8 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
@@ -122,11 +122,11 @@ export default function WeddingsPage() {
                 Highland Farms sits on five forested acres at the base of Mt.
                 Hood. The property features a cedar mill lodge,
                 spring-fed pond, old-growth trees draped in moss, and of course —
-                our beloved Highland Cows.
+                our beloved Scottish Highland Cows.
               </p>
               <p className="mt-4 text-base text-muted leading-relaxed font-sans">
-                Your wedding party can stay on-site in William Wallace Lodge
-                and Bonnie Lass Cottage — making it a true destination wedding
+                Your wedding party can stay on site in the William Wallace Lodge,
+                Bonnie Lass Cottage and Camp, making it a true destination wedding
                 experience for up to 20 of your closest people.
               </p>
 
@@ -216,10 +216,20 @@ export default function WeddingsPage() {
       {/* Inquiry Form */}
       <section className="py-20 lg:py-28 bg-warm-white">
         <Container className="max-w-4xl">
+          <div className="flex justify-center mb-6">
+            <Image
+              src="/images/illustrations/farm-scene.png"
+              alt=""
+              width={280}
+              height={160}
+              className="h-24 w-auto opacity-50"
+              aria-hidden="true"
+            />
+          </div>
           <SectionHeading
             eyebrow="Ready to Start Planning?"
             title="Check Availability for Your Date"
-            subtitle="2026 dates are filling quickly. Every wedding at Highland Farms is unique — tell us your vision and we'll create a custom package."
+            subtitle="2027 dates are filling quickly. Every wedding at Highland Farms is unique — tell us your vision and we'll create a custom package."
           />
           <div className="mx-auto max-w-xl rounded-xl border border-cream-dark bg-white p-6 sm:p-8 shadow-sm">
             <ContactForm
