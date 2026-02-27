@@ -97,7 +97,7 @@ export async function sendInquiryNotification(data: InquiryEmailData) {
   `;
 
   return getResend().emails.send({
-    from: "Highland Farms Website <onboarding@resend.dev>",
+    from: "Highland Farms <notifications@highlandfarms-oregon.com>",
     to,
     replyTo: data.email,
     subject: `New ${eventLabel} Inquiry from ${data.name}`,
