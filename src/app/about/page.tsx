@@ -13,6 +13,19 @@ export const metadata: Metadata = {
   description:
     "The story of Highland Farms — from a California ranch dream to a five-acre forest property at the base of Mt. Hood. Scottish Highland Cows, forest lodging for 16 guests, Nordic spa, and unforgettable experiences in Brightwood, Oregon.",
   alternates: { canonical: "/about" },
+  openGraph: {
+    title: "About The Farm — Highland Farms Brightwood, Oregon",
+    description:
+      "The story of Highland Farms — from a California ranch dream to a five-acre forest property at the base of Mt. Hood.",
+    images: [
+      {
+        url: "/images/farm/about-hero.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Highland Farms property at the base of Mt. Hood",
+      },
+    ],
+  },
 };
 
 const amenities = [

@@ -23,6 +23,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { path: "/celebrations", priority: 0.7, changeFrequency: "monthly" as const },
     { path: "/contact", priority: 0.8, changeFrequency: "monthly" as const },
     { path: "/shop", priority: 0.5, changeFrequency: "weekly" as const },
+    { path: "/stay/camp", priority: 0.7, changeFrequency: "monthly" as const },
+    { path: "/accessibility", priority: 0.3, changeFrequency: "yearly" as const },
+    { path: "/privacy", priority: 0.3, changeFrequency: "yearly" as const },
+    { path: "/terms", priority: 0.3, changeFrequency: "yearly" as const },
   ];
 
   return routes.map((route) => ({

@@ -22,6 +22,14 @@ export const metadata: Metadata = {
       "60-minute Nordic spa sessions with dry sauna, wet sauna, and cold plunge for up to 6 guests in a forest setting at the base of Mt. Hood.",
     url: "https://highlandfarmsoregon.com/nordic-spa",
     type: "website",
+    images: [
+      {
+        url: "/images/spa/spa-1.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Nordic Forest Spa nestled among old-growth forest",
+      },
+    ],
   },
 };
 

@@ -25,6 +25,19 @@ export function generateMetadata({
     return {
       title: `${property.name} — Farm Stay`,
       description: property.description,
+      alternates: { canonical: `/stay/${slug}` },
+      openGraph: {
+        title: `${property.name} — Farm Stay at Highland Farms Oregon`,
+        description: property.description,
+        images: [
+          {
+            url: property.imageSrc,
+            width: 1200,
+            height: 630,
+            alt: property.name,
+          },
+        ],
+      },
     };
   });
 }

@@ -6,9 +6,23 @@ import { Button } from "@/components/ui/Button";
 import { BOOKING_LINKS } from "@/lib/constants";
 
 export const metadata: Metadata = {
-  title: "Farm Store",
+  title: "Farm Store — Highland Farms Oregon",
   description:
     "Shop Highland Farms merchandise, weighted Highland Cow plushies, farm-fresh eggs, Highland beef, Mangalitsa pork, and more. Gift certificates available.",
+  alternates: { canonical: "/shop" },
+  openGraph: {
+    title: "Farm Store — Highland Farms Oregon",
+    description:
+      "Shop Highland Farms merchandise, weighted Highland Cow plushies, farm-fresh eggs, Highland beef, Mangalitsa pork, and more.",
+    images: [
+      {
+        url: "/images/shop/princess-fiona-plush.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Princess Fiona White Highland Cow Plush",
+      },
+    ],
+  },
 };
 
 const SQUARESPACE = "https://highlandfarmsoregon.com";

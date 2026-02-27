@@ -11,6 +11,20 @@ export const metadata: Metadata = {
   title: "Wedding Portfolio",
   description:
     "Browse real weddings at Highland Farms, Oregon. See how couples have celebrated their love in our forest and farm setting at the base of Mt. Hood.",
+  alternates: { canonical: "/wedding-portfolio" },
+  openGraph: {
+    title: "Wedding Portfolio — Highland Farms Oregon",
+    description:
+      "Browse real weddings at Highland Farms, Oregon. See how couples have celebrated their love in our forest and farm setting.",
+    images: [
+      {
+        url: "/images/weddings/couple.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Wedding couple at Highland Farms",
+      },
+    ],
+  },
 };
 
 export default function WeddingPortfolioPage() {

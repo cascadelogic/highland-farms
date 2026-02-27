@@ -23,6 +23,19 @@ export function generateMetadata({
     return {
       title: `${couple.names} — Wedding Portfolio`,
       description: `See ${couple.names}'s wedding at Highland Farms, Oregon. Forest ceremony, Highland Cow photos, and celebration at the base of Mt. Hood.`,
+      alternates: { canonical: `/wedding-portfolio/${slug}` },
+      openGraph: {
+        title: `${couple.names} — Highland Farms Wedding`,
+        description: `See ${couple.names}'s wedding at Highland Farms, Oregon. Forest ceremony, Highland Cow photos, and celebration at the base of Mt. Hood.`,
+        images: [
+          {
+            url: couple.coverImage,
+            width: 1200,
+            height: 630,
+            alt: `${couple.names} wedding at Highland Farms`,
+          },
+        ],
+      },
     };
   });
 }

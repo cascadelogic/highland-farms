@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import { HeroSection } from "@/components/home/HeroSection";
 import { SocialProofBar } from "@/components/home/SocialProofBar";
 import { WeddingHighlights } from "@/components/home/WeddingHighlights";
@@ -10,6 +11,26 @@ import { FinalCTA } from "@/components/home/FinalCTA";
 import { InstagramEmbed } from "@/components/shared/InstagramEmbed";
 import { StickyMobileCTA } from "@/components/shared/StickyMobileCTA";
 import { FadeIn } from "@/components/ui/FadeIn";
+
+export const metadata: Metadata = {
+  title: "Highland Farms | Oregon's Premier Farm Wedding Venue",
+  description:
+    "All-inclusive farm and forest weddings at the base of Mt. Hood. Highland Cow farm tours, Nordic spa, and luxury farm stays in Brightwood, Oregon.",
+  alternates: { canonical: "/" },
+  openGraph: {
+    title: "Highland Farms | Oregon's Premier Farm Wedding Venue",
+    description:
+      "All-inclusive farm and forest weddings at the base of Mt. Hood. Highland Cow farm tours, Nordic spa, and luxury farm stays in Brightwood, Oregon.",
+    images: [
+      {
+        url: "/images/hero/farm-aerial.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Aerial view of Highland Farms at the base of Mt. Hood",
+      },
+    ],
+  },
+};
 
 export default function Home() {
   return (

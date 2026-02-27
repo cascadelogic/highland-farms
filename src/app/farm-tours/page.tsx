@@ -22,6 +22,14 @@ export const metadata: Metadata = {
       "Private 60-minute farm tours for up to 6 guests. Meet Scottish Highland Cows and farm animals at the base of Mt. Hood.",
     url: "https://highlandfarmsoregon.com/farm-tours",
     type: "website",
+    images: [
+      {
+        url: "/images/farm/highland-cows-hero.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Scottish Highland Cows at Highland Farms",
+      },
+    ],
   },
 };
 

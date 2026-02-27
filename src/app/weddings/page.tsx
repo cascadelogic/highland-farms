@@ -20,6 +20,14 @@ export const metadata: Metadata = {
       "All-inclusive wedding venue at the base of Mt. Hood with five acres of forest, Scottish Highland Cows, and on-site lodging for 20 guests.",
     url: "https://highlandfarmsoregon.com/weddings",
     type: "website",
+    images: [
+      {
+        url: "/images/hero/wedding-hero.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Forest wedding ceremony at Highland Farms",
+      },
+    ],
   },
 };
 

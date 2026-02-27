@@ -10,6 +10,19 @@ export const metadata: Metadata = {
   description:
     "Contact Highland Farms for weddings, farm tours, Nordic spa sessions, and farm stays in Brightwood, Oregon. Located 50 minutes from Portland at the base of Mt. Hood. Call (831) 214-2053.",
   alternates: { canonical: "/contact" },
+  openGraph: {
+    title: "Contact Us — Highland Farms Oregon",
+    description:
+      "Contact Highland Farms for weddings, farm tours, Nordic spa sessions, and farm stays in Brightwood, Oregon.",
+    images: [
+      {
+        url: "/images/farm/contact-hero.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Highland Farms in Brightwood, Oregon",
+      },
+    ],
+  },
 };
 
 export default function ContactPage() {
@@ -56,9 +69,11 @@ export default function ContactPage() {
                     <a href={`tel:${CONTACT.phone.replace(/\s/g, "")}`} className="block text-base text-muted hover:text-forest transition-colors font-sans">
                       {CONTACT.phone}
                     </a>
-                    <a href={`tel:${CONTACT.phoneAlt.replace(/[^\d+]/g, "")}`} className="block text-base text-muted hover:text-forest transition-colors font-sans">
+                    <span className="block text-xs text-muted/70 font-sans">Weddings &amp; Events</span>
+                    <a href={`tel:${CONTACT.phoneAlt.replace(/[^\d+]/g, "")}`} className="block text-base text-muted hover:text-forest transition-colors font-sans mt-1">
                       {CONTACT.phoneAlt}
                     </a>
+                    <span className="block text-xs text-muted/70 font-sans">General Inquiries</span>
                   </div>
                 </div>
 

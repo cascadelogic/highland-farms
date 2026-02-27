@@ -37,24 +37,6 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "/",
   },
-  keywords: [
-    "Oregon wedding venue",
-    "farm wedding Oregon",
-    "Mt Hood wedding venue",
-    "Highland Cow farm tour Portland",
-    "Nordic spa Oregon",
-    "farm stay Oregon",
-    "Brightwood Oregon wedding",
-    "Portland wedding venue",
-    "forest wedding Oregon",
-    "intimate wedding venue Oregon",
-    "destination wedding Mt Hood",
-    "Highland Farms Oregon",
-    "Brightwood farm stay",
-    "Scottish Highland Cow farm tour",
-    "cedar hot tub Oregon",
-    "farm wedding near Portland",
-  ],
   openGraph: {
     title: "Highland Farms | Oregon's Premier Farm Wedding Venue",
     description:
@@ -63,12 +45,21 @@ export const metadata: Metadata = {
     siteName: "Highland Farms Oregon",
     locale: "en_US",
     type: "website",
+    images: [
+      {
+        url: "/images/hero/farm-aerial.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Aerial view of Highland Farms at the base of Mt. Hood",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "Highland Farms | Oregon's Premier Farm Wedding Venue",
     description:
       "All-inclusive farm and forest weddings at the base of Mt. Hood.",
+    images: ["/images/hero/farm-aerial.jpg"],
   },
   robots: {
     index: true,

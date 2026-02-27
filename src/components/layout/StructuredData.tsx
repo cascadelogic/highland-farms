@@ -90,6 +90,12 @@ export function StructuredData() {
           { "@type": "LocationFeatureSpecification", name: "On-Site Lodging", value: true },
           { "@type": "LocationFeatureSpecification", name: "Event Coordination", value: true },
         ],
+        aggregateRating: {
+          "@type": "AggregateRating",
+          ratingValue: "4.9",
+          reviewCount: "146",
+          bestRating: "5",
+        },
         maximumAttendeeCapacity: 16,
         containsPlace: [
           {
@@ -168,6 +174,7 @@ export function StructuredData() {
         offers: {
           "@type": "Offer",
           url: BOOKING_LINKS.farmTour,
+          price: "75",
           availability: "https://schema.org/InStock",
           priceCurrency: "USD",
         },
@@ -188,6 +195,7 @@ export function StructuredData() {
         offers: {
           "@type": "Offer",
           url: BOOKING_LINKS.nordicSpa,
+          price: "75",
           availability: "https://schema.org/InStock",
           priceCurrency: "USD",
         },

@@ -12,6 +12,19 @@ export const metadata: Metadata = {
   description:
     "Host your engagement party, birthday, rehearsal dinner, anniversary, or special celebration at Highland Farms in Brightwood, Oregon. Scottish Highland Cows, forest setting, Nordic spa, and on-site lodging near Portland.",
   alternates: { canonical: "/celebrations" },
+  openGraph: {
+    title: "Celebrations & Events — Highland Farms Oregon",
+    description:
+      "Host your engagement party, birthday, rehearsal dinner, or special celebration at Highland Farms in Brightwood, Oregon.",
+    images: [
+      {
+        url: "/images/events/celebrations-hero.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Celebration event at Highland Farms",
+      },
+    ],
+  },
 };
 
 const eventTypes = [

@@ -25,6 +25,14 @@ export const metadata: Metadata = {
       "Four unique forest accommodations at the base of Mt. Hood. Book direct for the best rate.",
     url: "https://highlandfarmsoregon.com/stay",
     type: "website",
+    images: [
+      {
+        url: "/images/properties/whole-farm.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Highland Farms accommodations in Brightwood, Oregon",
+      },
+    ],
   },
 };
 
