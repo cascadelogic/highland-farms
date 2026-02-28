@@ -25,7 +25,7 @@ export const metadata: Metadata = {
   },
 };
 
-const SQUARESPACE = "https://shop.highlandfarmsoregon.com";
+const SQUARESPACE = "https://highlandfarms-oregon.squarespace.com";
 
 const products = [
   // Plush
