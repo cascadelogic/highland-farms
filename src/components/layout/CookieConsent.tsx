@@ -37,7 +37,7 @@ export function CookieConsent() {
       aria-label="Cookie consent"
       className="fixed bottom-0 left-0 right-0 z-[9999] border-t border-cream-dark bg-white px-4 py-4 shadow-[0_-4px_20px_rgba(0,0,0,0.08)] sm:px-6 animate-[slide-up_0.3s_ease-out]"
     >
-      <div className="mx-auto flex max-w-4xl flex-col items-start gap-4 sm:flex-row sm:items-center sm:justify-between">
+      <div className="mx-auto flex max-w-4xl flex-col gap-4 text-center sm:flex-row sm:items-center sm:justify-between sm:text-left">
         <p className="text-sm text-charcoal font-sans leading-relaxed">
           We use cookies to improve your experience and analyze site traffic.
           See our{" "}
@@ -49,16 +49,16 @@ export function CookieConsent() {
           </Link>{" "}
           for details.
         </p>
-        <div className="flex shrink-0 items-center gap-3">
+        <div className="flex shrink-0 items-center gap-3 sm:gap-3">
           <button
             onClick={decline}
-            className="rounded-full border border-cream-dark px-4 py-2 text-sm font-light text-charcoal hover:bg-cream transition-colors font-sans"
+            className="flex-1 rounded-full border border-cream-dark px-4 py-2.5 text-sm font-light text-charcoal hover:bg-cream transition-colors font-sans sm:flex-none sm:py-2"
           >
             Decline
           </button>
           <button
             onClick={accept}
-            className="rounded-full bg-forest px-5 py-2 text-sm font-medium text-white hover:bg-forest-light transition-colors font-sans"
+            className="flex-1 rounded-full bg-forest px-5 py-2.5 text-sm font-medium text-white hover:bg-forest-light transition-colors font-sans sm:flex-none sm:py-2"
           >
             Accept
           </button>
