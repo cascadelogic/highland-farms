@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect, useRef, useCallback } from "react";
+import Image from "next/image";
 
 const STORAGE_KEYS = {
   subscribed: "hf-email-subscribed",
@@ -15,7 +16,6 @@ const MIN_PAGEVIEWS = 2;
 export function EmailPopup() {
   const [visible, setVisible] = useState(false);
   const [email, setEmail] = useState("");
-  const [phone, setPhone] = useState("");
   const [honeypot, setHoneypot] = useState("");
   const [status, setStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
   const [errorMsg, setErrorMsg] = useState("");
@@ -31,7 +31,6 @@ export function EmailPopup() {
     // Don't show if cookie consent banner is visible
     const consentKey = localStorage.getItem("hf-cookie-consent");
     if (!consentKey) {
-      // Cookie consent hasn't been answered yet — wait and retry
       const retryTimer = setTimeout(() => {
         triggerFired.current = false;
         show();
@@ -43,10 +42,8 @@ export function EmailPopup() {
   }, []);
 
   useEffect(() => {
-    // Already subscribed — never show
     if (localStorage.getItem(STORAGE_KEYS.subscribed)) return;
 
-    // Recently dismissed — check expiry
     const dismissedAt = localStorage.getItem(STORAGE_KEYS.dismissed);
     if (dismissedAt) {
       const elapsed = Date.now() - Number(dismissedAt);
@@ -54,32 +51,20 @@ export function EmailPopup() {
       localStorage.removeItem(STORAGE_KEYS.dismissed);
     }
 
-    // Track page views
     const views = Number(localStorage.getItem(STORAGE_KEYS.pageviews) || "0") + 1;
     localStorage.setItem(STORAGE_KEYS.pageviews, String(views));
-
     const hasEnoughViews = views >= MIN_PAGEVIEWS;
 
-    // Timer trigger (45s)
-    const timer = setTimeout(() => {
-      show();
-    }, TRIGGER_DELAY_MS);
+    const timer = setTimeout(() => show(), TRIGGER_DELAY_MS);
 
-    // Exit intent on desktop (mouseleave on top of viewport)
     function handleMouseLeave(e: MouseEvent) {
-      if (e.clientY <= 0 && hasEnoughViews) {
-        show();
-      }
+      if (e.clientY <= 0 && hasEnoughViews) show();
     }
 
-    // Only add exit intent if not a touch device
     const isTouch = "ontouchstart" in window || navigator.maxTouchPoints > 0;
     if (!isTouch) {
       document.addEventListener("mouseleave", handleMouseLeave);
     }
-
-    // If enough views, also allow showing earlier via exit intent
-    // Timer always runs as fallback
 
     return () => {
       clearTimeout(timer);
@@ -89,11 +74,9 @@ export function EmailPopup() {
     };
   }, [show]);
 
-  // Focus trap + escape key
   useEffect(() => {
     if (!visible) return;
 
-    // Focus close button when modal opens
     closeButtonRef.current?.focus();
 
     function handleKeyDown(e: KeyboardEvent) {
@@ -123,7 +106,6 @@ export function EmailPopup() {
     }
 
     document.addEventListener("keydown", handleKeyDown);
-    // Prevent body scroll while modal is open
     document.body.style.overflow = "hidden";
 
     return () => {
@@ -150,7 +132,6 @@ export function EmailPopup() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           email,
-          phone: phone || undefined,
           website: honeypot || undefined,
           _t: loadTime.current,
         }),
@@ -165,15 +146,10 @@ export function EmailPopup() {
       localStorage.setItem(STORAGE_KEYS.subscribed, "true");
       localStorage.removeItem(STORAGE_KEYS.pageviews);
 
-      // Fire GTM event
       if (typeof window !== "undefined" && window.dataLayer) {
-        window.dataLayer.push({
-          event: "email_subscribe",
-          method: "popup",
-        });
+        window.dataLayer.push({ event: "email_subscribe", method: "popup" });
       }
 
-      // Auto-close after 3 seconds
       setTimeout(() => setVisible(false), 3000);
     } catch (err) {
       setStatus("error");
@@ -198,110 +174,113 @@ export function EmailPopup() {
         ref={dialogRef}
         role="dialog"
         aria-modal="true"
-        aria-label="Stay connected with the farm"
-        className="relative w-full max-w-md rounded-2xl bg-warm-white p-6 shadow-xl sm:p-8 animate-[popup-slide-up_0.3s_ease-out]"
+        aria-label="Don't miss what's next at the farm"
+        className="relative w-full max-w-[480px] overflow-hidden rounded-2xl bg-warm-white shadow-xl sm:max-w-lg md:max-w-2xl animate-[popup-slide-up_0.3s_ease-out]"
       >
         {/* Close button */}
         <button
           ref={closeButtonRef}
           onClick={dismiss}
           aria-label="Close popup"
-          className="absolute right-3 top-3 flex h-8 w-8 items-center justify-center rounded-full text-muted transition-colors hover:bg-cream hover:text-charcoal"
+          className="absolute right-3 top-3 z-10 flex h-8 w-8 items-center justify-center rounded-full bg-white/80 text-charcoal/60 backdrop-blur-sm transition-colors hover:bg-white hover:text-charcoal"
         >
-          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
-            <path d="M4 4l8 8M12 4l-8 8" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+            <path d="M3 3l8 8M11 3l-8 8" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
           </svg>
         </button>
 
-        {status === "success" ? (
-          <div className="py-4 text-center">
-            <div className="mx-auto mb-3 flex h-12 w-12 items-center justify-center rounded-full bg-forest/10">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                <path d="M5 13l4 4L19 7" stroke="var(--forest)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-              </svg>
-            </div>
-            <h3 className="font-display text-xl text-charcoal">You&apos;re on the list!</h3>
-            <p className="mt-1 text-sm text-muted font-sans">
-              We&apos;ll keep you in the loop on all things Highland Farms.
-            </p>
+        <div className="flex flex-col md:flex-row">
+          {/* Image — hidden on mobile for a lighter popup */}
+          <div className="relative hidden md:block md:w-[45%]">
+            <Image
+              src="/images/farm/highland-cows-hero.jpg"
+              alt="Highland cows grazing at the farm"
+              fill
+              sizes="(min-width: 768px) 45vw, 0px"
+              className="object-cover"
+              priority
+            />
           </div>
-        ) : (
-          <>
-            <h2 className="font-display text-2xl text-charcoal sm:text-[1.7rem]">
-              Stay Connected with the Farm
-            </h2>
-            <p className="mt-2 text-sm leading-relaxed text-muted font-sans">
-              Be the first to know about new experiences, seasonal availability, and farm happenings.
-            </p>
 
-            <form onSubmit={handleSubmit} className="mt-5 space-y-3">
-              {/* Honeypot — hidden from real users */}
-              <input
-                type="text"
-                name="website"
-                value={honeypot}
-                onChange={(e) => setHoneypot(e.target.value)}
-                tabIndex={-1}
-                autoComplete="off"
-                aria-hidden="true"
-                className="absolute -left-[9999px] h-0 w-0 opacity-0"
-              />
-
-              <div>
-                <label htmlFor="popup-email" className="sr-only">
-                  Email address
-                </label>
-                <input
-                  id="popup-email"
-                  type="email"
-                  required
-                  placeholder="Email address"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  className="w-full rounded-lg border border-cream-dark bg-white px-4 py-3 text-sm text-charcoal placeholder:text-muted/60 focus:border-forest focus:outline-none focus:ring-1 focus:ring-forest font-sans"
-                />
-              </div>
-
-              <div>
-                <label htmlFor="popup-phone" className="sr-only">
-                  Phone number (optional)
-                </label>
-                <input
-                  id="popup-phone"
-                  type="tel"
-                  placeholder="Phone (optional)"
-                  value={phone}
-                  onChange={(e) => setPhone(e.target.value)}
-                  className="w-full rounded-lg border border-cream-dark bg-white px-4 py-3 text-sm text-charcoal placeholder:text-muted/60 focus:border-forest focus:outline-none focus:ring-1 focus:ring-forest font-sans"
-                />
-              </div>
-
-              {errorMsg && (
-                <p className="text-sm text-red-600 font-sans" role="alert">
-                  {errorMsg}
+          {/* Content */}
+          <div className="flex flex-1 flex-col justify-center p-6 sm:p-8 md:p-10">
+            {status === "success" ? (
+              <div className="py-2 text-center">
+                <div className="mx-auto mb-3 flex h-12 w-12 items-center justify-center rounded-full bg-forest/10">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                    <path d="M5 13l4 4L19 7" stroke="var(--forest)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                  </svg>
+                </div>
+                <h3 className="font-display text-xl text-charcoal">You&apos;re on the list!</h3>
+                <p className="mt-1 text-sm text-muted font-sans">
+                  We&apos;ll keep you in the loop on all things Highland Farms.
                 </p>
-              )}
+              </div>
+            ) : (
+              <>
+                <h2 className="font-display text-2xl leading-snug text-charcoal sm:text-[1.7rem]">
+                  Don&apos;t Miss What&apos;s Next at the Farm
+                </h2>
+                <p className="mt-2 text-sm leading-relaxed text-muted font-sans">
+                  Seasonal experiences, new availability, and farm happenings — straight to your inbox.
+                </p>
 
-              <button
-                type="submit"
-                disabled={status === "submitting"}
-                className="w-full rounded-lg bg-forest py-3 text-sm font-medium text-white transition-colors hover:bg-forest-light disabled:opacity-60 font-sans"
-              >
-                {status === "submitting" ? "Subscribing..." : "Subscribe"}
-              </button>
-            </form>
+                <form onSubmit={handleSubmit} className="mt-5">
+                  {/* Honeypot */}
+                  <input
+                    type="text"
+                    name="website"
+                    value={honeypot}
+                    onChange={(e) => setHoneypot(e.target.value)}
+                    tabIndex={-1}
+                    autoComplete="off"
+                    aria-hidden="true"
+                    className="absolute -left-[9999px] h-0 w-0 opacity-0"
+                  />
 
-            <p className="mt-3 text-center text-xs text-muted/70 font-sans">
-              We respect your privacy. Unsubscribe anytime.
-            </p>
-          </>
-        )}
+                  <label htmlFor="popup-email" className="sr-only">
+                    Email address
+                  </label>
+
+                  {/* Inline email + button on desktop, stacked on mobile */}
+                  <div className="flex flex-col gap-2.5 sm:flex-row sm:gap-2">
+                    <input
+                      id="popup-email"
+                      type="email"
+                      required
+                      placeholder="Your email address"
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
+                      className="flex-1 rounded-lg border border-cream-dark bg-white px-4 py-3 text-sm text-charcoal placeholder:text-muted/60 focus:border-forest focus:outline-none focus:ring-1 focus:ring-forest font-sans"
+                    />
+                    <button
+                      type="submit"
+                      disabled={status === "submitting"}
+                      className="shrink-0 rounded-lg bg-forest px-6 py-3 text-sm font-medium text-white transition-colors hover:bg-forest-light disabled:opacity-60 font-sans"
+                    >
+                      {status === "submitting" ? "Joining..." : "Keep Me Posted"}
+                    </button>
+                  </div>
+
+                  {errorMsg && (
+                    <p className="mt-2 text-sm text-red-600 font-sans" role="alert">
+                      {errorMsg}
+                    </p>
+                  )}
+                </form>
+
+                <p className="mt-4 text-xs text-muted/60 font-sans">
+                  Join 2,000+ visitors who stay connected with the farm. Unsubscribe anytime.
+                </p>
+              </>
+            )}
+          </div>
+        </div>
       </div>
     </div>
   );
 }
 
-// Extend Window for GTM dataLayer
 declare global {
   interface Window {
     dataLayer?: Record<string, unknown>[];
