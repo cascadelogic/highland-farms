@@ -6,6 +6,7 @@ import { SkipLink } from "@/components/layout/SkipLink";
 import { StructuredData } from "@/components/layout/StructuredData";
 import { GoogleTagManager, GoogleTagManagerNoScript } from "@/components/layout/GoogleTagManager";
 import { CookieConsent } from "@/components/layout/CookieConsent";
+import { EmailPopup } from "@/components/layout/EmailPopup";
 import "./globals.css";
 
 const cormorant = Cormorant_Garamond({
@@ -85,6 +86,7 @@ export default function RootLayout({
         <main id="main-content">{children}</main>
         <Footer />
         <CookieConsent />
+        <EmailPopup />
       </body>
     </html>
   );
