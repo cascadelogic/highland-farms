@@ -175,106 +175,100 @@ export function EmailPopup() {
         role="dialog"
         aria-modal="true"
         aria-label="Don't miss what's next at the farm"
-        className="relative w-full max-w-[480px] overflow-hidden rounded-2xl bg-warm-white shadow-xl sm:max-w-lg md:max-w-2xl animate-[popup-slide-up_0.3s_ease-out]"
+        className="relative w-full max-w-md overflow-hidden rounded-2xl bg-warm-white shadow-xl animate-[popup-slide-up_0.3s_ease-out]"
       >
         {/* Close button */}
         <button
           ref={closeButtonRef}
           onClick={dismiss}
           aria-label="Close popup"
-          className="absolute right-3 top-3 z-10 flex h-8 w-8 items-center justify-center rounded-full bg-white/80 text-charcoal/60 backdrop-blur-sm transition-colors hover:bg-white hover:text-charcoal"
+          className="absolute right-3 top-3 z-10 flex h-8 w-8 items-center justify-center rounded-full bg-black/30 text-white/90 backdrop-blur-sm transition-colors hover:bg-black/50"
         >
           <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
             <path d="M3 3l8 8M11 3l-8 8" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
           </svg>
         </button>
 
-        <div className="flex flex-col md:flex-row">
-          {/* Image — hidden on mobile for a lighter popup */}
-          <div className="relative hidden md:block md:w-[45%]">
-            <Image
-              src="/images/farm/highland-cows-hero.jpg"
-              alt="Highland cows grazing at the farm"
-              fill
-              sizes="(min-width: 768px) 45vw, 0px"
-              className="object-cover"
-              priority
-            />
-          </div>
+        {/* Hero image banner */}
+        <div className="relative h-48 sm:h-56">
+          <Image
+            src="/images/farm/cow-calf.jpg"
+            alt="Young visitor feeding a Highland cow calf"
+            fill
+            sizes="(max-width: 448px) 100vw, 448px"
+            className="object-cover object-top"
+            priority
+          />
+        </div>
 
-          {/* Content */}
-          <div className="flex flex-1 flex-col justify-center p-6 sm:p-8 md:p-10">
-            {status === "success" ? (
-              <div className="py-2 text-center">
-                <div className="mx-auto mb-3 flex h-12 w-12 items-center justify-center rounded-full bg-forest/10">
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                    <path d="M5 13l4 4L19 7" stroke="var(--forest)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                  </svg>
-                </div>
-                <h3 className="font-display text-xl text-charcoal">You&apos;re on the list!</h3>
-                <p className="mt-1 text-sm text-muted font-sans">
-                  We&apos;ll keep you in the loop on all things Highland Farms.
-                </p>
+        {/* Content */}
+        <div className="px-6 pb-6 pt-5 sm:px-8 sm:pb-8">
+          {status === "success" ? (
+            <div className="py-2 text-center">
+              <div className="mx-auto mb-3 flex h-12 w-12 items-center justify-center rounded-full bg-forest/10">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <path d="M5 13l4 4L19 7" stroke="var(--forest)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
               </div>
-            ) : (
-              <>
-                <h2 className="font-display text-2xl leading-snug text-charcoal sm:text-[1.7rem]">
-                  Don&apos;t Miss What&apos;s Next at the Farm
-                </h2>
-                <p className="mt-2 text-sm leading-relaxed text-muted font-sans">
-                  Seasonal experiences, new availability, and farm happenings — straight to your inbox.
-                </p>
+              <h3 className="font-display text-xl text-charcoal">You&apos;re on the list!</h3>
+              <p className="mt-1 text-sm text-muted font-sans">
+                We&apos;ll keep you in the loop on all things Highland Farms.
+              </p>
+            </div>
+          ) : (
+            <>
+              <h2 className="font-display text-2xl leading-snug text-charcoal">
+                Don&apos;t Miss What&apos;s Next at the Farm
+              </h2>
+              <p className="mt-2 text-sm leading-relaxed text-muted font-sans">
+                Seasonal experiences, new availability, and farm happenings — straight to your inbox.
+              </p>
 
-                <form onSubmit={handleSubmit} className="mt-5">
-                  {/* Honeypot */}
-                  <input
-                    type="text"
-                    name="website"
-                    value={honeypot}
-                    onChange={(e) => setHoneypot(e.target.value)}
-                    tabIndex={-1}
-                    autoComplete="off"
-                    aria-hidden="true"
-                    className="absolute -left-[9999px] h-0 w-0 opacity-0"
-                  />
+              <form onSubmit={handleSubmit} className="mt-5 space-y-2.5">
+                {/* Honeypot */}
+                <input
+                  type="text"
+                  name="website"
+                  value={honeypot}
+                  onChange={(e) => setHoneypot(e.target.value)}
+                  tabIndex={-1}
+                  autoComplete="off"
+                  aria-hidden="true"
+                  className="absolute -left-[9999px] h-0 w-0 opacity-0"
+                />
 
-                  <label htmlFor="popup-email" className="sr-only">
-                    Email address
-                  </label>
+                <label htmlFor="popup-email" className="sr-only">
+                  Email address
+                </label>
+                <input
+                  id="popup-email"
+                  type="email"
+                  required
+                  placeholder="Your email address"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  className="w-full rounded-lg border border-cream-dark bg-white px-4 py-3 text-sm text-charcoal placeholder:text-muted/60 focus:border-forest focus:outline-none focus:ring-1 focus:ring-forest font-sans"
+                />
+                <button
+                  type="submit"
+                  disabled={status === "submitting"}
+                  className="w-full rounded-lg bg-forest py-3 text-sm font-medium text-white transition-colors hover:bg-forest-light disabled:opacity-60 font-sans"
+                >
+                  {status === "submitting" ? "Joining..." : "Keep Me Posted"}
+                </button>
 
-                  {/* Inline email + button on desktop, stacked on mobile */}
-                  <div className="flex flex-col gap-2.5 sm:flex-row sm:gap-2">
-                    <input
-                      id="popup-email"
-                      type="email"
-                      required
-                      placeholder="Your email address"
-                      value={email}
-                      onChange={(e) => setEmail(e.target.value)}
-                      className="flex-1 rounded-lg border border-cream-dark bg-white px-4 py-3 text-sm text-charcoal placeholder:text-muted/60 focus:border-forest focus:outline-none focus:ring-1 focus:ring-forest font-sans"
-                    />
-                    <button
-                      type="submit"
-                      disabled={status === "submitting"}
-                      className="shrink-0 rounded-lg bg-forest px-6 py-3 text-sm font-medium text-white transition-colors hover:bg-forest-light disabled:opacity-60 font-sans"
-                    >
-                      {status === "submitting" ? "Joining..." : "Keep Me Posted"}
-                    </button>
-                  </div>
+                {errorMsg && (
+                  <p className="text-sm text-red-600 font-sans" role="alert">
+                    {errorMsg}
+                  </p>
+                )}
+              </form>
 
-                  {errorMsg && (
-                    <p className="mt-2 text-sm text-red-600 font-sans" role="alert">
-                      {errorMsg}
-                    </p>
-                  )}
-                </form>
-
-                <p className="mt-4 text-xs text-muted/60 font-sans">
-                  Join 2,000+ visitors who stay connected with the farm. Unsubscribe anytime.
-                </p>
-              </>
-            )}
-          </div>
+              <p className="mt-4 text-center text-xs text-muted/60 font-sans">
+                Join 2,000+ visitors who stay connected with the farm. Unsubscribe anytime.
+              </p>
+            </>
+          )}
         </div>
       </div>
     </div>
