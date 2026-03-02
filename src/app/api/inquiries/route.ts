@@ -2,6 +2,7 @@ import { NextResponse } from "next/server";
 import { supabase } from "@/lib/supabase";
 import { inquirySchema } from "@/lib/schemas";
 import { sendInquiryNotification } from "@/lib/email";
+import { syncInquiryToHubSpot } from "@/lib/hubspot";
 
 // In-memory rate limiting (per warm serverless instance)
 const rateLimitMap = new Map<string, { count: number; resetAt: number }>();
@@ -117,6 +118,11 @@ export async function POST(request: Request) {
     // Send email notification (fire-and-forget — data is safe in Supabase)
     sendInquiryNotification(result.data).catch((err) => {
       console.error("Email notification error:", err);
+    });
+
+    // Sync to HubSpot CRM (fire-and-forget — non-blocking)
+    syncInquiryToHubSpot(result.data).catch((err) => {
+      console.error("HubSpot sync error:", err);
     });
 
     return NextResponse.json({ success: true });
