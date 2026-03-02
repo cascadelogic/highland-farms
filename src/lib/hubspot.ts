@@ -2,8 +2,9 @@ import { type InquiryFormData } from "@/lib/schemas";
 
 const API = "https://api.hubapi.com";
 
-// Association type ID 202 = note → contact (HubSpot defined)
-const NOTE_TO_CONTACT_TYPE_ID = 202;
+// HubSpot-defined association type IDs
+const NOTE_TO_CONTACT_TYPE_ID = 202; // note → contact
+const DEAL_TO_CONTACT_TYPE_ID = 3;   // deal → contact
 
 export async function syncInquiryToHubSpot(data: InquiryFormData): Promise<void> {
   const token = process.env.HUBSPOT_ACCESS_TOKEN;
@@ -12,63 +13,147 @@ export async function syncInquiryToHubSpot(data: InquiryFormData): Promise<void>
   const [firstname, ...rest] = data.name.trim().split(/\s+/);
   const lastname = rest.join(" ");
 
-  const properties: Record<string, string> = {
-    email: data.email,
-    firstname,
-    ...(lastname && { lastname }),
-    ...(data.phone && { phone: data.phone }),
-  };
+  const authHeader = { Authorization: `Bearer ${token}`, "Content-Type": "application/json" };
 
-  // Create contact; on 409 (already exists) fetch existing ID instead
+  // ── 1. Create or resolve contact ───────────────────────────────────────────
   let contactId: string | undefined;
 
-  const createRes = await fetch(`${API}/crm/v3/objects/contacts`, {
-    method: "POST",
-    headers: { Authorization: `Bearer ${token}`, "Content-Type": "application/json" },
-    body: JSON.stringify({ properties }),
-  });
+  try {
+    const createRes = await fetch(`${API}/crm/v3/objects/contacts`, {
+      method: "POST",
+      headers: authHeader,
+      body: JSON.stringify({
+        properties: {
+          email: data.email,
+          firstname,
+          ...(lastname && { lastname }),
+          ...(data.phone && { phone: data.phone }),
+          ...(data.event_type && { hf_event_type: data.event_type }),
+          ...(data.guest_count && { hf_guest_count: data.guest_count }),
+          ...(data.preferred_date && { hf_preferred_date: data.preferred_date }),
+          ...(data.referral_source && { hf_referral_source: data.referral_source }),
+        },
+      }),
+    });
 
-  if (createRes.ok) {
-    const body = await createRes.json();
-    contactId = body.id;
-  } else if (createRes.status === 409) {
-    const getRes = await fetch(
-      `${API}/crm/v3/objects/contacts/${encodeURIComponent(data.email)}?idProperty=email`,
-      { headers: { Authorization: `Bearer ${token}` } }
-    );
-    if (getRes.ok) {
-      const body = await getRes.json();
+    if (createRes.ok) {
+      const body = await createRes.json();
       contactId = body.id;
+    } else if (createRes.status === 409) {
+      // Contact already exists — fetch by email, then patch custom properties
+      const getRes = await fetch(
+        `${API}/crm/v3/objects/contacts/${encodeURIComponent(data.email)}?idProperty=email`,
+        { headers: authHeader }
+      );
+      if (getRes.ok) {
+        const body = await getRes.json();
+        contactId = body.id;
+
+        // Update the existing contact with latest inquiry data
+        await fetch(`${API}/crm/v3/objects/contacts/${contactId}`, {
+          method: "PATCH",
+          headers: authHeader,
+          body: JSON.stringify({
+            properties: {
+              ...(data.event_type && { hf_event_type: data.event_type }),
+              ...(data.guest_count && { hf_guest_count: data.guest_count }),
+              ...(data.preferred_date && { hf_preferred_date: data.preferred_date }),
+              ...(data.referral_source && { hf_referral_source: data.referral_source }),
+            },
+          }),
+        });
+      }
     }
+  } catch (err) {
+    console.error("HubSpot contact error:", err);
   }
 
   if (!contactId) return;
 
-  // Add a note with full inquiry details
-  const noteLines = [
-    `Event Type: ${data.event_type}`,
-    data.guest_count ? `Guest Count: ${data.guest_count}` : null,
-    data.preferred_date ? `Preferred Date: ${data.preferred_date}` : null,
-    data.referral_source ? `Referral Source: ${data.referral_source}` : null,
-    data.message ? `\nMessage:\n${data.message}` : null,
-  ]
-    .filter(Boolean)
-    .join("\n");
+  // ── 2. Add a note with the full free-text message ──────────────────────────
+  try {
+    const noteLines = [
+      `Event Type: ${data.event_type}`,
+      data.guest_count ? `Guest Count: ${data.guest_count}` : null,
+      data.preferred_date ? `Preferred Date: ${data.preferred_date}` : null,
+      data.referral_source ? `Referral Source: ${data.referral_source}` : null,
+      data.message ? `\nMessage:\n${data.message}` : null,
+    ]
+      .filter(Boolean)
+      .join("\n");
 
-  await fetch(`${API}/crm/v3/objects/notes`, {
-    method: "POST",
-    headers: { Authorization: `Bearer ${token}`, "Content-Type": "application/json" },
-    body: JSON.stringify({
-      properties: {
-        hs_note_body: `Highland Farms inquiry from website:\n\n${noteLines}`,
-        hs_timestamp: new Date().toISOString(),
-      },
-      associations: [
-        {
-          to: { id: contactId },
-          types: [{ associationCategory: "HUBSPOT_DEFINED", associationTypeId: NOTE_TO_CONTACT_TYPE_ID }],
+    await fetch(`${API}/crm/v3/objects/notes`, {
+      method: "POST",
+      headers: authHeader,
+      body: JSON.stringify({
+        properties: {
+          hs_note_body: `Highland Farms inquiry from website:\n\n${noteLines}`,
+          hs_timestamp: new Date().toISOString(),
         },
-      ],
-    }),
-  });
+        associations: [
+          {
+            to: { id: contactId },
+            types: [{ associationCategory: "HUBSPOT_DEFINED", associationTypeId: NOTE_TO_CONTACT_TYPE_ID }],
+          },
+        ],
+      }),
+    });
+  } catch (err) {
+    console.error("HubSpot note error:", err);
+  }
+
+  // ── 3. Create a deal and associate it to the contact ───────────────────────
+  const pipelineId = process.env.HUBSPOT_PIPELINE_ID;
+  if (!pipelineId) return; // Skip deal creation until pipeline is set up
+
+  try {
+    const dealName = [
+      `${firstname}${lastname ? ` ${lastname}` : ""}`,
+      "–",
+      data.event_type || "Inquiry",
+      `(${data.preferred_date || "TBD"})`,
+    ].join(" ");
+
+    // Close date: preferred_date if provided, else 6 months from now
+    const closeDate = data.preferred_date
+      ? new Date(data.preferred_date).toISOString().split("T")[0]
+      : new Date(Date.now() + 6 * 30 * 24 * 60 * 60 * 1000).toISOString().split("T")[0];
+
+    const dealStage = process.env.HUBSPOT_DEAL_STAGE_NEW_LEAD ?? "";
+
+    const dealRes = await fetch(`${API}/crm/v3/objects/deals`, {
+      method: "POST",
+      headers: authHeader,
+      body: JSON.stringify({
+        properties: {
+          dealname: dealName,
+          pipeline: pipelineId,
+          dealstage: dealStage,
+          closedate: closeDate,
+        },
+      }),
+    });
+
+    if (dealRes.ok) {
+      const deal = await dealRes.json();
+      const dealId: string = deal.id;
+
+      // Associate deal → contact
+      await fetch(`${API}/crm/v4/associations/deals/contacts/batch/create`, {
+        method: "POST",
+        headers: authHeader,
+        body: JSON.stringify({
+          inputs: [
+            {
+              from: { id: dealId },
+              to: { id: contactId },
+              types: [{ associationCategory: "HUBSPOT_DEFINED", associationTypeId: DEAL_TO_CONTACT_TYPE_ID }],
+            },
+          ],
+        }),
+      });
+    }
+  } catch (err) {
+    console.error("HubSpot deal error:", err);
+  }
 }

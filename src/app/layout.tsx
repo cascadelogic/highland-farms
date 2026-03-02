@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Cormorant_Garamond, Lora, Dancing_Script } from "next/font/google";
+import Script from "next/script";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { SkipLink } from "@/components/layout/SkipLink";
@@ -81,6 +82,11 @@ export default function RootLayout({
       <body className={`${cormorant.variable} ${lora.variable} ${dancingScript.variable} antialiased overflow-x-hidden`}>
         <GoogleTagManager />
         <GoogleTagManagerNoScript />
+        <Script
+          id="hs-script-loader"
+          src="//js.hs-scripts.com/241936089.js"
+          strategy="afterInteractive"
+        />
         <SkipLink />
         <Header />
         <main id="main-content">{children}</main>
