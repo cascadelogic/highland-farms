@@ -75,7 +75,7 @@ export async function sendMetaPurchase(params: MetaPurchaseParams): Promise<void
   const event = {
     event_name: "Purchase",
     event_time: Math.floor(Date.now() / 1000),
-    action_source: "system", // server-side, not originating from a browser
+    action_source: "other", // server-side webhook — booking happened on Acuity's domain
     event_id: transaction_id, // deduplication key
     user_data,
     custom_data: {
