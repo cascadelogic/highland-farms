@@ -191,6 +191,7 @@ export function StructuredData() {
         description:
           "Private 60-minute Highland Cow farm tour for up to 6 guests at $75 per person. Meet Scottish Highland Cows, Icelandic Sheep, White Peacocks, guardian dogs, chickens, and Guinea Fowl.",
         url: `${SITE.url}/farm-tours`,
+        image: `${SITE.url}/images/farm/highland-cows-hero.jpg`,
         brand: {
           "@type": "Brand",
           name: "Highland Farms Oregon",
@@ -201,6 +202,23 @@ export function StructuredData() {
           price: "75",
           availability: "https://schema.org/InStock",
           priceCurrency: "USD",
+          shippingDetails: {
+            "@type": "OfferShippingDetails",
+            shippingRate: {
+              "@type": "MonetaryAmount",
+              value: "0",
+              currency: "USD",
+            },
+            shippingDestination: {
+              "@type": "DefinedRegion",
+              addressCountry: "US",
+            },
+          },
+          hasMerchantReturnPolicy: {
+            "@type": "MerchantReturnPolicy",
+            applicableCountry: "US",
+            returnPolicyCategory: "https://schema.org/MerchantReturnNotPermitted",
+          },
         },
       },
 
@@ -212,6 +230,7 @@ export function StructuredData() {
         description:
           "60-minute Nordic spa session with wood burning dry sauna, wet sauna, and cold plunge for up to 6 guests in a forest setting.",
         url: `${SITE.url}/nordic-spa`,
+        image: `${SITE.url}/images/spa/spa-1.jpg`,
         brand: {
           "@type": "Brand",
           name: "Highland Farms Oregon",
@@ -222,6 +241,23 @@ export function StructuredData() {
           price: "75",
           availability: "https://schema.org/InStock",
           priceCurrency: "USD",
+          shippingDetails: {
+            "@type": "OfferShippingDetails",
+            shippingRate: {
+              "@type": "MonetaryAmount",
+              value: "0",
+              currency: "USD",
+            },
+            shippingDestination: {
+              "@type": "DefinedRegion",
+              addressCountry: "US",
+            },
+          },
+          hasMerchantReturnPolicy: {
+            "@type": "MerchantReturnPolicy",
+            applicableCountry: "US",
+            returnPolicyCategory: "https://schema.org/MerchantReturnNotPermitted",
+          },
         },
       },
 
