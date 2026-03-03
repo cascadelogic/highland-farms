@@ -5,7 +5,7 @@ import type { AcuityAppointment, AcuityOrder } from "@/lib/acuity";
 
 const RECIPIENTS = [
   "hayden.laverty@gmail.com",
-  "christopher.dick3@gmail.com",
+  "Jalene@highlandfarms-oregon.com",
   "mcwilliamscc2@gmail.com",
 ];
 
