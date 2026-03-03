@@ -13,6 +13,8 @@ export const inquirySchema = z.object({
   website: z.string().optional(),
   // Timestamp for timing-based bot detection
   _t: z.number().optional(),
+  // Submit ID for GA4 server-side / client-side deduplication
+  _sid: z.string().optional(),
   // SMS consent checkboxes (optional — A2P compliance)
   consent_marketing_sms: z.boolean().optional(),
   consent_appointment_sms: z.boolean().optional(),

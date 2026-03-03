@@ -47,6 +47,10 @@ export function ContactForm({
       event_type: defaultEventType,
       website: "",
       _t: Date.now(),
+      // Unique ID shared with server for GA4 dedup (server-side MP + client-side GTM)
+      _sid: typeof crypto !== "undefined" && "randomUUID" in crypto
+        ? crypto.randomUUID()
+        : Math.random().toString(36).slice(2) + Date.now().toString(36),
     },
   });
 
@@ -69,12 +73,13 @@ export function ContactForm({
       setStatus("success");
       reset();
 
-      // Push conversion event to GTM dataLayer (email included for enhanced conversions)
+      // Push conversion event to GTM dataLayer (email + event_id for enhanced conversions + dedup)
       if (typeof window !== "undefined" && window.dataLayer) {
         window.dataLayer.push({
           event: "form_submission",
           form_name: "event_inquiry",
           event_type: data.event_type,
+          event_id: data._sid,
           email: data.email,
           ...(data.phone && { phone: data.phone }),
         });
@@ -330,6 +335,7 @@ export function ContactForm({
           />
         </div>
         <input type="hidden" {...register("_t", { valueAsNumber: true })} />
+        <input type="hidden" {...register("_sid")} />
 
         {/* SMS Consent Checkboxes — optional, A2P compliance */}
         <div className="space-y-3 rounded-lg bg-cream/50 border border-cream-dark px-4 py-4">

@@ -4,6 +4,7 @@ import { inquirySchema } from "@/lib/schemas";
 import { sendInquiryNotification } from "@/lib/email";
 import { syncInquiryToHubSpot } from "@/lib/hubspot";
 import { syncInquiryToBookedIQ } from "@/lib/bookediq";
+import { sendGenerateLead } from "@/lib/ga4";
 
 // In-memory rate limiting (per warm serverless instance)
 const rateLimitMap = new Map<string, { count: number; resetAt: number }>();
@@ -94,7 +95,7 @@ export async function POST(request: Request) {
       );
     }
 
-    const { name, email, phone, event_type, guest_count, preferred_date, referral_source, message, consent_marketing_sms, consent_appointment_sms } = result.data;
+    const { name, email, phone, event_type, guest_count, preferred_date, referral_source, message, consent_marketing_sms, consent_appointment_sms, _sid } = result.data;
 
     // Insert into Supabase
     const { error } = await supabase.from("event_inquiries").insert({
@@ -131,6 +132,15 @@ export async function POST(request: Request) {
     // Sync to BookedIQ CRM (fire-and-forget — non-blocking)
     syncInquiryToBookedIQ(result.data).catch((err) => {
       console.error("BookedIQ sync error:", err);
+    });
+
+    // Server-side GA4 Measurement Protocol — fires even if client-side GTM is blocked
+    sendGenerateLead(request.headers.get("cookie"), {
+      event_type,
+      form_name: "event_inquiry",
+      ...(_sid && { event_id: _sid }),
+    }).catch((err) => {
+      console.error("GA4 MP error:", err);
     });
 
     return NextResponse.json({ success: true });
