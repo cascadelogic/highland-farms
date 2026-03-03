@@ -92,6 +92,12 @@ export async function sendInquiryNotification(data: InquiryEmailData) {
         </tr>` : ""}
       </table>
       <hr style="border: none; border-top: 1px solid #e5e5e5; margin: 20px 0;" />
+      <div style="text-align: center; margin: 24px 0;">
+        <a href="https://app-na2.hubspot.com/contacts/241936089?query=${encodeURIComponent(data.email)}"
+           style="display: inline-block; background: #2d4a3e; color: #ffffff; padding: 12px 28px; border-radius: 6px; text-decoration: none; font-weight: 600; font-size: 14px;">
+          View in HubSpot
+        </a>
+      </div>
       <p style="color: #999; font-size: 12px;">Reply directly to this email to respond to ${escapeHtml(data.name)}.</p>
     </div>
   `;
@@ -158,6 +164,12 @@ export async function sendMetaLeadNotification(lead: import("@/lib/meta-leads").
         </tr>` : ""}
       </table>
       <hr style="border: none; border-top: 1px solid #e5e5e5; margin: 20px 0;" />
+      <div style="text-align: center; margin: 24px 0;">
+        <a href="https://app-na2.hubspot.com/contacts/241936089?query=${encodeURIComponent(lead.email || lead.name)}"
+           style="display: inline-block; background: #2d4a3e; color: #ffffff; padding: 12px 28px; border-radius: 6px; text-decoration: none; font-weight: 600; font-size: 14px;">
+          View in HubSpot
+        </a>
+      </div>
       <p style="color: #999; font-size: 12px;">Lead captured from Meta instant form — respond promptly for best conversion.</p>
     </div>
   `;
