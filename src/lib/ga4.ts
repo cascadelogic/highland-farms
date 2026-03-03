@@ -38,6 +38,77 @@ export interface GA4LeadEventParams {
   event_id?: string;
 }
 
+export interface GA4BookingItem {
+  item_id?: string;
+  item_name: string;
+  price: number;
+  quantity?: number;
+  item_category?: string;
+}
+
+export interface GA4BookingParams {
+  transaction_id: string;
+  value: number;
+  currency?: string;
+  booking_type?: string;
+  appointment_type?: string;
+  items?: GA4BookingItem[];
+}
+
+/**
+ * Fires a GA4 `purchase` event via Measurement Protocol when an Acuity
+ * appointment is booked (called from the Acuity webhook handler).
+ *
+ * Note: Since webhook requests come from Acuity's servers, not the user's
+ * browser, there are no _ga cookies to stitch the session. An ephemeral
+ * client_id is used — the event still records revenue but has no session
+ * attribution. This is the expected behaviour for server-side booking events.
+ */
+export async function sendBookingPurchase(
+  params: GA4BookingParams,
+): Promise<void> {
+  const measurementId = process.env.GA4_MEASUREMENT_ID;
+  const apiSecret = process.env.GA4_API_SECRET;
+  if (!measurementId || !apiSecret) return;
+
+  const {
+    transaction_id,
+    value,
+    currency = "USD",
+    booking_type,
+    appointment_type,
+    items = [],
+  } = params;
+
+  const payload = {
+    client_id: getClientId(null), // ephemeral — no browser session available
+    events: [
+      {
+        name: "purchase",
+        params: {
+          transaction_id,
+          value,
+          currency,
+          items,
+          engagement_time_msec: 1,
+          ...(booking_type && { booking_type }),
+          ...(appointment_type && { appointment_type }),
+        },
+      },
+    ],
+  };
+
+  try {
+    const res = await fetch(
+      `${MP_ENDPOINT}?measurement_id=${measurementId}&api_secret=${apiSecret}`,
+      { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(payload) },
+    );
+    if (!res.ok) console.error("GA4 MP booking error:", res.status, await res.text());
+  } catch (err) {
+    console.error("GA4 MP booking send error:", err);
+  }
+}
+
 export async function sendGenerateLead(
   cookieHeader: string | null,
   params: GA4LeadEventParams,
