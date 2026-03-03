@@ -3,6 +3,7 @@ import { supabase } from "@/lib/supabase";
 import { inquirySchema } from "@/lib/schemas";
 import { sendInquiryNotification } from "@/lib/email";
 import { syncInquiryToHubSpot } from "@/lib/hubspot";
+import { syncInquiryToBookedIQ } from "@/lib/bookediq";
 
 // In-memory rate limiting (per warm serverless instance)
 const rateLimitMap = new Map<string, { count: number; resetAt: number }>();
@@ -123,6 +124,11 @@ export async function POST(request: Request) {
     // Sync to HubSpot CRM (fire-and-forget — non-blocking)
     syncInquiryToHubSpot(result.data).catch((err) => {
       console.error("HubSpot sync error:", err);
+    });
+
+    // Sync to BookedIQ CRM (fire-and-forget — non-blocking)
+    syncInquiryToBookedIQ(result.data).catch((err) => {
+      console.error("BookedIQ sync error:", err);
     });
 
     return NextResponse.json({ success: true });

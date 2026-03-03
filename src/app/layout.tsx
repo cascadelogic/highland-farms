@@ -9,6 +9,7 @@ import { GoogleTagManager, GoogleTagManagerNoScript } from "@/components/layout/
 import { CookieConsent } from "@/components/layout/CookieConsent";
 import { EmailPopup } from "@/components/layout/EmailPopup";
 import { MicrosoftClarity } from "@/components/layout/MicrosoftClarity";
+import { BookedIQWidget } from "@/components/layout/BookedIQWidget";
 import "./globals.css";
 
 const cormorant = Cormorant_Garamond({
@@ -119,6 +120,7 @@ export default function RootLayout({
         {process.env.NEXT_PUBLIC_CLARITY_PROJECT_ID && (
           <MicrosoftClarity projectId={process.env.NEXT_PUBLIC_CLARITY_PROJECT_ID} />
         )}
+        <BookedIQWidget />
       </body>
     </html>
   );
