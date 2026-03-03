@@ -185,7 +185,7 @@ export async function syncMetaLeadToHubSpot(lead: MetaLeadData): Promise<void> {
           ...(lead.weddingDateRange && { hf_preferred_date: lead.weddingDateRange }),
           ...(lead.weddingBudget && { hf_wedding_budget: normalizeMetaBudget(lead.weddingBudget) }),
           ...(lead.venuePriorities?.length && { hf_venue_priorities: lead.venuePriorities.join(", ") }),
-          leadsource: "SOCIAL_MEDIA",
+          hf_referral_source: "Meta Lead Ad",
         },
       }),
     });
