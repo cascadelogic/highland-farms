@@ -9,16 +9,16 @@ function getResend() {
   return resend;
 }
 
-const EVENT_RECIPIENT_MAP: Record<string, string> = {
-  wedding: "events@highlandfarms-oregon.com",
-  elopement: "events@highlandfarms-oregon.com",
-  "engagement-party": "events@highlandfarms-oregon.com",
-  "rehearsal-dinner": "events@highlandfarms-oregon.com",
-  celebration: "events@highlandfarms-oregon.com",
-  retreat: "events@highlandfarms-oregon.com",
+const EVENT_RECIPIENT_MAP: Record<string, string[]> = {
+  wedding: ["events@highlandfarms-oregon.com", "mckenna@highlandfarms-oregon.com"],
+  elopement: ["events@highlandfarms-oregon.com", "mckenna@highlandfarms-oregon.com"],
+  "engagement-party": ["events@highlandfarms-oregon.com", "mckenna@highlandfarms-oregon.com"],
+  "rehearsal-dinner": ["events@highlandfarms-oregon.com", "mckenna@highlandfarms-oregon.com"],
+  celebration: ["events@highlandfarms-oregon.com", "mckenna@highlandfarms-oregon.com"],
+  retreat: ["events@highlandfarms-oregon.com", "mckenna@highlandfarms-oregon.com"],
 };
 
-const DEFAULT_RECIPIENT = "info@highlandfarms-oregon.com";
+const DEFAULT_RECIPIENT = ["info@highlandfarms-oregon.com"];
 
 const EVENT_TYPE_LABELS: Record<string, string> = {
   wedding: "Wedding",
@@ -176,7 +176,7 @@ export async function sendMetaLeadNotification(lead: import("@/lib/meta-leads").
 
   return getResend().emails.send({
     from: "Highland Farms <notifications@highlandfarmsoregon.com>",
-    to: "events@highlandfarms-oregon.com",
+    to: ["events@highlandfarms-oregon.com", "mckenna@highlandfarms-oregon.com"],
     ...(lead.email && { replyTo: lead.email }),
     subject: `New Meta Lead — ${lead.name}${lead.weddingBudget ? ` — ${lead.weddingBudget}` : ""}`,
     html,
