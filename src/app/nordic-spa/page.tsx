@@ -1,12 +1,20 @@
 import type { Metadata } from "next";
 import Image from "next/image";
-import { Clock, Users, Droplets, TreePine, Sparkles, Check, MapPin } from "lucide-react";
+import {
+  Clock,
+  Users,
+  Droplets,
+  TreePine,
+  Sparkles,
+  Check,
+  MapPin,
+  Flame,
+} from "lucide-react";
 import { Container } from "@/components/ui/Container";
 import { Button } from "@/components/ui/Button";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { ImageCarousel } from "@/components/gallery/ImageCarousel";
 import { FAQAccordion } from "@/components/shared/FAQAccordion";
-import { EventCategoryCards } from "@/components/shared/EventCategoryCards";
 import { StickyMobileCTA } from "@/components/shared/StickyMobileCTA";
 import { nordicSpaFAQ } from "@/data/nordic-spa";
 import { BOOKING_LINKS, CONTACT } from "@/lib/constants";
@@ -69,162 +77,111 @@ export default function NordicSpaPage() {
   return (
     <>
       <NordicSpaSchema />
-      {/* Hero */}
+
+      {/* ─── HERO ─── */}
       <section className="relative flex min-h-[70vh] items-center justify-center overflow-hidden pt-[var(--header-h,120px)]">
         <div className="absolute inset-0 bg-gradient-to-b from-charcoal/60 via-charcoal/40 to-charcoal/60" />
         <div className="absolute inset-0 bg-[url('/images/spa/spa-1.jpg')] bg-cover bg-center" />
         <div className="absolute inset-0 bg-black/35" />
 
         <div className="relative z-10 mx-auto max-w-3xl px-4 text-center text-white">
-          <p className="mb-4 text-xl font-normal text-white/80 font-script">
-            50 Minutes from Portland
-          </p>
+          {/* Key facts pills — answer top questions immediately */}
+          <div className="mb-5 flex flex-wrap items-center justify-center gap-2">
+            {["Private Session", "60 Minutes", "$75 / Person", "Up to 6 Guests"].map(
+              (pill) => (
+                <span
+                  key={pill}
+                  className="rounded-full border border-white/25 bg-white/10 px-3 py-1 text-[11px] tracking-wide text-white/90 backdrop-blur-sm font-sans"
+                >
+                  {pill}
+                </span>
+              )
+            )}
+          </div>
+
           <h1 className="text-4xl font-normal leading-tight sm:text-5xl md:text-6xl">
             Sauna &amp; Cold Plunge in the Forest
           </h1>
+
           <p className="mx-auto mt-5 max-w-xl text-lg text-white/85 leading-relaxed font-sans font-light">
-            Escape to the Mt. Hood forest for a private wood-burning sauna,
-            wet sauna, and cold plunge — one of Oregon&apos;s most unique
-            outdoor spa experiences, just east of Portland.
+            A private wood-burning sauna, wet sauna, and cold plunge in
+            old-growth forest — 50 minutes from Portland on the
+            Mt.&nbsp;Hood corridor.
           </p>
-          <div className="mt-8">
+
+          {/* Trust bar */}
+          <div className="mt-4 flex items-center justify-center gap-2 text-sm text-white/70 font-sans">
+            <div className="flex items-center gap-0.5">
+              {[...Array(5)].map((_, i) => (
+                <Sparkles key={i} className="h-3 w-3 text-accent" />
+              ))}
+            </div>
+            <span>4.9 · 146 Google Reviews</span>
+          </div>
+
+          <div className="mt-7">
             <Button
               href={BOOKING_LINKS.nordicSpa}
               size="lg"
               className="bg-white text-charcoal hover:bg-cream"
               external
             >
-              Book Your Spa Session
+              Book Your Session
             </Button>
           </div>
         </div>
       </section>
 
-      {/* Portland Day Trip / Location */}
-      <section className="py-20 lg:py-28 bg-cream">
-        <Container className="max-w-4xl">
-          <div className="grid grid-cols-1 gap-12 lg:grid-cols-2 lg:items-center">
-            <div>
-              <p className="text-lg font-normal text-sage font-script mb-3">
-                Portland Day Trip
-              </p>
-              <h2 className="text-3xl font-normal sm:text-4xl">
-                Oregon&apos;s Best Outdoor Sauna — 50 Minutes from Portland
-              </h2>
-              <p className="mt-4 text-base text-muted leading-relaxed font-sans">
-                Drive east on US-26 and in 50 minutes you&apos;ll trade city
-                traffic for old-growth evergreens. Our Nordic sauna near
-                Portland is one of Oregon&apos;s only fully private outdoor
-                sauna experiences — no shared locker rooms, no strangers, just
-                your group and the forest.
-              </p>
-              <p className="mt-4 text-base text-muted leading-relaxed font-sans">
-                Whether you&apos;re a local looking for a sauna day trip from
-                Portland or a visitor exploring the Mt. Hood corridor, Highland
-                Farms is worth the drive.
-              </p>
-              <ul className="mt-6 space-y-2">
-                {[
-                  "50 min from Portland via US-26",
-                  "15 min from Sandy, Oregon",
-                  "20 min from Mt. Hood Meadows",
-                  "40 min from Hood River",
-                  "Private sessions — your group only",
-                  "Free on-site parking",
-                ].map((item) => (
-                  <li
-                    key={item}
-                    className="flex items-center gap-2 text-sm text-charcoal font-sans"
-                  >
-                    <Check className="h-4 w-4 text-forest shrink-0" />
-                    {item}
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            <div className="space-y-4">
-              <div className="rounded-xl bg-white p-6 shadow-sm">
-                <p className="font-sans text-xs font-normal text-charcoal uppercase tracking-widest mb-4">
-                  Drive Times
-                </p>
-                <div className="space-y-3 text-sm font-sans">
-                  {[
-                    { from: "Portland (downtown)", time: "~50 min", via: "US-26 East" },
-                    { from: "Gresham / Troutdale", time: "~30 min", via: "US-26 East" },
-                    { from: "Sandy", time: "~15 min", via: "US-26 West" },
-                    { from: "Hood River", time: "~40 min", via: "Hwy 35 / US-26" },
-                  ].map((d) => (
-                    <div key={d.from} className="flex justify-between items-start gap-4">
-                      <div>
-                        <span className="text-charcoal">{d.from}</span>
-                        <span className="block text-xs text-muted">via {d.via}</span>
-                      </div>
-                      <span className="font-medium text-forest shrink-0">{d.time}</span>
-                    </div>
-                  ))}
-                </div>
-              </div>
-
-              <div className="rounded-xl bg-white p-6 shadow-sm">
-                <div className="flex items-start gap-3">
-                  <MapPin className="h-5 w-5 text-forest shrink-0 mt-0.5" />
-                  <div>
-                    <p className="text-sm text-charcoal font-sans font-normal">
-                      {CONTACT.address}
-                      <br />
-                      {CONTACT.city}, {CONTACT.state} {CONTACT.zip}
-                    </p>
-                    <p className="text-xs text-muted font-sans mt-1">
-                      Free on-site parking. Directions in your booking confirmation.
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </Container>
-      </section>
-
-      {/* The Experience */}
-      <section className="py-20 lg:py-28 bg-warm-white">
-        <Container>
+      {/* ─── WHAT'S INCLUDED ─── */}
+      <section className="py-16 lg:py-20 bg-cream">
+        <Container className="max-w-3xl">
           <SectionHeading
-            eyebrow="The Experience"
-            title="Nordic-Inspired Forest Bathing"
-            subtitle="Inspired by Scandinavian wellness traditions, our Nordic spa brings you closer to nature."
+            eyebrow="What's Included"
+            title="Everything for a Perfect Session"
           />
 
-          <div className="grid grid-cols-1 gap-8 sm:grid-cols-3">
+          <div className="grid grid-cols-2 gap-x-6 gap-y-8 sm:grid-cols-3">
             {[
               {
+                icon: Flame,
+                title: "Wood-Burning Sauna",
+                desc: "Cedar dry sauna heated by a wood stove, nestled in the trees",
+              },
+              {
                 icon: Droplets,
-                title: "Wood Burning Dry Sauna",
-                description:
-                  "A cedar dry sauna heated by a wood burning stove, nestled among the trees.",
+                title: "Wet Sauna",
+                desc: "Soothing steam sauna to open and relax",
               },
               {
                 icon: TreePine,
-                title: "Wet Sauna & Cold Plunge",
-                description:
-                  "Unwind in the soothing wet sauna and refresh your senses with our invigorating cold plunge.",
+                title: "Cold Plunge",
+                desc: "Invigorating cold water immersion surrounded by forest",
+              },
+              {
+                icon: Users,
+                title: "Private to Your Group",
+                desc: "No strangers, no shared locker rooms — just you",
               },
               {
                 icon: Clock,
-                title: "60-Minute Sessions",
-                description:
-                  "A full hour to relax and let the forest restore your mind and body.",
+                title: "60 Full Minutes",
+                desc: "Cycle between heat and cold at your own pace",
               },
-            ].map((feature) => (
-              <div key={feature.title} className="text-center">
-                <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-full bg-cream">
-                  <feature.icon className="h-6 w-6 text-forest" />
+              {
+                icon: Check,
+                title: "Robes & Towels",
+                desc: "Provided for every guest — just bring a swimsuit",
+              },
+            ].map((item) => (
+              <div key={item.title} className="text-center">
+                <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-full bg-forest/10">
+                  <item.icon className="h-5 w-5 text-forest" />
                 </div>
-                <h3 className="mt-5 text-lg font-normal text-charcoal font-display">
-                  {feature.title}
+                <h3 className="mt-3 text-sm font-normal text-charcoal font-display">
+                  {item.title}
                 </h3>
-                <p className="mt-2 text-sm text-muted leading-relaxed font-sans font-light">
-                  {feature.description}
+                <p className="mt-1 text-xs text-muted leading-relaxed font-sans">
+                  {item.desc}
                 </p>
               </div>
             ))}
@@ -232,16 +189,54 @@ export default function NordicSpaPage() {
         </Container>
       </section>
 
-      {/* Gallery */}
-      <section className="py-20 lg:py-28 bg-background">
+      {/* ─── SOCIAL PROOF (moved from section 8 → 3) ─── */}
+      <section className="py-16 lg:py-20 bg-warm-white">
+        <Container className="max-w-3xl text-center">
+          <div className="flex justify-center mb-4">
+            {[...Array(5)].map((_, i) => (
+              <Sparkles key={i} className="h-4 w-4 text-accent" />
+            ))}
+          </div>
+          <blockquote>
+            <p className="text-xl font-normal leading-relaxed text-charcoal sm:text-2xl font-display">
+              &ldquo;We loved walking the property, taking in the peaceful
+              forest setting, and soaking in the hot tub under the stars. This
+              was easily one of the highlights of our Oregon trip.&rdquo;
+            </p>
+          </blockquote>
+          <p className="mt-5 text-sm text-charcoal font-sans font-normal">
+            Emily T.
+          </p>
+          <p className="mt-0.5 text-xs text-muted font-sans font-light">
+            Google Review
+          </p>
+          <div className="mt-5 flex items-center justify-center gap-4 text-sm text-muted font-sans">
+            <span>4.9 / 5 · 146 reviews</span>
+            <a
+              href="https://share.google/jrLOI4AhnpzbPPBpF"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-forest hover:text-forest-light transition-colors"
+            >
+              Read reviews →
+            </a>
+          </div>
+        </Container>
+      </section>
+
+      {/* ─── GALLERY ─── */}
+      <section className="py-16 lg:py-20 bg-background">
         <Container>
-          <SectionHeading title="The Spa" subtitle="A peaceful retreat surrounded by quiet beauty." />
+          <SectionHeading
+            title="The Spa"
+            subtitle="A peaceful retreat surrounded by quiet beauty."
+          />
           <ImageCarousel images={galleryImages} aspectRatio="video" />
         </Container>
       </section>
 
-      {/* Pricing */}
-      <section className="py-20 lg:py-28 bg-cream">
+      {/* ─── PRICING + BOOKING ─── */}
+      <section className="py-16 lg:py-20 bg-cream">
         <Container className="max-w-3xl">
           <SectionHeading
             eyebrow="Book Your Session"
@@ -265,11 +260,19 @@ export default function NordicSpaPage() {
                 </li>
                 <li className="flex items-center gap-2">
                   <Users className="h-4 w-4 text-forest" />
-                  Accommodates up to 6 guests
+                  Up to 6 guests per session
                 </li>
                 <li className="flex items-center gap-2">
                   <Droplets className="h-4 w-4 text-forest" />
                   Dry sauna, wet sauna &amp; cold plunge
+                </li>
+                <li className="flex items-center gap-2">
+                  <Check className="h-4 w-4 text-forest" />
+                  Robes &amp; towels provided
+                </li>
+                <li className="flex items-center gap-2">
+                  <Check className="h-4 w-4 text-forest" />
+                  Open year-round, rain or shine
                 </li>
               </ul>
             </div>
@@ -288,82 +291,100 @@ export default function NordicSpaPage() {
         </Container>
       </section>
 
-      {/* Upsell */}
-      <section className="py-20 lg:py-28 bg-background">
+      {/* ─── WORTH THE DRIVE ─── */}
+      <section className="py-16 lg:py-20 bg-warm-white">
+        <Container className="max-w-4xl">
+          <SectionHeading
+            eyebrow="Worth the Drive"
+            title="50 Minutes from Portland"
+            subtitle="A scenic drive east on US-26 through the Sandy River valley to old-growth forest at the base of Mt. Hood."
+          />
+
+          <div className="grid grid-cols-2 gap-3 sm:grid-cols-4 mb-8">
+            {[
+              { from: "Portland", time: "~50 min" },
+              { from: "Gresham", time: "~30 min" },
+              { from: "Sandy", time: "~15 min" },
+              { from: "Hood River", time: "~40 min" },
+            ].map((d) => (
+              <div
+                key={d.from}
+                className="rounded-lg bg-cream p-4 text-center"
+              >
+                <span className="block text-lg font-normal text-forest">
+                  {d.time}
+                </span>
+                <span className="block text-xs text-muted font-sans mt-1">
+                  from {d.from}
+                </span>
+              </div>
+            ))}
+          </div>
+
+          <p className="text-center text-sm text-muted leading-relaxed font-sans max-w-xl mx-auto">
+            Our Nordic spa near Portland is one of Oregon&apos;s only fully
+            private outdoor sauna experiences — no shared locker rooms, no
+            strangers, just your group and the forest.
+          </p>
+
+          <div className="flex items-center justify-center gap-2 text-sm text-muted font-sans mt-6">
+            <MapPin className="h-4 w-4 text-forest shrink-0" />
+            <span>
+              {CONTACT.address}, {CONTACT.city}, {CONTACT.state} {CONTACT.zip}
+            </span>
+          </div>
+          <p className="text-center text-xs text-muted font-sans mt-1">
+            Free on-site parking · Directions in your booking confirmation
+          </p>
+        </Container>
+      </section>
+
+      {/* ─── FAQ ─── */}
+      <section className="py-16 lg:py-20 bg-background">
+        <Container className="max-w-3xl">
+          <SectionHeading
+            title="Frequently Asked Questions"
+            subtitle="Everything you need to know before your visit."
+          />
+          <FAQAccordion items={nordicSpaFAQ} />
+        </Container>
+      </section>
+
+      {/* ─── FARM TOUR UPSELL (delayed to after booking decision) ─── */}
+      <section className="py-16 lg:py-20 bg-cream">
         <Container className="max-w-3xl text-center">
-          <div className="flex justify-center mb-6">
+          <div className="flex justify-center mb-5">
             <Image
               src="/images/illustrations/highland-cow-mirrored.png"
               alt=""
               width={200}
               height={160}
-              className="h-28 w-auto opacity-60"
+              className="h-24 w-auto opacity-60"
               aria-hidden="true"
             />
           </div>
-          <h2 className="text-3xl font-normal sm:text-4xl">
-            Combine With a Farm Tour
+          <h2 className="text-2xl font-normal sm:text-3xl">
+            Make It a Full Day
           </h2>
-          <p className="mx-auto mt-4 max-w-lg text-base text-muted font-sans font-light leading-relaxed">
-            Make it a full Highland Farms experience — meet the Scottish Highland Cows,
-            then unwind at the Nordic Spa. Book both and save.
+          <p className="mx-auto mt-3 max-w-lg text-base text-muted font-sans font-light leading-relaxed">
+            Meet the Scottish Highland Cows, then unwind at the spa. Most guests
+            book a farm tour + spa session for a half-day escape from Portland.
           </p>
-          <div className="mt-8 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
+          <div className="mt-6 flex flex-col items-center gap-3 sm:flex-row sm:justify-center">
             <Button href="/farm-tours">Book a Farm Tour</Button>
-            <Button href={BOOKING_LINKS.giftCertificates} variant="outline" external>
+            <Button
+              href={BOOKING_LINKS.giftCertificates}
+              variant="outline"
+              external
+            >
               Gift Certificates
             </Button>
           </div>
         </Container>
       </section>
 
-      {/* FAQ */}
-      <section className="py-20 lg:py-28 bg-warm-white">
-        <Container className="max-w-3xl">
-          <SectionHeading
-            title="Frequently Asked Questions"
-            subtitle="Everything you need to know about the Nordic spa."
-          />
-          <FAQAccordion items={nordicSpaFAQ} />
-        </Container>
-      </section>
-
-      {/* Social Proof */}
-      <section className="py-20 lg:py-28 bg-cream">
-        <Container className="max-w-3xl text-center">
-          <div className="flex justify-center mb-6">
-            {[...Array(5)].map((_, i) => (
-              <Sparkles key={i} className="h-4 w-4 text-accent" />
-            ))}
-          </div>
-          <blockquote>
-            <p className="text-xl font-normal leading-relaxed text-charcoal sm:text-2xl font-display">
-              &ldquo;We loved walking the property, taking in the peaceful forest
-              setting, and soaking in the hot tub under the stars. This was easily
-              one of the highlights of our Oregon trip.&rdquo;
-            </p>
-          </blockquote>
-          <p className="mt-6 text-sm text-charcoal font-sans font-normal">
-            Emily T.
-          </p>
-          <p className="mt-0.5 text-xs text-muted font-sans font-light">
-            Google Review — Farm Stay
-          </p>
-          <a
-            href="https://share.google/jrLOI4AhnpzbPPBpF"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="mt-4 inline-flex items-center gap-1 text-sm font-light text-forest hover:text-forest-light transition-colors font-sans tracking-wide"
-          >
-            Read all reviews on Google &rarr;
-          </a>
-        </Container>
-      </section>
-
-      <EventCategoryCards />
-
       <StickyMobileCTA
-        label="Book Your Spa Session"
+        label="Book Now · $75/person"
         href={BOOKING_LINKS.nordicSpa}
         external
       />
